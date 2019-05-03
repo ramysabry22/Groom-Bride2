@@ -28,7 +28,7 @@ class FeedBackController: UIViewController,UITextViewDelegate {
     
     // MARK :-   Main Methods
     /********************************************************************************************/
-    @objc func sendResetPassword(){
+    @objc func sendFeddBackButton(){
 //        guard let text = textArea.text else {
 //            print("form is not valid *****ERROR*****")
 //            return
@@ -89,7 +89,7 @@ class FeedBackController: UIViewController,UITextViewDelegate {
             self.PresentCustomError(error: "Enter your Email!")
             return
         }
-        sendResetPassword()
+        sendFeddBackButton()
     }
     func dismissRingIndecator(){
         DispatchQueue.main.async {
