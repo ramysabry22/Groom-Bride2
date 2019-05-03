@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>522702228600-9qvih4ersen6t4eui1v340vga2uuahlo.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.522702228600-9qvih4ersen6t4eui1v340vga2uuahlo</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCnyf5R_juqMuzZKN3Otq7ybOMd0Bk5LTM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>522702228600</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ramysabry1996.Groom---Bride</string>
+	<key>PROJECT_ID</key>
+	<string>groomandbride-57ebd</string>
+	<key>STORAGE_BUCKET</key>
+	<string>groomandbride-57ebd.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:522702228600:ios:8753e05c635ab8cd</string>
+	<key>DATABASE_URL</key>
+	<string>https://groomandbride-57ebd.firebaseio.com</string>
+</dict>
+</plist>
