@@ -6,7 +6,6 @@ import FirebaseAuth
 import SCLAlertView
 import SVProgressHUD
 
-
 class FeedBackController: UIViewController,UITextViewDelegate {
     
     override func viewDidLoad() {
