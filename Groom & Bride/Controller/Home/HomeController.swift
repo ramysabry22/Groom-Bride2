@@ -12,7 +12,7 @@ protocol loginComponentDelegete : NSObjectProtocol {
     func didBackButtonPressed()
 }
 
-class HomeController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout ,loginComponentDelegete{
+class HomeController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout ,loginComponentDelegete, UIGestureRecognizerDelegate{
     func didBackButtonPressed() {
 //         self.navigationController?.isNavigationBarHidden = false
 //        print("%%%%% ^^^^^ %%%%%%%")
@@ -104,6 +104,8 @@ class HomeController: UIViewController,UICollectionViewDataSource,UICollectionVi
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.barTintColor = UIColor.mainColor2()
         navigationController?.isNavigationBarHidden = false
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = self
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
      
         SideMenuManager.default.menuFadeStatusBar = false
         SideMenuManager.default.menuPushStyle = .preserve
@@ -112,7 +114,7 @@ class HomeController: UIViewController,UICollectionViewDataSource,UICollectionVi
         
         let firstLabel = UILabel()
         firstLabel.text = "Groom & Bride"
-        firstLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        firstLabel.font = UIFont(name: "BodoniSvtyTwoOSITCTT-Bold", size: 19)
         firstLabel.textAlignment = .center
         firstLabel.textColor = UIColor.white
         navigationItem.titleView = firstLabel
@@ -128,6 +130,9 @@ class HomeController: UIViewController,UICollectionViewDataSource,UICollectionVi
     }
     @objc func leftButtonAction(){
         present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
+    }
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
     func dismissRingIndecator(){
         DispatchQueue.main.async {
@@ -170,7 +175,7 @@ class HomeController: UIViewController,UICollectionViewDataSource,UICollectionVi
     fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
         return input.rawValue
     }
-    // let dropDown = DropDown()
+
 
 // MARK :- CollectionView
 /********************************************************************************************/
@@ -191,9 +196,9 @@ class HomeController: UIViewController,UICollectionViewDataSource,UICollectionVi
         cell.nameLabel.text = rowHall.hallName
         cell.priceLabel.text = rowHall.hallPrice+" LE"
         cell.imageView.image = UIImage(named: "HomeBackgroundImage")
-            
+
        let tempImageView : UIImageView! = UIImageView()
-            
+
         if rowHall.hallImage.count > 0 && rowHall.hallImage.isEmpty == false{
             let stringUrl = "\(HelperData.sharedInstance.serverBasePath)/\(rowHall.hallImage[0])"
             let encodedString = stringUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
@@ -243,38 +248,38 @@ class HomeController: UIViewController,UICollectionViewDataSource,UICollectionVi
             print("filter by: ",filterItems[indexPath.row])
         }
     }
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-         let offsetY = scrollView.contentOffset.y
-        
-        print(offsetY)
-    }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 
         if(velocity.y > 0) {
             UIView.animate(withDuration: 0.2, delay: 0, options: UIView.AnimationOptions(), animations: {
-       
-                self.navigationController?.setNavigationBarHidden(true, animated: true)
+
+              //  self.navigationController?.setNavigationBarHidden(true, animated: true)
                 self.searchAreaView.isHidden = true
                 self.filterCollectionView.isHidden = true
-                self.view.layoutIfNeeded()
+                self.searchLabel.isHidden = true
+                self.searchImageview.isHidden = true
+                self.filterImageview.isHidden = true
 
-                print("Hide")
             }, completion: nil)
 
         } else {
             UIView.animate(withDuration: 0.2, delay: 0, options: UIView.AnimationOptions(), animations: {
-    
-                self.navigationController?.setNavigationBarHidden(false, animated: true)
+
+              //  self.navigationController?.setNavigationBarHidden(false, animated: true)
                 self.searchAreaView.isHidden = false
                 self.filterCollectionView.isHidden = false
-                self.view.layoutIfNeeded()
-
-                print("Unhide")
+                
+                self.searchLabel.isHidden = false
+                self.searchImageview.isHidden = false
+                self.filterImageview.isHidden = false
+                
             }, completion: nil)
         }
     }
-// MARK :- Views
+    
+    
+// MARK :- Components Setup
 /********************************************************************************************/
     func setupViews(){
     leftMenu1.homeController = self
@@ -392,11 +397,3 @@ class HomeController: UIViewController,UICollectionViewDataSource,UICollectionVi
     
 }
 
-
-
-
-
-/////        dropDown.anchorView = searchAreaView
-//        dropDown.dataSource = ["Car", "Motorcycle", "Truck", "54ba", "masr7", "sl3wa", "4bak", "tofa7a"]
-//        dropDown.direction = .bottom
-//        dropDown.bottomOffset = CGPoint(x: 0, y:((dropDown.anchorView?.plainView.bounds.height)!+45))

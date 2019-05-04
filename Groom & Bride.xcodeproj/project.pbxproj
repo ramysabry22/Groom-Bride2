@@ -168,10 +168,10 @@
 		F06601C22279AD07006E67D9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F0966FA6222C20C600FA4FEA /* NotificationsController.swift */,
 				F0966F8C222C0E9C00FA4FEA /* HomeController.swift */,
 				F0966FB2222D82FF00FA4FEA /* DetailedHallController.swift */,
 				F0BD6551227CBF2E00AB9854 /* SearchHallsController.swift */,
+				F0966FA6222C20C600FA4FEA /* NotificationsController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
