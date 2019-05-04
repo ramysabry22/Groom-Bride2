@@ -38,21 +38,21 @@ class SearchHallsController: UIViewController,UICollectionViewDataSource,UIColle
         
         let firstLabel = UILabel()
         firstLabel.text = "Search hall"
-        firstLabel.font = UIFont.boldSystemFont(ofSize: 18)
+        firstLabel.font = UIFont.systemFont(ofSize: 18)
         firstLabel.textAlignment = .center
         firstLabel.textColor = UIColor.white
         navigationItem.titleView = firstLabel
         
         let leftButton = UIButton(type: .custom)
-        leftButton.setImage(UIImage(named: "backButtonIOCN")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        leftButton.tintColor = UIColor.white.withAlphaComponent(0.7)
+        leftButton.setImage(UIImage(named: "BackImage@@@")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        leftButton.tintColor = UIColor.white
         leftButton.translatesAutoresizingMaskIntoConstraints = false
-        leftButton.widthAnchor.constraint(equalToConstant: 23).isActive = true
-        leftButton.heightAnchor.constraint(equalToConstant: 23).isActive = true
-        leftButton.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
+        leftButton.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        leftButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        leftButton.addTarget(self, action: #selector(leftButtonTapped), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
     }
-    @objc func leftButtonAction(){
+    @objc func leftButtonTapped(){
         self.navigationController?.popViewController(animated: true)
     }
     func dismissRingIndecator(){
@@ -105,16 +105,6 @@ class SearchHallsController: UIViewController,UICollectionViewDataSource,UIColle
             
             cell.backgroundColor = UIColor.white
             cell.layer.cornerRadius = 0
-            cell.contentView.layer.cornerRadius = 20.0
-            cell.contentView.layer.borderWidth = 2.0
-            cell.contentView.layer.borderColor = UIColor.clear.cgColor
-            cell.contentView.layer.masksToBounds = true;
-            cell.layer.shadowColor = UIColor.lightGray.cgColor
-            cell.layer.shadowOffset = CGSize(width: 0,height: 0.9)
-            cell.layer.shadowRadius = 8.0
-            cell.layer.shadowOpacity = 0.3
-            cell.layer.masksToBounds = false;
-            cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
             return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -122,10 +112,10 @@ class SearchHallsController: UIViewController,UICollectionViewDataSource,UIColle
      return CGSize(width: view.frame.width-10, height: min(self.collectionView.frame.height/3, 300))
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let rowHall = allHalls[indexPath.row]
-            let detailedController = DetailedHallController()
-            detailedController.detailedHall = rowHall
-            navigationController?.pushViewController(detailedController, animated: true)
+//        let rowHall = allHalls[indexPath.row]
+//        let detailedController = DetailedHallController()
+//        detailedController.detailedHall = rowHall
+//        navigationController?.pushViewController(detailedController, animated: true)
     }
     
     // MARK :- Views

@@ -314,7 +314,7 @@ class SignInController: UIViewController,UITextFieldDelegate {
     let orSignUpWithLabel : UILabel = {
         var label = UILabel()
         label.text = "or Sign In with"
-        label.font = UIFont.boldSystemFont(ofSize: 13)
+        label.font = UIFont.boldSystemFont(ofSize: 40)
         label.backgroundColor = UIColor.clear
         label.numberOfLines = 0
         label.textAlignment = .center

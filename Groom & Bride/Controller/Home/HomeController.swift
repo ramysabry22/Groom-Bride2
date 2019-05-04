@@ -59,7 +59,7 @@ class HomeController: UIViewController,UICollectionViewDataSource,UICollectionVi
 //            downloadData.forEach { $0.cancel() }
 //        }
         SVProgressHUD.show()
-        
+        SVProgressHUD.setDefaultMaskType(.clear)
         ApiManager.sharedInstance.getAllHalls { (valid, msg, halls) in
             self.dismissRingIndecator()
             if valid{
@@ -103,10 +103,8 @@ class HomeController: UIViewController,UICollectionViewDataSource,UICollectionVi
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.barTintColor = UIColor.mainColor2()
-        self.navigationController?.isNavigationBarHidden = false
-       
-//        let menuLeftNavigationController = UISideMenuNavigationController(rootViewController: LeftMenuController())
-//        SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
+        navigationController?.isNavigationBarHidden = false
+     
         SideMenuManager.default.menuFadeStatusBar = false
         SideMenuManager.default.menuPushStyle = .preserve
         SideMenuManager.defaultManager.menuPresentMode = .menuSlideIn
@@ -187,38 +185,38 @@ class HomeController: UIViewController,UICollectionViewDataSource,UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == self.collectionView {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeCustomCell
+            
+        cell.tag = indexPath.row
         let rowHall = allHalls[indexPath.item]
         cell.nameLabel.text = rowHall.hallName
         cell.priceLabel.text = rowHall.hallPrice+" LE"
-    
+        cell.imageView.image = UIImage(named: "HomeBackgroundImage")
+            
+       let tempImageView : UIImageView! = UIImageView()
+            
         if rowHall.hallImage.count > 0 && rowHall.hallImage.isEmpty == false{
             let stringUrl = "\(HelperData.sharedInstance.serverBasePath)/\(rowHall.hallImage[0])"
             let encodedString = stringUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             let url = URL(string: encodedString!)
-            cell.imageView.kf.indicatorType = .activity
-            cell.imageView.kf.setImage(with: url, options: [.memoryCacheExpiration(.never)])
+            tempImageView.kf.setImage(with: url, placeholder: nil, options: nil, progressBlock: nil) { (result) in
+                if(cell.tag == indexPath.row){
+                    if result.isSuccess == false{
+                        cell.imageView.image = UIImage(named: "HomeBackgroundImage")
+                    }else{
+                        cell.imageView.image = tempImageView.image
+                    }
+                }
+            }
         }
-    
+
         cell.backgroundColor = UIColor.white
         cell.layer.cornerRadius = 0
-        cell.contentView.layer.cornerRadius = 20.0
-        cell.contentView.layer.borderWidth = 2.0
-        cell.contentView.layer.borderColor = UIColor.clear.cgColor
-        cell.contentView.layer.masksToBounds = true;
-        cell.layer.shadowColor = UIColor.lightGray.cgColor
-        cell.layer.shadowOffset = CGSize(width: 0,height: 0.9)
-        cell.layer.shadowRadius = 8.0
-        cell.layer.shadowOpacity = 0.3
-        cell.layer.masksToBounds = false;
-        cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
         return cell
             
         }else {
             let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: cellId2, for: indexPath) as! HomeFilterCustomCell
+            
             cell2.titleLabel.text = filterItems[indexPath.row]
-            if  indexPath.row == 0 {
-               // cell2.isSelected = true
-            }
             cell2.backgroundColor = UIColor.clear
             return cell2
         }
@@ -245,6 +243,12 @@ class HomeController: UIViewController,UICollectionViewDataSource,UICollectionVi
             print("filter by: ",filterItems[indexPath.row])
         }
     }
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+         let offsetY = scrollView.contentOffset.y
+        
+        print(offsetY)
+    }
+    
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 
         if(velocity.y > 0) {
@@ -261,7 +265,7 @@ class HomeController: UIViewController,UICollectionViewDataSource,UICollectionVi
         } else {
             UIView.animate(withDuration: 0.2, delay: 0, options: UIView.AnimationOptions(), animations: {
     
-                 self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
                 self.searchAreaView.isHidden = false
                 self.filterCollectionView.isHidden = false
                 self.view.layoutIfNeeded()

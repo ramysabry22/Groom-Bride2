@@ -63,16 +63,16 @@ class LeftMenuController: UIViewController, UICollectionViewDataSource,UICollect
             self.navigationController?.pushViewController(controller, animated: true)
             return
         case 1:
-             OpenPrivacyPolicy()
+            let controller = PrivacyPolicyController()
+            self.navigationController?.pushViewController(controller, animated: true)
             return
         case 2:
-             OpenTermsOfService()
+            let controller = TermsOfServiceController()
+            self.navigationController?.pushViewController(controller, animated: true)
             return
         case 3:
-           
-            return
-        case 4:
-            
+            let controller = AboutController()
+            self.navigationController?.pushViewController(controller, animated: true)
             return
         default:
             return

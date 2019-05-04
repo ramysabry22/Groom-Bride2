@@ -59,18 +59,24 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
         print(indexPath.item)
         switch indexPath.item {
         case 0:
-//            let controller = SettingController()
-//            self.navigationController?.pushViewController(controller, animated: true)
+            let controller = SavedHallsController()
+            self.navigationController?.pushViewController(controller, animated: true)
             return
         case 1:
             let controller = FeedBackController()
             self.navigationController?.pushViewController(controller, animated: true)
             return
         case 2:
-            OpenPrivacyPolicy()
+            let controller = PrivacyPolicyController()
+            self.navigationController?.pushViewController(controller, animated: true)
             return
         case 3:
-            OpenTermsOfService()
+            let controller = TermsOfServiceController()
+            self.navigationController?.pushViewController(controller, animated: true)
+            return
+        case 4:
+            let controller = AboutController()
+            self.navigationController?.pushViewController(controller, animated: true)
             return
         case 5:
             let appearance = SCLAlertView.SCLAppearance(
@@ -108,9 +114,10 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
     
     
     //   MARK :- Helper Methods
-    /**********************************************************************************************/
+/**********************************************************************************************/
     @objc func editButtonAction(){
-      print("edit button tapped")
+        let controller = SettingController()
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     @objc func  handleLogout() {
         homeController?.signOut()
@@ -128,7 +135,7 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
     
     
     //   MARK :- Components
-    /**********************************************************************************************/
+/**********************************************************************************************/
     private func setupViews(){
         [collectionView].forEach { view.addSubview($0) }
         
