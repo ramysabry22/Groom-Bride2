@@ -24,23 +24,13 @@ class ForgetPasswordController: UIViewController,UITextFieldDelegate {
     /********************************************************************************************/
     @objc func sendResetPassword(){
         guard let email = EmailTextField.text else {
-            print("form is not valid *****ERROR*****")
             return
         }
-        SVProgressHUD.show()
-        SVProgressHUD.setDefaultMaskType(.clear)
-        Auth.auth().sendPasswordReset(withEmail: email) { error in
-            if error != nil {
-                print(error as Any)
-                let showError:String = error?.localizedDescription ?? ""
-                self.dismissRingIndecator()
-                self.PresentCustomError(error: showError)
-                return
-            }
-            // suceess
-            self.dismissRingIndecator()
-           self.PresentCustomSuccess(error: "Reset password link sent correctly, check your email and login again")
-        }
+        
+        
+//        SVProgressHUD.show()
+//        SVProgressHUD.setDefaultMaskType(.clear)
+       
         
     }
     @objc func SignInButtonAction(sender: UIButton!) {
