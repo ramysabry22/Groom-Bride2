@@ -21,20 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.makeKeyAndVisible()
-        window?.rootViewController = SplashScreenController()
-        
-        
+
         FirebaseApp.configure()
         attempRegisterForNotifications(application: application)
         
         application.applicationIconBadgeNumber = 0
         IQKeyboardManager.shared.enable = true
-        IQKeyboardManager.shared.enableAutoToolbar = false
-        IQKeyboardManager.shared.shouldShowToolbarPlaceholder = false
-        IQKeyboardManager.shared.previousNextDisplayMode = .alwaysHide
+        IQKeyboardManager.shared.enableAutoToolbar = true
+        IQKeyboardManager.shared.shouldShowToolbarPlaceholder = true
+        IQKeyboardManager.shared.previousNextDisplayMode = .alwaysShow
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         
         
         if let loggedInClient = defaults.dictionary(forKey: "loggedInClient"){

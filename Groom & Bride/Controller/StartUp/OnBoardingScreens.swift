@@ -58,7 +58,6 @@ class OnBoardingScreens: UIViewController,UICollectionViewDataSource,UICollectio
     @objc func buttonAction(sender: UIButton!) {
         UserDefaults.standard.set(true, forKey: "isFirstDownloadDone")
         UserDefaults.standard.synchronize()
-        dismiss(animated: true, completion: nil)
     }
     func showGetstartedButton(){
         UIView.animate(withDuration: 0.4, animations: {

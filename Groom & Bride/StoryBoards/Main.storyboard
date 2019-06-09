@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KhV-tm-7YB">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash Screen Controller-->
+        <scene sceneID="svG-vw-5OD">
+            <objects>
+                <viewController id="KhV-tm-7YB" customClass="SplashScreenController" customModule="Groom___Bride" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fOh-B4-YMc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SlpashImage" translatesAutoresizingMaskIntoConstraints="NO" id="lKm-ew-9ha">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view alpha="0.12999999523162842" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NlT-e8-5gW">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="DiG-Hj-Ngr">
+                                <rect key="frame" x="177.5" y="602" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Qiq-RD-pxg"/>
+                                    <constraint firstAttribute="width" constant="20" id="knu-Eh-8Ld"/>
+                                </constraints>
+                                <color key="color" red="0.99215686270000003" green="0.39607843139999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EHw-XC-RUr" userLabel="LogoView">
+                                <rect key="frame" x="77.5" y="236" width="220" height="195"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2" translatesAutoresizingMaskIntoConstraints="NO" id="N0P-xS-Mns">
+                                        <rect key="frame" x="8" y="139" width="71" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="71" id="QOm-Lo-eCU"/>
+                                            <constraint firstAttribute="height" constant="56" id="WwQ-qT-g6M"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Groom &amp; Bride" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hXJ-Iv-zqF">
+                                        <rect key="frame" x="81" y="155" width="131" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo2Image" translatesAutoresizingMaskIntoConstraints="NO" id="c86-Ju-qsE">
+                                        <rect key="frame" x="75" y="17" width="105" height="122.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="122.5" id="7e1-4w-0at"/>
+                                            <constraint firstAttribute="width" constant="105" id="HbV-Hn-j1e"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="hXJ-Iv-zqF" firstAttribute="top" secondItem="c86-Ju-qsE" secondAttribute="bottom" constant="15.5" id="EvG-yf-u7c"/>
+                                    <constraint firstAttribute="height" constant="195" id="Rt3-pu-Bj5"/>
+                                    <constraint firstItem="N0P-xS-Mns" firstAttribute="leading" secondItem="EHw-XC-RUr" secondAttribute="leading" constant="8" id="W9j-J1-t5t"/>
+                                    <constraint firstItem="c86-Ju-qsE" firstAttribute="leading" secondItem="EHw-XC-RUr" secondAttribute="leading" constant="75" id="aKQ-68-D2X"/>
+                                    <constraint firstAttribute="bottom" secondItem="N0P-xS-Mns" secondAttribute="bottom" id="aj8-Vr-Xb7"/>
+                                    <constraint firstItem="hXJ-Iv-zqF" firstAttribute="leading" secondItem="N0P-xS-Mns" secondAttribute="trailing" constant="2" id="fLz-el-NuS"/>
+                                    <constraint firstAttribute="width" constant="220" id="hxY-xj-5Bn"/>
+                                    <constraint firstItem="hXJ-Iv-zqF" firstAttribute="centerY" secondItem="N0P-xS-Mns" secondAttribute="centerY" id="j7L-j0-1xa"/>
+                                    <constraint firstAttribute="trailing" secondItem="hXJ-Iv-zqF" secondAttribute="trailing" constant="8" id="rRi-R4-GGv"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="r62-AW-jpB" firstAttribute="bottom" secondItem="DiG-Hj-Ngr" secondAttribute="bottom" constant="45" id="1TE-Wm-0l2"/>
+                            <constraint firstItem="EHw-XC-RUr" firstAttribute="centerX" secondItem="fOh-B4-YMc" secondAttribute="centerX" id="623-9k-fSk"/>
+                            <constraint firstItem="lKm-ew-9ha" firstAttribute="top" secondItem="fOh-B4-YMc" secondAttribute="top" id="Akj-rj-750"/>
+                            <constraint firstAttribute="trailing" secondItem="NlT-e8-5gW" secondAttribute="trailing" id="AxK-83-rgV"/>
+                            <constraint firstAttribute="bottom" secondItem="NlT-e8-5gW" secondAttribute="bottom" id="DXv-Cd-2aT"/>
+                            <constraint firstItem="NlT-e8-5gW" firstAttribute="top" secondItem="fOh-B4-YMc" secondAttribute="top" id="Pd2-NK-UaP"/>
+                            <constraint firstItem="NlT-e8-5gW" firstAttribute="leading" secondItem="fOh-B4-YMc" secondAttribute="leading" id="V33-vS-vod"/>
+                            <constraint firstItem="DiG-Hj-Ngr" firstAttribute="centerX" secondItem="lKm-ew-9ha" secondAttribute="centerX" id="aI9-SE-cmr"/>
+                            <constraint firstItem="lKm-ew-9ha" firstAttribute="leading" secondItem="fOh-B4-YMc" secondAttribute="leading" id="hyG-Ox-yph"/>
+                            <constraint firstItem="EHw-XC-RUr" firstAttribute="centerY" secondItem="fOh-B4-YMc" secondAttribute="centerY" id="lBH-4j-k5z"/>
+                            <constraint firstAttribute="trailing" secondItem="lKm-ew-9ha" secondAttribute="trailing" id="nFS-Pm-KUn"/>
+                            <constraint firstAttribute="bottom" secondItem="lKm-ew-9ha" secondAttribute="bottom" id="vFr-Fi-WVH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="r62-AW-jpB"/>
+                    </view>
+                    <connections>
+                        <outlet property="LoadingActivityIndicator" destination="DiG-Hj-Ngr" id="ewG-PM-f4O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wwN-XC-40Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="97" y="129"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Logo2Image" width="1150.3199462890625" height="1348.56005859375"/>
+        <image name="SlpashImage" width="393" height="668"/>
+        <image name="logo2" width="89" height="74"/>
+    </resources>
+</document>

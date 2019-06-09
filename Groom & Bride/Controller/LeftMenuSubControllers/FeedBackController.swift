@@ -28,38 +28,31 @@ class FeedBackController: UIViewController,UITextViewDelegate,UITextFieldDelegat
     // MARK :-   Main Methods
     /********************************************************************************************/
     @objc func sendFeddBackButton(){
-//        guard let text = textArea.text else {
-//            print("form is not valid *****ERROR*****")
-//            return
-//        }
-//        SVProgressHUD.show()
-//        SVProgressHUD.setDefaultMaskType(.clear)
-//
-//        guard let userID = Auth.auth().currentUser?.uid else {
-//            self.PresentCustomError(error: "Try again later")
-//            self.dismissRingIndecator()
-//            return
-//        }
-//        let ref = Database.database().reference().child("FeedbackMessages").child(userID)
-//        let timeCreated: String = String(NSDate().timeIntervalSince1970)
-//        let values = ["fromid": userID,"messege": text, "time": timeCreated] as [String : Any]
-//        ref.updateChildValues(values, withCompletionBlock: { (error, ref) in
-//            if error != nil {
-//                print("error uplading image",error ?? "")
-//                self.dismissRingIndecator()
-//                self.PresentCustomError(error: error?.localizedDescription ?? "Try again later")
-//                return
-//            }
-//            // succeed ..
-//            self.dismissRingIndecator()
-//            self.PresentCustomSuccess(error: "Message sent successfully")
-//
-//        })
+    
+        SVProgressHUD.show()
+        SVProgressHUD.setDefaultMaskType(.clear)
+
+       
+        let ref = Database.database().reference().child("PushNotificationsNode").childByAutoId()
+        let timeCreated: String = String(NSDate().timeIntervalSince1970)
+        let values = ["title": "See new halls for today","body": "we have added 50 gall today, check them now!", "time": timeCreated] as [String : Any]
+        ref.updateChildValues(values, withCompletionBlock: { (error, ref) in
+            if error != nil {
+                self.dismissRingIndecator()
+                self.PresentCustomError(error: error?.localizedDescription ?? "Try again later")
+                return
+            }
+            // succeed ..
+            self.dismissRingIndecator()
+            self.PresentCustomSuccess(error: "Message sent successfully")
+
+        })
         
         
     }
     @objc func SendFeedbackButtonTapped(sender: UIButton!) {
-        checkEmptyFields()
+      //  checkEmptyFields()
+         sendFeddBackButton()
     }
     func setupGestureRecognizer() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapBlurButton(_:)))

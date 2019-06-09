@@ -11,7 +11,7 @@ extension ApiManager{
         Alamofire.request(url, method: .get, headers: headers).responseJSON { (response) in
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [[String : Any]]
-                
+                print(jsonResponse)
                 var halls = [Hall]()
                 for record in data {
                     let newHall = Hall(hallDict: record)

@@ -16,7 +16,7 @@ class LoginComponentNavigationController: UINavigationController {
         super.viewDidLoad()
        navigationController?.isNavigationBarHidden = true
        view.backgroundColor = UIColor.white
-        let homeController = LoginStartScreenController()
+        let homeController = SignInController() // was loginstartscreen in the past
         viewControllers = [homeController]
     }
     override func viewWillDisappear(_ animated: Bool) {

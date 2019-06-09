@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E1953E1D92935F12AF2F931A /* Pods_Groom___Bride.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197FB310BEA504D28122018 /* Pods_Groom___Bride.framework */; };
+		F0249AE5228786330019433A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0249AE4228786330019433A /* GoogleService-Info.plist */; };
 		F0282CF0227720AA005CAA4A /* HelperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0282CEF227720AA005CAA4A /* HelperData.swift */; };
 		F0282CF22277211A005CAA4A /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0282CF12277211A005CAA4A /* Client.swift */; };
 		F0282CF52277222C005CAA4A /* HallsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0282CF42277222C005CAA4A /* HallsServices.swift */; };
@@ -20,6 +21,8 @@
 		F06601CB2279CBC9006E67D9 /* LeftMenuHeader2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06601CA2279CBC9006E67D9 /* LeftMenuHeader2.swift */; };
 		F06601CD2279D024006E67D9 /* LeftMenuController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06601CC2279D024006E67D9 /* LeftMenuController2.swift */; };
 		F06601CF2279DEF6006E67D9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06601CE2279DEF6006E67D9 /* ViewController.swift */; };
+		F090E53D22AC71E300FA121B /* LoginBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F090E53C22AC71E300FA121B /* LoginBoard.storyboard */; };
+		F090E53F22ACB53F00FA121B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F090E53E22ACB53F00FA121B /* Main.storyboard */; };
 		F0966F6D222C0DD100FA4FEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966F6C222C0DD100FA4FEA /* AppDelegate.swift */; };
 		F0966F74222C0DD200FA4FEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0966F73222C0DD200FA4FEA /* Assets.xcassets */; };
 		F0966F94222C0E9C00FA4FEA /* Extentios.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966F7F222C0E9B00FA4FEA /* Extentios.swift */; };
@@ -27,12 +30,10 @@
 		F0966F9A222C0E9C00FA4FEA /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966F89222C0E9C00FA4FEA /* PageCell.swift */; };
 		F0966F9B222C0E9C00FA4FEA /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966F8B222C0E9C00FA4FEA /* SignInController.swift */; };
 		F0966F9C222C0E9C00FA4FEA /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966F8C222C0E9C00FA4FEA /* HomeController.swift */; };
-		F0966F9D222C0E9C00FA4FEA /* LoginStartScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966F8D222C0E9C00FA4FEA /* LoginStartScreenController.swift */; };
 		F0966F9E222C0E9C00FA4FEA /* OnBoardingScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966F8E222C0E9C00FA4FEA /* OnBoardingScreens.swift */; };
 		F0966F9F222C0E9C00FA4FEA /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966F8F222C0E9C00FA4FEA /* SignUpController.swift */; };
 		F0966FA0222C0E9C00FA4FEA /* SplashScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966F90222C0E9C00FA4FEA /* SplashScreenController.swift */; };
 		F0966FA2222C0E9C00FA4FEA /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966F92222C0E9C00FA4FEA /* CustomTabBarController.swift */; };
-		F0966FA5222C136100FA4FEA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0966FA4222C136100FA4FEA /* GoogleService-Info.plist */; };
 		F0966FA7222C20C600FA4FEA /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966FA6222C20C600FA4FEA /* NotificationsController.swift */; };
 		F0966FAF222D5B1E00FA4FEA /* HomeCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966FAE222D5B1E00FA4FEA /* HomeCustomCell.swift */; };
 		F0966FB3222D82FF00FA4FEA /* DetailedHallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966FB2222D82FF00FA4FEA /* DetailedHallController.swift */; };
@@ -56,6 +57,7 @@
 		4197FB310BEA504D28122018 /* Pods_Groom___Bride.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Groom___Bride.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C697AF79F55FB0462A36ABCB /* Pods-Groom & Bride.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Groom & Bride.release.xcconfig"; path = "Target Support Files/Pods-Groom & Bride/Pods-Groom & Bride.release.xcconfig"; sourceTree = "<group>"; };
 		CDD347A716634F5A90A600FE /* Pods-Groom & Bride.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Groom & Bride.debug.xcconfig"; path = "Target Support Files/Pods-Groom & Bride/Pods-Groom & Bride.debug.xcconfig"; sourceTree = "<group>"; };
+		F0249AE4228786330019433A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F0282CEF227720AA005CAA4A /* HelperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperData.swift; sourceTree = "<group>"; };
 		F0282CF12277211A005CAA4A /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		F0282CF42277222C005CAA4A /* HallsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallsServices.swift; sourceTree = "<group>"; };
@@ -68,6 +70,9 @@
 		F06601CA2279CBC9006E67D9 /* LeftMenuHeader2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuHeader2.swift; sourceTree = "<group>"; };
 		F06601CC2279D024006E67D9 /* LeftMenuController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuController2.swift; sourceTree = "<group>"; };
 		F06601CE2279DEF6006E67D9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F07625D32287868B00FD89D2 /* Groom & Bride.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Groom & Bride.entitlements"; sourceTree = "<group>"; };
+		F090E53C22AC71E300FA121B /* LoginBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginBoard.storyboard; sourceTree = "<group>"; };
+		F090E53E22ACB53F00FA121B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F0966F69222C0DD000FA4FEA /* Groom & Bride.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Groom & Bride.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0966F6C222C0DD100FA4FEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0966F73222C0DD200FA4FEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,12 +82,10 @@
 		F0966F89222C0E9C00FA4FEA /* PageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		F0966F8B222C0E9C00FA4FEA /* SignInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		F0966F8C222C0E9C00FA4FEA /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
-		F0966F8D222C0E9C00FA4FEA /* LoginStartScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginStartScreenController.swift; sourceTree = "<group>"; };
 		F0966F8E222C0E9C00FA4FEA /* OnBoardingScreens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingScreens.swift; sourceTree = "<group>"; };
 		F0966F8F222C0E9C00FA4FEA /* SignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		F0966F90222C0E9C00FA4FEA /* SplashScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenController.swift; sourceTree = "<group>"; };
 		F0966F92222C0E9C00FA4FEA /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
-		F0966FA4222C136100FA4FEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F0966FA6222C20C600FA4FEA /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
 		F0966FAE222D5B1E00FA4FEA /* HomeCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomCell.swift; sourceTree = "<group>"; };
 		F0966FB2222D82FF00FA4FEA /* DetailedHallController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedHallController.swift; sourceTree = "<group>"; };
@@ -93,6 +96,7 @@
 		F0A4C5F2227DFC0100F30B87 /* PrivacyPolicyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyController.swift; sourceTree = "<group>"; };
 		F0A4C5F4227DFDB700F30B87 /* TermsOfServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfServiceController.swift; sourceTree = "<group>"; };
 		F0A4C5F6227E055700F30B87 /* AboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutController.swift; sourceTree = "<group>"; };
+		F0AABD6622878703007AF6C9 /* Groom & Bride.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Groom & Bride.entitlements"; sourceTree = "<group>"; };
 		F0BD6551227CBF2E00AB9854 /* SearchHallsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHallsController.swift; sourceTree = "<group>"; };
 		F0BD6554227CC81700AB9854 /* detailedHallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailedHallCell.swift; sourceTree = "<group>"; };
 		F0FB6814222EDBCF00F67973 /* FavoriteCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCustomCell.swift; sourceTree = "<group>"; };
@@ -100,7 +104,6 @@
 		F0FB9DCD22344E4C006FE1E0 /* ForgetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordController.swift; sourceTree = "<group>"; };
 		F0FB9DCF223465A4006FE1E0 /* FeedBackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackController.swift; sourceTree = "<group>"; };
 		F0FB9DD1223491C0006FE1E0 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
-		F0FEDDA822369BC400DED7AB /* Groom & Bride.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Groom & Bride.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,11 +159,10 @@
 			isa = PBXGroup;
 			children = (
 				F0966F90222C0E9C00FA4FEA /* SplashScreenController.swift */,
-				F0966F8E222C0E9C00FA4FEA /* OnBoardingScreens.swift */,
-				F0966F8D222C0E9C00FA4FEA /* LoginStartScreenController.swift */,
 				F0966F8B222C0E9C00FA4FEA /* SignInController.swift */,
 				F0FB9DCD22344E4C006FE1E0 /* ForgetPasswordController.swift */,
 				F0966F8F222C0E9C00FA4FEA /* SignUpController.swift */,
+				F0966F8E222C0E9C00FA4FEA /* OnBoardingScreens.swift */,
 			);
 			path = StartUp;
 			sourceTree = "<group>";
@@ -189,9 +191,19 @@
 			path = LeftMenu;
 			sourceTree = "<group>";
 		};
+		F090E54022ACB9DC00FA121B /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				F090E53E22ACB53F00FA121B /* Main.storyboard */,
+				F090E53C22AC71E300FA121B /* LoginBoard.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
 		F0966F60222C0DD000FA4FEA = {
 			isa = PBXGroup;
 			children = (
+				F07625D32287868B00FD89D2 /* Groom & Bride.entitlements */,
 				F0966F6B222C0DD000FA4FEA /* Groom & Bride */,
 				F0966F6A222C0DD000FA4FEA /* Products */,
 				7B2C84173C75AD2CC9AF9D05 /* Pods */,
@@ -210,14 +222,15 @@
 		F0966F6B222C0DD000FA4FEA /* Groom & Bride */ = {
 			isa = PBXGroup;
 			children = (
-				F0FEDDA822369BC400DED7AB /* Groom & Bride.entitlements */,
+				F0AABD6622878703007AF6C9 /* Groom & Bride.entitlements */,
+				F090E54022ACB9DC00FA121B /* StoryBoards */,
 				F0282CEE22772078005CAA4A /* Helpers */,
 				F0966F86222C0E9C00FA4FEA /* Model */,
 				F0966F88222C0E9C00FA4FEA /* View */,
 				F0966F8A222C0E9C00FA4FEA /* Controller */,
 				F0966F84222C0E9C00FA4FEA /* Assets */,
 				F0966F78222C0DD200FA4FEA /* Info.plist */,
-				F0966FA4222C136100FA4FEA /* GoogleService-Info.plist */,
+				F0249AE4228786330019433A /* GoogleService-Info.plist */,
 			);
 			path = "Groom & Bride";
 			sourceTree = "<group>";
@@ -317,10 +330,13 @@
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 1;
+								enabled = 0;
+							};
+							com.apple.ClassKit = {
+								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -350,7 +366,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0966F74222C0DD200FA4FEA /* Assets.xcassets in Resources */,
-				F0966FA5222C136100FA4FEA /* GoogleService-Info.plist in Resources */,
+				F090E53D22AC71E300FA121B /* LoginBoard.storyboard in Resources */,
+				F0249AE5228786330019433A /* GoogleService-Info.plist in Resources */,
+				F090E53F22ACB53F00FA121B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,7 +476,6 @@
 				F0966F9E222C0E9C00FA4FEA /* OnBoardingScreens.swift in Sources */,
 				F0BD6555227CC81700AB9854 /* detailedHallCell.swift in Sources */,
 				F0FB9DD2223491C0006FE1E0 /* SettingController.swift in Sources */,
-				F0966F9D222C0E9C00FA4FEA /* LoginStartScreenController.swift in Sources */,
 				F0A4C5F1227DF05200F30B87 /* SavedHallsController.swift in Sources */,
 				F0966F9C222C0E9C00FA4FEA /* HomeController.swift in Sources */,
 				F0966F9B222C0E9C00FA4FEA /* SignInController.swift in Sources */,
@@ -601,7 +618,6 @@
 			baseConfigurationReference = CDD347A716634F5A90A600FE /* Pods-Groom & Bride.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Groom & Bride/Groom & Bride.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MLM8YK22VB;
 				INFOPLIST_FILE = "Groom & Bride/Info.plist";
@@ -622,7 +638,6 @@
 			baseConfigurationReference = C697AF79F55FB0462A36ABCB /* Pods-Groom & Bride.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Groom & Bride/Groom & Bride.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MLM8YK22VB;
 				INFOPLIST_FILE = "Groom & Bride/Info.plist";

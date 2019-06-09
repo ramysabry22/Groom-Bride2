@@ -69,16 +69,12 @@ extension UIColor {
     static func mainBlue() -> UIColor {
         return UIColor.init(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
     }
-    
-    
     static func signTitleColor() -> UIColor {
         return UIColor.init(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
     }
     static func signSubTitleColor() -> UIColor {
         return UIColor.init(red: 179/255, green: 179/255, blue: 179/255, alpha: 1)
     }
-    
-    
     static func mainColor1() -> UIColor {
         return UIColor.init(red: 208/255, green: 0/255, blue: 114/255, alpha: 1)
     }
@@ -108,7 +104,13 @@ extension UIColor {
     static func menuOptionColor6() -> UIColor {
         return UIColor.init(red: 252/255, green: 97/255, blue: 1/255, alpha: 1)
     }
+    // old above to delete
     
+    
+    
+    static func mainAppPink() -> UIColor {
+        return UIColor(hexString: "#FD6578")
+    }
     
     
     convenience init(hexString: String) {

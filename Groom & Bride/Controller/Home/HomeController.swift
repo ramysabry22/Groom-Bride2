@@ -39,10 +39,10 @@ class HomeController: UIViewController,UICollectionViewDataSource,UICollectionVi
         if firstDownload() {
             if firstOpen {
                 setupViews()
-                fetchHalls()
+               // fetchHalls()
                 
                 firstOpen = false
-                setupFirstFilter()
+                setupFirstFilter() 
             }
            setupNavigationBar()
            setupLeftMenu()
@@ -109,7 +109,7 @@ class HomeController: UIViewController,UICollectionViewDataSource,UICollectionVi
      
         SideMenuManager.default.menuFadeStatusBar = false
         SideMenuManager.default.menuPushStyle = .preserve
-        SideMenuManager.defaultManager.menuPresentMode = .menuSlideIn
+        SideMenuManager.defaultManager.menuPresentMode = .viewSlideInOut
         SideMenuManager.default.menuWidth = min(4*(self.view.frame.width/5), 400)
         
         let firstLabel = UILabel()
@@ -180,7 +180,8 @@ class HomeController: UIViewController,UICollectionViewDataSource,UICollectionVi
 // MARK :- CollectionView
 /********************************************************************************************/
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == self.collectionView { return allHalls.count }
+        if collectionView == self.collectionView { return 8 }
+            //allHalls.count }
         else if collectionView == self.filterCollectionView { return filterItems.count }
         else { return allHalls.count }
     }
@@ -191,28 +192,28 @@ class HomeController: UIViewController,UICollectionViewDataSource,UICollectionVi
         if collectionView == self.collectionView {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeCustomCell
             
-        cell.tag = indexPath.row
-        let rowHall = allHalls[indexPath.item]
-        cell.nameLabel.text = rowHall.hallName
-        cell.priceLabel.text = rowHall.hallPrice+" LE"
-        cell.imageView.image = UIImage(named: "HomeBackgroundImage")
-
-       let tempImageView : UIImageView! = UIImageView()
-
-        if rowHall.hallImage.count > 0 && rowHall.hallImage.isEmpty == false{
-            let stringUrl = "\(HelperData.sharedInstance.serverBasePath)/\(rowHall.hallImage[0])"
-            let encodedString = stringUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            let url = URL(string: encodedString!)
-            tempImageView.kf.setImage(with: url, placeholder: nil, options: nil, progressBlock: nil) { (result) in
-                if(cell.tag == indexPath.row){
-                    if result.isSuccess == false{
-                        cell.imageView.image = UIImage(named: "HomeBackgroundImage")
-                    }else{
-                        cell.imageView.image = tempImageView.image
-                    }
-                }
-            }
-        }
+//        cell.tag = indexPath.row
+//        let rowHall = allHalls[indexPath.item]
+//        cell.nameLabel.text = rowHall.hallName
+//        cell.priceLabel.text = rowHall.hallPrice+" LE"
+//        cell.imageView.image = UIImage(named: "HomeBackgroundImage")
+//
+//       let tempImageView : UIImageView! = UIImageView()
+//
+//        if rowHall.hallImage.count > 0 && rowHall.hallImage.isEmpty == false{
+//            let stringUrl = "\(HelperData.sharedInstance.serverBasePath)/\(rowHall.hallImage[0])"
+//            let encodedString = stringUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+//            let url = URL(string: encodedString!)
+//            tempImageView.kf.setImage(with: url, placeholder: nil, options: nil, progressBlock: nil) { (result) in
+//                if(cell.tag == indexPath.row){
+//                    if result.isSuccess == false{
+//                        cell.imageView.image = UIImage(named: "HomeBackgroundImage")
+//                    }else{
+//                        cell.imageView.image = tempImageView.image
+//                    }
+//                }
+//            }
+//        }
 
         cell.backgroundColor = UIColor.white
         cell.layer.cornerRadius = 0
