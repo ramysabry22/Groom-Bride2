@@ -19,6 +19,7 @@ class SignUpController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         SVProgressHUD.setForegroundColor(UIColor.mainAppPink())
         SetupComponentDelegetes()
+        ShowVisibleButton()
     }
     
     
@@ -96,5 +97,38 @@ class SignUpController: UIViewController,UITextFieldDelegate {
         button1.backgroundColor = UIColor.gray
     }
     
+    
+    
+    
+    //     MARK :- eye button on textfield
+/**********************************************************************************************/
+    func ShowVisibleButton(){
+        view.addSubview(rightButtonToggle)
+        rightButtonToggle.anchor(top: nil, leading: nil, bottom: nil, trailing: passwordTextField.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 13), size: CGSize(width: 22, height: 22))
+        rightButtonToggle.centerYAnchor.constraint(equalTo: passwordTextField.centerYAnchor, constant: 0).isActive = true
+    }
+    let rightButtonToggle: UIButton = {
+        let rightButton  = UIButton(type: .custom)
+        rightButton.frame = CGRect(x:0, y:0, width: 25, height: 25)
+        rightButton.setBackgroundImage(UIImage(named: "HidePasswordICON777")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        rightButton.setBackgroundImage(UIImage(named: "ShowPasswordICON777")?.withRenderingMode(.alwaysTemplate), for: .selected)
+        rightButton.isSelected = false
+        rightButton.tintColor = UIColor.gray
+        rightButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 30)
+        rightButton.addTarget(self, action: #selector(PasswordTogglekButtonAction), for: .touchUpInside)
+        return rightButton
+    }()
+    
+    var secure = false
+    @objc func PasswordTogglekButtonAction(){
+        if(secure == false) {
+            passwordTextField.isSecureTextEntry = false
+            rightButtonToggle.isSelected = true
+        } else {
+            passwordTextField.isSecureTextEntry = true
+            rightButtonToggle.isSelected = false
+        }
+        secure = !secure
+    }
 }
 

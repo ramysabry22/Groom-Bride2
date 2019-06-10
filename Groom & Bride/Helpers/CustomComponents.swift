@@ -32,7 +32,7 @@ class CustomTextView: UITextView {
 
 class CustomTextField: UITextField {
     
-    let padding = UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 4)
+    let padding = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
