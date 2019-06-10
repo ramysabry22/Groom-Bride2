@@ -1,63 +1,70 @@
 
 import UIKit
 
-class OnBoardingScreens: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout  {
+class OnBoardingScreens: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    @IBOutlet var collectionView1: UICollectionView!
     let cellId = "cellId"
     
     let pages: [Page] = {
-        let Page1 = Page(title: "Cloud Syncing", message: "It is a  long established fact that a reader will be", imageName: "image4")
-        let Page2 = Page(title: "Explore Ideas", message: "It is a  long established fact that a reader will be", imageName: "image1")
-        let Page3 = Page(title: "Vendor Listing", message: "It is a  long established fact that a reader will be", imageName: "image2")
+        let Page1 = Page(title: "Welcome", message: "It is a  long established fact that a reader will be", imageName: "OnBoardingImage1777")
+        let Page2 = Page(title: "Wedding halls", message: "It is a  long established fact that a reader will be", imageName: "OnBoardingImage2777")
+        let Page3 = Page(title: "Add to favorite", message: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standa", imageName: "OnBoardingImage3777")
 
         return [Page1, Page2, Page3]
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        collectionView1.dataSource = self
+        collectionView1.delegate = self
         setupViews()
-        
         pageControll.numberOfPages = pages.count
-        
-        collectionView.register(PageCell.self, forCellWithReuseIdentifier: cellId)
     }
     
     // MARK :-  Main Methods
-    /********************************************************************************************/
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+/********************************************************************************************/
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pages.count
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! PageCell
         let page = pages[indexPath.item]
         cell.page = page
-        //  cell.backgroundColor = UIColor.yellow
+        cell.backgroundColor = UIColor.white
         return cell
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: self.collectionView.frame.width, height: self.collectionView.frame.height)
+   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        return CGSize(width: self.collectionView1.frame.width, height: self.collectionView1.frame.height)
     }
-    
-    
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let pageNumber = Int(targetContentOffset.pointee.x / view.frame.width)
         pageControll.currentPage = pageNumber
         pageControll.updateCurrentPageDisplay()
-        
+
         if pageNumber == 2 {
             showGetstartedButton()
         }
         else{
             hideGetstartedButton()
         }
-        
+
     }
+    
+    
     @objc func buttonAction(sender: UIButton!) {
-        UserDefaults.standard.set(true, forKey: "isFirstDownloadDone")
-        UserDefaults.standard.synchronize()
+//        UserDefaults.standard.set(true, forKey: "isFirstDownloadDone")
+//        UserDefaults.standard.synchronize()
+        
+        let storyboard = UIStoryboard(name: "LoginBoard", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "signInScreen") as! SignInController
+        let loginComponent = UINavigationController(rootViewController: controller)
+        loginComponent.isNavigationBarHidden = true
+        present(loginComponent, animated: true, completion: nil)
     }
     func showGetstartedButton(){
         UIView.animate(withDuration: 0.4, animations: {
@@ -76,54 +83,34 @@ class OnBoardingScreens: UIViewController,UICollectionViewDataSource,UICollectio
         }
     }
     
-    //   MARK :- Constrains
-    /**********************************************************************************************/
-    private func setupViews(){
-        [collectionView,pageControll,getStartedButton].forEach { view.addSubview($0) }
-        
-        collectionView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.trailingAnchor)
-        
-        pageControll.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor,padding:  .init(top: 0, left: 0, bottom: 20, right: 0))
-        
-        getStartedButton.anchor(top: nil, leading: collectionView.leadingAnchor, bottom: collectionView.bottomAnchor, trailing: collectionView.trailingAnchor, padding: .init(top: 0, left: 30, bottom: 30, right: 30), size: CGSize(width: 0, height: 45))
-    }
-    
-    
-    
-    
-    
+   
     // MARK :-  Setup Component
-    /********************************************************************************************/
-    lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 0
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = UIColor.white
-        cv.delegate = self
-        cv.dataSource = self
-        cv.isPagingEnabled = true
-        cv.showsVerticalScrollIndicator = false
-        cv.showsHorizontalScrollIndicator = false
-        return cv
-    }()
+/********************************************************************************************/
+    private func setupViews(){
+        [pageControll,getStartedButton].forEach { view.addSubview($0) }
+        
+        let bottomPadding = collectionView1.frame.height/12
+        
+        pageControll.anchor(top: nil, leading: collectionView1.leadingAnchor, bottom: collectionView1.bottomAnchor, trailing: collectionView1.trailingAnchor,padding:  .init(top: 0, left: 0, bottom: bottomPadding, right: 0))
+        
+        getStartedButton.anchor(top: nil, leading: collectionView1.leadingAnchor, bottom: collectionView1.bottomAnchor, trailing: collectionView1.trailingAnchor, padding: .init(top: 0, left: 30, bottom: bottomPadding, right: 30), size: CGSize(width: 0, height: 45))
+    }
     let pageControll: UIPageControl = {
         let pc = UIPageControl()
         pc.pageIndicatorTintColor = UIColor.lightGray
         pc.numberOfPages = 1
-        pc.currentPageIndicatorTintColor = UIColor.mainColor2()
+        pc.currentPageIndicatorTintColor = UIColor.mainAppPink()
         pc.isUserInteractionEnabled = false
         return pc
     }()
-    let getStartedButton: UIButton = {
+    lazy var getStartedButton: UIButton = {
         let button = UIButton.init(type: .system)
         button.setTitle("Get Started", for: .normal)
         button.frame.size = CGSize(width: 80, height: 100)
-        button.layer.cornerRadius = 10
-        button.backgroundColor = UIColor.mainColor2()
+        button.layer.cornerRadius = 5
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        button.backgroundColor = UIColor.mainAppPink()
         button.setTitleColor(UIColor.white, for: .normal)
-        button.setBackgroundImage(UIImage(named: ""), for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
         button.isHidden = false
         button.alpha = 0
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)

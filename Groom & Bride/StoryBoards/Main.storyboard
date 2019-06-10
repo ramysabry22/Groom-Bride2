@@ -26,7 +26,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="DiG-Hj-Ngr">
-                                <rect key="frame" x="177.5" y="602" width="20" height="20"/>
+                                <rect key="frame" x="177.5" y="572" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Qiq-RD-pxg"/>
                                     <constraint firstAttribute="width" constant="20" id="knu-Eh-8Ld"/>
@@ -73,7 +73,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="r62-AW-jpB" firstAttribute="bottom" secondItem="DiG-Hj-Ngr" secondAttribute="bottom" constant="45" id="1TE-Wm-0l2"/>
+                            <constraint firstItem="r62-AW-jpB" firstAttribute="bottom" secondItem="DiG-Hj-Ngr" secondAttribute="bottomMargin" multiplier="3.5" constant="53" id="1TE-Wm-0l2"/>
                             <constraint firstItem="EHw-XC-RUr" firstAttribute="centerX" secondItem="fOh-B4-YMc" secondAttribute="centerX" id="623-9k-fSk"/>
                             <constraint firstItem="lKm-ew-9ha" firstAttribute="top" secondItem="fOh-B4-YMc" secondAttribute="top" id="Akj-rj-750"/>
                             <constraint firstAttribute="trailing" secondItem="NlT-e8-5gW" secondAttribute="trailing" id="AxK-83-rgV"/>
