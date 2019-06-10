@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SlpashImage" translatesAutoresizingMaskIntoConstraints="NO" id="lx4-2D-n2t">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view alpha="0.12999999523162842" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncb-9x-dbh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vZx-Z7-ono" userLabel="LogoView">
+                                <rect key="frame" x="77.5" y="236" width="220" height="195"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2" translatesAutoresizingMaskIntoConstraints="NO" id="Zhr-UG-TB5">
+                                        <rect key="frame" x="8" y="139" width="71" height="56"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="ai8-0g-STT"/>
+                                            <constraint firstAttribute="width" constant="71" id="w8m-h5-Nbd"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Groom &amp; Bride" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qoI-de-bfy">
+                                        <rect key="frame" x="81" y="155" width="131" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo2Image" translatesAutoresizingMaskIntoConstraints="NO" id="EzT-fs-CPE">
+                                        <rect key="frame" x="75" y="17" width="105" height="122.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="105" id="DgL-xc-Cam"/>
+                                            <constraint firstAttribute="height" constant="122.5" id="ikX-OX-jBe"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="EzT-fs-CPE" firstAttribute="leading" secondItem="vZx-Z7-ono" secondAttribute="leading" constant="75" id="7xu-cE-MTP"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zhr-UG-TB5" secondAttribute="bottom" id="8hr-Ch-hhj"/>
+                                    <constraint firstItem="Zhr-UG-TB5" firstAttribute="leading" secondItem="vZx-Z7-ono" secondAttribute="leading" constant="8" id="GzS-Dy-bab"/>
+                                    <constraint firstItem="qoI-de-bfy" firstAttribute="centerY" secondItem="Zhr-UG-TB5" secondAttribute="centerY" id="aOu-6C-hAe"/>
+                                    <constraint firstItem="qoI-de-bfy" firstAttribute="leading" secondItem="Zhr-UG-TB5" secondAttribute="trailing" constant="2" id="bOa-8n-fw1"/>
+                                    <constraint firstAttribute="height" constant="195" id="cWP-dv-GH0"/>
+                                    <constraint firstAttribute="width" constant="220" id="cc8-oQ-Rwn"/>
+                                    <constraint firstItem="qoI-de-bfy" firstAttribute="top" secondItem="EzT-fs-CPE" secondAttribute="bottom" constant="15.5" id="goM-po-Pc7"/>
+                                    <constraint firstAttribute="trailing" secondItem="qoI-de-bfy" secondAttribute="trailing" constant="8" id="k9x-OJ-Rpr"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.4429803028" blue="0.08913136629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vZx-Z7-ono" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="9SQ-Fd-yd8"/>
+                            <constraint firstAttribute="trailing" secondItem="lx4-2D-n2t" secondAttribute="trailing" id="9qp-hf-CuP"/>
+                            <constraint firstItem="vZx-Z7-ono" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Bhd-XK-tkl"/>
+                            <constraint firstItem="lx4-2D-n2t" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="G4M-u7-TLZ"/>
+                            <constraint firstItem="lx4-2D-n2t" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="NCk-1s-sEn"/>
+                            <constraint firstItem="ncb-9x-dbh" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Uzc-rf-XjQ"/>
+                            <constraint firstAttribute="bottom" secondItem="lx4-2D-n2t" secondAttribute="bottom" id="Xr3-DW-VGE"/>
+                            <constraint firstItem="ncb-9x-dbh" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="gCm-dF-aoZ"/>
+                            <constraint firstAttribute="trailing" secondItem="ncb-9x-dbh" secondAttribute="trailing" id="vaL-Bi-pyu"/>
+                            <constraint firstAttribute="bottom" secondItem="ncb-9x-dbh" secondAttribute="bottom" id="zhh-Da-Gb4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Logo2Image" width="1150.3199462890625" height="1348.56005859375"/>
+        <image name="SlpashImage" width="393" height="668"/>
+        <image name="logo2" width="89" height="74"/>
+    </resources>
+</document>

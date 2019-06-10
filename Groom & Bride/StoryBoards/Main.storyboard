@@ -13,7 +13,7 @@
         <!--Splash Screen Controller-->
         <scene sceneID="svG-vw-5OD">
             <objects>
-                <viewController id="KhV-tm-7YB" customClass="SplashScreenController" customModule="Groom___Bride" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="partialCurl" id="KhV-tm-7YB" customClass="SplashScreenController" customModule="Groom___Bride" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fOh-B4-YMc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

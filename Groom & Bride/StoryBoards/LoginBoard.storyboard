@@ -38,7 +38,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="fst-r2-ZDc">
                                                     <rect key="frame" x="0.0" y="0.0" width="242" height="262"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EditProfileICON" translatesAutoresizingMaskIntoConstraints="NO" id="cwg-bY-rro">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OnBoardingImage1777" translatesAutoresizingMaskIntoConstraints="NO" id="cwg-bY-rro">
                                                             <rect key="frame" x="0.0" y="0.0" width="242" height="174.5"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </imageView>
@@ -110,7 +110,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nXn-Jd-eOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="862.5" y="-803.87323943661977"/>
+            <point key="canvasLocation" x="864" y="-563"/>
         </scene>
         <!--Sign In Controller-->
         <scene sceneID="nk4-9g-u52">
@@ -732,9 +732,9 @@
     </scenes>
     <resources>
         <image name="BackICON77777" width="384" height="384"/>
-        <image name="EditProfileICON" width="384" height="384"/>
         <image name="EmailICON7777" width="384" height="384"/>
         <image name="Logo2Image" width="1150.3199462890625" height="1348.56005859375"/>
+        <image name="OnBoardingImage1777" width="356" height="219"/>
         <image name="PasswordICON7777" width="384" height="384"/>
         <image name="ProfileICON777" width="384" height="384"/>
         <image name="SlpashImage" width="393" height="668"/>
