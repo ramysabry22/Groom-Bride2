@@ -193,34 +193,6 @@ extension UITapGestureRecognizer {
 
 
 
-class CustomTextView: UITextView {
-    
-    let placeholderLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Enter Comment"
-        label.textColor = UIColor.lightGray
-        label.font = UIFont.systemFont(ofSize: 16)
-        return label
-    }()
-    
-    override init(frame: CGRect, textContainer: NSTextContainer?) {
-        super.init(frame: frame, textContainer: textContainer)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(handleTextChange), name: UITextView.textDidChangeNotification, object: nil)
-        
-        addSubview(placeholderLabel)
-        placeholderLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 8, left: 8, bottom: 0, right: 0))
-    }
-    @objc func handleTextChange() {
-        placeholderLabel.isHidden = !self.text.isEmpty
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-}
-
 
 extension String {
     func IsValidString() -> Bool {

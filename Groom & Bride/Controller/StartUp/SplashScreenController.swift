@@ -12,13 +12,13 @@ class SplashScreenController: UIViewController {
 
      @objc func ShowViewController(){
         LoadingActivityIndicator.stopAnimating()
-//        let storyboard = UIStoryboard(name: "LoginBoard", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "signInScreen") as! SignInController
-//        let loginComponent = UINavigationController(rootViewController: controller)
-//        loginComponent.isNavigationBarHidden = true
-//        present(loginComponent, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "LoginBoard", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "signInScreen") as! SignInController
+        let loginComponent = UINavigationController(rootViewController: controller)
+        loginComponent.isNavigationBarHidden = true
+        present(loginComponent, animated: true, completion: nil)
         
-        present(OnBoardingScreens(), animated: true, completion: nil)
+       // present(OnBoardingScreens(), animated: true, completion: nil)
         
     }
    

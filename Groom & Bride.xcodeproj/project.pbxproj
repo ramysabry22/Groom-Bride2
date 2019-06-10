@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E1953E1D92935F12AF2F931A /* Pods_Groom___Bride.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197FB310BEA504D28122018 /* Pods_Groom___Bride.framework */; };
+		F010A67722ADD1A300360DEA /* CustomComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F010A67622ADD1A300360DEA /* CustomComponents.swift */; };
 		F0249AE5228786330019433A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0249AE4228786330019433A /* GoogleService-Info.plist */; };
 		F0282CF0227720AA005CAA4A /* HelperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0282CEF227720AA005CAA4A /* HelperData.swift */; };
 		F0282CF22277211A005CAA4A /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0282CF12277211A005CAA4A /* Client.swift */; };
@@ -57,6 +58,7 @@
 		4197FB310BEA504D28122018 /* Pods_Groom___Bride.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Groom___Bride.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C697AF79F55FB0462A36ABCB /* Pods-Groom & Bride.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Groom & Bride.release.xcconfig"; path = "Target Support Files/Pods-Groom & Bride/Pods-Groom & Bride.release.xcconfig"; sourceTree = "<group>"; };
 		CDD347A716634F5A90A600FE /* Pods-Groom & Bride.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Groom & Bride.debug.xcconfig"; path = "Target Support Files/Pods-Groom & Bride/Pods-Groom & Bride.debug.xcconfig"; sourceTree = "<group>"; };
+		F010A67622ADD1A300360DEA /* CustomComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomComponents.swift; sourceTree = "<group>"; };
 		F0249AE4228786330019433A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F0282CEF227720AA005CAA4A /* HelperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperData.swift; sourceTree = "<group>"; };
 		F0282CF12277211A005CAA4A /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				F0282CF322772200005CAA4A /* Services */,
 				F0282CEF227720AA005CAA4A /* HelperData.swift */,
 				F0966F7F222C0E9B00FA4FEA /* Extentios.swift */,
+				F010A67622ADD1A300360DEA /* CustomComponents.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				F0282CF52277222C005CAA4A /* HallsServices.swift in Sources */,
 				F0282CF722772239005CAA4A /* ClientServices.swift in Sources */,
 				F0966FB7222D8B4D00FA4FEA /* CustomMoreCell.swift in Sources */,
+				F010A67722ADD1A300360DEA /* CustomComponents.swift in Sources */,
 				F0966F9A222C0E9C00FA4FEA /* PageCell.swift in Sources */,
 				F0BD6552227CBF2E00AB9854 /* SearchHallsController.swift in Sources */,
 				F0966F9F222C0E9C00FA4FEA /* SignUpController.swift in Sources */,
@@ -626,7 +630,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ramysabry1996.Groom---Bride";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ramysabry1996.Groom---BrideXX";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -646,7 +650,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ramysabry1996.Groom---Bride";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ramysabry1996.Groom---BrideXX";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
