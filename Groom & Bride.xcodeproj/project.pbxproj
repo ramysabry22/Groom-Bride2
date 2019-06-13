@@ -49,6 +49,11 @@
 		F0BD6552227CBF2E00AB9854 /* SearchHallsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD6551227CBF2E00AB9854 /* SearchHallsController.swift */; };
 		F0BD6555227CC81700AB9854 /* detailedHallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0BD6554227CC81700AB9854 /* detailedHallCell.swift */; };
 		F0C6BAFE22B2700F00C27641 /* HomeController++.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C6BAFD22B2700F00C27641 /* HomeController++.swift */; };
+		F0C6BB0122B29EFA00C27641 /* HallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C6BAFF22B29EFA00C27641 /* HallCell.swift */; };
+		F0C6BB0222B29EFA00C27641 /* HallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C6BB0022B29EFA00C27641 /* HallCell.xib */; };
+		F0C6BB0522B2AE9C00C27641 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C6BB0322B2AE9C00C27641 /* FilterCell.swift */; };
+		F0C6BB0622B2AE9C00C27641 /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C6BB0422B2AE9C00C27641 /* FilterCell.xib */; };
+		F0C6BB0822B2BCBE00C27641 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C6BB0722B2BCBE00C27641 /* SearchController.swift */; };
 		F0DD665522AE589F006F55A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0DD665422AE589F006F55A9 /* LaunchScreen.storyboard */; };
 		F0FB6815222EDBCF00F67973 /* FavoriteCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FB6814222EDBCF00F67973 /* FavoriteCustomCell.swift */; };
 		F0FB6817222EE0E800F67973 /* NotificationsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FB6816222EE0E800F67973 /* NotificationsCustomCell.swift */; };
@@ -104,6 +109,11 @@
 		F0BD6551227CBF2E00AB9854 /* SearchHallsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHallsController.swift; sourceTree = "<group>"; };
 		F0BD6554227CC81700AB9854 /* detailedHallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailedHallCell.swift; sourceTree = "<group>"; };
 		F0C6BAFD22B2700F00C27641 /* HomeController++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeController++.swift"; sourceTree = "<group>"; };
+		F0C6BAFF22B29EFA00C27641 /* HallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallCell.swift; sourceTree = "<group>"; };
+		F0C6BB0022B29EFA00C27641 /* HallCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HallCell.xib; sourceTree = "<group>"; };
+		F0C6BB0322B2AE9C00C27641 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		F0C6BB0422B2AE9C00C27641 /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
+		F0C6BB0722B2BCBE00C27641 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		F0DD665422AE589F006F55A9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0FB6814222EDBCF00F67973 /* FavoriteCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCustomCell.swift; sourceTree = "<group>"; };
 		F0FB6816222EE0E800F67973 /* NotificationsCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCustomCell.swift; sourceTree = "<group>"; };
@@ -180,6 +190,11 @@
 				F0966FB2222D82FF00FA4FEA /* DetailedHallController.swift */,
 				F0BD6551227CBF2E00AB9854 /* SearchHallsController.swift */,
 				F0966FA6222C20C600FA4FEA /* NotificationsController.swift */,
+				F0C6BAFF22B29EFA00C27641 /* HallCell.swift */,
+				F0C6BB0022B29EFA00C27641 /* HallCell.xib */,
+				F0C6BB0322B2AE9C00C27641 /* FilterCell.swift */,
+				F0C6BB0422B2AE9C00C27641 /* FilterCell.xib */,
+				F0C6BB0722B2BCBE00C27641 /* SearchController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -376,7 +391,9 @@
 				F090E53D22AC71E300FA121B /* LoginBoard.storyboard in Resources */,
 				F0249AE5228786330019433A /* GoogleService-Info.plist in Resources */,
 				F0DD665522AE589F006F55A9 /* LaunchScreen.storyboard in Resources */,
+				F0C6BB0622B2AE9C00C27641 /* FilterCell.xib in Resources */,
 				F090E53F22ACB53F00FA121B /* Main.storyboard in Resources */,
+				F0C6BB0222B29EFA00C27641 /* HallCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +479,7 @@
 			files = (
 				F0FB6815222EDBCF00F67973 /* FavoriteCustomCell.swift in Sources */,
 				F0966F94222C0E9C00FA4FEA /* Extentios.swift in Sources */,
+				F0C6BB0122B29EFA00C27641 /* HallCell.swift in Sources */,
 				F0966FB3222D82FF00FA4FEA /* DetailedHallController.swift in Sources */,
 				F0966FB5222D8B2F00FA4FEA /* CustomMoreHeader.swift in Sources */,
 				F06601CD2279D024006E67D9 /* LeftMenuController2.swift in Sources */,
@@ -490,8 +508,10 @@
 				F0966F6D222C0DD100FA4FEA /* AppDelegate.swift in Sources */,
 				F0FB9DCE22344E4C006FE1E0 /* ForgetPasswordController.swift in Sources */,
 				F00C6C0C22B1565C0063A146 /* ChangePasswordController.swift in Sources */,
+				F0C6BB0822B2BCBE00C27641 /* SearchController.swift in Sources */,
 				F0282CF52277222C005CAA4A /* HallsServices.swift in Sources */,
 				F0282CF722772239005CAA4A /* ClientServices.swift in Sources */,
+				F0C6BB0522B2AE9C00C27641 /* FilterCell.swift in Sources */,
 				F08CEFD822B15B4200C55571 /* AboutUsController.swift in Sources */,
 				F0966FB7222D8B4D00FA4FEA /* CustomMoreCell.swift in Sources */,
 				F010A67722ADD1A300360DEA /* CustomComponents.swift in Sources */,

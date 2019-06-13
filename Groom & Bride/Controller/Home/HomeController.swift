@@ -7,7 +7,12 @@ import Kingfisher
 import SideMenu
 import DropDown
 
-class HomeController: UIViewController, UIGestureRecognizerDelegate{
+class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
+    @IBOutlet weak var collectionView1: UICollectionView!
+    @IBOutlet weak var collectionView2: UICollectionView!
+    @IBOutlet weak var searchView: UIView!
+    
     let leftMenu1 = LeftMenuController()
     lazy var menuLeftNavigationController = UISideMenuNavigationController(rootViewController: leftMenu1)
     let leftMenu2 = LeftMenuController2()
@@ -19,6 +24,15 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.collectionView2.register(UINib(nibName: "HallCell", bundle: nil), forCellWithReuseIdentifier: "HallCell")
+        collectionView2.delegate = self
+        collectionView2.dataSource = self
+        
+        self.collectionView1.register(UINib(nibName: "FilterCell", bundle: nil), forCellWithReuseIdentifier: "FilterCell")
+        collectionView1.delegate = self
+        collectionView1.dataSource = self
+        
+        searchView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SearchViewTapped)))
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -93,7 +107,11 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate{
         alertView.showInfo("Error!", subTitle: "\(error)")
         button1.backgroundColor = UIColor.gray
     }
-    
+    @objc func SearchViewTapped(sender: UITapGestureRecognizer){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "SearchController") as! SearchController
+       navigationController?.pushViewController(controller, animated: true)
+    }
     
     func setupNavigationBar(){
         navigationController?.navigationBar.barStyle = .default
@@ -127,6 +145,9 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate{
         leftButton.heightAnchor.constraint(equalToConstant: 23).isActive = true
         leftButton.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+        
+        
+       
     }
     @objc func leftButtonAction(){
         present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
