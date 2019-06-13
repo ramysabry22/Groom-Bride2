@@ -9,8 +9,8 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
     
     let cellId = "cellId"
     let headerID = "Header"
-    let settingOptions: [[String]] = [["Home","HomeICON"],["My profile","MYprofileICON"],
-    ["Saved halls","SettingICON"],["Give us feedback","FeedbackICON"],["Privacy policy","PrivacyPolicyICON"],["Terms of service","TermsOfServiceICON"],["About us","TermsOfServiceICON"],["Logout","SignOutICON"]]
+    let settingOptions: [[String]] = [["Home","HomeICON777"],["My profile","MyProfileICON777"],
+    ["Saved halls","SavedHallsICON777"],["Give us feedback","GiveUsFeedBackICON777"],["Privacy policy","PrivacyPolicyICON777"],["Terms of service","TermsOfServiceICON777"],["About us","AboutUsICON777"],["Logout","LogOutICON777"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +41,8 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! LeftMenuCell
         
         cell.titleLabel.text = settingOptions[indexPath.item][0]
+        cell.iconImage.image = UIImage(named: "\(settingOptions[indexPath.item][1])")?.withRenderingMode(.alwaysTemplate)
+        cell.iconImage.tintColor = UIColor.white
         cell.backgroundColor = UIColor.mainAppPink()
         cell.layer.cornerRadius = 0
         

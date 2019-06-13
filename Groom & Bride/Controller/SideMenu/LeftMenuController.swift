@@ -9,8 +9,7 @@ class LeftMenuController: UIViewController, UICollectionViewDataSource,UICollect
     
     let cellId = "cellId"
     let headerID = "Header"
-    let settingOptions: [[String]] = [["Home","FeedbackICON"],["Give us feedback","FeedbackICON"],["Privacy policy","PrivacyPolicyICON"],["Terms of service","TermsOfServiceICON"],
-                                      ["About us","TermsOfServiceICON"]]
+    let settingOptions: [[String]] = [["Home","HomeICON777"],["Give us feedback","GiveUsFeedBackICON777"],["Privacy policy","PrivacyPolicyICON777"],["Terms of service","TermsOfServiceICON777"],["About us","AboutUsICON777"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +40,8 @@ class LeftMenuController: UIViewController, UICollectionViewDataSource,UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! LeftMenuCell
         
         cell.titleLabel.text = settingOptions[indexPath.item][0]
+        cell.iconImage.image = UIImage(named: "\(settingOptions[indexPath.item][1])")?.withRenderingMode(.alwaysTemplate)
+        cell.iconImage.tintColor = UIColor.white
         cell.backgroundColor = UIColor.mainAppPink()
         cell.layer.cornerRadius = 0
         

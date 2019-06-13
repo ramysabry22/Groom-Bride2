@@ -13,13 +13,13 @@ class LeftMenuCell: UICollectionViewCell{
         iconImage.translatesAutoresizingMaskIntoConstraints = false
         iconImage.leftAnchor.constraint(equalTo: leftAnchor, constant: frame.width/16).isActive = true
         iconImage.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0).isActive = true
-        iconImage.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        iconImage.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        iconImage.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        iconImage.heightAnchor.constraint(equalToConstant: 25).isActive = true
         
         
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.leftAnchor.constraint(equalTo: iconImage.rightAnchor, constant: frame.width/15).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: iconImage.rightAnchor, constant: frame.width/18).isActive = true
         titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -15).isActive = true
@@ -30,7 +30,8 @@ class LeftMenuCell: UICollectionViewCell{
     }
     let iconImage: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named: "logo1")
+        iv.image = UIImage(named: "logo1")?.withRenderingMode(.alwaysTemplate)
+        iv.tintColor = UIColor.white
         iv.contentMode = .scaleAspectFit
         iv.backgroundColor = UIColor.clear
         return iv
