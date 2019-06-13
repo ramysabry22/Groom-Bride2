@@ -29,27 +29,29 @@ class SignInController: UIViewController,UITextFieldDelegate {
     // MARK :-   Main Methods
 /********************************************************************************************/
     @objc func SignInUser(){
-        guard let email = emailTextField.text, let password = passwordTextField.text else {
-            return
-        }
-        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
-            sessionDataTask.forEach { $0.cancel() }
-            uploadData.forEach { $0.cancel() }
-            downloadData.forEach { $0.cancel() }
-        }
+//        guard let email = emailTextField.text, let password = passwordTextField.text else {
+//            return
+//        }
+//        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+//            sessionDataTask.forEach { $0.cancel() }
+//            uploadData.forEach { $0.cancel() }
+//            downloadData.forEach { $0.cancel() }
+//        }
+//
+//
+//        SVProgressHUD.show()
+//        SVProgressHUD.setDefaultMaskType(.clear)
+//
+//        ApiManager.sharedInstance.loginClient(email: email, password: password) { (valid, msg) in
+//            self.dismissRingIndecator()
+//            if valid {
+//                self.dismiss(animated: true, completion: nil)
+//            }else{
+//                self.PresentCustomError(error: msg)
+//            }
+//        }
         
-        
-        SVProgressHUD.show()
-        SVProgressHUD.setDefaultMaskType(.clear)
-        
-        ApiManager.sharedInstance.loginClient(email: email, password: password) { (valid, msg) in
-            self.dismissRingIndecator()
-            if valid {
-                self.dismiss(animated: true, completion: nil)
-            }else{
-                self.PresentCustomError(error: msg)
-            }
-        }
+         self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -71,7 +73,7 @@ class SignInController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func BackButtonTapped(_ sender: UIButton) {
-        print("backButton Tapped")
+        self.dismiss(animated: true, completion: nil)
     }
     func setupSignUpLabel(){
         dontHaveAccountLabel.text = "Don't have account? Sign Up"
@@ -118,7 +120,7 @@ class SignInController: UIViewController,UITextFieldDelegate {
              self.PresentCustomError(error: "Enter your Email!")
             return
         }
-        //  SignInUser()
+          SignInUser()
     }
     
     func dismissRingIndecator(){

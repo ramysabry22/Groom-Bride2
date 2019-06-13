@@ -57,14 +57,13 @@ class OnBoardingScreens: UICollectionViewController, UICollectionViewDelegateFlo
     
     
     @objc func buttonAction(sender: UIButton!) {
-//        UserDefaults.standard.set(true, forKey: "isFirstDownloadDone")
-//        UserDefaults.standard.synchronize()
+        UserDefaults.standard.set(true, forKey: "isFirstDownloadDonee")
+        UserDefaults.standard.synchronize()
         
-        let storyboard = UIStoryboard(name: "LoginBoard", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "signInScreen") as! SignInController
-        let loginComponent = UINavigationController(rootViewController: controller)
-        loginComponent.isNavigationBarHidden = true
-        present(loginComponent, animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "HomeController") as! HomeController
+        let homeController = UINavigationController(rootViewController: controller)
+        present(homeController, animated: true, completion: nil)
     }
     func showGetstartedButton(){
         UIView.animate(withDuration: 0.4, animations: {
