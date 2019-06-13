@@ -9,7 +9,8 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
     
     let cellId = "cellId"
     let headerID = "Header"
-    let settingOptions: [[String]] = [["Saved halls","SettingICON"],["Give us feedback","FeedbackICON"],["Privacy policy","PrivacyPolicyICON"],["Terms of service","TermsOfServiceICON"],["About us","TermsOfServiceICON"],["Logout","SignOutICON"]]
+    let settingOptions: [[String]] = [["Home","HomeICON"],["My profile","MYprofileICON"],
+    ["Saved halls","SettingICON"],["Give us feedback","FeedbackICON"],["Privacy policy","PrivacyPolicyICON"],["Terms of service","TermsOfServiceICON"],["About us","TermsOfServiceICON"],["Logout","SignOutICON"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +78,18 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
         case 4:
 //            let controller = AboutController()
 //            self.navigationController?.pushViewController(controller, animated: true)
+            return
+        case 5:
+            //            let controller = AboutController()
+            //            self.navigationController?.pushViewController(controller, animated: true)
+            return
+        case 6:
+            //            let controller = AboutController()
+            //            self.navigationController?.pushViewController(controller, animated: true)
+            return
+        case 7:
+            //            let controller = AboutController()
+            //            self.navigationController?.pushViewController(controller, animated: true)
             return
         case 5:
 //            let appearance = SCLAlertView.SCLAppearance(

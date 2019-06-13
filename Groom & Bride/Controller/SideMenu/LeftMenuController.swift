@@ -9,7 +9,8 @@ class LeftMenuController: UIViewController, UICollectionViewDataSource,UICollect
     
     let cellId = "cellId"
     let headerID = "Header"
-    let settingOptions: [[String]] = [["Home","FeedbackICON"],["Give us feedback","FeedbackICON"],["Privacy policy","PrivacyPolicyICON"],["Terms of service","TermsOfServiceICON"],["About us","TermsOfServiceICON"]]
+    let settingOptions: [[String]] = [["Home","FeedbackICON"],["Give us feedback","FeedbackICON"],["Privacy policy","PrivacyPolicyICON"],["Terms of service","TermsOfServiceICON"],
+                                      ["About us","TermsOfServiceICON"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +70,9 @@ class LeftMenuController: UIViewController, UICollectionViewDataSource,UICollect
             return
         case 3:
            
+            return
+        case 4:
+            
             return
         default:
             return
