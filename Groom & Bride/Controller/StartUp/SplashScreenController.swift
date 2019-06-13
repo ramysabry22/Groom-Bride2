@@ -12,8 +12,8 @@ class SplashScreenController: UIViewController {
 
      @objc func ShowViewController(){
         LoadingActivityIndicator.stopAnimating()
-        let storyboard = UIStoryboard(name: "LoginBoard", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "OnBoardingScreens") as! OnBoardingScreens
+        let storyboard = UIStoryboard(name: "SideMenu", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "MyProfile") as! MyProfileController
         let loginComponent = UINavigationController(rootViewController: controller)
         loginComponent.isNavigationBarHidden = true
         present(loginComponent, animated: true, completion: nil)

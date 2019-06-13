@@ -10,7 +10,7 @@ import UIKit
 
 class LoginComponentNavigationController: UINavigationController {
    
-   weak var delegateee: HomeController?
+  // weak var delegateee: HomeController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class LoginComponentNavigationController: UINavigationController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        delegateee?.didBackButtonPressed()
+     //   delegateee?.didBackButtonPressed()
        navigationController?.isNavigationBarHidden = false
     }
 }

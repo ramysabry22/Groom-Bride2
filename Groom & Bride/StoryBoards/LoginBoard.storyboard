@@ -176,7 +176,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="WnO-gT-t9G">
-                                        <rect key="frame" x="0.0" y="197.5" width="290" height="228"/>
+                                        <rect key="frame" x="0.0" y="197" width="290" height="228"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tLj-QY-bla" customClass="CustomTextField" customModule="Groom___Bride" customModuleProvider="target">
                                                 <rect key="frame" x="15" y="0.0" width="260" height="45"/>
@@ -212,7 +212,7 @@
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgD-th-xXQ">
                                                         <rect key="frame" x="15" y="55" width="260" height="45"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -253,8 +253,8 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have account?" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="drJ-N5-ue5">
-                                        <rect key="frame" x="79" y="481" width="132" height="17"/>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                        <rect key="frame" x="75" y="480" width="140" height="18"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -265,14 +265,14 @@
                                 </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmailICON7777" translatesAutoresizingMaskIntoConstraints="NO" id="9Pe-ox-Xav">
-                                <rect key="frame" x="45" y="256" width="20" height="18"/>
+                                <rect key="frame" x="45" y="255.5" width="20" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="aFT-nv-LOL"/>
                                     <constraint firstAttribute="height" constant="18" id="ub2-8v-uZe"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasswordICON7777" translatesAutoresizingMaskIntoConstraints="NO" id="mIE-nJ-d68">
-                                <rect key="frame" x="45" y="320" width="20" height="18"/>
+                                <rect key="frame" x="45" y="319.5" width="20" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="B6J-2o-EcA"/>
                                     <constraint firstAttribute="width" constant="20" id="Uwy-Yv-Jx4"/>
@@ -604,7 +604,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="t5h-9n-5Qp">
-                                        <rect key="frame" x="0.0" y="171" width="290" height="280.5"/>
+                                        <rect key="frame" x="0.0" y="189" width="290" height="244.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasswordICON7777" translatesAutoresizingMaskIntoConstraints="NO" id="Hg2-Fc-tIW">
                                                 <rect key="frame" x="130" y="0.0" width="30" height="40"/>
@@ -613,14 +613,14 @@
                                                     <constraint firstAttribute="width" constant="30" id="EYL-AD-uTu"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please, write your email and click send button, the system will send you email on this email." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rav-Kw-0wq">
-                                                <rect key="frame" x="15" y="59" width="260" height="54"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We will send you an email" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rav-Kw-0wq">
+                                                <rect key="frame" x="15" y="59" width="260" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U9K-b0-Epf" customClass="CustomTextField" customModule="Groom___Bride" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="132" width="260" height="45"/>
+                                                <rect key="frame" x="15" y="96" width="260" height="45"/>
                                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="7kU-53-2A8"/>
@@ -635,7 +635,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="vZP-5J-HQ3">
-                                                <rect key="frame" x="0.0" y="196" width="290" height="84.5"/>
+                                                <rect key="frame" x="0.0" y="160" width="290" height="84.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bd0-1h-fzC">
                                                         <rect key="frame" x="15" y="0.0" width="260" height="20.5"/>
@@ -692,7 +692,7 @@
                                 </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmailICON7777" translatesAutoresizingMaskIntoConstraints="NO" id="Qy0-lm-sXb">
-                                <rect key="frame" x="45" y="361.5" width="20" height="18"/>
+                                <rect key="frame" x="45" y="343.5" width="20" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="ZZt-oJ-4yK"/>
                                     <constraint firstAttribute="width" constant="20" id="rFr-Dm-4CA"/>
@@ -727,7 +727,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lSh-Cr-ZtF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2483" y="145"/>
+            <point key="canvasLocation" x="2511" y="145"/>
         </scene>
     </scenes>
     <resources>
