@@ -1,30 +1,23 @@
-//
-//  SearchController.swift
-//  Groom & Bride
-//
-//  Created by Ramy Ayman Sabry on 6/13/19.
-//  Copyright © 2019 Ramy Ayman Sabry. All rights reserved.
-//
 
 import UIKit
 
-class SearchController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     @IBOutlet weak var collectionView1: UICollectionView!
-    @IBOutlet weak var searchTextField: CustomTextField!
     @IBOutlet weak var emptyLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-       
-        self.collectionView1.register(UINib(nibName: "HallCell", bundle: nil), forCellWithReuseIdentifier: "HallCell")
+        
+        self.collectionView1.register(UINib(nibName: "FavoriteHallCell", bundle: nil), forCellWithReuseIdentifier: "FavoriteHallCell")
         collectionView1.delegate = self
         collectionView1.dataSource = self
     }
     
     // MARK:- CollectionView
-/*********************************************************************************/
+    /*********************************************************************************/
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -32,13 +25,15 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
         return 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: HallCell = collectionView1.dequeueReusableCell(withReuseIdentifier: "HallCell", for: indexPath) as! HallCell
+        let cell: FavoriteHallCell = collectionView1.dequeueReusableCell(withReuseIdentifier: "FavoriteHallCell", for: indexPath) as! FavoriteHallCell
+        
+        
         
         cell.backgroundColor = UIColor.white
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-      
+        
         let cellHeight = max(270, view.frame.height/3)
         return CGSize(width: view.frame.width, height: cellHeight)
     }
@@ -48,13 +43,7 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
     }
     
     
-    @IBAction func SearchButtonTapped(_ sender: UIButton) {
-        
-        
-        
-    }
     
-
     func setupNavigationBar(){
         navigationController?.navigationBar.barStyle = .default
         view.backgroundColor = UIColor.white
@@ -76,10 +65,10 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
         leftButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
         leftButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         leftButton.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)  
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
     }
     @objc func leftButtonAction(){
-       navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
-
+    
 }

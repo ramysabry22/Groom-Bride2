@@ -108,8 +108,14 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         button1.backgroundColor = UIColor.gray
     }
     @objc func SearchViewTapped(sender: UITapGestureRecognizer){
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "SearchController") as! SearchController
+        
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "SearchController") as! SearchController
+        let controller = storyboard.instantiateViewController(withIdentifier: "FavoritesController") as! FavoritesController
+        
+        
        navigationController?.pushViewController(controller, animated: true)
     }
     

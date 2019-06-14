@@ -54,6 +54,9 @@
 		F0C6BB0522B2AE9C00C27641 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C6BB0322B2AE9C00C27641 /* FilterCell.swift */; };
 		F0C6BB0622B2AE9C00C27641 /* FilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C6BB0422B2AE9C00C27641 /* FilterCell.xib */; };
 		F0C6BB0822B2BCBE00C27641 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C6BB0722B2BCBE00C27641 /* SearchController.swift */; };
+		F0C6BB0A22B36AD900C27641 /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C6BB0922B36AD900C27641 /* FavoritesController.swift */; };
+		F0C6BB0D22B36ED900C27641 /* FavoriteHallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C6BB0B22B36ED900C27641 /* FavoriteHallCell.swift */; };
+		F0C6BB0E22B36ED900C27641 /* FavoriteHallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C6BB0C22B36ED900C27641 /* FavoriteHallCell.xib */; };
 		F0DD665522AE589F006F55A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0DD665422AE589F006F55A9 /* LaunchScreen.storyboard */; };
 		F0FB6815222EDBCF00F67973 /* FavoriteCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FB6814222EDBCF00F67973 /* FavoriteCustomCell.swift */; };
 		F0FB6817222EE0E800F67973 /* NotificationsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FB6816222EE0E800F67973 /* NotificationsCustomCell.swift */; };
@@ -114,6 +117,9 @@
 		F0C6BB0322B2AE9C00C27641 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		F0C6BB0422B2AE9C00C27641 /* FilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCell.xib; sourceTree = "<group>"; };
 		F0C6BB0722B2BCBE00C27641 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
+		F0C6BB0922B36AD900C27641 /* FavoritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
+		F0C6BB0B22B36ED900C27641 /* FavoriteHallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteHallCell.swift; sourceTree = "<group>"; };
+		F0C6BB0C22B36ED900C27641 /* FavoriteHallCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteHallCell.xib; sourceTree = "<group>"; };
 		F0DD665422AE589F006F55A9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0FB6814222EDBCF00F67973 /* FavoriteCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCustomCell.swift; sourceTree = "<group>"; };
 		F0FB6816222EE0E800F67973 /* NotificationsCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCustomCell.swift; sourceTree = "<group>"; };
@@ -195,6 +201,9 @@
 				F0C6BB0322B2AE9C00C27641 /* FilterCell.swift */,
 				F0C6BB0422B2AE9C00C27641 /* FilterCell.xib */,
 				F0C6BB0722B2BCBE00C27641 /* SearchController.swift */,
+				F0C6BB0922B36AD900C27641 /* FavoritesController.swift */,
+				F0C6BB0B22B36ED900C27641 /* FavoriteHallCell.swift */,
+				F0C6BB0C22B36ED900C27641 /* FavoriteHallCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -392,6 +401,7 @@
 				F0249AE5228786330019433A /* GoogleService-Info.plist in Resources */,
 				F0DD665522AE589F006F55A9 /* LaunchScreen.storyboard in Resources */,
 				F0C6BB0622B2AE9C00C27641 /* FilterCell.xib in Resources */,
+				F0C6BB0E22B36ED900C27641 /* FavoriteHallCell.xib in Resources */,
 				F090E53F22ACB53F00FA121B /* Main.storyboard in Resources */,
 				F0C6BB0222B29EFA00C27641 /* HallCell.xib in Resources */,
 			);
@@ -479,6 +489,7 @@
 			files = (
 				F0FB6815222EDBCF00F67973 /* FavoriteCustomCell.swift in Sources */,
 				F0966F94222C0E9C00FA4FEA /* Extentios.swift in Sources */,
+				F0C6BB0D22B36ED900C27641 /* FavoriteHallCell.swift in Sources */,
 				F0C6BB0122B29EFA00C27641 /* HallCell.swift in Sources */,
 				F0966FB3222D82FF00FA4FEA /* DetailedHallController.swift in Sources */,
 				F0966FB5222D8B2F00FA4FEA /* CustomMoreHeader.swift in Sources */,
@@ -511,6 +522,7 @@
 				F0C6BB0822B2BCBE00C27641 /* SearchController.swift in Sources */,
 				F0282CF52277222C005CAA4A /* HallsServices.swift in Sources */,
 				F0282CF722772239005CAA4A /* ClientServices.swift in Sources */,
+				F0C6BB0A22B36AD900C27641 /* FavoritesController.swift in Sources */,
 				F0C6BB0522B2AE9C00C27641 /* FilterCell.swift in Sources */,
 				F08CEFD822B15B4200C55571 /* AboutUsController.swift in Sources */,
 				F0966FB7222D8B4D00FA4FEA /* CustomMoreCell.swift in Sources */,
