@@ -20,16 +20,16 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cairo Hotel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fUs-tW-SJV">
-                        <rect key="frame" x="53" y="42" width="76.5" height="18"/>
+                        <rect key="frame" x="48" y="42" width="76.5" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HomeICON777" translatesAutoresizingMaskIntoConstraints="NO" id="iA8-c3-0Zf">
-                        <rect key="frame" x="15" y="37" width="28" height="28"/>
+                        <rect key="frame" x="15" y="39.5" width="23" height="23"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="28" id="Krq-je-Lgh"/>
-                            <constraint firstAttribute="height" constant="28" id="OFu-rz-a9d"/>
+                            <constraint firstAttribute="width" constant="23" id="Krq-je-Lgh"/>
+                            <constraint firstAttribute="height" constant="23" id="OFu-rz-a9d"/>
                         </constraints>
                     </imageView>
                 </subviews>

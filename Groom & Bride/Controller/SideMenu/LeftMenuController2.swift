@@ -152,8 +152,10 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
     //   MARK :- Components
 /**********************************************************************************************/
     private func setupViews(){
+         guard let window = UIApplication.shared.keyWindow else { return }
+        
         view.addSubview(collectionView)
-        collectionView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: -20, left: 0, bottom: 0, right: 0))
+        collectionView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: -window.safeAreaInsets.top, left: 0, bottom: 0, right: 0))
         
         collectionView.register(LeftMenuHeader2.self, forSupplementaryViewOfKind:UICollectionView.elementKindSectionHeader, withReuseIdentifier: self.headerID)
         collectionView.register(LeftMenuCell.self, forCellWithReuseIdentifier: cellId)

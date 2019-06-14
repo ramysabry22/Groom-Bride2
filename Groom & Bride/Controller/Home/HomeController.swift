@@ -19,7 +19,9 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
     lazy var menuLeftNavigationController2 = UISideMenuNavigationController(rootViewController: leftMenu2)
     
     var allHalls: [Hall] = []
-    var filterItems: [String] = ["All", "Hotel", "Club", "Yacht", "Villa", "Open Air", "Individual"]
+    var filterCollection: [[String]] = [["All","AllICON777.png"],["Hotel","HotelICON777"],
+                                        ["Club","ClubICON777"],["Yacht","YachtICON777"],
+                                        ["Villa","VillaICON777"],["Individual","IndividualICON777"],]
     var firstOpen = true
     
     override func viewDidLoad() {
@@ -108,14 +110,10 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         button1.backgroundColor = UIColor.gray
     }
     @objc func SearchViewTapped(sender: UITapGestureRecognizer){
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "SearchController") as! SearchController
         
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "FavoritesController") as! FavoritesController
-        
-        
+        let controller = storyboard.instantiateViewController(withIdentifier: "SearchController") as! SearchController
        navigationController?.pushViewController(controller, animated: true)
     }
     
