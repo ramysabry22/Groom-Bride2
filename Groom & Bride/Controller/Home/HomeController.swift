@@ -31,7 +31,7 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         self.collectionView1.register(UINib(nibName: "FilterCell", bundle: nil), forCellWithReuseIdentifier: "FilterCell")
         collectionView1.delegate = self
         collectionView1.dataSource = self
-        
+       
         searchView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SearchViewTapped)))
     }
     override func viewWillAppear(_ animated: Bool) {

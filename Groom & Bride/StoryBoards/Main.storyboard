@@ -150,11 +150,12 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="6Lb-Qz-FD5"/>
                                         </constraints>
+                                        <inset key="scrollIndicatorInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4E6-8p-p0h">
                                             <size key="itemSize" width="101" height="43"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells/>
                                     </collectionView>
@@ -175,12 +176,12 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tn0-NP-cwK">
                                 <rect key="frame" x="0.0" y="170" width="375" height="497"/>
                                 <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="scrollIndicatorInsets" minX="0.0" minY="12" maxX="0.0" maxY="0.0"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="12" maxX="0.0" maxY="25"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O4q-he-NIM">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="12" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="12" maxX="0.0" maxY="25"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
@@ -255,12 +256,12 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B32-5M-Gci">
                                 <rect key="frame" x="0.0" y="60" width="375" height="607"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="scrollIndicatorInsets" minX="0.0" minY="12" maxX="0.0" maxY="0.0"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="12" maxX="0.0" maxY="25"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CTS-Jk-yNh">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="12" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="12" maxX="0.0" maxY="25"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
@@ -329,12 +330,12 @@ Looking for</string>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0cu-Oj-ScG">
                                 <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.97647058819999999" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="scrollIndicatorInsets" minX="0.0" minY="12" maxX="0.0" maxY="0.0"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="12" maxX="0.0" maxY="25"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gMy-3o-JgU">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="12" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="12" maxX="0.0" maxY="25"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
@@ -369,6 +370,21 @@ your favorites</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsH-gt-pGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1594" y="869"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QHZ-fF-33f">
+            <objects>
+                <viewController id="mMZ-h3-v4g" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JLs-do-Poy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="bHL-7f-rmy"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ObP-bw-WVE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2510" y="866"/>
         </scene>
     </scenes>
     <resources>

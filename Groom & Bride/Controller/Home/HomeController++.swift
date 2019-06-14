@@ -26,7 +26,7 @@ extension HomeController {
             let cell: FilterCell = collectionView1.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as! FilterCell
             
             cell.titleLabel.text = filterItems[indexPath.row]
-            cell.backgroundColor = UIColor.clear
+            cell.backgroundColor = UIColor.red
             return cell
         }
     }
@@ -37,13 +37,14 @@ extension HomeController {
             return CGSize(width: view.frame.width, height: cellHeight)
         }else {
             
-            let cellWidth = estimateFrameForSubTitleText(filterItems[indexPath.row]).width + 70
+             let cellWidth = estimateFrameForSubTitleText(filterItems[indexPath.row]).width + 70
              return CGSize(width: cellWidth, height: 45)
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
-        return 10
+         if collectionView == collectionView2 { return 13 }
+         else { return 200 }
     }
     
     
