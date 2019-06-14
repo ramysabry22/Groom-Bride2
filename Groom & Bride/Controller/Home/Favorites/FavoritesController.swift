@@ -17,7 +17,7 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
     }
     
     // MARK:- CollectionView
-    /*********************************************************************************/
+/*********************************************************************************/
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -60,7 +60,7 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
         
         let leftButton = UIButton(type: .custom)
         leftButton.setImage(UIImage(named: "BackICON77777")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        leftButton.tintColor = UIColor.black
+        leftButton.tintColor = UIColor.mainAppPink()
         leftButton.translatesAutoresizingMaskIntoConstraints = false
         leftButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
         leftButton.heightAnchor.constraint(equalToConstant: 20).isActive = true

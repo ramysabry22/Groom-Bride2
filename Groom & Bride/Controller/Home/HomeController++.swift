@@ -26,7 +26,7 @@ extension HomeController {
             let cell: FilterCell = collectionView1.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as! FilterCell
             
             cell.titleLabel.text = filterItems[indexPath.row]
-            cell.backgroundColor = UIColor.red
+            cell.backgroundColor = UIColor.clear
             return cell
         }
     }
@@ -46,7 +46,13 @@ extension HomeController {
          if collectionView == collectionView2 { return 13 }
          else { return 200 }
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "DetailedHallController") as! DetailedHallController
+        navigationController?.pushViewController(controller, animated: true)
+    }
     
     
     

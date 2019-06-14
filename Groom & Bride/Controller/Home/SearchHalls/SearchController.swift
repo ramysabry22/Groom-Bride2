@@ -71,7 +71,7 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
         
         let leftButton = UIButton(type: .custom)
         leftButton.setImage(UIImage(named: "BackICON77777")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        leftButton.tintColor = UIColor.black
+        leftButton.tintColor = UIColor.mainAppPink()
         leftButton.translatesAutoresizingMaskIntoConstraints = false
         leftButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
         leftButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
