@@ -369,7 +369,7 @@ your favorites</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsH-gt-pGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1594" y="869"/>
+            <point key="canvasLocation" x="1575" y="869"/>
         </scene>
         <!--Detailed Hall Controller-->
         <scene sceneID="QHZ-fF-33f">

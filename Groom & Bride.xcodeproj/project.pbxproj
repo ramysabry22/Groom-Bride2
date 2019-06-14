@@ -188,6 +188,16 @@
 			path = SearchHalls;
 			sourceTree = "<group>";
 		};
+		F031C80722B3E0150070CABC /* SwrailedHall */ = {
+			isa = PBXGroup;
+			children = (
+				F0966FB2222D82FF00FA4FEA /* DetailedHallController.swift */,
+				F031C80322B395A00070CABC /* DetailedHallCustomCell.swift */,
+				F031C80522B3BC0A0070CABC /* MapViewController.swift */,
+			);
+			path = SwrailedHall;
+			sourceTree = "<group>";
+		};
 		F032A33E2278E1AC000FC5C8 /* StartUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,17 +213,15 @@
 		F06601C22279AD07006E67D9 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				F0966FB2222D82FF00FA4FEA /* DetailedHallController.swift */,
-				F031C80322B395A00070CABC /* DetailedHallCustomCell.swift */,
 				F0966F8C222C0E9C00FA4FEA /* HomeController.swift */,
 				F0C6BAFD22B2700F00C27641 /* HomeController++.swift */,
 				F0C6BAFF22B29EFA00C27641 /* HallCell.swift */,
 				F0C6BB0022B29EFA00C27641 /* HallCell.xib */,
 				F0C6BB0322B2AE9C00C27641 /* FilterCell.swift */,
 				F0C6BB0422B2AE9C00C27641 /* FilterCell.xib */,
+				F031C80722B3E0150070CABC /* SwrailedHall */,
 				F031C80222B376310070CABC /* SearchHalls */,
 				F031C80122B375D20070CABC /* Favorites */,
-				F031C80522B3BC0A0070CABC /* MapViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
