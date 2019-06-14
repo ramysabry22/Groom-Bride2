@@ -28,7 +28,7 @@ extension HomeController {
             let cell: FilterCell = collectionView1.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as! FilterCell
             
             cell.titleLabel.text = filterCollection[indexPath.row][0]
-            cell.imageView.image = UIImage(named: "\(filterCollection[indexPath.row][1])")
+            cell.imageView.image = UIImage(named: "\(filterCollection[indexPath.row][1])")?.withRenderingMode(.alwaysTemplate)
             cell.backgroundColor = UIColor.clear
             return cell
         }
@@ -45,14 +45,18 @@ extension HomeController {
              return CGSize(width: cellWidth, height: 45)
         }
     }
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
          if collectionView == collectionView2 { return 15 }
          else { return 0 }
     }
+    
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if collectionView == collectionView1 {
+        if collectionView == collectionView2 {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "DetailedHallController") as! DetailedHallController
             navigationController?.pushViewController(controller, animated: true)

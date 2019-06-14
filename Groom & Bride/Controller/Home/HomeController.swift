@@ -35,6 +35,8 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         collectionView1.dataSource = self
        
         searchView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SearchViewTapped)))
+        
+        setupFirstFilter()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -42,13 +44,11 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         if firstOpen {
             setupLeftMenuDelegetes()
             setupNavigationBar()
-           // fetchHalls()
-            
             firstOpen = false
         }
        setupLeftMenu()
     }
-    
+
     
     
     // MARK :- Fetch Halls
@@ -91,6 +91,13 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
             SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
         }
     }
+    
+    
+    func setupFirstFilter(){
+        let selectedIndexPath = IndexPath(item: 0, section: 0)
+        collectionView1.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .left)
+    }
+    
     
     func dismissRingIndecator(){
         DispatchQueue.main.async {
@@ -149,17 +156,11 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         leftButton.heightAnchor.constraint(equalToConstant: 23).isActive = true
         leftButton.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
-        
-        
-       
     }
     @objc func leftButtonAction(){
         present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
     }
     
     
-    //    func setupFirstFilter(){
-    //        let selectedIndexPath = IndexPath(item: 0, section: 0)
-    //        filterCollectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .left)
-    //    }
+    
 }

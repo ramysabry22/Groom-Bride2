@@ -13,6 +13,18 @@ class FilterCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
+    override var isSelected: Bool {
+        didSet{
+            if isSelected {
+                titleLabel.textColor = UIColor.mainAppPink()
+                imageView.tintColor = UIColor.mainAppPink()
+            }else{
+                titleLabel.textColor = UIColor.black
+                imageView.tintColor = UIColor.black
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
