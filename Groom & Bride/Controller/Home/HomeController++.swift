@@ -22,7 +22,7 @@ extension HomeController {
         if collectionView == collectionView2 {
             let cell: HallCell = collectionView2.dequeueReusableCell(withReuseIdentifier: "HallCell", for: indexPath) as! HallCell
             
-            cell.backgroundColor = UIColor.white
+        
             return cell
         }else {
             let cell: FilterCell = collectionView1.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as! FilterCell
@@ -60,6 +60,53 @@ extension HomeController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "DetailedHallController") as! DetailedHallController
             navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+    
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        if velocity.y > 0 { // hide
+            UIView.animate(withDuration: 0.15, animations: {
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
+                
+                 self.searchLabel.isHidden = true
+                 self.searchView.isHidden = true
+                 self.HomeLabel.alpha = 0
+                 self.HomeLabel.isHidden = true
+                 self.searchIconImage.isHidden = true
+                 self.view.layoutIfNeeded()
+            }, completion: { (finished) in
+            })
+        }
+        else if velocity.y < 0.0 { // show
+            UIView.animate(withDuration: 0.15, animations: {
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                
+                 self.searchLabel.isHidden = false
+                 self.searchView.isHidden = false
+                 self.HomeLabel.isHidden = false
+                 self.searchIconImage.isHidden = false
+                 self.HomeLabel.alpha = 1
+                 self.view.layoutIfNeeded()
+            }, completion: { (finished) in
+            })
+        }
+        else {
+            
+        }
+    }
+    
+    
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        
+        if offsetY > contentHeight - scrollView.frame.size.height {
+            
+            
+            
         }
     }
     

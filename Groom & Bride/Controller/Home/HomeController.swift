@@ -9,9 +9,13 @@ import DropDown
 
 class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
+    @IBOutlet weak var searchIconImage: UIImageView!
+    @IBOutlet weak var HomeLabel: UILabel!
+    @IBOutlet weak var topComponentView: UIView!
     @IBOutlet weak var collectionView1: UICollectionView!
     @IBOutlet weak var collectionView2: UICollectionView!
     @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var searchLabel: UILabel!
     
     let leftMenu1 = LeftMenuController()
     lazy var menuLeftNavigationController = UISideMenuNavigationController(rootViewController: leftMenu1)
@@ -126,7 +130,6 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
     
     func setupNavigationBar(){
         navigationController?.navigationBar.barStyle = .default
-        view.backgroundColor = UIColor.white
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.barTintColor = UIColor(hexString: "#F6F6F6")
