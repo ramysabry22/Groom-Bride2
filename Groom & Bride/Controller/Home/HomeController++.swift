@@ -42,7 +42,7 @@ extension HomeController {
             return CGSize(width: view.frame.width, height: cellHeight)
         }else {
                let cellWidth = estimateFrameForSubTitleText(filterCollection[indexPath.row][0]).width + 15 + view.frame.width/8
-             return CGSize(width: cellWidth, height: 45)
+             return CGSize(width: cellWidth, height: collectionView1.frame.height)
         }
     }
     
