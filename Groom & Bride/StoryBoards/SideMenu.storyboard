@@ -30,7 +30,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="iPI-vy-n9q">
                                         <rect key="frame" x="25" y="207" width="325" height="175"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hz7-To-TGg" customClass="CustomTextField" customModule="Groom___Bride" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hz7-To-TGg" customClass="CustomTextField2" customModule="Groom___Bride" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="325" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="uOm-cN-HbF"/>
@@ -44,7 +44,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ak-UK-u6P" customClass="CustomTextField" customModule="Groom___Bride" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ak-UK-u6P" customClass="CustomTextField2" customModule="Groom___Bride" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="65" width="325" height="45"/>
                                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                                 <constraints>
@@ -59,7 +59,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rca-8q-nVa" customClass="CustomTextField" customModule="Groom___Bride" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rca-8q-nVa" customClass="CustomTextField2" customModule="Groom___Bride" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="130" width="325" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="JdZ-31-Fff"/>
@@ -112,21 +112,21 @@
                                 </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmailICON7777" translatesAutoresizingMaskIntoConstraints="NO" id="kIb-UW-Aj9">
-                                <rect key="frame" x="45" y="325.5" width="20" height="18"/>
+                                <rect key="frame" x="40" y="325.5" width="20" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="Vrw-Co-tQY"/>
                                     <constraint firstAttribute="width" constant="20" id="gY2-Oj-AJU"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasswordICON7777" translatesAutoresizingMaskIntoConstraints="NO" id="iOK-cD-4EO">
-                                <rect key="frame" x="45" y="390.5" width="20" height="18"/>
+                                <rect key="frame" x="40" y="390.5" width="20" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="2cD-RZ-ai5"/>
                                     <constraint firstAttribute="width" constant="20" id="C3y-p3-Egz"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfileICON777" translatesAutoresizingMaskIntoConstraints="NO" id="yp3-d5-CIx">
-                                <rect key="frame" x="45" y="260.5" width="20" height="18"/>
+                                <rect key="frame" x="40" y="260.5" width="20" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="El7-5D-vqb"/>
                                     <constraint firstAttribute="height" constant="18" id="etl-Pd-OPr"/>
@@ -150,11 +150,11 @@
                             <constraint firstItem="kIb-UW-Aj9" firstAttribute="centerY" secondItem="8Ak-UK-u6P" secondAttribute="centerY" id="4eV-qB-qBd"/>
                             <constraint firstItem="NrB-Fh-JPi" firstAttribute="leading" secondItem="WLY-16-1ok" secondAttribute="leading" id="7KR-5h-11n"/>
                             <constraint firstItem="WLY-16-1ok" firstAttribute="trailing" secondItem="NrB-Fh-JPi" secondAttribute="trailing" id="Ahn-Zx-Kt6"/>
-                            <constraint firstItem="iOK-cD-4EO" firstAttribute="leading" secondItem="WLY-16-1ok" secondAttribute="leading" constant="45" id="amC-Zu-Pcx"/>
-                            <constraint firstItem="yp3-d5-CIx" firstAttribute="leading" secondItem="WLY-16-1ok" secondAttribute="leading" constant="45" id="gmU-VS-q8l"/>
+                            <constraint firstItem="iOK-cD-4EO" firstAttribute="leading" secondItem="WLY-16-1ok" secondAttribute="leading" constant="40" id="amC-Zu-Pcx"/>
+                            <constraint firstItem="yp3-d5-CIx" firstAttribute="leading" secondItem="WLY-16-1ok" secondAttribute="leading" constant="40" id="gmU-VS-q8l"/>
                             <constraint firstItem="yp3-d5-CIx" firstAttribute="centerY" secondItem="Hz7-To-TGg" secondAttribute="centerY" id="ij4-Ml-CNg"/>
                             <constraint firstItem="WLY-16-1ok" firstAttribute="bottom" secondItem="NrB-Fh-JPi" secondAttribute="bottom" constant="25" id="mn2-Se-f7e"/>
-                            <constraint firstItem="kIb-UW-Aj9" firstAttribute="leading" secondItem="WLY-16-1ok" secondAttribute="leading" constant="45" id="vKi-jq-Uqh"/>
+                            <constraint firstItem="kIb-UW-Aj9" firstAttribute="leading" secondItem="WLY-16-1ok" secondAttribute="leading" constant="40" id="vKi-jq-Uqh"/>
                             <constraint firstItem="iOK-cD-4EO" firstAttribute="centerY" secondItem="Rca-8q-nVa" secondAttribute="centerY" id="yFV-xu-3AK"/>
                             <constraint firstItem="WLY-16-1ok" firstAttribute="trailing" secondItem="KHJ-Ca-1Yl" secondAttribute="trailing" constant="40" id="zHc-cK-NLR"/>
                         </constraints>
@@ -190,7 +190,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="3Vr-69-sGP">
                                         <rect key="frame" x="25" y="207" width="325" height="175"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="82z-OZ-9KB" customClass="CustomTextField" customModule="Groom___Bride" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="82z-OZ-9KB" customClass="CustomTextField2" customModule="Groom___Bride" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="325" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="tck-dH-ucb"/>
@@ -204,7 +204,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zdz-o8-EFf" customClass="CustomTextField" customModule="Groom___Bride" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zdz-o8-EFf" customClass="CustomTextField2" customModule="Groom___Bride" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="65" width="325" height="45"/>
                                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                                 <constraints>
@@ -219,7 +219,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vHS-97-Rg9" customClass="CustomTextField" customModule="Groom___Bride" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm New Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vHS-97-Rg9" customClass="CustomTextField2" customModule="Groom___Bride" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="130" width="325" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="a5k-1X-sc3"/>
@@ -272,21 +272,21 @@
                                 </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasswordICON7777" translatesAutoresizingMaskIntoConstraints="NO" id="wVT-4H-Ao1">
-                                <rect key="frame" x="45" y="325.5" width="20" height="18"/>
+                                <rect key="frame" x="40" y="325.5" width="20" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="R9B-7b-jqu"/>
                                     <constraint firstAttribute="height" constant="18" id="n0l-Jl-x72"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasswordICON7777" translatesAutoresizingMaskIntoConstraints="NO" id="shg-WS-G2p">
-                                <rect key="frame" x="45" y="390.5" width="20" height="18"/>
+                                <rect key="frame" x="40" y="390.5" width="20" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="3Bn-d2-lFM"/>
                                     <constraint firstAttribute="height" constant="18" id="Fn7-Y9-evD"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasswordICON7777" translatesAutoresizingMaskIntoConstraints="NO" id="CTS-eR-1O5">
-                                <rect key="frame" x="45" y="260.5" width="20" height="18"/>
+                                <rect key="frame" x="40" y="260.5" width="20" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="hMo-16-PXM"/>
                                     <constraint firstAttribute="width" constant="20" id="khT-O9-fzc"/>
@@ -300,10 +300,10 @@
                             <constraint firstItem="wVT-4H-Ao1" firstAttribute="centerY" secondItem="zdz-o8-EFf" secondAttribute="centerY" id="EWX-wf-dOF"/>
                             <constraint firstItem="BZt-j3-cPP" firstAttribute="trailing" secondItem="Lc4-u8-tpb" secondAttribute="trailing" id="GSR-Fu-rQg"/>
                             <constraint firstItem="Lc4-u8-tpb" firstAttribute="leading" secondItem="BZt-j3-cPP" secondAttribute="leading" id="H44-ri-jLV"/>
-                            <constraint firstItem="shg-WS-G2p" firstAttribute="leading" secondItem="BZt-j3-cPP" secondAttribute="leading" constant="45" id="ITE-kM-t36"/>
-                            <constraint firstItem="wVT-4H-Ao1" firstAttribute="leading" secondItem="BZt-j3-cPP" secondAttribute="leading" constant="45" id="g7M-l6-QUq"/>
+                            <constraint firstItem="shg-WS-G2p" firstAttribute="leading" secondItem="BZt-j3-cPP" secondAttribute="leading" constant="40" id="ITE-kM-t36"/>
+                            <constraint firstItem="wVT-4H-Ao1" firstAttribute="leading" secondItem="BZt-j3-cPP" secondAttribute="leading" constant="40" id="g7M-l6-QUq"/>
                             <constraint firstItem="BZt-j3-cPP" firstAttribute="bottom" secondItem="Lc4-u8-tpb" secondAttribute="bottom" constant="25" id="jWi-w8-Vd2"/>
-                            <constraint firstItem="CTS-eR-1O5" firstAttribute="leading" secondItem="BZt-j3-cPP" secondAttribute="leading" constant="45" id="okH-L8-yQJ"/>
+                            <constraint firstItem="CTS-eR-1O5" firstAttribute="leading" secondItem="BZt-j3-cPP" secondAttribute="leading" constant="40" id="okH-L8-yQJ"/>
                             <constraint firstItem="shg-WS-G2p" firstAttribute="centerY" secondItem="vHS-97-Rg9" secondAttribute="centerY" id="ylp-LL-thD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BZt-j3-cPP"/>
@@ -461,13 +461,12 @@ We are here to help you</string>
         <!--Terms Of Service Controller-->
         <scene sceneID="Eok-ly-n3j">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hLV-qe-shP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="TermsOfService" id="kus-k7-RcO" customClass="TermsOfServiceController" customModule="Groom___Bride" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iq1-CC-fmy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Iit-mT-Luo">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Iit-mT-Luo">
                                 <rect key="frame" x="10" y="35" width="355" height="607"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -488,6 +487,7 @@ We are here to help you</string>
                         <outlet property="textView1" destination="Iit-mT-Luo" id="kCE-DX-6Ao"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hLV-qe-shP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="777" y="875"/>
         </scene>
@@ -499,7 +499,7 @@ We are here to help you</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nOg-w7-Cza">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nOg-w7-Cza">
                                 <rect key="frame" x="10" y="35" width="355" height="607"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -532,7 +532,7 @@ We are here to help you</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="y21-sU-1ex">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="y21-sU-1ex">
                                 <rect key="frame" x="10" y="35" width="355" height="607"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>

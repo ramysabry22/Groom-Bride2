@@ -14,7 +14,7 @@ class LeftMenuHeader2: UICollectionViewCell {
         iconImage.heightAnchor.constraint(equalToConstant: 90).isActive = true
      
         addSubview(stackview)
-        stackview.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 10, bottom: frame.height/6, right: 10))
+        stackview.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 10, bottom: frame.height/7, right: 10))
         
         stackview.addArrangedSubview(nameLabel)
         stackview.addArrangedSubview(emailLabel)
@@ -34,7 +34,7 @@ class LeftMenuHeader2: UICollectionViewCell {
         sv.axis  = NSLayoutConstraint.Axis.vertical
         sv.distribution  = UIStackView.Distribution.equalCentering
         sv.alignment = UIStackView.Alignment.center
-        sv.spacing = 7
+        sv.spacing = 4
         return sv
     }()
     let nameLabel: UILabel = {

@@ -42,11 +42,7 @@
 		F0966F9E222C0E9C00FA4FEA /* OnBoardingScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966F8E222C0E9C00FA4FEA /* OnBoardingScreens.swift */; };
 		F0966F9F222C0E9C00FA4FEA /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966F8F222C0E9C00FA4FEA /* SignUpController.swift */; };
 		F0966FA0222C0E9C00FA4FEA /* SplashScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966F90222C0E9C00FA4FEA /* SplashScreenController.swift */; };
-		F0966FAF222D5B1E00FA4FEA /* HomeCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966FAE222D5B1E00FA4FEA /* HomeCustomCell.swift */; };
 		F0966FB3222D82FF00FA4FEA /* DetailedHallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966FB2222D82FF00FA4FEA /* DetailedHallController.swift */; };
-		F0966FB5222D8B2F00FA4FEA /* CustomMoreHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966FB4222D8B2F00FA4FEA /* CustomMoreHeader.swift */; };
-		F0966FB7222D8B4D00FA4FEA /* CustomMoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966FB6222D8B4D00FA4FEA /* CustomMoreCell.swift */; };
-		F0966FB9222EB1A000FA4FEA /* CollectionsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966FB8222EB1A000FA4FEA /* CollectionsCustomCell.swift */; };
 		F0C6BAFE22B2700F00C27641 /* HomeController++.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C6BAFD22B2700F00C27641 /* HomeController++.swift */; };
 		F0C6BB0122B29EFA00C27641 /* HallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C6BAFF22B29EFA00C27641 /* HallCell.swift */; };
 		F0C6BB0222B29EFA00C27641 /* HallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C6BB0022B29EFA00C27641 /* HallCell.xib */; };
@@ -101,11 +97,7 @@
 		F0966F8E222C0E9C00FA4FEA /* OnBoardingScreens.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingScreens.swift; sourceTree = "<group>"; };
 		F0966F8F222C0E9C00FA4FEA /* SignUpController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		F0966F90222C0E9C00FA4FEA /* SplashScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenController.swift; sourceTree = "<group>"; };
-		F0966FAE222D5B1E00FA4FEA /* HomeCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomCell.swift; sourceTree = "<group>"; };
 		F0966FB2222D82FF00FA4FEA /* DetailedHallController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedHallController.swift; sourceTree = "<group>"; };
-		F0966FB4222D8B2F00FA4FEA /* CustomMoreHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMoreHeader.swift; sourceTree = "<group>"; };
-		F0966FB6222D8B4D00FA4FEA /* CustomMoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMoreCell.swift; sourceTree = "<group>"; };
-		F0966FB8222EB1A000FA4FEA /* CollectionsCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsCustomCell.swift; sourceTree = "<group>"; };
 		F0AABD6622878703007AF6C9 /* Groom & Bride.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Groom & Bride.entitlements"; sourceTree = "<group>"; };
 		F0C6BAFD22B2700F00C27641 /* HomeController++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeController++.swift"; sourceTree = "<group>"; };
 		F0C6BAFF22B29EFA00C27641 /* HallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallCell.swift; sourceTree = "<group>"; };
@@ -188,14 +180,14 @@
 			path = SearchHalls;
 			sourceTree = "<group>";
 		};
-		F031C80722B3E0150070CABC /* SwrailedHall */ = {
+		F031C80722B3E0150070CABC /* DetailedHall */ = {
 			isa = PBXGroup;
 			children = (
 				F0966FB2222D82FF00FA4FEA /* DetailedHallController.swift */,
 				F031C80322B395A00070CABC /* DetailedHallCustomCell.swift */,
 				F031C80522B3BC0A0070CABC /* MapViewController.swift */,
 			);
-			path = SwrailedHall;
+			path = DetailedHall;
 			sourceTree = "<group>";
 		};
 		F032A33E2278E1AC000FC5C8 /* StartUp */ = {
@@ -219,7 +211,7 @@
 				F0C6BB0022B29EFA00C27641 /* HallCell.xib */,
 				F0C6BB0322B2AE9C00C27641 /* FilterCell.swift */,
 				F0C6BB0422B2AE9C00C27641 /* FilterCell.xib */,
-				F031C80722B3E0150070CABC /* SwrailedHall */,
+				F031C80722B3E0150070CABC /* DetailedHall */,
 				F031C80222B376310070CABC /* SearchHalls */,
 				F031C80122B375D20070CABC /* Favorites */,
 			);
@@ -306,10 +298,6 @@
 			isa = PBXGroup;
 			children = (
 				F0966F89222C0E9C00FA4FEA /* PageCell.swift */,
-				F0966FAE222D5B1E00FA4FEA /* HomeCustomCell.swift */,
-				F0966FB6222D8B4D00FA4FEA /* CustomMoreCell.swift */,
-				F0966FB4222D8B2F00FA4FEA /* CustomMoreHeader.swift */,
-				F0966FB8222EB1A000FA4FEA /* CollectionsCustomCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -506,7 +494,6 @@
 				F0C6BB0D22B36ED900C27641 /* FavoriteHallCell.swift in Sources */,
 				F0C6BB0122B29EFA00C27641 /* HallCell.swift in Sources */,
 				F0966FB3222D82FF00FA4FEA /* DetailedHallController.swift in Sources */,
-				F0966FB5222D8B2F00FA4FEA /* CustomMoreHeader.swift in Sources */,
 				F06601CD2279D024006E67D9 /* LeftMenuController2.swift in Sources */,
 				F0C6BAFE22B2700F00C27641 /* HomeController++.swift in Sources */,
 				F00C6C0A22B1564A0063A146 /* MyProfileController.swift in Sources */,
@@ -526,8 +513,6 @@
 				F0966F9C222C0E9C00FA4FEA /* HomeController.swift in Sources */,
 				F0966F9B222C0E9C00FA4FEA /* SignInController.swift in Sources */,
 				F08CEFD422B15B2200C55571 /* PrivacyPolicyController.swift in Sources */,
-				F0966FAF222D5B1E00FA4FEA /* HomeCustomCell.swift in Sources */,
-				F0966FB9222EB1A000FA4FEA /* CollectionsCustomCell.swift in Sources */,
 				F0966F6D222C0DD100FA4FEA /* AppDelegate.swift in Sources */,
 				F0FB9DCE22344E4C006FE1E0 /* ForgetPasswordController.swift in Sources */,
 				F00C6C0C22B1565C0063A146 /* ChangePasswordController.swift in Sources */,
@@ -538,7 +523,6 @@
 				F0C6BB0A22B36AD900C27641 /* FavoritesController.swift in Sources */,
 				F0C6BB0522B2AE9C00C27641 /* FilterCell.swift in Sources */,
 				F08CEFD822B15B4200C55571 /* AboutUsController.swift in Sources */,
-				F0966FB7222D8B4D00FA4FEA /* CustomMoreCell.swift in Sources */,
 				F010A67722ADD1A300360DEA /* CustomComponents.swift in Sources */,
 				F0966F9A222C0E9C00FA4FEA /* PageCell.swift in Sources */,
 				F0966F9F222C0E9C00FA4FEA /* SignUpController.swift in Sources */,

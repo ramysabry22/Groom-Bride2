@@ -21,7 +21,6 @@ class LeftMenuController: UIViewController, UICollectionViewDataSource,UICollect
         collectionView.reloadData()
     }
     func setupNavigationBar(){
-        view.backgroundColor = UIColor.mainColor2()
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.barTintColor = UIColor.red
@@ -54,26 +53,31 @@ class LeftMenuController: UIViewController, UICollectionViewDataSource,UICollect
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let cellHeight = min(view.frame.height/12, 80)
+        let x = min(view.frame.height/12, 80)
+        let cellHeight = max(x, 50)
         return CGSize(width: view.frame.width, height: cellHeight)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
         switch indexPath.item {
         case 0:
-           
+           self.homeController?.navigationController?.popToRootViewController(animated: false)
+           self.dismiss(animated: true, completion: nil)
             return
         case 1:
-           
+            self.homeController?.goGiveUsFeedback()
+            self.dismiss(animated: true, completion: nil)
             return
         case 2:
-           
+            self.homeController?.goPrivacyPolicy()
+            self.dismiss(animated: true, completion: nil)
             return
         case 3:
-           
+            self.homeController?.goTermsOfService()
+            self.dismiss(animated: true, completion: nil)
             return
         case 4:
-            
+            self.homeController?.goAboutUs()
+             self.dismiss(animated: true, completion: nil)
             return
         default:
             return
@@ -100,16 +104,7 @@ class LeftMenuController: UIViewController, UICollectionViewDataSource,UICollect
     @objc func SignInButtonAction(){
         self.homeController?.showLoginComponent()
     }
-    private func OpenTermsOfService(){
-        if let url = URL(string: "https://www.google.com") {
-            UIApplication.shared.open(url, options: [:])
-        }
-    }
-    private func OpenPrivacyPolicy(){
-        if let url = URL(string: "https://www.google.com") {
-            UIApplication.shared.open(url, options: [:])
-        }
-    }
+
     
     
     //   MARK :- Components

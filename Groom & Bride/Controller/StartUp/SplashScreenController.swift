@@ -16,7 +16,6 @@ class SplashScreenController: UIViewController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "HomeController") as! HomeController
             let homeController = UINavigationController(rootViewController: controller)
-          //  homeController.hidesBarsOnSwipe = true
             present(homeController, animated: true, completion: nil)
         }
         else {

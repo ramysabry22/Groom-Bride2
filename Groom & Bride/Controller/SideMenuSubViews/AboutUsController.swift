@@ -10,23 +10,34 @@ import UIKit
 
 class AboutUsController: UIViewController {
 
-
     @IBOutlet weak var textView1: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar()
 
-        // Do any additional setup after loading the view.
+       
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupNavigationBar(){
+        navigationController?.navigationBar.barStyle = .default
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.barTintColor = UIColor(hexString: "#F6F6F6")
+        navigationController?.isNavigationBarHidden = false
+        navigationItem.title = "About Us"
+        
+        let leftButton = UIButton(type: .custom)
+        leftButton.setImage(UIImage(named: "BackICON77777")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        leftButton.tintColor = UIColor.mainAppPink()
+        leftButton.translatesAutoresizingMaskIntoConstraints = false
+        leftButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        leftButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        leftButton.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
     }
-    */
+    @objc func leftButtonAction(){
+        navigationController?.popViewController(animated: true)
+    }
 
 }

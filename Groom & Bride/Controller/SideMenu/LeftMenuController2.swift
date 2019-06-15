@@ -22,7 +22,7 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
         collectionView.reloadData()
     }
     func setupNavigationBar(){
-        view.backgroundColor = UIColor.mainColor2()
+    //    view.backgroundColor = UIColor.mainColor2()
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.barTintColor = UIColor.red
@@ -30,7 +30,7 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
     }
     
     // MARK :- Collectionview Methods
-    /********************************************************************************************/
+/********************************************************************************************/
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return settingOptions.count
     }
@@ -55,55 +55,51 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let cellHeight = min(view.frame.height/12, 80)
+        let x = min(view.frame.height/12, 80)
+        let cellHeight = max(x, 50)
         return CGSize(width: view.frame.width, height: cellHeight)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath.item)
         switch indexPath.item {
         case 0:
-//            let controller = SavedHallsController()
-//            self.navigationController?.pushViewController(controller, animated: true)
+            self.homeController?.navigationController?.popToRootViewController(animated: false)
+            self.dismiss(animated: true, completion: nil)
             return
         case 1:
-//            let controller = FeedBackController()
-//            self.navigationController?.pushViewController(controller, animated: true)
+              self.homeController?.goMyProfile()
+              self.dismiss(animated: true, completion: nil)
             return
         case 2:
-//            let controller = PrivacyPolicyController()
-//            self.navigationController?.pushViewController(controller, animated: true)
+            self.homeController?.goFavorites()
+             self.dismiss(animated: true, completion: nil)
             return
         case 3:
-//            let controller = TermsOfServiceController()
-//            self.navigationController?.pushViewController(controller, animated: true)
+            self.homeController?.goGiveUsFeedback()
+             self.dismiss(animated: true, completion: nil)
             return
         case 4:
-//            let controller = AboutController()
-//            self.navigationController?.pushViewController(controller, animated: true)
+            self.homeController?.goPrivacyPolicy()
+             self.dismiss(animated: true, completion: nil)
             return
         case 5:
-            //            let controller = AboutController()
-            //            self.navigationController?.pushViewController(controller, animated: true)
+            self.homeController?.goTermsOfService()
+             self.dismiss(animated: true, completion: nil)
             return
         case 6:
-            //            let controller = AboutController()
-            //            self.navigationController?.pushViewController(controller, animated: true)
+            self.homeController?.goAboutUs()
+             self.dismiss(animated: true, completion: nil)
             return
         case 7:
-            //            let controller = AboutController()
-            //            self.navigationController?.pushViewController(controller, animated: true)
-            return
-        case 5:
-//            let appearance = SCLAlertView.SCLAppearance(
-//                showCloseButton: false,
-//                showCircularIcon: false
-//            )
-//            let alertView = SCLAlertView(appearance: appearance)
-//            let button1 = alertView.addButton("Logout", target: self, selector: #selector(handleLogout))
-//            let button2 = alertView.addButton("Cancel"){}
-//            alertView.showInfo("Warning!", subTitle: "Logout ?")
-//            button1.backgroundColor = UIColor.gray
-//            button2.backgroundColor = UIColor.gray
+            let appearance = SCLAlertView.SCLAppearance(
+                showCloseButton: false,
+                showCircularIcon: false
+            )
+            let alertView = SCLAlertView(appearance: appearance)
+            let button1 = alertView.addButton("Logout", target: self, selector: #selector(handleLogout))
+            let button2 = alertView.addButton("Cancel"){}
+            alertView.showInfo("Warning!", subTitle: "Logout ?")
+            button1.backgroundColor = UIColor.gray
+            button2.backgroundColor = UIColor.gray
             return
         default:
             return
@@ -115,7 +111,6 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
         if (UserDefaults.standard.object(forKey: "loggedInClient") != nil) {
             header.nameLabel.text = HelperData.sharedInstance.loggedInClient.userName
             header.emailLabel.text = HelperData.sharedInstance.loggedInClient.userEmail
-          //  header.editButton.addTarget(self, action: #selector(editButtonAction), for: .touchUpInside)
         }
         
         header.backgroundColor = UIColor.white
@@ -123,30 +118,19 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
-        let headerHeight = min(view.frame.height/3, 500)
+        let x = min(view.frame.height/4, 500)
+        let headerHeight = max(x, 160)
         return CGSize(width: view.frame.width, height: headerHeight)
     }
     
     
     //   MARK :- Helper Methods
 /**********************************************************************************************/
-    @objc func editButtonAction(){
-//        let controller = SettingController()
-//        self.navigationController?.pushViewController(controller, animated: true)
-    }
     @objc func  handleLogout() {
         homeController?.signOut()
+     //    self.dismiss(animated: true, completion: nil)
     }
-    private func OpenTermsOfService(){
-        if let url = URL(string: "https://www.google.com") {
-            UIApplication.shared.open(url, options: [:])
-        }
-    }
-    private func OpenPrivacyPolicy(){
-        if let url = URL(string: "https://www.google.com") {
-            UIApplication.shared.open(url, options: [:])
-        }
-    }
+   
     
     
     //   MARK :- Components
@@ -177,7 +161,7 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
         cv.bounces = false
         return cv
     }()
-    
+  
     
 }
 

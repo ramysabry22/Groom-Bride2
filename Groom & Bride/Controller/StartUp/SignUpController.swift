@@ -26,26 +26,25 @@ class SignUpController: UIViewController,UITextFieldDelegate {
     // MARK :-   Main Methods
 /********************************************************************************************/
     @objc func AddNewuser(){
-//        guard let name = userNameTextField.text ,let email = emailTextField.text, let password = passwordTextField.text  else {
-//                return
-//            }
-//        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
-//            sessionDataTask.forEach { $0.cancel() }
-//            uploadData.forEach { $0.cancel() }
-//            downloadData.forEach { $0.cancel() }
-//        }
-//        SVProgressHUD.show()
-//        SVProgressHUD.setDefaultMaskType(.clear)
-//        ApiManager.sharedInstance.registerNewClient(email: email, name: name, password: password) { (valid, msg) in
-//            self.dismissRingIndecator()
-//            if valid {
-//                self.dismiss(animated: true, completion: nil)
-//            }else{
-//                self.PresentCustomError(error: msg)
-//            }
-//        }
+        guard let name = userNameTextField.text ,let email = emailTextField.text, let password = passwordTextField.text  else {
+                return
+            }
+        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+            sessionDataTask.forEach { $0.cancel() }
+            uploadData.forEach { $0.cancel() }
+            downloadData.forEach { $0.cancel() }
+        }
+        SVProgressHUD.show()
+        SVProgressHUD.setDefaultMaskType(.clear)
+        ApiManager.sharedInstance.signUp(email: email, name: name, password: password) { (valid, msg) in
+            self.dismissRingIndecator()
+            if valid {
+                self.dismiss(animated: true, completion: nil)
+            }else{
+                self.PresentCustomError(error: msg)
+            }
+        }
         
-         self.dismiss(animated: true, completion: nil)
     }
 
     

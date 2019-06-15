@@ -66,52 +66,9 @@ extension SCLAlertView {
 }
 
 extension UIColor {
-    static func mainBlue() -> UIColor {
-        return UIColor.init(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
-    }
-    static func signTitleColor() -> UIColor {
-        return UIColor.init(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
-    }
-    static func signSubTitleColor() -> UIColor {
-        return UIColor.init(red: 179/255, green: 179/255, blue: 179/255, alpha: 1)
-    }
-    static func mainColor1() -> UIColor {
-        return UIColor.init(red: 208/255, green: 0/255, blue: 114/255, alpha: 1)
-    }
-    static func mainColor2() -> UIColor {
-        return UIColor(hexString: "#FD6275")
-    }
-    static func mainColor3() -> UIColor {
-        return UIColor(hexString: "#646CED")
-    }
-    
-    
-    static func menuOptionColor1() -> UIColor {
-        return UIColor.init(red: 240/255, green: 35/255, blue: 162/255, alpha: 1)
-    }
-    static func menuOptionColor2() -> UIColor {
-        return UIColor.init(red: 157/255, green: 62/255, blue: 239/255, alpha: 1)
-    }
-    static func menuOptionColor3() -> UIColor {
-        return UIColor.init(red: 78/255, green: 242/255, blue: 121/255, alpha: 1)
-    }
-    static func menuOptionColor4() -> UIColor {
-        return UIColor.init(red: 245/255, green: 208/255, blue: 65/255, alpha: 1)
-    }
-    static func menuOptionColor5() -> UIColor {
-        return UIColor.init(red: 66/255, green: 148/255, blue: 255/255, alpha: 1)
-    }
-    static func menuOptionColor6() -> UIColor {
-        return UIColor.init(red: 252/255, green: 97/255, blue: 1/255, alpha: 1)
-    }
-    // old above to delete
-    
-    
-    
     static func mainAppPink() -> UIColor {
         return UIColor(hexString: "#FD6578")
     }
-    
     
     convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)

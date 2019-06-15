@@ -5,7 +5,7 @@ import Firebase
 import FirebaseAuth
 import SCLAlertView
 import SVProgressHUD
-
+import Alamofire
 
 class ForgetPasswordController: UIViewController,UITextFieldDelegate {
     
@@ -21,11 +21,24 @@ class ForgetPasswordController: UIViewController,UITextFieldDelegate {
     // MARK :-   Main Methods
 /********************************************************************************************/
     @objc func sendResetPassword(){
-//        guard let email = emailTextField.text else {
-//            return
-//        }
-        
-
+        guard let email = emailTextField.text else {
+            return
+        }
+        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+            sessionDataTask.forEach { $0.cancel() }
+            uploadData.forEach { $0.cancel() }
+            downloadData.forEach { $0.cancel() }
+        }
+        SVProgressHUD.show()
+        SVProgressHUD.setDefaultMaskType(.clear)
+        ApiManager.sharedInstance.forgotPassword(email: email) { (valid, msg) in
+            self.dismissRingIndecator()
+            if valid {
+                self.PresentCustomSuccess(error: msg)
+            }else {
+                self.PresentCustomError(error: msg)
+            }
+        }
         
     }
     @IBAction func SendButtonAction(_ sender: UIButton) {

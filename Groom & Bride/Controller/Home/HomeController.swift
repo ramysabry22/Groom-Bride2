@@ -80,14 +80,7 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
             self.present(homeController, animated: true, completion: nil)
         }
     }
-    func signOut(){
-        menuLeftNavigationController2.dismiss(animated: true) {
-            UserDefaults.standard.removeObject(forKey: "loggedInClient")
-            UserDefaults.standard.synchronize()
-            self.setupLeftMenu()
-            // remove from logged in client
-        }
-    }
+    
     func setupLeftMenu(){
         if (UserDefaults.standard.object(forKey: "loggedInClient") != nil) {
             SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController2
@@ -121,8 +114,6 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         button1.backgroundColor = UIColor.gray
     }
     @objc func SearchViewTapped(sender: UITapGestureRecognizer){
-        
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "SearchController") as! SearchController
        navigationController?.pushViewController(controller, animated: true)
@@ -163,6 +154,53 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
     @objc func leftButtonAction(){
         present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
     }
+    
+    
+    // MARK :- Side menu subViews functions
+/********************************************************************************************/
+    func signOut(){
+        menuLeftNavigationController2.dismiss(animated: true) {
+            UserDefaults.standard.removeObject(forKey: "loggedInClient")
+            UserDefaults.standard.synchronize()
+            self.setupLeftMenu()
+        }
+    }
+    func goFavorites(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "FavoritesController") as! FavoritesController
+        navigationController?.pushViewController(controller, animated: false)
+    }
+    
+    func goMyProfile(){
+        let storyboard = UIStoryboard(name: "SideMenu", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "MyProfile") as! MyProfileController
+        navigationController?.pushViewController(controller, animated: false)
+    }
+    func goGiveUsFeedback(){
+        let storyboard = UIStoryboard(name: "SideMenu", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "GiveUsFeedBack") as! FeedbackController2
+        navigationController?.pushViewController(controller, animated: false)
+    }
+    
+    func goPrivacyPolicy(){
+        let storyboard = UIStoryboard(name: "SideMenu", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "PrivacyPolicy") as! PrivacyPolicyController
+        navigationController?.pushViewController(controller, animated: false)
+    }
+    func goTermsOfService(){
+        let storyboard = UIStoryboard(name: "SideMenu", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "TermsOfService") as! TermsOfServiceController
+        navigationController?.pushViewController(controller, animated: false)
+    }
+    func goAboutUs(){
+        let storyboard = UIStoryboard(name: "SideMenu", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "AboutUs") as! AboutUsController
+        navigationController?.pushViewController(controller, animated: false)
+    }
+    
+    
+    
+    
     
     
     
