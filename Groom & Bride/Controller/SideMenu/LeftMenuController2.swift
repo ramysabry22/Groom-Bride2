@@ -90,16 +90,11 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
              self.dismiss(animated: true, completion: nil)
             return
         case 7:
-            let appearance = SCLAlertView.SCLAppearance(
-                showCloseButton: false,
-                showCircularIcon: false
-            )
-            let alertView = SCLAlertView(appearance: appearance)
-            let button1 = alertView.addButton("Logout", target: self, selector: #selector(handleLogout))
-            let button2 = alertView.addButton("Cancel"){}
-            alertView.showInfo("Warning!", subTitle: "Logout ?")
-            button1.backgroundColor = UIColor.gray
-            button2.backgroundColor = UIColor.gray
+            self.show2buttonAlert(title: "Logout", message: "Are you sure you want to logout?", cancelButtonTitle: "Cancel", defaultButtonTitle: "OK") { (yes) in
+                if yes {
+                    self.handleLogout()
+                }
+            }
             return
         default:
             return

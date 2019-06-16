@@ -41,7 +41,8 @@ class SignUpController: UIViewController,UITextFieldDelegate {
             if valid {
                 self.dismiss(animated: true, completion: nil)
             }else{
-                self.PresentCustomError(error: msg)
+                self.show1buttonAlert(title: "Error", message: msg, buttonTitle: "OK") {
+                }
             }
         }
         
@@ -65,16 +66,24 @@ class SignUpController: UIViewController,UITextFieldDelegate {
         return true
     }
     func checkEmptyFields(){
-        guard let _ = passwordTextField.text,  !(passwordTextField.text?.isEmpty)! else {
-             self.PresentCustomError(error: "Enter Password!")
-            return
-        }
         guard let _ = userNameTextField.text,  !(userNameTextField.text?.isEmpty)! else {
-             self.PresentCustomError(error: "Enter your Name!")
+            self.show1buttonAlert(title: "Error", message: "Enter your name!", buttonTitle: "OK") {
+            }
             return
         }
-        guard let _ = emailTextField.text,  !(emailTextField.text?.isEmpty)!else {
-             self.PresentCustomError(error: "Enter your Email!")
+        guard let _ = emailTextField.text,  !(emailTextField.text?.isEmpty)! , emailTextField.text?.isValidEmail() ?? false else {
+            self.show1buttonAlert(title: "Error", message: "Not valid email!", buttonTitle: "OK") {
+            }
+            return
+        }
+        guard let _ = passwordTextField.text,  !(passwordTextField.text?.isEmpty)! else {
+            self.show1buttonAlert(title: "Error", message: "Enter your password!", buttonTitle: "OK") {
+            }
+            return
+        }
+        guard let _ = passwordTextField.text,  passwordTextField.text?.count ?? 0 > 5  else {
+            self.show1buttonAlert(title: "Error", message: "Password must be at least 6 characters!", buttonTitle: "OK") {
+            }
             return
         }
         
@@ -87,17 +96,6 @@ class SignUpController: UIViewController,UITextFieldDelegate {
             SVProgressHUD.setDefaultMaskType(.none)
         }
     }
-    func PresentCustomError(error: String){
-        let appearance = SCLAlertView.SCLAppearance(
-            showCloseButton: false,
-            showCircularIcon: false
-        )
-        let alertView = SCLAlertView(appearance: appearance)
-        let button1 = alertView.addButton("Ok"){}
-        alertView.showInfo("Error!", subTitle: "\(error)")
-        button1.backgroundColor = UIColor.gray
-    }
-    
     
     
     

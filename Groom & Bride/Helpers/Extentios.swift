@@ -49,20 +49,36 @@ extension UIView {
     }
 }
 
-extension SCLAlertView {
+
+extension UIViewController {
     
-    func PresentCustomError(error: String){
-        let appearance = SCLAlertView.SCLAppearance(
-            showCloseButton: false,
-            showCircularIcon: false
-        )
-        let alertView = SCLAlertView(appearance: appearance)
-        let button1 = alertView.addButton("Ok"){}
-        alertView.showInfo("Error!", subTitle: "\(error)")
-        button1.backgroundColor = UIColor.gray
+    func show1buttonAlert(title: String, message: String, buttonTitle: String, callback: @escaping () -> ()) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: {
+            alertAction in
+            callback()
+        }))
+        alert.view.tintColor = UIColor.mainAppPink()
+        self.present(alert, animated: true, completion: nil)
     }
     
+    func show2buttonAlert(title: String, message: String, cancelButtonTitle: String, defaultButtonTitle: String, callback: @escaping (_ defualt: Bool) -> ()) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: cancelButtonTitle, style: .cancel, handler: {
+            alertAction in
+            callback(false)
+        }))
+        
+        alert.addAction(UIAlertAction(title: defaultButtonTitle, style: .default, handler: {
+            alertAction in
+            callback(true)
+        }))
+        
+        alert.view.tintColor = UIColor.mainAppPink()
+        self.present(alert, animated: true, completion: nil)
+    }
     
+   
 }
 
 extension UIColor {

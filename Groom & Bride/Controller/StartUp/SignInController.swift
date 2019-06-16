@@ -44,7 +44,8 @@ class SignInController: UIViewController,UITextFieldDelegate {
             if valid {
                 self.dismiss(animated: true, completion: nil)
             }else{
-                self.PresentCustomError(error: msg)
+                self.show1buttonAlert(title: "Error", message: msg, buttonTitle: "OK", callback: {
+                })
             }
         }
     }
@@ -107,14 +108,17 @@ class SignInController: UIViewController,UITextFieldDelegate {
         return true
     }
     func checkEmptyFields(){
-        guard let _ = passwordTextField.text,  !(passwordTextField.text?.isEmpty)! else {
-            self.PresentCustomError(error: "Enter Password!")
+        guard let _ = emailTextField.text,  !(emailTextField.text?.isEmpty)! , emailTextField.text?.isValidEmail() ?? false else {
+            self.show1buttonAlert(title: "Error", message: "Not valid email!", buttonTitle: "OK") {
+            }
             return
         }
-        guard let _ = emailTextField.text,  !(emailTextField.text?.isEmpty)!else {
-             self.PresentCustomError(error: "Enter your Email!")
+        guard let _ = passwordTextField.text,  !(passwordTextField.text?.isEmpty)!  else {
+            self.show1buttonAlert(title: "Error", message: "Enter your password!", buttonTitle: "OK") {
+            }
             return
         }
+        
           SignInUser()
     }
     
@@ -124,16 +128,7 @@ class SignInController: UIViewController,UITextFieldDelegate {
             SVProgressHUD.setDefaultMaskType(.none)
         }
     }
-    func PresentCustomError(error: String){
-        let appearance = SCLAlertView.SCLAppearance(
-            showCloseButton: false,
-            showCircularIcon: false
-        )
-        let alertView = SCLAlertView(appearance: appearance)
-        let button1 = alertView.addButton("Ok"){}
-        alertView.showInfo("Error!", subTitle: "\(error)")
-        button1.backgroundColor = UIColor.gray
-    }
+    
     
     //     MARK :- eye button on textfield
 /**********************************************************************************************/
