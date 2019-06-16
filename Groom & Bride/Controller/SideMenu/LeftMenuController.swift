@@ -20,12 +20,7 @@ class LeftMenuController: UIViewController, UICollectionViewDataSource,UICollect
         super.viewWillAppear(true)
         collectionView.reloadData()
     }
-    func setupNavigationBar(){
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.navigationBar.barTintColor = UIColor.red
-        self.navigationController?.isNavigationBarHidden = true
-    }
+   
     
     // MARK :- Collectionview Methods
 /********************************************************************************************/
@@ -83,20 +78,20 @@ class LeftMenuController: UIViewController, UICollectionViewDataSource,UICollect
             return
         }
     }
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerID, for: indexPath) as! LeftMenuHeader
-        
-    
-        header.loginButton.addTarget(self, action: #selector(SignInButtonAction), for: .touchUpInside)
-        header.registerButton.addTarget(self, action: #selector(SignInButtonAction), for: .touchUpInside)
-        header.backgroundColor = UIColor.white
-        return header
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        
-        let headerHeight = min(view.frame.height/3, 500)
-        return CGSize(width: view.frame.width, height: headerHeight)
-    }
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerID, for: indexPath) as! LeftMenuHeader
+//
+//
+//        header.loginButton.addTarget(self, action: #selector(SignInButtonAction), for: .touchUpInside)
+//        header.registerButton.addTarget(self, action: #selector(SignInButtonAction), for: .touchUpInside)
+//        header.backgroundColor = UIColor.white
+//        return header
+//    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//
+//        let headerHeight = min(view.frame.height/3, 500)
+//        return CGSize(width: view.frame.width, height: headerHeight)
+//    }
     
     
     //   MARK :- Helper Methods
@@ -104,7 +99,12 @@ class LeftMenuController: UIViewController, UICollectionViewDataSource,UICollect
     @objc func SignInButtonAction(){
         self.homeController?.showLoginComponent()
     }
-
+    func setupNavigationBar(){
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.barTintColor = UIColor.red
+        self.navigationController?.isNavigationBarHidden = true
+    }
     
     
     //   MARK :- Components
@@ -113,17 +113,56 @@ class LeftMenuController: UIViewController, UICollectionViewDataSource,UICollect
         view.addSubview(collectionView)
         guard let window = UIApplication.shared.keyWindow else { return }
         
-        collectionView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: -window.safeAreaInsets.top, left: 0, bottom: 0, right: 0))
+        let x = min(view.frame.height/3, 500)
+        let headerHeight = max(x, 160)
+        view.addSubview(headerView)
+        headerView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,size: CGSize(width: 0, height: headerHeight))
         
-        collectionView.register(LeftMenuHeader.self, forSupplementaryViewOfKind:UICollectionView.elementKindSectionHeader, withReuseIdentifier: self.headerID)
+        headerView.addSubview(iconImage)
+        iconImage.translatesAutoresizingMaskIntoConstraints = false
+        let topPadding =  window.safeAreaInsets.top
+        
+        iconImage.topAnchor.constraint(equalTo: headerView.topAnchor, constant: topPadding).isActive = true
+        iconImage.centerXAnchor.constraint(equalTo: headerView.centerXAnchor, constant: 0).isActive = true
+        iconImage.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        iconImage.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        
+        
+        
+        headerView.addSubview(stackview)
+        stackview.anchor(top: nil, leading: headerView.leadingAnchor, bottom: headerView.bottomAnchor, trailing: headerView.trailingAnchor, padding: .init(top: 0, left: 10, bottom: 5, right: 10), size: CGSize(width: 0, height: 45))
+        
+        stackview.addArrangedSubview(loginButton)
+        stackview.addArrangedSubview(registerButton)
+        
+        let buttonWidth = (view.frame.width-35)/2
+        loginButton.anchor(top: stackview.topAnchor, leading: nil, bottom: stackview.bottomAnchor, trailing: nil, padding: .init(top: 0, left: 0, bottom: 0, right: 0),size: CGSize(width: buttonWidth, height: 45))
+        registerButton.anchor(top: stackview.topAnchor, leading: nil, bottom: stackview.bottomAnchor, trailing: nil, padding: .init(top: 0, left: 0, bottom: 0, right: 0),size: CGSize(width: buttonWidth, height: 45))
+        
+        headerView.addSubview(view1)
+        view1.anchor(top: stackview.topAnchor, leading: loginButton.trailingAnchor, bottom: stackview.bottomAnchor, trailing: nil, padding: .init(top: 5, left: 7, bottom: 5, right: 0),size: CGSize(width: 2, height: 45))
+        
+        headerView.addSubview(view2)
+        view2.anchor(top: nil, leading: headerView.leadingAnchor, bottom: stackview.topAnchor, trailing: headerView.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0),size: CGSize(width: 0, height: 2))
+        
+        headerView.addSubview(view3)
+        view3.anchor(top: stackview.bottomAnchor, leading: headerView.leadingAnchor, bottom: nil, trailing: headerView.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0),size: CGSize(width: 0, height: 5))
+        
+        
+        
+        
+        
+        collectionView.anchor(top: headerView.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0))
         collectionView.register(LeftMenuCell.self, forCellWithReuseIdentifier: cellId)
+//        collectionView.register(LeftMenuHeader.self, forSupplementaryViewOfKind:UICollectionView.elementKindSectionHeader, withReuseIdentifier: self.headerID)
+        
     }
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 0
         layout.sectionHeadersPinToVisibleBounds = false
-        layout.sectionInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = UIColor.mainAppPink()
         cv.delegate = self
@@ -132,10 +171,63 @@ class LeftMenuController: UIViewController, UICollectionViewDataSource,UICollect
         cv.showsVerticalScrollIndicator = false
         cv.showsHorizontalScrollIndicator = false
         cv.alwaysBounceVertical = true
-        cv.bounces = false
         return cv
     }()
-    
+    let headerView: UIView = {
+        let iv = UIView()
+        iv.backgroundColor = UIColor.white
+        return iv
+    }()
+    let iconImage: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "logo2")
+        iv.contentMode = .scaleAspectFit
+        iv.backgroundColor = UIColor.clear
+        return iv
+    }()
+    let stackview: UIStackView = {
+        let sv = UIStackView()
+        sv.axis  = NSLayoutConstraint.Axis.horizontal
+        sv.distribution  = UIStackView.Distribution.fillEqually
+        sv.alignment = UIStackView.Alignment.center
+        sv.spacing = 15
+        return sv
+    }()
+    lazy var loginButton: UIButton = {
+        let button = UIButton.init(type: .system)
+        button.setTitle("Login", for: .normal)
+        button.backgroundColor = UIColor.clear
+        button.setTitleColor(UIColor.mainAppPink(), for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        button.titleLabel?.textAlignment = .left
+        button.addTarget(self, action: #selector(SignInButtonAction), for: .touchUpInside)
+        return button
+    }()
+    lazy var registerButton: UIButton = {
+        let button = UIButton.init(type: .system)
+        button.setTitle("Register", for: .normal)
+        button.backgroundColor = UIColor.clear
+        button.setTitleColor(UIColor.mainAppPink(), for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
+        button.titleLabel?.textAlignment = .left
+        button.addTarget(self, action: #selector(SignInButtonAction), for: .touchUpInside)
+        return button
+    }()
+    let view1: UIView = {
+        let iv = UIView()
+        iv.backgroundColor = UIColor.mainAppPink()
+        return iv
+    }()
+    let view2: UIView = {
+        let iv = UIView()
+        iv.backgroundColor = UIColor(hexString: "#F3EAEA")
+        return iv
+    }()
+    let view3: UIView = {
+        let iv = UIView()
+        iv.backgroundColor = UIColor(hexString: "#F3EAEA")
+        return iv
+    }()
     
 }
 

@@ -19,14 +19,7 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        collectionView.reloadData()
-    }
-    func setupNavigationBar(){
-    //    view.backgroundColor = UIColor.mainColor2()
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.prefersLargeTitles = false
-        navigationController?.navigationBar.barTintColor = UIColor.red
-        self.navigationController?.isNavigationBarHidden = true
+       loadUserInfo()
     }
     
     // MARK :- Collectionview Methods
@@ -90,7 +83,7 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
              self.dismiss(animated: true, completion: nil)
             return
         case 7:
-            self.show2buttonAlert(title: "Logout", message: "Are you sure you want to logout?", cancelButtonTitle: "Cancel", defaultButtonTitle: "OK") { (yes) in
+            self.show2buttonAlert(title: "Logout?", message: "Are you sure you want to logout?", cancelButtonTitle: "Cancel", defaultButtonTitle: "OK") { (yes) in
                 if yes {
                     self.handleLogout()
                 }
@@ -100,23 +93,23 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
             return
         }
     }
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerID, for: indexPath) as! LeftMenuHeader2
-        
-        if (UserDefaults.standard.object(forKey: "loggedInClient") != nil) {
-            header.nameLabel.text = HelperData.sharedInstance.loggedInClient.userName
-            header.emailLabel.text = HelperData.sharedInstance.loggedInClient.userEmail
-        }
-        
-        header.backgroundColor = UIColor.white
-        return header
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        
-        let x = min(view.frame.height/4, 500)
-        let headerHeight = max(x, 160)
-        return CGSize(width: view.frame.width, height: headerHeight)
-    }
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerID, for: indexPath) as! LeftMenuHeader2
+//
+//        if (UserDefaults.standard.object(forKey: "loggedInClient") != nil) {
+//            header.nameLabel.text = HelperData.sharedInstance.loggedInClient.userName
+//            header.emailLabel.text = HelperData.sharedInstance.loggedInClient.userEmail
+//        }
+//
+//        header.backgroundColor = UIColor.white
+//        return header
+//    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//
+//        let x = min(view.frame.height/4, 500)
+//        let headerHeight = max(x, 160)
+//        return CGSize(width: view.frame.width, height: headerHeight)
+//    }
     
     
     //   MARK :- Helper Methods
@@ -125,18 +118,50 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
         homeController?.signOut()
      //    self.dismiss(animated: true, completion: nil)
     }
-   
-    
+    func loadUserInfo(){
+        if (UserDefaults.standard.object(forKey: "loggedInClient") != nil) {
+            nameLabel.text = HelperData.sharedInstance.loggedInClient.userName
+            emailLabel.text = HelperData.sharedInstance.loggedInClient.userEmail
+        }
+    }
+    func setupNavigationBar(){
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.barTintColor = UIColor.red
+        self.navigationController?.isNavigationBarHidden = true
+    }
     
     //   MARK :- Components
 /**********************************************************************************************/
     private func setupViews(){
-         guard let window = UIApplication.shared.keyWindow else { return }
+        guard let window = UIApplication.shared.keyWindow else { return }
+        
+        let x = min(view.frame.height/4, 500)
+        let headerHeight = max(x, 160)
+        view.addSubview(headerView)
+        headerView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,size: CGSize(width: 0, height: headerHeight))
+        
+        headerView.addSubview(iconImage)
+        iconImage.translatesAutoresizingMaskIntoConstraints = false
+        let topPadding =  window.safeAreaInsets.top
+        
+        iconImage.topAnchor.constraint(equalTo: headerView.topAnchor, constant: topPadding).isActive = true
+        iconImage.centerXAnchor.constraint(equalTo: headerView.centerXAnchor, constant: 0).isActive = true
+        iconImage.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        iconImage.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        
+        headerView.addSubview(stackview)
+        stackview.anchor(top: nil, leading: headerView.leadingAnchor, bottom: headerView.bottomAnchor, trailing: headerView.trailingAnchor, padding: .init(top: 0, left: 10, bottom: headerHeight/10, right: 10))
+        
+        stackview.addArrangedSubview(nameLabel)
+        stackview.addArrangedSubview(emailLabel)
+        
+        nameLabel.anchor(top: nil, leading: stackview.leadingAnchor, bottom: nil, trailing: stackview.trailingAnchor)
+        emailLabel.anchor(top: nil, leading: stackview.leadingAnchor, bottom: nil, trailing: stackview.trailingAnchor)
+        
         
         view.addSubview(collectionView)
-        collectionView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: -window.safeAreaInsets.top, left: 0, bottom: 0, right: 0))
-        
-        collectionView.register(LeftMenuHeader2.self, forSupplementaryViewOfKind:UICollectionView.elementKindSectionHeader, withReuseIdentifier: self.headerID)
+        collectionView.anchor(top: headerView.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0))
         collectionView.register(LeftMenuCell.self, forCellWithReuseIdentifier: cellId)
     }
     lazy var collectionView: UICollectionView = {
@@ -144,7 +169,7 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 0
         layout.sectionHeadersPinToVisibleBounds = false
-        layout.sectionInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = UIColor.mainAppPink()
         cv.delegate = self
@@ -153,11 +178,48 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
         cv.showsVerticalScrollIndicator = false
         cv.showsHorizontalScrollIndicator = false
         cv.alwaysBounceVertical = true
-        cv.bounces = false
         return cv
     }()
-  
-    
+    let headerView: UIView = {
+        let iv = UIView()
+        iv.backgroundColor = UIColor.white
+        return iv
+    }()
+    let iconImage: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "logo2")
+        iv.contentMode = .scaleAspectFit
+        iv.backgroundColor = UIColor.clear
+        return iv
+    }()
+    let stackview: UIStackView = {
+        let sv = UIStackView()
+        sv.axis  = NSLayoutConstraint.Axis.vertical
+        sv.distribution  = UIStackView.Distribution.equalCentering
+        sv.alignment = UIStackView.Alignment.center
+        sv.spacing = 3
+        return sv
+    }()
+    let nameLabel: UILabel = {
+        let titleL = UILabel()
+        titleL.text = "Name Name Name"
+        titleL.font = UIFont.boldSystemFont(ofSize: 14)
+        titleL.textColor = UIColor.mainAppPink()
+        titleL.textAlignment = .center
+        titleL.numberOfLines = 0
+        titleL.backgroundColor = UIColor.clear
+        return titleL
+    }()
+    let emailLabel: UILabel = {
+        let titleL = UILabel()
+        titleL.text = "Email@Email.com"
+        titleL.font = UIFont.systemFont(ofSize: 13)
+        titleL.textColor = UIColor.black
+        titleL.textAlignment = .center
+        titleL.numberOfLines = 0
+        titleL.backgroundColor = UIColor.clear
+        return titleL
+    }()
 }
 
 
