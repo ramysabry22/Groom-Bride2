@@ -13,7 +13,8 @@ class ForgetPasswordController: UIViewController,UITextFieldDelegate {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        SVProgressHUD.setForegroundColor(UIColor.mainAppPink())
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setDefaultStyle(.dark)
         SetupComponentDelegetes()
     }
     
@@ -30,7 +31,6 @@ class ForgetPasswordController: UIViewController,UITextFieldDelegate {
             downloadData.forEach { $0.cancel() }
         }
         SVProgressHUD.show()
-        SVProgressHUD.setDefaultMaskType(.clear)
         ApiManager.sharedInstance.forgotPassword(email: email) { (valid, msg) in
             self.dismissRingIndecator()
             if valid {

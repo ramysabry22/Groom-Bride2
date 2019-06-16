@@ -17,7 +17,8 @@ class SignUpController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SVProgressHUD.setForegroundColor(UIColor.mainAppPink())
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setDefaultStyle(.dark)
         SetupComponentDelegetes()
         ShowVisibleButton()
     }
@@ -35,7 +36,6 @@ class SignUpController: UIViewController,UITextFieldDelegate {
             downloadData.forEach { $0.cancel() }
         }
         SVProgressHUD.show()
-        SVProgressHUD.setDefaultMaskType(.clear)
         ApiManager.sharedInstance.signUp(email: email, name: name, password: password) { (valid, msg) in
             self.dismissRingIndecator()
             if valid {

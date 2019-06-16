@@ -1,7 +1,7 @@
 
 import UIKit
 import SCLAlertView
-
+import SVProgressHUD
 
 extension UIView {
     
@@ -78,8 +78,9 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-   
 }
+
+
 
 extension UIColor {
     static func mainAppPink() -> UIColor {

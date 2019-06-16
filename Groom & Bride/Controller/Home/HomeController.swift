@@ -132,7 +132,6 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         SideMenuManager.default.menuPushStyle = .preserve
         SideMenuManager.defaultManager.menuPresentMode = .viewSlideInOut
         SideMenuManager.default.menuWidth = min(4*(self.view.frame.width/5), 400)
-        
         SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
         
