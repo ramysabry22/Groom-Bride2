@@ -603,7 +603,7 @@
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="t5h-9n-5Qp">
-                                        <rect key="frame" x="0.0" y="198.5" width="290" height="225"/>
+                                        <rect key="frame" x="0.0" y="189.5" width="290" height="243"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PasswordICON7777" translatesAutoresizingMaskIntoConstraints="NO" id="Hg2-Fc-tIW">
                                                 <rect key="frame" x="130" y="0.0" width="30" height="40"/>
@@ -612,14 +612,14 @@
                                                     <constraint firstAttribute="width" constant="30" id="EYL-AD-uTu"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We will send you an email" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rav-Kw-0wq">
-                                                <rect key="frame" x="15" y="50" width="260" height="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We 'll send you password reset link to this email" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rav-Kw-0wq">
+                                                <rect key="frame" x="15" y="50" width="260" height="36"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U9K-b0-Epf" customClass="CustomTextField" customModule="Groom___Bride" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="78" width="260" height="45"/>
+                                                <rect key="frame" x="15" y="96" width="260" height="45"/>
                                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="7kU-53-2A8"/>
@@ -634,7 +634,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="vZP-5J-HQ3">
-                                                <rect key="frame" x="0.0" y="133" width="290" height="92"/>
+                                                <rect key="frame" x="0.0" y="151" width="290" height="92"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cwW-bS-fXE">
                                                         <rect key="frame" x="15" y="0.0" width="260" height="28"/>
@@ -689,7 +689,7 @@
                                 </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EmailICON7777" translatesAutoresizingMaskIntoConstraints="NO" id="Qy0-lm-sXb">
-                                <rect key="frame" x="45" y="335" width="20" height="18"/>
+                                <rect key="frame" x="45" y="344" width="20" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="ZZt-oJ-4yK"/>
                                     <constraint firstAttribute="width" constant="20" id="rFr-Dm-4CA"/>

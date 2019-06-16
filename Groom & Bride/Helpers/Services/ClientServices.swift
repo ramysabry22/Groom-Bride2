@@ -19,7 +19,8 @@ extension ApiManager {
                 let data = jsonResponse as! [String : Any]
                 
                 if data["error"] != nil {
-                    completed(false, "User validation failed")
+                    let errorMessage = data["error"] as! String
+                    completed(false, errorMessage)
                     return
                 }else if data["message"] != nil {
                     if let theJSONData = try? JSONSerialization.data(withJSONObject: data["user"]!) {
@@ -65,7 +66,8 @@ extension ApiManager {
                 let data = jsonResponse as! [String : Any]
                 
                 if data["error"] != nil {
-                    completed(false, "User authentication failed")
+                    let errorMessage = data["error"] as! String
+                    completed(false, errorMessage)
                     return
                 }else if data["message"] != nil {
                     if let userData = data["user"] as? [[String:Any]] {
@@ -114,11 +116,12 @@ extension ApiManager {
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 if data["error"] != nil {
-                    completed(false, "Authentication failed")
+                    let errorMessage = data["error"] as! String
+                    completed(false, errorMessage)
                     return
                 }else if data["message"] != nil {
                     
-                    completed(true, "Email sent to you successfully to reset your password")
+                    completed(true, "Reset link sent successfully, please check your email")
                 }else{
                      completed(false, "Unexpected Error Please Try Again In A While ")
                 }
@@ -128,6 +131,90 @@ extension ApiManager {
             }
         }
         
+    }
+    
+    
+    func updateName(name: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
+        let url = "\(HelperData.sharedInstance.serverBasePath)/users/updateBasicInfo"
+        let parameters: Parameters = [
+            "userName" : name
+            ]
+        let headers: HTTPHeaders = [
+            "Accept": "application/json",
+            "authorization": "Barear \(HelperData.sharedInstance.loggedInClient.token)"
+        ]
+         Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
+             print("**************************************************")
+             print(response)
+            
+            if let jsonResponse = response.result.value{
+                let data = jsonResponse as! [String : Any]
+                
+                if data["error"] != nil {
+                    let errorMessage = data["error"] as! String
+                    completed(false, errorMessage, false)
+                    return
+                }else if data["message"] != nil {
+                    
+                    completed(true, "Changes saved successfully",false)
+                }else if data["refreshToken"] != nil {
+                    HelperData.sharedInstance.loggedInClient.token = data["token"] as! String
+                    HelperData.sharedInstance.loggedInClient.login()
+                    completed(false, "Refresh token",true)
+                }
+                else{
+                    completed(false, "Unexpected Error Please Try Again In A While",false)
+                }
+  
+            }else{
+                completed(false, "Unexpected Error Please Try Again In A While ",false)
+                return
+            }
+        }
+    }
+    
+    
+    
+    
+    func changePassword(oldPassword: String, newPassword: String, reNewPassword: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
+        let url = "\(HelperData.sharedInstance.serverBasePath)/users/setPassword"
+        let parameters: Parameters = [
+            "password" : oldPassword,
+            "newPassword": newPassword,
+            "rePassword":reNewPassword
+        ]
+        let headers: HTTPHeaders = [
+            "Accept": "application/json",
+            "authorization": "Barear \(HelperData.sharedInstance.loggedInClient.token)"
+        ]
+        Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
+            print("**************************************************")
+            print(response)
+            
+            if let jsonResponse = response.result.value{
+                let data = jsonResponse as! [String : Any]
+                
+                if  data["error"] != nil {
+                    let errorMessage = data["error"] as! String
+                    completed(false, errorMessage, false)
+                    return
+                }else if data["message"] != nil {
+                    
+                    completed(true, "Password changed successfully",false)
+                }else if data["refreshToken"] != nil {
+                    HelperData.sharedInstance.loggedInClient.token = data["token"] as! String
+                    HelperData.sharedInstance.loggedInClient.login()
+                    completed(false, "Refresh token",true)
+                }
+                else{
+                    completed(false, "Unexpected Error Please Try Again In A While",false)
+                }
+                
+            }else{
+                completed(false, "Unexpected Error Please Try Again In A While ",false)
+                return
+            }
+        }
     }
     
     

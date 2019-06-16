@@ -67,7 +67,7 @@ class SignUpController: UIViewController,UITextFieldDelegate {
         return true
     }
     func checkEmptyFields(){
-        guard let _ = userNameTextField.text,  !(userNameTextField.text?.isEmpty)! else {
+        guard let _ = userNameTextField.text,  !(userNameTextField.text?.isEmpty)! , userNameTextField.text?.IsValidString() ?? false else {
             self.show1buttonAlert(title: "Error", message: "Enter your name!", buttonTitle: "OK") {
             }
             return
@@ -77,7 +77,7 @@ class SignUpController: UIViewController,UITextFieldDelegate {
             }
             return
         }
-        guard let _ = passwordTextField.text,  !(passwordTextField.text?.isEmpty)! else {
+        guard let _ = passwordTextField.text,  !(passwordTextField.text?.isEmpty)!, passwordTextField.text?.IsValidString() ?? false else {
             self.show1buttonAlert(title: "Error", message: "Enter your password!", buttonTitle: "OK") {
             }
             return

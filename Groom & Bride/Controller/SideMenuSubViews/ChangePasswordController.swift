@@ -1,12 +1,6 @@
-//
-//  ChangePasswordController.swift
-//  Groom & Bride
-//
-//  Created by Ramy Ayman Sabry on 6/12/19.
-//  Copyright © 2019 Ramy Ayman Sabry. All rights reserved.
-//
 
 import UIKit
+import SVProgressHUD
 
 class ChangePasswordController: UIViewController {
 
@@ -19,12 +13,56 @@ class ChangePasswordController: UIViewController {
         setupNavigationBar()
         ShowVisibleButton()
         
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultAnimationType(.native)
+    }
+    
+    
+    func resetPassword(){
+       
+        
+        
     }
     
     @IBAction func ResetPasswordButton(_ sender: UIButton) {
-        print("reset password button")
+        guard let _ = OldPasswordTextField.text,  !(OldPasswordTextField.text?.isEmpty)! , OldPasswordTextField.text?.IsValidString() ?? false else {
+            self.show1buttonAlert(title: "Error", message: "Enter old password!", buttonTitle: "OK") {
+            }
+            return
+        }
+        guard let _ = OldPasswordTextField.text, OldPasswordTextField.text?.count ?? 0 > 5 else {
+            self.show1buttonAlert(title: "Error", message: "Old must be at least 6 characters!", buttonTitle: "OK") {
+            }
+            return
+        }
+        guard let _ = NewPasswordTextField.text,  !(NewPasswordTextField.text?.isEmpty)! , NewPasswordTextField.text?.IsValidString() ?? false else {
+            self.show1buttonAlert(title: "Error", message: "Enter old password!", buttonTitle: "OK") {
+            }
+            return
+        }
+        guard let _ = NewPasswordTextField.text, NewPasswordTextField.text?.count ?? 0 > 5 else {
+            self.show1buttonAlert(title: "Error", message: "Old must be at least 6 characters!", buttonTitle: "OK") {
+            }
+            return
+        }
+        guard let _ = RePasswordTextField.text,  !(RePasswordTextField.text?.isEmpty)! , RePasswordTextField.text?.IsValidString() ?? false else {
+            self.show1buttonAlert(title: "Error", message: "Enter old password!", buttonTitle: "OK") {
+            }
+            return
+        }
+        guard let _ = RePasswordTextField.text, RePasswordTextField.text?.count ?? 0 > 5 else {
+            self.show1buttonAlert(title: "Error", message: "Old must be at least 6 characters!", buttonTitle: "OK") {
+            }
+            return
+        }
+        if NewPasswordTextField.text != RePasswordTextField.text {
+            self.show1buttonAlert(title: "Error", message: "Password doesn't match!", buttonTitle: "OK") {
+            }
+            return
+        }
         
-        
+        resetPassword()
     }
     
     func setupNavigationBar(){
@@ -114,5 +152,11 @@ class ChangePasswordController: UIViewController {
             rightButtonToggle3.isSelected = false
         }
         secure = !secure
+    }
+    func dismissRingIndecator(){
+        DispatchQueue.main.async {
+            SVProgressHUD.dismiss()
+            SVProgressHUD.setDefaultMaskType(.none)
+        }
     }
 }

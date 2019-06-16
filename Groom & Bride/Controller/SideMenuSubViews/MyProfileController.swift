@@ -1,16 +1,11 @@
-//
-//  MyProfileController.swift
-//  Groom & Bride
-//
-//  Created by Ramy Ayman Sabry on 6/12/19.
-//  Copyright © 2019 Ramy Ayman Sabry. All rights reserved.
-//
+
 
 import UIKit
+import SVProgressHUD
+import Alamofire
 
 class MyProfileController: UIViewController {
 
-   
     @IBOutlet weak var NameTextField: UITextField!
     @IBOutlet weak var EmailTextField: UITextField!
     @IBOutlet weak var PasswordTextField: UITextField!
@@ -18,22 +13,61 @@ class MyProfileController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-      NameTextField.text = "Ramy Ayman Sabry"
-       
+        loadUserData()
+        
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultAnimationType(.native)
     }
     
 
+    func saveNewInfo(){
+        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+            sessionDataTask.forEach { $0.cancel() }
+            uploadData.forEach { $0.cancel() }
+            downloadData.forEach { $0.cancel() }
+        }
+        SVProgressHUD.show()
+        let name = NameTextField.text
+        ApiManager.sharedInstance.updateName(name: name!) { (valid, msg, reRequest) in
+            self.dismissRingIndecator()
+            if reRequest {
+                self.saveNewInfo()
+            }
+            else if valid {
+                self.show1buttonAlert(title: "Changes saved", message: "Changes saved successfully", buttonTitle: "OK", callback: {
+                    self.navigationController?.popViewController(animated: true)
+                })
+            }else if !valid {
+                self.show1buttonAlert(title: "Error", message: msg, buttonTitle: "OK", callback: {
+                })
+            }
+            
+        }
+    }
+    
+    @IBAction func ApplyChangesButton(_ sender: UIButton) {
+        guard let _ = NameTextField.text,  !(NameTextField.text?.isEmpty)! , NameTextField.text?.IsValidString() ?? false else {
+            self.show1buttonAlert(title: "Error", message: "Enter your name!", buttonTitle: "OK") {
+            }
+            return
+        }
+        saveNewInfo()
+    }
+    func loadUserData(){
+        if (UserDefaults.standard.object(forKey: "loggedInClient") != nil) {
+            NameTextField.text = HelperData.sharedInstance.loggedInClient.userName
+            EmailTextField.text = HelperData.sharedInstance.loggedInClient.userEmail
+            PasswordTextField.text = "*******"
+        }
+    }
     @IBAction func ChangePasswordButtonAction(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "SideMenu", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "ChangePassword") as! ChangePasswordController
         navigationController?.pushViewController(controller, animated: true)
     }
-    @IBAction func ApplyChangesButton(_ sender: UIButton) {
-        print("Apply changes button")
-        
-        
-    }
-
+    
+    
     func setupNavigationBar(){
         navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.isTranslucent = false
@@ -53,5 +87,11 @@ class MyProfileController: UIViewController {
     }
     @objc func leftButtonAction(){
         navigationController?.popViewController(animated: true)
+    }
+    func dismissRingIndecator(){
+        DispatchQueue.main.async {
+            SVProgressHUD.dismiss()
+            SVProgressHUD.setDefaultMaskType(.none)
+        }
     }
 }
