@@ -15,6 +15,7 @@ class ForgetPasswordController: UIViewController,UITextFieldDelegate {
         super.viewDidLoad()
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultAnimationType(.native)
         SetupComponentDelegetes()
     }
     
