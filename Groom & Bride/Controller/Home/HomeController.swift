@@ -129,7 +129,7 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         
         SideMenuManager.default.menuFadeStatusBar = false
-        SideMenuManager.default.menuPushStyle = .preserve
+        SideMenuManager.default.menuPushStyle = .replace
         SideMenuManager.defaultManager.menuPresentMode = .viewSlideInOut
         SideMenuManager.default.menuWidth = min(4*(self.view.frame.width/5), 400)
         SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
