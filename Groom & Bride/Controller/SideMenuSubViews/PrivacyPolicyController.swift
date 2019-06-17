@@ -1,27 +1,40 @@
-//
-//  PrivacyPolicyController.swift
-//  Groom & Bride
-//
-//  Created by Ramy Ayman Sabry on 6/12/19.
-//  Copyright © 2019 Ramy Ayman Sabry. All rights reserved.
-//
 
 import UIKit
+import Alamofire
+import SVProgressHUD
 
 class PrivacyPolicyController: UIViewController {
-
-
     @IBOutlet weak var textView1: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-      //  textView1.text = ""
+        fetchPrivacy()
 
-
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultAnimationType(.native)
     }
     
-
+    func fetchPrivacy(){
+        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+            sessionDataTask.forEach { $0.cancel() }
+            uploadData.forEach { $0.cancel() }
+            downloadData.forEach { $0.cancel() }
+        }
+        SVProgressHUD.show()
+        ApiManager.sharedInstance.showPrivacy { (valid, data) in
+            self.dismissRingIndecator()
+            if valid {
+                self.textView1.text = data
+            }else {
+                self.show1buttonAlert(title: "Error", message: "Unexpected Error Please Try Again In A While", buttonTitle: "OK", callback: {
+                })
+            }
+        }
+    }
+    
+    
     func setupNavigationBar(){
         navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.isTranslucent = false
@@ -42,5 +55,10 @@ class PrivacyPolicyController: UIViewController {
     @objc func leftButtonAction(){
         navigationController?.popViewController(animated: true)
     }
-
+    func dismissRingIndecator(){
+        DispatchQueue.main.async {
+            SVProgressHUD.dismiss()
+            SVProgressHUD.setDefaultMaskType(.none)
+        }
+    }
 }
