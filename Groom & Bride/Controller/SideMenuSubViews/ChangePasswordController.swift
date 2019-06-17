@@ -1,6 +1,7 @@
 
 import UIKit
 import SVProgressHUD
+import Alamofire
 
 class ChangePasswordController: UIViewController {
 
@@ -19,14 +20,31 @@ class ChangePasswordController: UIViewController {
     }
     
     
-    func resetPassword(){
-       
-        
-        
+    func resetPassword(oldPassword: String, newPassword: String, rePassword: String){
+        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+            sessionDataTask.forEach { $0.cancel() }
+            uploadData.forEach { $0.cancel() }
+            downloadData.forEach { $0.cancel() }
+        }
+        SVProgressHUD.show()
+        ApiManager.sharedInstance.changePassword(oldPassword: oldPassword, newPassword: newPassword, reNewPassword: rePassword) { (valid, msg, reRequest) in
+            self.dismissRingIndecator()
+            if reRequest {
+                self.resetPassword(oldPassword: oldPassword, newPassword: newPassword, rePassword: rePassword)
+            }
+            else if valid {
+                self.show1buttonAlert(title: "Password changed", message: "Password changed sucessfully", buttonTitle: "OK", callback: {
+                    self.navigationController?.popViewController(animated: true)
+                })
+            }else if !valid {
+                self.show1buttonAlert(title: "Error", message: msg, buttonTitle: "OK", callback: {
+                })
+            }
+        }
     }
     
     @IBAction func ResetPasswordButton(_ sender: UIButton) {
-        guard let _ = OldPasswordTextField.text,  !(OldPasswordTextField.text?.isEmpty)! , OldPasswordTextField.text?.IsValidString() ?? false else {
+        guard let oldPassword = OldPasswordTextField.text,  !(OldPasswordTextField.text?.isEmpty)! , OldPasswordTextField.text?.IsValidString() ?? false else {
             self.show1buttonAlert(title: "Error", message: "Enter old password!", buttonTitle: "OK") {
             }
             return
@@ -36,7 +54,7 @@ class ChangePasswordController: UIViewController {
             }
             return
         }
-        guard let _ = NewPasswordTextField.text,  !(NewPasswordTextField.text?.isEmpty)! , NewPasswordTextField.text?.IsValidString() ?? false else {
+        guard let newPassword = NewPasswordTextField.text,  !(NewPasswordTextField.text?.isEmpty)! , NewPasswordTextField.text?.IsValidString() ?? false else {
             self.show1buttonAlert(title: "Error", message: "Enter old password!", buttonTitle: "OK") {
             }
             return
@@ -51,7 +69,7 @@ class ChangePasswordController: UIViewController {
             }
             return
         }
-        guard let _ = RePasswordTextField.text, RePasswordTextField.text?.count ?? 0 > 5 else {
+        guard let rePassword = RePasswordTextField.text, RePasswordTextField.text?.count ?? 0 > 5 else {
             self.show1buttonAlert(title: "Error", message: "Old must be at least 6 characters!", buttonTitle: "OK") {
             }
             return
@@ -62,7 +80,7 @@ class ChangePasswordController: UIViewController {
             return
         }
         
-        resetPassword()
+        resetPassword(oldPassword: oldPassword, newPassword: newPassword, rePassword: rePassword)
     }
     
     func setupNavigationBar(){
@@ -84,7 +102,13 @@ class ChangePasswordController: UIViewController {
     @objc func leftButtonAction(){
         navigationController?.popViewController(animated: true)
     }
-
+    func dismissRingIndecator(){
+        DispatchQueue.main.async {
+            SVProgressHUD.dismiss()
+            SVProgressHUD.setDefaultMaskType(.none)
+        }
+    }
+    
     //     MARK :- eye button on textfield
 /**********************************************************************************************/
     func ShowVisibleButton(){
@@ -152,11 +176,5 @@ class ChangePasswordController: UIViewController {
             rightButtonToggle3.isSelected = false
         }
         secure = !secure
-    }
-    func dismissRingIndecator(){
-        DispatchQueue.main.async {
-            SVProgressHUD.dismiss()
-            SVProgressHUD.setDefaultMaskType(.none)
-        }
     }
 }

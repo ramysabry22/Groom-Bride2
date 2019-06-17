@@ -1,12 +1,6 @@
-//
-//  FeedbackController.swift
-//  Groom & Bride
-//
-//  Created by Ramy Ayman Sabry on 6/12/19.
-//  Copyright © 2019 Ramy Ayman Sabry. All rights reserved.
-//
-
 import UIKit
+import SVProgressHUD
+import Alamofire
 
 class FeedbackController2: UIViewController, UITextViewDelegate {
     
@@ -21,11 +15,46 @@ class FeedbackController2: UIViewController, UITextViewDelegate {
         textView1.layer.borderWidth = 1
         textView1.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.2).cgColor
         textView1.layer.cornerRadius = 6
+        
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultAnimationType(.native)
     }
     
-
+    
+    func sendFeedback(email: String, feedbackString: String){
+        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
+            sessionDataTask.forEach { $0.cancel() }
+            uploadData.forEach { $0.cancel() }
+            downloadData.forEach { $0.cancel() }
+        }
+        SVProgressHUD.show()
+        ApiManager.sharedInstance.sendFeedBack(email: email, feedback: feedbackString) { (valid, msg) in
+            self.dismissRingIndecator()
+            if valid {
+                self.show1buttonAlert(title: "Done", message: "Feedback sent successfully", buttonTitle: "OK", callback: {
+                })
+            }else {
+                self.show1buttonAlert(title: "Error", message: msg, buttonTitle: "OK", callback: {
+                })
+            }
+        }
+    }
+    
+    
     @IBAction func FeedbackButtonAction(_ sender: UIButton) {
+        guard let email = EmailTextField.text,  !(EmailTextField.text?.isEmpty)! , EmailTextField.text?.isValidEmail() ?? false else {
+            self.show1buttonAlert(title: "Error", message: "Not valid email!", buttonTitle: "OK") {
+            }
+            return
+        }
+        guard let feedback = textView1.text,  !(textView1.text?.isEmpty)! , textView1.text?.IsValidString() ?? false else {
+            self.show1buttonAlert(title: "Error", message: "Enter message!", buttonTitle: "OK") {
+            }
+            return
+        }
         
+        sendFeedback(email: email, feedbackString: feedback)
     }
     func textViewDidChange(_ textView: UITextView) {
         textViewPlaceHolderLabel.isHidden = !textView1.text.isEmpty
@@ -48,8 +77,15 @@ class FeedbackController2: UIViewController, UITextViewDelegate {
         leftButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         leftButton.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+        
     }
     @objc func leftButtonAction(){
         navigationController?.popViewController(animated: true)
+    }
+    func dismissRingIndecator(){
+        DispatchQueue.main.async {
+            SVProgressHUD.dismiss()
+            SVProgressHUD.setDefaultMaskType(.none)
+        }
     }
 }

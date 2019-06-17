@@ -14,7 +14,8 @@ extension ApiManager {
             "Accept": "application/json"
         ]
         Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
-            
+            print(response)
+            print("**************************************************")
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 
@@ -61,7 +62,8 @@ extension ApiManager {
             "Accept": "application/json"
         ]
         Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
-
+            print("**************************************************")
+            print(response)
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 
@@ -112,7 +114,8 @@ extension ApiManager {
             "Accept": "application/json"
         ]
         Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
-        
+            print("**************************************************")
+            print(response)
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 if data["error"] != nil {

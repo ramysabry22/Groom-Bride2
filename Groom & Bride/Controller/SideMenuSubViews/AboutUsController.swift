@@ -1,24 +1,26 @@
-//
-//  AboutUsController.swift
-//  Groom & Bride
-//
-//  Created by Ramy Ayman Sabry on 6/12/19.
-//  Copyright © 2019 Ramy Ayman Sabry. All rights reserved.
-//
 
 import UIKit
+import Alamofire
+import SVProgressHUD
 
 class AboutUsController: UIViewController {
-
     @IBOutlet weak var textView1: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-
-       
+        setAboutUsText()
     }
-    
+    func setAboutUsText(){
+        let text = """
+<h1 style="text-align: center;"><strong>About Us</strong></h1>
+<p>We created the Website.com Site Builder with the user's perspective in mind. We wanted to offer a platform that would require no coding skills or design experience. We keep it simple, so users can focus on creating an amazing website that reflects their brand. Best of all - it's free. You can get online, showcase your brand, or start selling products right away.</p>
+"""
+        
+        
+        
+        textView1.attributedText = text.htmlToAttributedString
+    }
     func setupNavigationBar(){
         navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.isTranslucent = false
@@ -39,5 +41,4 @@ class AboutUsController: UIViewController {
     @objc func leftButtonAction(){
         navigationController?.popViewController(animated: true)
     }
-
 }
