@@ -14,23 +14,23 @@ class LeftMenuHeader: UICollectionViewCell {
         iconImage.heightAnchor.constraint(equalToConstant: 90).isActive = true
         
         addSubview(stackview)
-        stackview.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 10, bottom: 5, right: 10), size: CGSize(width: 0, height: 45))
+        stackview.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 5, right: 0))
         
         stackview.addArrangedSubview(loginButton)
         stackview.addArrangedSubview(registerButton)
         
-        let buttonWidth = (frame.width-35)/2
-        loginButton.anchor(top: stackview.topAnchor, leading: nil, bottom: stackview.bottomAnchor, trailing: nil, padding: .init(top: 0, left: 0, bottom: 0, right: 0),size: CGSize(width: buttonWidth, height: 45))
-        registerButton.anchor(top: stackview.topAnchor, leading: nil, bottom: stackview.bottomAnchor, trailing: nil, padding: .init(top: 0, left: 0, bottom: 0, right: 0),size: CGSize(width: buttonWidth, height: 45))
+       // let buttonWidth = (frame.width-35)/2
+        loginButton.anchor(top: stackview.topAnchor, leading: nil, bottom: stackview.bottomAnchor, trailing: nil, padding: .init(top: 0, left: 0, bottom: 0, right: 0),size: CGSize(width: 0, height: 45))
+        registerButton.anchor(top: stackview.topAnchor, leading: nil, bottom: stackview.bottomAnchor, trailing: nil, padding: .init(top: 0, left: 0, bottom: 0, right: 0),size: CGSize(width: 0, height: 45))
         
         addSubview(view1)
-        view1.anchor(top: stackview.topAnchor, leading: loginButton.trailingAnchor, bottom: stackview.bottomAnchor, trailing: nil, padding: .init(top: 5, left: 7, bottom: 5, right: 0),size: CGSize(width: 2, height: 45))
+        view1.anchor(top: stackview.topAnchor, leading: loginButton.trailingAnchor, bottom: stackview.bottomAnchor, trailing: nil, padding: .init(top: 5, left: 7, bottom: 5, right: 0),size: CGSize(width: 2, height: 0))
         
         addSubview(view2)
-        view2.anchor(top: nil, leading: leadingAnchor, bottom: stackview.topAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0),size: CGSize(width: 0, height: 2))
+        view2.anchor(top: nil, leading: leadingAnchor, bottom: stackview.topAnchor, trailing: trailingAnchor,size: CGSize(width: 0, height: 2))
         
         addSubview(view3)
-        view3.anchor(top: stackview.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0),size: CGSize(width: 0, height: 5))
+        view3.anchor(top: stackview.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor,size: CGSize(width: 0, height: 5))
     }
     let iconImage: UIImageView = {
         let iv = UIImageView()

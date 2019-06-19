@@ -8,20 +8,22 @@ extension ApiManager{
         let headers: HTTPHeaders = [
             "Accept": "application/json"
         ]
-        Alamofire.request(url, method: .get, headers: headers).responseJSON { (response) in
-            if let jsonResponse = response.result.value{
-                let data = jsonResponse as! [[String : Any]]
-                print(jsonResponse)
-                var halls = [Hall]()
-                for record in data {
-                    let newHall = Hall(hallDict: record)
-                    halls.append(newHall)
-                }
-               
-                completed(true,"Halls loaded successfully",halls)
-            }else{
-                completed(false, "Unexpected Error Please Try Again In A While ",[])
-            }
+        Alamofire.request(url, method: .post, headers: headers).responseJSON { (response) in
+            print("****************************************")
+            print(response)
+//            if let jsonResponse = response.result.value{
+//                let data = jsonResponse as! [[String : Any]]
+//                print(jsonResponse)
+//                var halls = [Hall]()
+//                for record in data {
+//                    let newHall = Hall(hallDict: record)
+//                    halls.append(newHall)
+//                }
+//
+//                completed(true,"Halls loaded successfully",halls)
+//            }else{
+//                completed(false, "Unexpected Error Please Try Again In A While ",[])
+//            }
         }
     }
     //.session.finishTasksAndInvalidate()

@@ -372,7 +372,7 @@
 								enabled = 0;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -658,6 +658,7 @@
 			baseConfigurationReference = CDD347A716634F5A90A600FE /* Pods-Groom & Bride.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Groom & Bride.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MLM8YK22VB;
 				INFOPLIST_FILE = "Groom & Bride/Info.plist";
@@ -666,7 +667,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ramysabry1996.Groom---BrideXX";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ramysabry1996.Groom---Bride";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -678,6 +679,7 @@
 			baseConfigurationReference = C697AF79F55FB0462A36ABCB /* Pods-Groom & Bride.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Groom & Bride.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MLM8YK22VB;
 				INFOPLIST_FILE = "Groom & Bride/Info.plist";
@@ -686,7 +688,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ramysabry1996.Groom---BrideXX";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ramysabry1996.Groom---Bride";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";

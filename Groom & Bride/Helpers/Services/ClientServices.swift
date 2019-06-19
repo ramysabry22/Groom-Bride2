@@ -64,41 +64,45 @@ extension ApiManager {
         Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
             print("**************************************************")
             print(response)
-            if let jsonResponse = response.result.value{
-                let data = jsonResponse as! [String : Any]
-                
-                if data["error"] != nil {
-                    let errorMessage = data["error"] as! String
-                    completed(false, errorMessage)
-                    return
-                }else if data["message"] != nil {
-                    if let userData = data["user"] as? [[String:Any]] {
-                       
-                        if let theJSONData = try? JSONSerialization.data(withJSONObject: userData[0]) {
-                            guard let loggedInClient = try? JSONDecoder().decode(Client.self, from: theJSONData) else {
-                                print("Error: Couldn't decode data into Client")
-                                completed(false,"Couldn't decode data into Client")
-                                return
-                            }
-                            HelperData.sharedInstance.loggedInClient = loggedInClient
-                            HelperData.sharedInstance.loggedInClient.login()
-                            completed(true,"User registred sucessfully")
-                            return
-                        }
-                        
-                    }
-                    completed(true, "user signed in successfully")
-                    return
-                }
-                else {
-                    completed(false, "Unexpected Error Please Try Again In A While ")
-                    return
-                }
-                
-            }else{
-                completed(false, "Unexpected Error Please Try Again In A While ")
-                return
-            }
+            
+            
+            
+            
+//            if let jsonResponse = response.result.value{
+//                let data = jsonResponse as! [String : Any]
+//
+//                if data["error"] != nil {
+//                    let errorMessage = data["error"] as! String
+//                    completed(false, errorMessage)
+//                    return
+//                }else if data["message"] != nil {
+//                    if let userData = data["user"] as? [[String:Any]] {
+//
+//                        if let theJSONData = try? JSONSerialization.data(withJSONObject: userData[0]) {
+//                            guard let loggedInClient = try? JSONDecoder().decode(Client.self, from: theJSONData) else {
+//                                print("Error: Couldn't decode data into Client")
+//                                completed(false,"Couldn't decode data into Client")
+//                                return
+//                            }
+//                            HelperData.sharedInstance.loggedInClient = loggedInClient
+//                            HelperData.sharedInstance.loggedInClient.login()
+//                            completed(true,"User registred sucessfully")
+//                            return
+//                        }
+//
+//                    }
+//                    completed(true, "user signed in successfully")
+//                    return
+//                }
+//                else {
+//                    completed(false, "Unexpected Error Please Try Again In A While ")
+//                    return
+//                }
+//
+//            }else{
+//                completed(false, "Unexpected Error Please Try Again In A While ")
+//                return
+//            }
         }
     }
     

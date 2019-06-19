@@ -2,10 +2,10 @@
 import UIKit
 import Alamofire
 import SVProgressHUD
-import SCLAlertView
 import Kingfisher
 import SideMenu
-import DropDown
+import Firebase
+import SCLAlertView
 
 class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
@@ -41,6 +41,7 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         searchView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SearchViewTapped)))
         
         setupFirstFilter()
+     //   homee()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -58,7 +59,31 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
     // MARK :- Fetch Halls
 /********************************************************************************************/
     
-    
+    func homee(){
+        
+        let ref = Database.database().reference().child("PushNotificationsNode").childByAutoId()
+        let timeCreated: String = String(NSDate().timeIntervalSince1970)
+        let values: [String: Any] = ["body": "we have added 12342341 2new hall check them now bsor3aaaaaaaaaaaaaaaaaaaaaa we have added 12342341 2new hall check them now bsor3aaaaaaaaaaaaaaaaaaaaaa we have added 12342341 2new hall check them now bsor3aaaaaaaaaaaaaaaaaaaaaa we have added 12342341 2new hall check them now bsor3aaaaaaaaaaaaaaaaaaaaaa we have added 12342341 2new hall check them now bsor3aaaaaaaaaaaaaaaaaaaaaa we have added 12342341 2new hall check them now bsor3aaaaaaaaaaaaaaaaaaaaaa",
+                                     "title": "ka3at gdeda atdaft ya 3ryas",
+                                     "time": timeCreated]
+        
+        ref.updateChildValues(values, withCompletionBlock: { (error, ref) in
+            if error != nil {
+                print("error Sending message !!!!!!!!!!!",error ?? "")
+                return
+            }
+            // succeed ..
+            print("*****************************************************")
+            print("*****************************************************")
+            print("*****************************************************")
+            print("Message Sent")
+            print("*****************************************************")
+        })
+        
+        
+        
+        
+    }
     
     
     

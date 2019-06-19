@@ -31,7 +31,7 @@
                                     <constraint firstAttribute="height" constant="20" id="Qiq-RD-pxg"/>
                                     <constraint firstAttribute="width" constant="20" id="knu-Eh-8Ld"/>
                                 </constraints>
-                                <color key="color" red="0.99215686270000003" green="0.39607843139999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="color" red="0.99215686270000003" green="0.25093181324931507" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EHw-XC-RUr" userLabel="LogoView">
                                 <rect key="frame" x="77.5" y="236" width="220" height="195"/>
@@ -767,7 +767,6 @@ your favorites</string>
                                             <constraint firstItem="7xN-pg-n1O" firstAttribute="leading" secondItem="cZ1-xK-9QS" secondAttribute="trailing" constant="15" id="2TD-zQ-Ctv"/>
                                             <constraint firstItem="cZ1-xK-9QS" firstAttribute="leading" secondItem="se4-cv-flJ" secondAttribute="leading" constant="13" id="5lS-aB-Rxm"/>
                                             <constraint firstItem="7xN-pg-n1O" firstAttribute="centerY" secondItem="se4-cv-flJ" secondAttribute="centerY" id="LMe-dN-u6m"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="MPi-yt-m5O"/>
                                             <constraint firstAttribute="height" constant="45" id="fIf-pY-rmv"/>
                                             <constraint firstItem="cZ1-xK-9QS" firstAttribute="centerY" secondItem="se4-cv-flJ" secondAttribute="centerY" id="lyV-QL-EJk"/>
                                         </constraints>
