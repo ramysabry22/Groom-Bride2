@@ -3,6 +3,7 @@ import Alamofire
 
 extension ApiManager {
     func sendFeedBack(email: String, feedback: String,completed: @escaping(_ valid: Bool,_ msg: String)->()){
+        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/feedback/addFeedback"
         let parameters: Parameters = [
             "email" : email,
@@ -14,21 +15,20 @@ extension ApiManager {
         Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
             print("**************************************************")
             print(response)
-            
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
-                if  data["error"] != nil {
-                    let errorMessage = data["error"] as! String
-                    completed(false, errorMessage)
-                    return
-                }else if data["text"] != nil {
-                    
-                    completed(true, "Feedback sent successfully")
-                }
-                else{
-                    completed(false, "Unexpected Error Please Try Again In A While")
-                }
-                
+                let result = data["result"] as! Bool
+                if result == true {
+                   completed(true, "Feedback sent successfully")
+                   return
+                }else{
+                    if let errorMessage = data["error"] as? String {
+                      completed(false, errorMessage)
+                        return
+                    }else {
+                      completed(false, "Unexpected Error Please Try Again In A While")
+                    }
+                }                
             }else{
                 completed(false, "Unexpected Error Please Try Again In A While ")
                 return
@@ -41,9 +41,10 @@ extension ApiManager {
     
     
     func showPrivacy(completed: @escaping(_ valid: Bool,_ msg: String) -> ()){
+        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/policyAndPrivacy/getPolicyAndPrivacy"
         let parameters: Parameters = [
-            "type" : "policy"
+            "type" : "privacy"
         ]
         let headers: HTTPHeaders = [
             "Accept": "application/json"
@@ -51,22 +52,17 @@ extension ApiManager {
         Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
             print("**************************************************")
             print(response)
-            
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
-                
-//                if  data["error"] != nil {
-//                    let errorMessage = data["error"] as! String
-//                    completed(false, errorMessage)
-//                    return
-//                }else if data["text"] != nil {
-//                    let data = data["text"] as! String
-//                    completed(true, data)
-//                }
-//                else{
-//                    completed(false, "Unexpected Error Please Try Again In A While")
-//                }
-                
+                let result = data["result"] as! Bool
+                if result == true {
+                    let privacyData = data["text"] as! String
+                    completed(true, privacyData)
+                    return
+                }
+                else{
+                    completed(false, "Error loading privacy policy, try again in a while")
+                }
             }else{
                 completed(false, "Unexpected Error Please Try Again In A While ")
                 return
@@ -80,6 +76,7 @@ extension ApiManager {
     
     
     func showTerms(completed: @escaping(_ valid: Bool,_ msg: String) -> ()){
+        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/policyAndPrivacy/getPolicyAndPrivacy"
         let parameters: Parameters = [
             "type" : "service"
@@ -90,22 +87,17 @@ extension ApiManager {
         Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
             print("**************************************************")
             print(response)
-            
             if let jsonResponse = response.result.value{
-                let data = jsonResponse as! NSDictionary
-                
-//                if  data["error"][0] != nil {
-//                    let errorMessage = data["error"] as! String
-//                    completed(false, errorMessage)
-//                    return
-//                }else if data["text"] != nil {
-//                    let data = data["text"] as! String
-//                    completed(true, data)
-//                }
-//                else{
-//                    completed(false, "Unexpected Error Please Try Again In A While")
-//                }
-                
+                let data = jsonResponse as! [String : Any]
+                let result = data["result"] as! Bool
+                if result == true {
+                    let termsData = data["text"] as! String
+                    completed(true, termsData)
+                    return
+                }
+                else{
+                    completed(false, "Error loading terms of service, try again in a while")
+                }
             }else{
                 completed(false, "Unexpected Error Please Try Again In A While ")
                 return

@@ -21,11 +21,6 @@ class ChangePasswordController: UIViewController {
     
     
     func resetPassword(oldPassword: String, newPassword: String, rePassword: String){
-        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
-            sessionDataTask.forEach { $0.cancel() }
-            uploadData.forEach { $0.cancel() }
-            downloadData.forEach { $0.cancel() }
-        }
         SVProgressHUD.show()
         ApiManager.sharedInstance.changePassword(oldPassword: oldPassword, newPassword: newPassword, reNewPassword: rePassword) { (valid, msg, reRequest) in
             self.dismissRingIndecator()
@@ -34,7 +29,6 @@ class ChangePasswordController: UIViewController {
             }
             else if valid {
                 self.show1buttonAlert(title: "Password changed", message: "Password changed sucessfully", buttonTitle: "OK", callback: {
-                    self.navigationController?.popViewController(animated: true)
                 })
             }else if !valid {
                 self.show1buttonAlert(title: "Error", message: msg, buttonTitle: "OK", callback: {

@@ -17,18 +17,13 @@ class PrivacyPolicyController: UIViewController {
     }
     
     func fetchPrivacy(){
-        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
-            sessionDataTask.forEach { $0.cancel() }
-            uploadData.forEach { $0.cancel() }
-            downloadData.forEach { $0.cancel() }
-        }
         SVProgressHUD.show()
         ApiManager.sharedInstance.showPrivacy { (valid, data) in
             self.dismissRingIndecator()
             if valid {
                 self.textView1.text = data
             }else {
-                self.show1buttonAlert(title: "Error", message: "Unexpected Error Please Try Again In A While", buttonTitle: "OK", callback: {
+                self.show1buttonAlert(title: "Error", message: data, buttonTitle: "OK", callback: {
                 })
             }
         }

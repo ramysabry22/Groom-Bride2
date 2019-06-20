@@ -31,11 +31,6 @@ class SignUpController: UIViewController,UITextFieldDelegate {
         guard let name = userNameTextField.text ,let email = emailTextField.text, let password = passwordTextField.text  else {
                 return
             }
-        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
-            sessionDataTask.forEach { $0.cancel() }
-            uploadData.forEach { $0.cancel() }
-            downloadData.forEach { $0.cancel() }
-        }
         SVProgressHUD.show()
         ApiManager.sharedInstance.signUp(email: email, name: name, password: password) { (valid, msg) in
             self.dismissRingIndecator()

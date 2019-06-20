@@ -36,7 +36,6 @@ class MyProfileController: UIViewController {
             }
             else if valid {
                 self.show1buttonAlert(title: "Changes saved", message: "Changes saved successfully", buttonTitle: "OK", callback: {
-                    self.navigationController?.popViewController(animated: true)
                 })
             }else if !valid {
                 self.show1buttonAlert(title: "Error", message: msg, buttonTitle: "OK", callback: {

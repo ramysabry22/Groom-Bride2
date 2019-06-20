@@ -34,11 +34,6 @@ class SignInController: UIViewController,UITextFieldDelegate {
         guard let email = emailTextField.text, let password = passwordTextField.text else {
             return
         }
-        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
-            sessionDataTask.forEach { $0.cancel() }
-            uploadData.forEach { $0.cancel() }
-            downloadData.forEach { $0.cancel() }
-        }
         SVProgressHUD.show()
         ApiManager.sharedInstance.signIn(email: email, password: password) { (valid, msg) in
             self.dismissRingIndecator()

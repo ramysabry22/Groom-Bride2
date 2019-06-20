@@ -23,11 +23,6 @@ class FeedbackController2: UIViewController, UITextViewDelegate {
     
     
     func sendFeedback(email: String, feedbackString: String){
-        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, uploadData, downloadData) in
-            sessionDataTask.forEach { $0.cancel() }
-            uploadData.forEach { $0.cancel() }
-            downloadData.forEach { $0.cancel() }
-        }
         SVProgressHUD.show()
         ApiManager.sharedInstance.sendFeedBack(email: email, feedback: feedbackString) { (valid, msg) in
             self.dismissRingIndecator()
