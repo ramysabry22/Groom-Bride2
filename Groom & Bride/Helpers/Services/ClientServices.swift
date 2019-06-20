@@ -70,8 +70,7 @@ extension ApiManager {
               let result = data["result"] as! Bool
                 
                 if result == true {
-                  let result1 = data["user"] as! [String : Any]
-                  let userData = result1["0"] as! [String : Any]
+                  let userData = data["user"] as! [String : Any]
                     print(userData)
                     if let theJSONData = try? JSONSerialization.data(withJSONObject: userData) {
                         guard let loggedInClient = try? JSONDecoder().decode(Client.self, from: theJSONData) else {

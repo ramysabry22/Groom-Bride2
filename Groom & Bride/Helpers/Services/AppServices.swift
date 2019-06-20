@@ -2,6 +2,7 @@ import UIKit
 import Alamofire
 
 extension ApiManager {
+    
     func sendFeedBack(email: String, feedback: String,completed: @escaping(_ valid: Bool,_ msg: String)->()){
         self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/feedback/addFeedback"
@@ -73,8 +74,6 @@ extension ApiManager {
     
     
     
-    
-    
     func showTerms(completed: @escaping(_ valid: Bool,_ msg: String) -> ()){
         self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/policyAndPrivacy/getPolicyAndPrivacy"
@@ -104,6 +103,10 @@ extension ApiManager {
             }
         }
     }
+    
+    
+    
+    
     
    
 }
