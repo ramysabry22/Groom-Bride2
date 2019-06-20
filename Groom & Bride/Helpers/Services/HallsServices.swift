@@ -3,6 +3,7 @@ import Foundation
 import Alamofire
 
 extension ApiManager{
+    
     func listHalls(limit: Int, offset: Int,completed: @escaping (_ valid: Bool, _ msg: String, _ halls:[Hall])->())  {
         self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/halls/listHalls"
