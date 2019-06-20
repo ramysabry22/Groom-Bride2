@@ -87,7 +87,7 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
     
     
     func fetchHalls(){
-        ApiManager.sharedInstance.getAllHalls { (valid, msg, [Hall]) in
+        ApiManager.sharedInstance.listHalls(limit: 5, offset: 0) { (valid, msg, halls) in
             
         }
         

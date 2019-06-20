@@ -53,6 +53,8 @@
 		F0C6BB0D22B36ED900C27641 /* FavoriteHallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C6BB0B22B36ED900C27641 /* FavoriteHallCell.swift */; };
 		F0C6BB0E22B36ED900C27641 /* FavoriteHallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C6BB0C22B36ED900C27641 /* FavoriteHallCell.xib */; };
 		F0DD665522AE589F006F55A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0DD665422AE589F006F55A9 /* LaunchScreen.storyboard */; };
+		F0EE3A6B22BBDB5B00A9D1A9 /* HallCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EE3A6A22BBDB5B00A9D1A9 /* HallCategory.swift */; };
+		F0EE3A6D22BBDD7500A9D1A9 /* ClientServices++.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EE3A6C22BBDD7500A9D1A9 /* ClientServices++.swift */; };
 		F0F2B4FC22B6AEBF004CA7DE /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F2B4FB22B6AEBF004CA7DE /* AppServices.swift */; };
 		F0FB9DCE22344E4C006FE1E0 /* ForgetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FB9DCD22344E4C006FE1E0 /* ForgetPasswordController.swift */; };
 /* End PBXBuildFile section */
@@ -110,6 +112,8 @@
 		F0C6BB0B22B36ED900C27641 /* FavoriteHallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteHallCell.swift; sourceTree = "<group>"; };
 		F0C6BB0C22B36ED900C27641 /* FavoriteHallCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteHallCell.xib; sourceTree = "<group>"; };
 		F0DD665422AE589F006F55A9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F0EE3A6A22BBDB5B00A9D1A9 /* HallCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallCategory.swift; sourceTree = "<group>"; };
+		F0EE3A6C22BBDD7500A9D1A9 /* ClientServices++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientServices++.swift"; sourceTree = "<group>"; };
 		F0F2B4FB22B6AEBF004CA7DE /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
 		F0FB9DCD22344E4C006FE1E0 /* ForgetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,6 +164,7 @@
 				F0282CF822772247005CAA4A /* ApiManager.swift */,
 				F0282CF42277222C005CAA4A /* HallsServices.swift */,
 				F0282CF622772239005CAA4A /* ClientServices.swift */,
+				F0EE3A6C22BBDD7500A9D1A9 /* ClientServices++.swift */,
 				F0F2B4FB22B6AEBF004CA7DE /* AppServices.swift */,
 			);
 			path = Services;
@@ -293,6 +298,7 @@
 				F0966F87222C0E9C00FA4FEA /* Page.swift */,
 				F0282CF12277211A005CAA4A /* Client.swift */,
 				F0558D062277805D0034B11A /* Hall.swift */,
+				F0EE3A6A22BBDB5B00A9D1A9 /* HallCategory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -516,8 +522,10 @@
 				F0966F9C222C0E9C00FA4FEA /* HomeController.swift in Sources */,
 				F0F2B4FC22B6AEBF004CA7DE /* AppServices.swift in Sources */,
 				F0966F9B222C0E9C00FA4FEA /* SignInController.swift in Sources */,
+				F0EE3A6B22BBDB5B00A9D1A9 /* HallCategory.swift in Sources */,
 				F08CEFD422B15B2200C55571 /* PrivacyPolicyController.swift in Sources */,
 				F0966F6D222C0DD100FA4FEA /* AppDelegate.swift in Sources */,
+				F0EE3A6D22BBDD7500A9D1A9 /* ClientServices++.swift in Sources */,
 				F0FB9DCE22344E4C006FE1E0 /* ForgetPasswordController.swift in Sources */,
 				F00C6C0C22B1565C0063A146 /* ChangePasswordController.swift in Sources */,
 				F0C6BB0822B2BCBE00C27641 /* SearchController.swift in Sources */,
