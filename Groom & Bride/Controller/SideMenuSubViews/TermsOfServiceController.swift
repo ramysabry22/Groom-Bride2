@@ -21,7 +21,9 @@ class TermsOfServiceController: UIViewController {
         ApiManager.sharedInstance.showTerms { (valid, data) in
             self.dismissRingIndecator()
             if valid {
-                self.textView1.text = data
+                self.textView1.attributedText = data.htmlToAttributedString
+                self.textView1.isUserInteractionEnabled = true
+                self.textView1.isEditable = false
             }else {
                 self.show1buttonAlert(title: "Error", message: data, buttonTitle: "OK", callback: {
                 })

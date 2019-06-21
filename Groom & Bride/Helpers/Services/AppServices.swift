@@ -57,7 +57,8 @@ extension ApiManager {
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool
                 if result == true {
-                    let privacyData = data["text"] as! String
+                    let privacyDic = data["data"] as! [String : Any]
+                    let privacyData = privacyDic["text"] as! String
                     completed(true, privacyData)
                     return
                 }
@@ -90,7 +91,8 @@ extension ApiManager {
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool
                 if result == true {
-                    let termsData = data["text"] as! String
+                     let termsyDic = data["data"] as! [String : Any]
+                    let termsData = termsyDic["text"] as! String
                     completed(true, termsData)
                     return
                 }
