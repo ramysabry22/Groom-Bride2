@@ -16,7 +16,7 @@ extension ApiManager {
             "Accept": "application/json",
             "authorization": "Barear \(HelperData.sharedInstance.loggedInClient.token)"
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             print("**************************************************")
             print(response)
             var halls = [Hall]()

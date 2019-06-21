@@ -4,17 +4,32 @@ import UIKit
 class SplashScreenController: UIViewController {
 
     @IBOutlet weak var LoadingActivityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       LoadingActivityIndicator.startAnimating()
-      _ = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(ShowViewController), userInfo: nil, repeats: false)
+        fetchHalls()
     }
+    
+     func fetchHalls(){
+        LoadingActivityIndicator.startAnimating()
+        ApiManager.sharedInstance.listHalls(limit: 5, offset: 0) { (valid, msg, halls) in
+            self.LoadingActivityIndicator.stopAnimating()
+            if valid{
+                self.ShowViewController(halls: halls)
+            }else{
+                self.show1buttonAlert(title: "Error", message: msg, buttonTitle: "Retry", callback: {
+                     self.fetchHalls()
+                })
+            }
+        }
+    }
+    
 
-     @objc func ShowViewController(){
-        LoadingActivityIndicator.stopAnimating()
+     func ShowViewController(halls: [Hall]){
         if firstDownloadDone() {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "HomeController") as! HomeController
+            controller.allHalls = halls
             let homeController = UINavigationController(rootViewController: controller)
             present(homeController, animated: true, completion: nil)
         }
@@ -22,6 +37,7 @@ class SplashScreenController: UIViewController {
             let storyboard = UIStoryboard(name: "LoginBoard", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "OnBoardingScreens") as! OnBoardingScreens
             let homeController = UINavigationController(rootViewController: controller)
+            controller.halls = halls
             homeController.isNavigationBarHidden = true
             present(homeController, animated: true, completion: nil)
         }
@@ -35,6 +51,9 @@ class SplashScreenController: UIViewController {
             return false
         }
     }
+    
+    
+    
     
 }
 

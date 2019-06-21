@@ -13,7 +13,7 @@ extension HomeController {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == collectionView2 { return 10 }
+        if collectionView == collectionView2 { return allHalls.count }
         else { return filterCollection.count }
     }
     
@@ -22,7 +22,24 @@ extension HomeController {
         if collectionView == collectionView2 {
             let cell: HallCell = collectionView2.dequeueReusableCell(withReuseIdentifier: "HallCell", for: indexPath) as! HallCell
             
-        
+            let rowHall = allHalls[indexPath.row]
+            
+            cell.hall = rowHall
+            cell.tag = indexPath.row
+            
+            if rowHall.hallImage.count > 0 && rowHall.hallImage.isEmpty == false {
+                let tempImageView : UIImageView! = UIImageView()
+                let url = URL(string: "\(rowHall.hallImage[0])")
+                tempImageView.kf.setImage(with: url, placeholder: nil, options: nil, progressBlock: nil) { (result) in
+                    if(cell.tag == indexPath.row){
+                        if result.isSuccess == false{
+                            cell.imageView.image = UIImage(named: "logo1")
+                        }else{
+                            cell.imageView.image = tempImageView.image
+                        }
+                    }
+                }
+            }
             return cell
         }else {
             let cell: FilterCell = collectionView1.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as! FilterCell
@@ -70,12 +87,12 @@ extension HomeController {
             UIView.animate(withDuration: 0.15, animations: {
                 self.navigationController?.setNavigationBarHidden(true, animated: true)
                 
-                 self.searchLabel.isHidden = true
-                 self.searchView.isHidden = true
-                 self.HomeLabel.alpha = 0
-                 self.HomeLabel.isHidden = true
-                 self.searchIconImage.isHidden = true
-                 self.view.layoutIfNeeded()
+//                 self.searchLabel.isHidden = true
+//                 self.searchView.isHidden = true
+//                 self.HomeLabel.alpha = 0
+//                 self.HomeLabel.isHidden = true
+//                 self.searchIconImage.isHidden = true
+//                 self.view.layoutIfNeeded()
             }, completion: { (finished) in
             })
         }
@@ -83,12 +100,12 @@ extension HomeController {
             UIView.animate(withDuration: 0.15, animations: {
                 self.navigationController?.setNavigationBarHidden(false, animated: true)
                 
-                 self.searchLabel.isHidden = false
-                 self.searchView.isHidden = false
-                 self.HomeLabel.isHidden = false
-                 self.searchIconImage.isHidden = false
-                 self.HomeLabel.alpha = 1
-                 self.view.layoutIfNeeded()
+//                 self.searchLabel.isHidden = false
+//                 self.searchView.isHidden = false
+//                 self.HomeLabel.isHidden = false
+//                 self.searchIconImage.isHidden = false
+//                 self.HomeLabel.alpha = 1
+//                 self.view.layoutIfNeeded()
             }, completion: { (finished) in
             })
         }
@@ -100,13 +117,14 @@ extension HomeController {
     
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
+        let offsetY = scrollView.contentOffset.y + 700
         let contentHeight = scrollView.contentSize.height
         
-        if offsetY > contentHeight - scrollView.frame.size.height {
-            
-            
-            
+        if offsetY > contentHeight - scrollView.frame.size.height{
+            if isFinishedPaging == true {
+               pagesNumber += 1
+                self.fetchNewHalls(limit: 5, offset: pagesNumber)
+            }
         }
     }
     

@@ -27,6 +27,8 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
                                         ["Club","ClubICON777"],["Yacht","YachtICON777"],
                                         ["Villa","VillaICON777"],["Individual","IndividualICON777"],]
     var firstOpen = true
+    var isFinishedPaging = true
+    var pagesNumber: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +56,22 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
        setupLeftMenu()
     }
 
-    
+    func fetchNewHalls(limit: Int, offset: Int){
+        self.isFinishedPaging = false
+        ApiManager.sharedInstance.listHalls(limit: limit, offset: offset) { (valid, msg, halls) in
+            if valid{
+               if halls.count > 0 {
+                 for record in halls {
+                    self.allHalls.append(record)
+                 }
+                 self.collectionView2.reloadData()
+               }
+            }else{
+               
+            }
+            self.isFinishedPaging = true
+        }
+    }
     
     // MARK :- Fetch Halls
 /********************************************************************************************/
@@ -86,18 +103,7 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
     }
     
     
-    func fetchHalls(){
-        ApiManager.sharedInstance.listHalls(limit: 5, offset: 0) { (valid, msg, halls) in
-            
-        }
-        
-        
-        
-        
-        
-    }
-    
-    
+
 
 // MARK :- Helper functions
 /********************************************************************************************/
@@ -183,6 +189,11 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         leftButton.heightAnchor.constraint(equalToConstant: 23).isActive = true
         leftButton.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+        
+        
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultAnimationType(.native)
     }
     @objc func leftButtonAction(){
         present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)

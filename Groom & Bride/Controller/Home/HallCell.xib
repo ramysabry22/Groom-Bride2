@@ -71,7 +71,7 @@
                             <constraint firstAttribute="height" constant="75" id="yWg-2m-A4C"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Hallllll" translatesAutoresizingMaskIntoConstraints="NO" id="M8n-E5-KAz">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo1" translatesAutoresizingMaskIntoConstraints="NO" id="M8n-E5-KAz">
                         <rect key="frame" x="0.0" y="0.0" width="531" height="227"/>
                     </imageView>
                 </subviews>
@@ -98,6 +98,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="Hallllll" width="600" height="337"/>
+        <image name="logo1" width="1024" height="1024"/>
     </resources>
 </document>

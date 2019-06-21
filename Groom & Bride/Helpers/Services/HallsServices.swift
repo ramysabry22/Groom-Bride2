@@ -14,7 +14,7 @@ extension ApiManager{
             "limit": limit,
             "offset": offset
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             print("****************************************")
             print(response)
             var halls = [Hall]()
@@ -62,7 +62,7 @@ extension ApiManager{
             "limit": limit,
             "offset": offset
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             print("****************************************")
             print(response)
             var halls = [Hall]()
@@ -111,7 +111,7 @@ extension ApiManager{
             "limit": limit,
             "offset": offset
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             print("****************************************")
             print(response)
             var hallCategories = [HallCategory]()
@@ -160,7 +160,7 @@ extension ApiManager{
             "limit": limit,
             "offset": offset
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             print("****************************************")
             print(response)
             var halls = [Hall]()

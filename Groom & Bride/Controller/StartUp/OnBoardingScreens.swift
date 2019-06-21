@@ -5,6 +5,7 @@ class OnBoardingScreens: UICollectionViewController, UICollectionViewDelegateFlo
     
     @IBOutlet var collectionView1: UICollectionView!
     let cellId = "cellId"
+    var halls = [Hall]()
     
     let pages: [Page] = {
         let Page1 = Page(title: "Welcome", message: "It is a  long established fact that a reader will be", imageName: "OnBoardingImage1777")
@@ -62,6 +63,7 @@ class OnBoardingScreens: UICollectionViewController, UICollectionViewDelegateFlo
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "HomeController") as! HomeController
+        controller.allHalls = self.halls
         let homeController = UINavigationController(rootViewController: controller)
         present(homeController, animated: true, completion: nil)
     }
