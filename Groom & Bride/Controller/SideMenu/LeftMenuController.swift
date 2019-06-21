@@ -55,24 +55,19 @@ class LeftMenuController: UIViewController, UICollectionViewDataSource,UICollect
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.item {
         case 0:
-           self.homeController?.navigationController?.popToRootViewController(animated: false)
-           self.dismiss(animated: true, completion: nil)
+            self.homeController?.goHome()           
             return
         case 1:
             self.homeController?.goGiveUsFeedback()
-            self.dismiss(animated: true, completion: nil)
             return
         case 2:
             self.homeController?.goPrivacyPolicy()
-            self.dismiss(animated: true, completion: nil)
             return
         case 3:
             self.homeController?.goTermsOfService()
-            self.dismiss(animated: true, completion: nil)
             return
         case 4:
             self.homeController?.goAboutUs()
-             self.dismiss(animated: true, completion: nil)
             return
         default:
             return

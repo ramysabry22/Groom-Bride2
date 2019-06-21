@@ -55,32 +55,25 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.item {
         case 0:
-            self.homeController?.navigationController?.popToRootViewController(animated: false)
-            self.dismiss(animated: true, completion: nil)
+            self.homeController?.goHome()
             return
         case 1:
               self.homeController?.goMyProfile()
-              self.dismiss(animated: true, completion: nil)
             return
         case 2:
             self.homeController?.goFavorites()
-             self.dismiss(animated: true, completion: nil)
             return
         case 3:
             self.homeController?.goGiveUsFeedback()
-             self.dismiss(animated: true, completion: nil)
             return
         case 4:
             self.homeController?.goPrivacyPolicy()
-             self.dismiss(animated: true, completion: nil)
             return
         case 5:
             self.homeController?.goTermsOfService()
-             self.dismiss(animated: true, completion: nil)
             return
         case 6:
             self.homeController?.goAboutUs()
-             self.dismiss(animated: true, completion: nil)
             return
         case 7:
             self.show2buttonAlert(title: "Logout?", message: "Are you sure you want to logout?", cancelButtonTitle: "Cancel", defaultButtonTitle: "OK") { (yes) in
