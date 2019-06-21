@@ -129,7 +129,7 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
     private func setupViews(){
         guard let window = UIApplication.shared.keyWindow else { return }
         
-        let x = min(view.frame.height/4, 500)
+        let x = min(view.frame.height/3.6, 500)
         let headerHeight = max(x, 160)
         view.addSubview(headerView)
         headerView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,size: CGSize(width: 0, height: headerHeight))
@@ -142,6 +142,11 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
         iconImage.centerXAnchor.constraint(equalTo: headerView.centerXAnchor, constant: 0).isActive = true
         iconImage.widthAnchor.constraint(equalToConstant: 90).isActive = true
         iconImage.heightAnchor.constraint(equalToConstant: 90).isActive = true
+        
+        
+        headerView.addSubview(view3)
+        view3.anchor(top: nil, leading: headerView.leadingAnchor, bottom: headerView.bottomAnchor, trailing: headerView.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0),size: CGSize(width: 0, height: 5))
+        
         
         headerView.addSubview(stackview)
         stackview.anchor(top: nil, leading: headerView.leadingAnchor, bottom: headerView.bottomAnchor, trailing: headerView.trailingAnchor, padding: .init(top: 0, left: 10, bottom: headerHeight/10, right: 10))
@@ -213,6 +218,12 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
         titleL.backgroundColor = UIColor.clear
         return titleL
     }()
+    let view3: UIView = {
+        let iv = UIView()
+        iv.backgroundColor = UIColor(hexString: "#F3EAEA")
+        return iv
+    }()
+    
 }
 
 
