@@ -2,10 +2,6 @@
 import UIKit
 import SVProgressHUD
 
-protocol removeFromFavoriteProtocol: class {
-    func removeFromFavoriteButton(_ sender: FavoriteHallCell)
-}
-
 class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,removeFromFavoriteProtocol {
     
     @IBOutlet weak var collectionView1: UICollectionView!

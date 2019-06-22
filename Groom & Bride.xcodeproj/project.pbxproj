@@ -25,6 +25,7 @@
 		F06601C92279AE14006E67D9 /* LeftMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06601C82279AE14006E67D9 /* LeftMenuCell.swift */; };
 		F06601CB2279CBC9006E67D9 /* LeftMenuHeader2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06601CA2279CBC9006E67D9 /* LeftMenuHeader2.swift */; };
 		F06601CD2279D024006E67D9 /* LeftMenuController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06601CC2279D024006E67D9 /* LeftMenuController2.swift */; };
+		F074D8C622BEB35A008C33F6 /* removeFromFavoriteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074D8C522BEB35A008C33F6 /* removeFromFavoriteProtocol.swift */; };
 		F076F1D322B14B1C00F12988 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F076F1D222B14B1C00F12988 /* SideMenu.storyboard */; };
 		F08CEFD222B15AAB00C55571 /* FeedbackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08CEFD122B15AAB00C55571 /* FeedbackController.swift */; };
 		F08CEFD422B15B2200C55571 /* PrivacyPolicyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08CEFD322B15B2200C55571 /* PrivacyPolicyController.swift */; };
@@ -80,6 +81,7 @@
 		F06601C82279AE14006E67D9 /* LeftMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuCell.swift; sourceTree = "<group>"; };
 		F06601CA2279CBC9006E67D9 /* LeftMenuHeader2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuHeader2.swift; sourceTree = "<group>"; };
 		F06601CC2279D024006E67D9 /* LeftMenuController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuController2.swift; sourceTree = "<group>"; };
+		F074D8C522BEB35A008C33F6 /* removeFromFavoriteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = removeFromFavoriteProtocol.swift; sourceTree = "<group>"; };
 		F07625D32287868B00FD89D2 /* Groom & Bride.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Groom & Bride.entitlements"; sourceTree = "<group>"; };
 		F076F1D222B14B1C00F12988 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
 		F08CEFD122B15AAB00C55571 /* FeedbackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackController.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				F0C6BB0922B36AD900C27641 /* FavoritesController.swift */,
 				F0C6BB0B22B36ED900C27641 /* FavoriteHallCell.swift */,
 				F0C6BB0C22B36ED900C27641 /* FavoriteHallCell.xib */,
+				F074D8C522BEB35A008C33F6 /* removeFromFavoriteProtocol.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				F010A67722ADD1A300360DEA /* CustomComponents.swift in Sources */,
 				F0966F9A222C0E9C00FA4FEA /* PageCell.swift in Sources */,
 				F0966F9F222C0E9C00FA4FEA /* SignUpController.swift in Sources */,
+				F074D8C622BEB35A008C33F6 /* removeFromFavoriteProtocol.swift in Sources */,
 				F0282CF0227720AA005CAA4A /* HelperData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
