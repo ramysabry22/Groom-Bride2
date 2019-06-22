@@ -1,33 +1,103 @@
 
 import UIKit
+import SVProgressHUD
 
-class SearchController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class SearchController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate{
 
     @IBOutlet weak var collectionView1: UICollectionView!
     @IBOutlet weak var searchTextField: CustomTextField!
     @IBOutlet weak var emptyLabel: UILabel!
+    var searchHallResult: [Hall] = []
+    var isFinishedPaging = true
+    var pagesNumber: Int = 0
+    var SearchText: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-       
+       searchTextField.delegate = self
+       searchTextField.addTarget(self, action: #selector(yourNameFunction), for: UIControl.Event.editingChanged)
+
         self.collectionView1.register(UINib(nibName: "HallCell", bundle: nil), forCellWithReuseIdentifier: "HallCell")
         collectionView1.delegate = self
         collectionView1.dataSource = self
     }
     
+    
+    func searchHalls(limit: Int, offset: Int){
+        self.isFinishedPaging = false
+        ApiManager.sharedInstance.searchHallByName(limit: limit, offset: offset, hallName: SearchText) { (valid, msg, halls) in
+          self.dismissRingIndecator()
+          self.isFinishedPaging = true
+            if valid {
+                if halls.count > 0 {
+                    self.searchHallResult = halls
+                    self.collectionView1.reloadData()
+                    self.emptyLabel.isHidden = true
+                }
+            }else {
+                
+            }
+        }
+    }
+    func searchTapped(){
+        guard let searchText = searchTextField.text,  searchTextField.text?.isEmpty == false, searchTextField.text?.IsValidString() ?? false else {
+            self.searchHallResult.removeAll()
+            self.collectionView1.reloadData()
+            self.emptyLabel.isHidden = false
+            return
+        }
+        searchTextField.endEditing(true)
+        self.SearchText = searchText
+        SVProgressHUD.show()
+        searchHalls(limit: 5, offset: 0)
+    }
+    @IBAction func SearchButtonTapped(_ sender: UIButton) {
+       searchTapped()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchTapped()
+        return false
+    }
+    
+    @objc func yourNameFunction(sender: UITextField) {
+        if sender.text!.isEmpty {
+            // textfield is empty
+            self.searchHallResult.removeAll()
+            self.collectionView1.reloadData()
+            self.emptyLabel.isHidden = false
+        } else {
+            // text field is not empty
+        }
+    }
     // MARK:- CollectionView
 /*********************************************************************************/
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return searchHallResult.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: HallCell = collectionView1.dequeueReusableCell(withReuseIdentifier: "HallCell", for: indexPath) as! HallCell
         
-        cell.backgroundColor = UIColor.white
+        let rowHall = searchHallResult[indexPath.row]
+        cell.hall = rowHall
+        cell.tag = indexPath.row
+        if rowHall.hallImage.count > 0 && rowHall.hallImage.isEmpty == false {
+            let tempImageView : UIImageView! = UIImageView()
+            let url = URL(string: "\(rowHall.hallImage[0])")
+            tempImageView.kf.setImage(with: url, placeholder: nil, options: nil, progressBlock: nil) { (result) in
+                if(cell.tag == indexPath.row){
+                    if result.isSuccess == false{
+                        cell.imageView.image = UIImage(named: "logo1")
+                    }else{
+                        cell.imageView.image = tempImageView.image
+                    }
+                }
+            }
+        }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -39,12 +109,23 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
         
         return 10
     }
-    
-    
-    @IBAction func SearchButtonTapped(_ sender: UIButton) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y + 700
+        let contentHeight = scrollView.contentSize.height
         
-        
-        
+        if offsetY > contentHeight - scrollView.frame.size.height{
+            if isFinishedPaging == true {
+                pagesNumber += 1
+                self.searchHalls(limit: 5, offset: pagesNumber)
+            }
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        searchTextField.endEditing(true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "DetailedHallController") as! DetailedHallController
+        controller.detailedHall = searchHallResult[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
     }
     
 
@@ -69,11 +150,21 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
         leftButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
         leftButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         leftButton.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)  
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+        
+        
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultAnimationType(.native)
     }
     @objc func leftButtonAction(){
         searchTextField.endEditing(true)
        navigationController?.popViewController(animated: true)
     }
-
+    func dismissRingIndecator(){
+        DispatchQueue.main.async {
+            SVProgressHUD.dismiss()
+            SVProgressHUD.setDefaultMaskType(.none)
+        }
+    }
 }
