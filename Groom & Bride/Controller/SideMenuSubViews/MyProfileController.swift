@@ -35,6 +35,8 @@ class MyProfileController: UIViewController {
                 self.saveNewInfo()
             }
             else if valid {
+                HelperData.sharedInstance.loggedInClient.userName = name!
+                HelperData.sharedInstance.loggedInClient.login()
                 self.show1buttonAlert(title: "Changes saved", message: "Changes saved successfully", buttonTitle: "OK", callback: {
                 })
             }else if !valid {
@@ -85,6 +87,7 @@ class MyProfileController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
     }
     @objc func leftButtonAction(){
+        view.endEditing(true)
         navigationController?.popViewController(animated: true)
     }
     func dismissRingIndecator(){

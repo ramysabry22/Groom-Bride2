@@ -46,6 +46,7 @@ class SignUpController: UIViewController,UITextFieldDelegate {
 
     
     @IBAction func BackButtonAction(_ sender: UIButton) {
+        view.endEditing(true)
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func SignUpButtonAction(_ sender: UIButton) {

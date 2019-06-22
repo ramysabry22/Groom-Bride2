@@ -3,6 +3,7 @@ import UIKit
 
 class DetailedHallController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var collectionView1: UICollectionView!
     @IBOutlet weak var infoTextView: UITextView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -11,6 +12,8 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
     @IBOutlet weak var ratesLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locationView: UIView!
+    
+    var detailedHall: Hall?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +28,43 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         locationView.layer.borderWidth = 1.5
         locationView.layer.borderColor = UIColor.mainAppPink().cgColor
         locationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewOnMap)))
+        
+        setupHallInfo()
     }
  
+    func setupHallInfo(){
+        self.titleLabel.text = detailedHall?.hallName
+        self.priceLabel.text = "\(detailedHall!.hallPrice!) EGP"
+        self.ratesLabel.text = "\(detailedHall!.hallRatesCounter!) Rates"
+        self.infoTextView.text = detailedHall?.hallDescription
+        self.addressLabel.text = detailedHall?.hallAdress
+        self.offersTextView.text = detailedHall?.hallSpecialOffers
+        if detailedHall!.hallImage.count > 0 && detailedHall!.hallImage.isEmpty == false {
+           self.pageControl.numberOfPages = detailedHall!.hallImage.count
+           self.pageControl.currentPage = 0
+        }else {
+            self.pageControl.numberOfPages = 1
+            self.pageControl.currentPage = 1
+        }
+    }
+    
+    @IBAction func CallButtonAction(_ sender: UIButton) {
+        guard let phoneNumber = detailedHall?.hallPhoneNumber else {
+            self.show1buttonAlert(title: "Oops", message: "Hall phone number is not available!", buttonTitle: "OK") {
+            }
+            return
+        }
+        let number = URL(string: "tel://\(phoneNumber)")
+        UIApplication.shared.open(number!)
+    }
+    
+    @objc func viewOnMap(_ sender: UITapGestureRecognizer){
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
     
     
     // MARK:- CollectionView
@@ -35,14 +73,26 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return detailedHall?.hallImage.count ?? 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: DetailedHallCustomCell = collectionView1.dequeueReusableCell(withReuseIdentifier: "DetailedHallCustomCell", for: indexPath) as! DetailedHallCustomCell
         
-        
-        
-        cell.backgroundColor = UIColor.white
+        cell.tag = indexPath.row
+        if detailedHall!.hallImage.count > 0 && detailedHall!.hallImage.isEmpty == false {
+            let tempImageView : UIImageView! = UIImageView()
+            let rowImage = detailedHall?.hallImage[indexPath.row]
+            let url = URL(string: "\(rowImage!)")
+            tempImageView.kf.setImage(with: url, placeholder: nil, options: nil, progressBlock: nil) { (result) in
+                if(cell.tag == indexPath.row){
+                    if result.isSuccess == false{
+                        cell.imageView.image = UIImage(named: "logo1")
+                    }else{
+                        cell.imageView.image = tempImageView.image
+                    }
+                }
+            }
+        }
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -53,19 +103,11 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         
         return 0
     }
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let pageNumber = Int(targetContentOffset.pointee.x / view.frame.width)
+        self.pageControl.currentPage = pageNumber
+        self.pageControl.updateCurrentPageDisplay()
     
-    
-    @IBAction func CallButtonAction(_ sender: UIButton) {
-        
-        
-        
-        
-    }
-    @objc func viewOnMap(_ sender: UITapGestureRecognizer){
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-        navigationController?.pushViewController(controller, animated: true)
     }
     
     func setupNavigationBar(){

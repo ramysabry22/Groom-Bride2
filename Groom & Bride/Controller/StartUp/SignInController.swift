@@ -65,6 +65,7 @@ class SignInController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func BackButtonTapped(_ sender: UIButton) {
+        view.endEditing(true)
         self.dismiss(animated: true, completion: nil)
     }
     func setupSignUpLabel(){

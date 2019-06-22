@@ -94,6 +94,7 @@ class ChangePasswordController: UIViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
     }
     @objc func leftButtonAction(){
+        view.endEditing(true)
         navigationController?.popViewController(animated: true)
     }
     func dismissRingIndecator(){

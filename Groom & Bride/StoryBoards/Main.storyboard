@@ -222,10 +222,10 @@
                                     <constraint firstAttribute="height" constant="60" id="ysA-Ko-cKo"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ec1-tU-pLa" customClass="CustomTextField" customModule="Groom___Bride" customModuleProvider="target">
-                                <rect key="frame" x="10" y="30" width="292" height="45"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ec1-tU-pLa" customClass="CustomSearchTextField" customModule="Groom___Bride" customModuleProvider="target">
+                                <rect key="frame" x="10" y="30" width="294" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="0j7-Lu-1rs"/>
+                                    <constraint firstAttribute="height" constant="45" id="4dr-3H-Wtx"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -244,7 +244,11 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCq-W3-9On">
-                                <rect key="frame" x="314" y="37.5" width="48" height="30"/>
+                                <rect key="frame" x="312" y="37.5" width="50" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="1y0-CI-3LD"/>
+                                    <constraint firstAttribute="height" constant="30" id="VFO-Bg-ctH"/>
+                                </constraints>
                                 <state key="normal" title="Search">
                                     <color key="titleColor" red="0.99215686270000003" green="0.39607843139999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -275,22 +279,22 @@ Looking for</string>
                         </subviews>
                         <color key="backgroundColor" red="0.97647058823529409" green="0.97647058823529409" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wCq-W3-9On" firstAttribute="centerY" secondItem="ec1-tU-pLa" secondAttribute="centerY" id="0gU-Eg-b2b"/>
+                            <constraint firstItem="gFI-pw-0eU" firstAttribute="centerY" secondItem="ec1-tU-pLa" secondAttribute="centerY" id="2d6-sL-AbR"/>
                             <constraint firstItem="yUk-YA-sEq" firstAttribute="top" secondItem="yN9-nA-TT6" secondAttribute="top" id="5Yx-jW-VEh"/>
                             <constraint firstItem="yUk-YA-sEq" firstAttribute="leading" secondItem="yN9-nA-TT6" secondAttribute="leading" id="6vm-AA-TnW"/>
                             <constraint firstItem="B32-5M-Gci" firstAttribute="leading" secondItem="yN9-nA-TT6" secondAttribute="leading" id="A2h-T0-dTf"/>
-                            <constraint firstItem="v0C-tj-23W" firstAttribute="trailing" secondItem="wCq-W3-9On" secondAttribute="trailing" constant="13" id="AYM-Zc-O8Q"/>
                             <constraint firstItem="gFI-pw-0eU" firstAttribute="leading" secondItem="v0C-tj-23W" secondAttribute="leading" constant="24" id="I4R-Wc-xiq"/>
                             <constraint firstAttribute="trailing" secondItem="yUk-YA-sEq" secondAttribute="trailing" id="Jbj-iT-LLM"/>
-                            <constraint firstItem="gFI-pw-0eU" firstAttribute="centerY" secondItem="ec1-tU-pLa" secondAttribute="centerY" id="Pg1-dd-pZi"/>
+                            <constraint firstItem="wCq-W3-9On" firstAttribute="centerY" secondItem="ec1-tU-pLa" secondAttribute="centerY" id="JcN-SE-yzM"/>
                             <constraint firstItem="v0C-tj-23W" firstAttribute="trailing" secondItem="B32-5M-Gci" secondAttribute="trailing" id="Urf-3T-EuY"/>
-                            <constraint firstItem="ec1-tU-pLa" firstAttribute="leading" secondItem="v0C-tj-23W" secondAttribute="leading" constant="10" id="YJp-jn-AUb"/>
                             <constraint firstItem="IkK-xU-ZJ0" firstAttribute="centerY" secondItem="B32-5M-Gci" secondAttribute="centerY" id="adY-hG-5dO"/>
-                            <constraint firstItem="wCq-W3-9On" firstAttribute="leading" secondItem="ec1-tU-pLa" secondAttribute="trailing" constant="12" id="ayh-9U-qzX"/>
                             <constraint firstAttribute="bottom" secondItem="B32-5M-Gci" secondAttribute="bottom" id="dm2-Q4-2Ti"/>
+                            <constraint firstItem="wCq-W3-9On" firstAttribute="leading" secondItem="ec1-tU-pLa" secondAttribute="trailing" constant="8" id="mZc-pX-7mW"/>
+                            <constraint firstItem="ec1-tU-pLa" firstAttribute="top" secondItem="v0C-tj-23W" secondAttribute="top" constant="10" id="r2u-DM-J1i"/>
                             <constraint firstItem="IkK-xU-ZJ0" firstAttribute="centerX" secondItem="B32-5M-Gci" secondAttribute="centerX" id="tu1-QA-lL8"/>
+                            <constraint firstItem="ec1-tU-pLa" firstAttribute="leading" secondItem="v0C-tj-23W" secondAttribute="leading" constant="10" id="upy-Bh-K8a"/>
                             <constraint firstItem="B32-5M-Gci" firstAttribute="top" secondItem="yUk-YA-sEq" secondAttribute="bottom" id="xNV-cz-Ntv"/>
-                            <constraint firstItem="ec1-tU-pLa" firstAttribute="top" secondItem="v0C-tj-23W" secondAttribute="top" constant="10" id="xix-Ox-UvL"/>
+                            <constraint firstItem="v0C-tj-23W" firstAttribute="trailing" secondItem="wCq-W3-9On" secondAttribute="trailing" constant="13" id="xg5-3Q-ie0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="v0C-tj-23W"/>
                     </view>
@@ -434,7 +438,7 @@ your favorites</string>
                                                             <rect key="frame" x="0.0" y="0.0" width="339" height="193"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Hallllll" translatesAutoresizingMaskIntoConstraints="NO" id="2wu-NA-8Ah">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo1" translatesAutoresizingMaskIntoConstraints="NO" id="2wu-NA-8Ah">
                                                                     <rect key="frame" x="0.0" y="0.0" width="339" height="193"/>
                                                                 </imageView>
                                                             </subviews>
@@ -681,6 +685,7 @@ your favorites</string>
                         <outlet property="locationView" destination="9wb-fb-VP1" id="1h0-2u-DUx"/>
                         <outlet property="offersTextView" destination="5EL-7C-wt8" id="9zL-s6-3kE"/>
                         <outlet property="pageControl" destination="CeS-Wr-vXa" id="cSY-DG-ixV"/>
+                        <outlet property="priceLabel" destination="8dg-Wu-uRT" id="ruv-h0-aRv"/>
                         <outlet property="ratesLabel" destination="dFR-KW-bb0" id="nul-f4-Hvc"/>
                         <outlet property="titleLabel" destination="Ox9-ho-0ZX" id="1n8-vj-Jcj"/>
                     </connections>
@@ -842,12 +847,12 @@ your favorites</string>
         </scene>
     </scenes>
     <resources>
-        <image name="Hallllll" width="600" height="337"/>
         <image name="LocationICON777" width="384" height="384"/>
         <image name="Logo2Image" width="1150.3199462890625" height="1348.56005859375"/>
         <image name="MoneyICON777" width="384" height="384"/>
         <image name="SearchICON777" width="24" height="24"/>
         <image name="SlpashImage" width="393" height="668"/>
+        <image name="logo1" width="1024" height="1024"/>
         <image name="logo2" width="89" height="74"/>
     </resources>
 </document>

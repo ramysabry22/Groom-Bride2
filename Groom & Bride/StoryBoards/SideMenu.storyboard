@@ -382,7 +382,7 @@ We are here to help you</string>
                                                 <rect key="frame" x="0.0" y="25" width="335" height="241"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                                             </textView>
                                         </subviews>
                                         <constraints>

@@ -31,7 +31,7 @@ class ForgetPasswordController: UIViewController,UITextFieldDelegate {
             self.dismissRingIndecator()
             if valid {
                 self.show1buttonAlert(title: "Email sent successfully", message: msg, buttonTitle: "OK") {
-                    self.navigationController?.popViewController(animated: true)
+                  //  self.navigationController?.popViewController(animated: true)
                 }
             }else {
                 self.show1buttonAlert(title: "Error", message: msg, buttonTitle: "OK") {
@@ -45,6 +45,7 @@ class ForgetPasswordController: UIViewController,UITextFieldDelegate {
        checkEmptyFields()
     }
     @IBAction func BackButtonAction(_ sender: UIButton) {
+        view.endEditing(true)
         self.navigationController?.popViewController(animated: true)
     }
     func SetupComponentDelegetes(){

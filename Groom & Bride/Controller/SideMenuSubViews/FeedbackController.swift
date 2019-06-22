@@ -2,7 +2,7 @@ import UIKit
 import SVProgressHUD
 import Alamofire
 
-class FeedbackController2: UIViewController, UITextViewDelegate {
+class FeedbackController2: UIViewController, UITextViewDelegate, UITextFieldDelegate{
     
     @IBOutlet weak var EmailTextField: UITextField!
     @IBOutlet weak var textViewPlaceHolderLabel: UILabel!
@@ -11,6 +11,7 @@ class FeedbackController2: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        EmailTextField.delegate = self
         textView1.delegate = self
         textView1.layer.borderWidth = 1
         textView1.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.2).cgColor
@@ -54,7 +55,14 @@ class FeedbackController2: UIViewController, UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         textViewPlaceHolderLabel.isHidden = !textView1.text.isEmpty
     }
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        textView.resignFirstResponder()
+        return true
+    }
     func setupNavigationBar(){
         navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.isTranslucent = false
@@ -75,6 +83,7 @@ class FeedbackController2: UIViewController, UITextViewDelegate {
         
     }
     @objc func leftButtonAction(){
+        view.endEditing(true)
         navigationController?.popViewController(animated: true)
     }
     func dismissRingIndecator(){

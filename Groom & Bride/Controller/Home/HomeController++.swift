@@ -23,10 +23,8 @@ extension HomeController {
             let cell: HallCell = collectionView2.dequeueReusableCell(withReuseIdentifier: "HallCell", for: indexPath) as! HallCell
             
             let rowHall = allHalls[indexPath.row]
-            
             cell.hall = rowHall
             cell.tag = indexPath.row
-            
             if rowHall.hallImage.count > 0 && rowHall.hallImage.isEmpty == false {
                 let tempImageView : UIImageView! = UIImageView()
                 let url = URL(string: "\(rowHall.hallImage[0])")
@@ -76,6 +74,7 @@ extension HomeController {
         if collectionView == collectionView2 {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "DetailedHallController") as! DetailedHallController
+            controller.detailedHall = allHalls[indexPath.row]
             navigationController?.pushViewController(controller, animated: true)
         }
     }

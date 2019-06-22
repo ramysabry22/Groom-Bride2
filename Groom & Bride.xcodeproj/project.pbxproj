@@ -219,9 +219,6 @@
 				F0C6BB0022B29EFA00C27641 /* HallCell.xib */,
 				F0C6BB0322B2AE9C00C27641 /* FilterCell.swift */,
 				F0C6BB0422B2AE9C00C27641 /* FilterCell.xib */,
-				F031C80722B3E0150070CABC /* DetailedHall */,
-				F031C80222B376310070CABC /* SearchHalls */,
-				F031C80122B375D20070CABC /* Favorites */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -316,6 +313,9 @@
 			children = (
 				F0966F6C222C0DD100FA4FEA /* AppDelegate.swift */,
 				F06601C22279AD07006E67D9 /* Home */,
+				F031C80122B375D20070CABC /* Favorites */,
+				F031C80222B376310070CABC /* SearchHalls */,
+				F031C80722B3E0150070CABC /* DetailedHall */,
 				F06601C32279AD14006E67D9 /* SideMenu */,
 				F0C6BAFC22B26FC300C27641 /* SideMenuSubViews */,
 				F032A33E2278E1AC000FC5C8 /* StartUp */,

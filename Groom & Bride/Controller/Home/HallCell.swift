@@ -13,7 +13,8 @@ class HallCell: UICollectionViewCell {
         didSet{
             guard let bassedHall = hall else { return }
             nameLabel.text = bassedHall.hallName
-            priceLabel.text = "\(bassedHall.hallPrice!) EGP" 
+            priceLabel.text = "\(bassedHall.hallPrice!) EGP"
+            ratesLabel.text = "\(bassedHall.hallRatesCounter!) Rates"
         }
     }
     

@@ -203,6 +203,7 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
     // MARK :- Side menu subViews functions
 /********************************************************************************************/
     func signOut(){
+        navigationController?.popToRootViewController(animated: true)
         menuLeftNavigationController2.dismiss(animated: true) {
             UserDefaults.standard.removeObject(forKey: "loggedInClient")
             UserDefaults.standard.synchronize()

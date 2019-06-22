@@ -1,10 +1,3 @@
-//
-//  SearchController.swift
-//  Groom & Bride
-//
-//  Created by Ramy Ayman Sabry on 6/13/19.
-//  Copyright © 2019 Ramy Ayman Sabry. All rights reserved.
-//
 
 import UIKit
 
@@ -79,6 +72,7 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)  
     }
     @objc func leftButtonAction(){
+        searchTextField.endEditing(true)
        navigationController?.popViewController(animated: true)
     }
 
