@@ -49,12 +49,13 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
     }
     
     @IBAction func CallButtonAction(_ sender: UIButton) {
-        guard let phoneNumber = detailedHall?.hallPhoneNumber else {
+        guard let phoneNumber = detailedHall?.hallPhoneNumber, detailedHall?.hallPhoneNumber != nil else {
             self.show1buttonAlert(title: "Oops", message: "Hall phone number is not available!", buttonTitle: "OK") {
             }
             return
         }
-        let number = URL(string: "tel://\(phoneNumber)")
+        let encodedPhoneNumber = phoneNumber.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let number = URL(string: "tel://" + "\(encodedPhoneNumber!)")
         UIApplication.shared.open(number!)
     }
     
