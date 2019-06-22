@@ -9,6 +9,8 @@
 import UIKit
 
 class FavoriteHallCell: UICollectionViewCell {
+    weak var delegete: removeFromFavoriteProtocol?
+    
     var hall : Hall? {
         didSet{
             guard let bassedHall = hall else { return }
@@ -16,6 +18,10 @@ class FavoriteHallCell: UICollectionViewCell {
             priceLabel.text = "\(bassedHall.hallPrice!) EGP"
             ratesLabel.text = "\(bassedHall.hallRatesCounter!) Rates"
         }
+    }
+    
+    @objc func heartImageTapped(){
+        delegete?.removeFromFavoriteButton(self)
     }
     
     @IBOutlet weak var imageView: UIImageView!
@@ -27,6 +33,7 @@ class FavoriteHallCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        heartImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(heartImageTapped)))
     }
 
 }

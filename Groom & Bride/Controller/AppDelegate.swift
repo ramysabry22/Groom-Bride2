@@ -11,7 +11,7 @@ import Firebase
 import IQKeyboardManagerSwift
 import UserNotifications
 import FirebaseMessaging
-
+import Kingfisher
 
 let defaults = UserDefaults.standard
 @UIApplicationMain
@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MessagingDelegate, UNUser
         attempRegisterForNotifications(application: application)
         
         application.applicationIconBadgeNumber = 0
-        
+         KingfisherManager.shared.cache.diskStorage.config.expiration = .seconds(60 * 60 * 24 * 5)
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = true
         IQKeyboardManager.shared.shouldShowToolbarPlaceholder = true

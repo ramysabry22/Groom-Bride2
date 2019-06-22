@@ -2,7 +2,12 @@
 import UIKit
 import SVProgressHUD
 
-class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+protocol removeFromFavoriteProtocol: class {
+    func removeFromFavoriteButton(_ sender: FavoriteHallCell)
+}
+
+class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,removeFromFavoriteProtocol {
+    
     @IBOutlet weak var collectionView1: UICollectionView!
     @IBOutlet weak var emptyLabel: UILabel!
     var allHalls: [Hall] = []
@@ -38,12 +43,37 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
                 }
             }
             
-            
             if self.allHalls.count <= 0 {
                  self.emptyLabel.isHidden = false
             }
         }
     }
+    
+    func removeFromFavoriteButton(_ sender: FavoriteHallCell) {
+        guard let indexPath = collectionView1.indexPath(for: sender) else { return }
+        SVProgressHUD.show()
+        ApiManager.sharedInstance.deleteHallFromFavorite(hallID: (sender.hall?._id)!) { (valid, msg, reRequest) in
+            self.dismissRingIndecator()
+            if reRequest {
+                self.removeFromFavoriteButton(sender)
+            }
+            else if valid {
+                self.allHalls.remove(at: indexPath.row)
+                self.collectionView1.deleteItems(at: [indexPath])
+                self.collectionView1.reloadData()
+            }
+            else if !valid {
+                self.show1buttonAlert(title: "Error", message: msg, buttonTitle: "OK", callback: {
+                })
+            }
+            
+            
+            if self.allHalls.count <= 0 {
+                self.emptyLabel.isHidden = false
+            }
+        }
+    }
+    
     
     
     
