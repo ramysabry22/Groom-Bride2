@@ -135,7 +135,6 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         collectionView1.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .left)
     }
     
-    
     func dismissRingIndecator(){
         DispatchQueue.main.async {
             SVProgressHUD.dismiss()
@@ -143,16 +142,6 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         }
     }
     
-    func PresentCustomError(error: String){
-        let appearance = SCLAlertView.SCLAppearance(
-            showCloseButton: false,
-            showCircularIcon: false
-        )
-        let alertView = SCLAlertView(appearance: appearance)
-        let button1 = alertView.addButton("Ok"){}
-        alertView.showInfo("Error!", subTitle: "\(error)")
-        button1.backgroundColor = UIColor.gray
-    }
     @objc func SearchViewTapped(sender: UITapGestureRecognizer){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "SearchController") as! SearchController

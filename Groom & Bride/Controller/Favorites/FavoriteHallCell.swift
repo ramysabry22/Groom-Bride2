@@ -9,7 +9,15 @@
 import UIKit
 
 class FavoriteHallCell: UICollectionViewCell {
-
+    var hall : Hall? {
+        didSet{
+            guard let bassedHall = hall else { return }
+            nameLabel.text = bassedHall.hallName
+            priceLabel.text = "\(bassedHall.hallPrice!) EGP"
+            ratesLabel.text = "\(bassedHall.hallRatesCounter!) Rates"
+        }
+    }
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!

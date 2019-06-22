@@ -661,18 +661,42 @@ your favorites</string>
                                     <constraint firstItem="raU-yk-GaH" firstAttribute="leading" secondItem="5I9-4n-go6" secondAttribute="leading" id="jl1-Em-BzO"/>
                                 </constraints>
                             </scrollView>
+                            <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oTa-Ur-UgK" userLabel="FavoriteView">
+                                <rect key="frame" x="325" y="29" width="38" height="38"/>
+                                <color key="backgroundColor" red="0.99215686270000003" green="0.39607843139999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="38" id="ZrS-ph-kgW"/>
+                                    <constraint firstAttribute="height" constant="38" id="pdv-m0-y2Q"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HeartICONNotSelected777" translatesAutoresizingMaskIntoConstraints="NO" id="BNE-YY-0cx">
+                                <rect key="frame" x="330.5" y="34.5" width="27" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="27" id="ZVG-6g-xxE"/>
+                                    <constraint firstAttribute="height" constant="27" id="oi4-H2-JMe"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.39607843139999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Ka6-QA-apk" firstAttribute="top" secondItem="JLs-do-Poy" secondAttribute="top" id="729-20-pbV"/>
                             <constraint firstItem="79k-zP-2qo" firstAttribute="height" secondItem="JLs-do-Poy" secondAttribute="height" multiplier="2:5" id="8ga-Pl-lbB"/>
+                            <constraint firstItem="oTa-Ur-UgK" firstAttribute="trailing" secondItem="79k-zP-2qo" secondAttribute="trailing" constant="-12" id="DJJ-ik-uUY"/>
                             <constraint firstItem="bHL-7f-rmy" firstAttribute="trailing" secondItem="Ka6-QA-apk" secondAttribute="trailing" id="SYX-1b-PVq"/>
                             <constraint firstItem="5I9-4n-go6" firstAttribute="top" secondItem="bHL-7f-rmy" secondAttribute="top" id="T2m-54-6CF"/>
                             <constraint firstItem="bHL-7f-rmy" firstAttribute="bottom" secondItem="VMz-8q-n38" secondAttribute="bottom" id="TBF-y3-Cbp"/>
+                            <constraint firstItem="BNE-YY-0cx" firstAttribute="centerX" secondItem="oTa-Ur-UgK" secondAttribute="centerX" id="TE9-qb-Tev"/>
+                            <constraint firstItem="BNE-YY-0cx" firstAttribute="centerY" secondItem="oTa-Ur-UgK" secondAttribute="centerY" id="ezh-y6-KYm"/>
                             <constraint firstItem="Ka6-QA-apk" firstAttribute="leading" secondItem="bHL-7f-rmy" secondAttribute="leading" id="kPr-R0-kQO"/>
                             <constraint firstItem="5I9-4n-go6" firstAttribute="leading" secondItem="bHL-7f-rmy" secondAttribute="leading" id="kuc-wD-qwl"/>
                             <constraint firstItem="VMz-8q-n38" firstAttribute="leading" secondItem="bHL-7f-rmy" secondAttribute="leading" id="niI-mR-6r9"/>
                             <constraint firstItem="bHL-7f-rmy" firstAttribute="trailing" secondItem="VMz-8q-n38" secondAttribute="trailing" id="th8-X4-ays"/>
+                            <constraint firstItem="oTa-Ur-UgK" firstAttribute="top" secondItem="79k-zP-2qo" secondAttribute="top" constant="9" id="uAk-81-7D3"/>
                             <constraint firstItem="VMz-8q-n38" firstAttribute="top" secondItem="5I9-4n-go6" secondAttribute="bottom" id="wSS-Xe-zWl"/>
                             <constraint firstItem="bHL-7f-rmy" firstAttribute="trailing" secondItem="5I9-4n-go6" secondAttribute="trailing" id="xOC-sw-JV1"/>
                         </constraints>
@@ -681,6 +705,8 @@ your favorites</string>
                     <connections>
                         <outlet property="addressLabel" destination="ipp-hw-2Iy" id="XUo-7d-4xh"/>
                         <outlet property="collectionView1" destination="79k-zP-2qo" id="8qI-tR-Mtd"/>
+                        <outlet property="favoriteBackgroundView" destination="oTa-Ur-UgK" id="1O7-dy-QaH"/>
+                        <outlet property="favoriteImageView" destination="BNE-YY-0cx" id="fwR-uk-Vmb"/>
                         <outlet property="infoTextView" destination="zCa-oO-gWd" id="ewd-07-IkO"/>
                         <outlet property="locationView" destination="9wb-fb-VP1" id="1h0-2u-DUx"/>
                         <outlet property="offersTextView" destination="5EL-7C-wt8" id="9zL-s6-3kE"/>
@@ -847,6 +873,7 @@ your favorites</string>
         </scene>
     </scenes>
     <resources>
+        <image name="HeartICONNotSelected777" width="409.60000610351562" height="409.60000610351562"/>
         <image name="LocationICON777" width="384" height="384"/>
         <image name="Logo2Image" width="1150.3199462890625" height="1348.56005859375"/>
         <image name="MoneyICON777" width="384" height="384"/>

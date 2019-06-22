@@ -1,8 +1,10 @@
 import UIKit
-
+import SVProgressHUD
 
 class DetailedHallController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   
+    @IBOutlet weak var favoriteImageView: UIImageView!
+    @IBOutlet weak var favoriteBackgroundView: UIView!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var collectionView1: UICollectionView!
     @IBOutlet weak var infoTextView: UITextView!
@@ -28,10 +30,13 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         locationView.layer.borderWidth = 1.5
         locationView.layer.borderColor = UIColor.mainAppPink().cgColor
         locationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewOnMap)))
+        favoriteImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addTofavoriteButtonAction)))
+        favoriteBackgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addTofavoriteButtonAction)))
         
         setupHallInfo()
     }
- 
+   
+    
     func setupHallInfo(){
         self.titleLabel.text = detailedHall?.hallName
         self.priceLabel.text = "\(detailedHall!.hallPrice!) EGP"
@@ -66,7 +71,40 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         navigationController?.pushViewController(controller, animated: true)
     }
     
-    
+    @objc func addTofavoriteButtonAction(){
+        if defaults.dictionary(forKey: "loggedInClient") != nil{
+            addToFavorite()
+        }else {
+            showLoginComponent()
+        }
+    }
+    func addToFavorite(){
+        guard let hallID = self.detailedHall?._id else { return }
+        SVProgressHUD.show()
+        ApiManager.sharedInstance.addHallToFavorite(hallID: hallID) { (valid, msg, reRequest) in
+          self.dismissRingIndecator()
+            if reRequest {
+                self.addToFavorite()
+            }
+            else if valid {
+                self.favoriteImageView.image = UIImage(named: "HeartICONSelected777")
+                self.show1buttonAlert(title: "Done", message: "Hall saved to favorite successfullt", buttonTitle: "OK", callback: {
+                
+                })
+            }else {
+                self.show1buttonAlert(title: "Error", message: msg, buttonTitle: "OK", callback: {
+                    
+                })
+            }
+        }
+    }
+    func showLoginComponent(){
+        let storyboard = UIStoryboard(name: "LoginBoard", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "signInScreen") as! SignInController
+        let homeController = UINavigationController(rootViewController: controller)
+        homeController.isNavigationBarHidden = true
+        self.present(homeController, animated: true, completion: nil)
+    }
     
     // MARK:- CollectionView
 /*********************************************************************************/
@@ -132,11 +170,20 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         leftButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         leftButton.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+        
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultAnimationType(.native)
     }
     @objc func leftButtonAction(){
         navigationController?.popViewController(animated: true)
     }
-
+    func dismissRingIndecator(){
+        DispatchQueue.main.async {
+            SVProgressHUD.dismiss()
+            SVProgressHUD.setDefaultMaskType(.none)
+        }
+    }
 }
 
 
