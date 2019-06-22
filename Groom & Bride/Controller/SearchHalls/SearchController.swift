@@ -25,13 +25,32 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
     
     
     func searchHalls(limit: Int, offset: Int){
-        self.isFinishedPaging = false
         ApiManager.sharedInstance.searchHallByName(limit: limit, offset: offset, hallName: SearchText) { (valid, msg, halls) in
           self.dismissRingIndecator()
-          self.isFinishedPaging = true
             if valid {
                 if halls.count > 0 {
                     self.searchHallResult = halls
+                    self.collectionView1.reloadData()
+                    self.emptyLabel.isHidden = true
+                }
+            }else {
+                self.searchHallResult.removeAll()
+                self.collectionView1.reloadData()
+                self.emptyLabel.isHidden = false
+            }
+        }
+    }
+    
+    func paginateSearchHalls(limit: Int, offset: Int){
+        self.isFinishedPaging = false
+        ApiManager.sharedInstance.searchHallByName(limit: limit, offset: offset, hallName: SearchText) { (valid, msg, halls) in
+            self.dismissRingIndecator()
+            self.isFinishedPaging = true
+            if valid {
+                if halls.count > 0 {
+                    for record in halls {
+                        self.searchHallResult.append(record)
+                    }
                     self.collectionView1.reloadData()
                     self.emptyLabel.isHidden = true
                 }
@@ -51,7 +70,7 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
         self.pagesNumber = 0
         self.SearchText = searchText
         SVProgressHUD.show()
-        searchHalls(limit: 5, offset: pagesNumber)
+        searchHalls(limit: 5, offset: 0)
     }
     @IBAction func SearchButtonTapped(_ sender: UIButton) {
        searchTapped()
@@ -117,7 +136,7 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
         if offsetY > contentHeight - scrollView.frame.size.height{
             if isFinishedPaging == true {
                 pagesNumber += 1
-                self.searchHalls(limit: 5, offset: pagesNumber)
+                self.paginateSearchHalls(limit: 5, offset: pagesNumber)
             }
         }
     }
