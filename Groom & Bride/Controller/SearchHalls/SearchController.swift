@@ -48,9 +48,10 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
             return
         }
         searchTextField.endEditing(true)
+        self.pagesNumber = 0
         self.SearchText = searchText
         SVProgressHUD.show()
-        searchHalls(limit: 5, offset: 0)
+        searchHalls(limit: 5, offset: pagesNumber)
     }
     @IBAction func SearchButtonTapped(_ sender: UIButton) {
        searchTapped()
