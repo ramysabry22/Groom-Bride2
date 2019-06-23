@@ -23,9 +23,15 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
     lazy var menuLeftNavigationController2 = UISideMenuNavigationController(rootViewController: leftMenu2)
     
     var allHalls: [Hall] = []
-//    var filterCollection: [[String]] = [["All","AllICON777.png"],["Hotel","HotelICON777"],
-//                                        ["Club","ClubICON777"],["Yacht","YachtICON777"],
-//                                        ["Villa","VillaICON777"],["Individual","IndividualICON777"]]
+    let hallCategories: [[String]] = [["0","All","AllICON777.png"],
+                                      ["5d0cbfc9a758321414bf9871","Hotel","HotelICON777"],
+                                      ["5d0cbfc9a758321414bf9872","Club","ClubICON777"],
+                                      ["5d0cbfc9a758321414bf9873","Yacht","YachtICON777"],
+                                      ["5d0cbfc9a758321414bf9874","Villa","VillaICON777"],
+                                      ["5d0cbfc9a758321414bf9875","Individual","IndividualICON777"]]
+    
+    
+    var currentCategoryIndex: Int = 0
     var firstOpen = true
     var isFinishedPaging = true
     var pagesNumber: Int = 0
@@ -59,6 +65,7 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
     func fetchNewHalls(limit: Int, offset: Int){
         self.isFinishedPaging = false
         ApiManager.sharedInstance.listHalls(limit: limit, offset: offset) { (valid, msg, halls) in
+            self.dismissRingIndecator()
             if valid{
                if halls.count > 0 {
                  for record in halls {
@@ -72,6 +79,43 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
             self.isFinishedPaging = true
         }
     }
+    
+    
+    func fetchHalls(index: Int){
+        if index != currentCategoryIndex {
+            SVProgressHUD.show()
+            currentCategoryIndex = index
+            pagesNumber = 0
+            self.allHalls.removeAll()
+            self.collectionView2.reloadData()
+            if index == 0 {
+                fetchNewHalls(limit: 5, offset: 0)
+            }else {
+                fetchHallWithCategory(index: index, limit: 5, offset: 0)
+            }
+        }
+    }
+    
+    
+    func fetchHallWithCategory(index: Int, limit: Int, offset: Int){
+        isFinishedPaging = false
+        let hallID = hallCategories[index][0]
+        ApiManager.sharedInstance.listHallsByCategory(limit: limit, offset: offset, categoryID: hallID) { (valid, msg, halls) in
+            self.dismissRingIndecator()
+            if valid{
+                if halls.count > 0 {
+                    for record in halls {
+                        self.allHalls.append(record)
+                    }
+                    self.collectionView2.reloadData()
+                }
+            }else{
+               
+            }
+            self.isFinishedPaging = true
+        }
+    }
+    
     
     // MARK :- Fetch Halls
 /********************************************************************************************/
@@ -96,56 +140,8 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
             print("Message Sent")
             print("*****************************************************")
         })
-        
-        
-        
-        
     }
-    
-    
-    var filterCollection: [Int: [String]] = [0: ["0","All","AllICON777.png"]
-        ,1: ["5d0cbfc9a758321414bf9871","Hotel","HotelICON777"]
-    ,2: ["5d0cbfc9a758321414bf9872","Club","ClubICON777"]
-    ,3: ["5d0cbfc9a758321414bf9873","Yacht","YachtICON777"]
-    ,4: ["5d0cbfc9a758321414bf9874","Villa","VillaICON777"]
-    ,5: ["5d0cbfc9a758321414bf9875","Individual","IndividualICON777"]]
-    
-    var currentCategoryIndex: Int = 0
-    
-    func fetchHalls(index: Int){
-      if index != currentCategoryIndex {
-        SVProgressHUD.show()
-        currentCategoryIndex = index
-        if index == 0 {
-            fetchNewHalls(limit: 5, offset: 0)
-        }else {
-            fetchHallWithCategory(index: index)
-        }
-      }
-    }
-    
-    
-    func fetchHallWithCategory(index: Int){
-        isFinishedPaging = false
-        let hallID = Array(filterCollection)[index].value[0]
-        ApiManager.sharedInstance.listHallsByCategory(limit: 5, offset: 5, categoryID: hallID) { (valid, msg, halls) in
-            self.dismissRingIndecator()
-            if valid{
-                self.allHalls.removeAll()
-                if halls.count > 0 {
-                    for record in halls {
-                        self.allHalls.append(record)
-                    }
-                    self.collectionView2.reloadData()
-                }
-            }else{
-                
-            }
-            self.isFinishedPaging = true
-        }
-    }
-    
-    
+
     
 
 

@@ -14,7 +14,7 @@ extension HomeController {
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == collectionView2 { return allHalls.count }
-        else { return filterCollection.count }
+        else { return hallCategories.count }
     }
     
     
@@ -43,11 +43,9 @@ extension HomeController {
             let cell: FilterCell = collectionView1.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as! FilterCell
             
             
-            cell.titleLabel.text = Array(filterCollection)[indexPath.row].value[1]
-            let imageName = Array(filterCollection)[indexPath.row].value[2]
+            cell.titleLabel.text = hallCategories[indexPath.row][1]
+            let imageName = hallCategories[indexPath.row][2]
             cell.imageView.image = UIImage(named: "\(imageName)")?.withRenderingMode(.alwaysTemplate)
-//          cell.titleLabel.text = filterCollection[indexPath.row][0]
-//            cell.imageView.image = UIImage(named: "\(filterCollection[indexPath.row][1])")?.withRenderingMode(.alwaysTemplate)
             cell.backgroundColor = UIColor.clear
             return cell
         }
@@ -55,14 +53,13 @@ extension HomeController {
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         if collectionView == collectionView2 {
-            
             let cellHeight = max(270, view.frame.height/3)
             return CGSize(width: view.frame.width, height: cellHeight)
         }else {
-             let cellTitle = Array(filterCollection)[indexPath.row].value[1]
+             let cellTitle = hallCategories[indexPath.row][1]
              let cellWidth = estimateFrameForSubTitleText(cellTitle).width + 15 + view.frame.width/8
-//               let cellWidth = estimateFrameForSubTitleText(filterCollection[indexPath.row][0]).width + 15 + view.frame.width/8
              return CGSize(width: cellWidth, height: collectionView1.frame.height)
         }
     }
@@ -130,7 +127,11 @@ extension HomeController {
         if offsetY > contentHeight - scrollView.frame.size.height{
             if isFinishedPaging == true {
                pagesNumber += 1
-                self.fetchNewHalls(limit: 5, offset: pagesNumber)
+                if currentCategoryIndex == 0 {
+                    self.fetchNewHalls(limit: 5, offset: pagesNumber)
+                }else {
+                    fetchHallWithCategory(index: currentCategoryIndex, limit: 5, offset: pagesNumber)
+                }
             }
         }
     }
