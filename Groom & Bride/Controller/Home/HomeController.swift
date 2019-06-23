@@ -38,18 +38,8 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView2.register(UINib(nibName: "HallCell", bundle: nil), forCellWithReuseIdentifier: "HallCell")
-        collectionView2.delegate = self
-        collectionView2.dataSource = self
-        
-        self.collectionView1.register(UINib(nibName: "FilterCell", bundle: nil), forCellWithReuseIdentifier: "FilterCell")
-        collectionView1.delegate = self
-        collectionView1.dataSource = self
-       
-        searchView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SearchViewTapped)))
-        
+        setupComponent()
         setupFirstFilter()
-     //   homee()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -61,7 +51,9 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         }
        setupLeftMenu()
     }
-
+    
+    // MARK :- Fetch Halls
+/********************************************************************************************/
     func fetchNewHalls(limit: Int, offset: Int){
         self.isFinishedPaging = false
         ApiManager.sharedInstance.listHalls(limit: limit, offset: offset) { (valid, msg, halls) in
@@ -117,8 +109,7 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
     }
     
     
-    // MARK :- Fetch Halls
-/********************************************************************************************/
+   
     
     func homee(){
         
@@ -143,8 +134,6 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
     }
 
     
-
-
 // MARK :- Helper functions
 /********************************************************************************************/
     func setupLeftMenuDelegetes(){
@@ -160,7 +149,6 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
             self.present(homeController, animated: true, completion: nil)
         }
     }
-    
     func setupLeftMenu(){
         if (UserDefaults.standard.object(forKey: "loggedInClient") != nil) {
             SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController2
@@ -168,24 +156,31 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
             SideMenuManager.default.menuLeftNavigationController = menuLeftNavigationController
         }
     }
-    
-    
     func setupFirstFilter(){
         let selectedIndexPath = IndexPath(item: 0, section: 0)
         collectionView1.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .left)
     }
-    
     func dismissRingIndecator(){
         DispatchQueue.main.async {
             SVProgressHUD.dismiss()
             SVProgressHUD.setDefaultMaskType(.none)
         }
     }
-    
     @objc func SearchViewTapped(sender: UITapGestureRecognizer){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "SearchController") as! SearchController
        navigationController?.pushViewController(controller, animated: true)
+    }
+    func setupComponent(){
+        self.collectionView2.register(UINib(nibName: "HallCell", bundle: nil), forCellWithReuseIdentifier: "HallCell")
+        collectionView2.delegate = self
+        collectionView2.dataSource = self
+        
+        self.collectionView1.register(UINib(nibName: "FilterCell", bundle: nil), forCellWithReuseIdentifier: "FilterCell")
+        collectionView1.delegate = self
+        collectionView1.dataSource = self
+        
+        searchView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SearchViewTapped)))
     }
     
     func setupNavigationBar(){
@@ -218,7 +213,6 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         leftButton.heightAnchor.constraint(equalToConstant: 23).isActive = true
         leftButton.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
-        
         
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.setDefaultStyle(.dark)
