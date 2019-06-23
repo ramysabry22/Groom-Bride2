@@ -17,7 +17,7 @@ struct HallID: Decodable {
 //    var hallCategory: HallCategory?
     var hallAdress: String? = "Empty Address"
     var hallDescription: String? = "No description for this wedding hall"
-    var hallPrice: Float? = 0
+    var hallPrice: Int? = 0
     var hallLocationLong: String?
     var hallLocationLat: String?
     var hallSpecialOffers: String? = "No special offers for this wedding hall"

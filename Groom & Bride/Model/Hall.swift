@@ -11,7 +11,7 @@ class Hall: Decodable {
     var hallDescription: String? = ""
     var hallRate: Int? = 0
     var hallRatesCounter: Int? = 0
-    var hallPrice: Float? = 0
+    var hallPrice: Int? = 0
     var hallLocationLong: String?
     var hallLocationLat: String?
     var hallSpecialOffers: String?
@@ -27,7 +27,7 @@ class Hall: Decodable {
         self.hallDescription = hallDict["hallDescription"] as? String ?? "No description for this wedding hall"
         self.hallRate = hallDict["hallsAverageRating"] as? Int ?? 0
         self.hallRatesCounter = hallDict["hallsRatingCounter"] as? Int ?? 0
-        self.hallPrice = hallDict["hallPrice"] as? Float ?? 0
+        self.hallPrice = hallDict["hallPrice"] as? Int ?? 0
         self.hallLocationLong = hallDict["hallLocationLong"] as? String
         self.hallLocationLat = hallDict["hallLocationLat"] as? String
         self.hallSpecialOffers = hallDict["hallSpecialOffers"] as? String ?? "No special offers for this wedding hall"

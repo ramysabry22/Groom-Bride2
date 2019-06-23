@@ -1,8 +1,10 @@
 import UIKit
 import SVProgressHUD
+import Cosmos
 
 class DetailedHallController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   
+    @IBOutlet weak var ratingStarsView: CosmosView!
     @IBOutlet weak var favoriteImageView: UIImageView!
     @IBOutlet weak var favoriteBackgroundView: UIView!
     @IBOutlet weak var priceLabel: UILabel!
@@ -32,6 +34,7 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         favoriteBackgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addTofavoriteButtonAction)))
         
         setupHallInfo()
+        showRatingView()
     }
    
     
@@ -42,6 +45,7 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         self.infoTextView.text = detailedHall?.hallDescription
         self.addressLabel.text = detailedHall?.hallAdress
         self.offersTextView.text = detailedHall?.hallSpecialOffers
+        self.ratingStarsView.rating = Double(detailedHall?.hallRate ?? 0)
         if detailedHall!.hallImage.count > 0 && detailedHall!.hallImage.isEmpty == false {
            self.pageControl.numberOfPages = detailedHall!.hallImage.count
            self.pageControl.currentPage = 0
@@ -50,7 +54,13 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
             self.pageControl.currentPage = 1
         }
     }
-    
+    func showRatingView(){
+        
+        
+        
+        
+        
+    }
     @IBAction func CallButtonAction(_ sender: UIButton) {
         guard let phoneNumber = detailedHall?.hallPhoneNumber, detailedHall?.hallPhoneNumber != nil else {
             self.show1buttonAlert(title: "Oops", message: "Hall phone number is not available!", buttonTitle: "OK") {

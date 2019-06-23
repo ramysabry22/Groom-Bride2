@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cosmos
 
 class HallCell: UICollectionViewCell {
     var hall : Hall? {
@@ -15,10 +16,12 @@ class HallCell: UICollectionViewCell {
             nameLabel.text = bassedHall.hallName
             priceLabel.text = "\(bassedHall.hallPrice!) EGP"
             ratesLabel.text = "\(bassedHall.hallRatesCounter!) Rates"
+            ratingStarsView.rating = Double(bassedHall.hallRate ?? 0)
         }
     }
     
     
+    @IBOutlet weak var ratingStarsView: CosmosView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!

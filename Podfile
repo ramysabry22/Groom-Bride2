@@ -18,5 +18,6 @@ pod 'SkyFloatingLabelTextField'
 pod 'Alamofire'
 pod 'Dropdowns'
 pod 'DropDown', '2.3.2'
+pod 'Cosmos', '~> 17.0'
 
 end

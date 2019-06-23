@@ -40,7 +40,6 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         super.viewDidLoad()
         setupComponent()
         setupFirstFilter()
-        homee()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)

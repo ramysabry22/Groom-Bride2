@@ -62,7 +62,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4197FB310BEA504D28122018 /* Pods_Groom___Bride.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Groom___Bride.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4197FB310BEA504D28122018 /* Pods_Groom___Bride.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Groom___Bride.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C697AF79F55FB0462A36ABCB /* Pods-Groom & Bride.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Groom & Bride.release.xcconfig"; path = "Target Support Files/Pods-Groom & Bride/Pods-Groom & Bride.release.xcconfig"; sourceTree = "<group>"; };
 		CDD347A716634F5A90A600FE /* Pods-Groom & Bride.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Groom & Bride.debug.xcconfig"; path = "Target Support Files/Pods-Groom & Bride/Pods-Groom & Bride.debug.xcconfig"; sourceTree = "<group>"; };
 		F00C6C0922B1564A0063A146 /* MyProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileController.swift; sourceTree = "<group>"; };
@@ -438,6 +438,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Groom & Bride/Pods-Groom & Bride-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/Dropdowns/Dropdowns.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -457,6 +458,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dropdowns.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",

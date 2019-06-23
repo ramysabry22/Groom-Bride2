@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.2)
+  - Cosmos (17.0.0)
   - DropDown (2.3.2)
   - Dropdowns (2.0.0)
   - Firebase (5.16.0):
@@ -99,6 +100,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Cosmos (~> 17.0)
   - DropDown (= 2.3.2)
   - Dropdowns
   - Firebase
@@ -117,6 +119,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Cosmos
     - DropDown
     - Dropdowns
     - Firebase
@@ -144,6 +147,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Cosmos: 309e489f21ffc91a1eeecfebef7f817cd2fcfba6
   DropDown: 7f87abecc28f9b4edad810fe1211c5c018c257e5
   Dropdowns: 9dd32d9ac9cc59e56ae093b588d35477abde32d2
   Firebase: 749a8ff4962f9d8c79dda1966de20f6f77583d67
@@ -169,6 +173,6 @@ SPEC CHECKSUMS:
   SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: dbf3938253f4d0b59b8380d91b10f1512f8ec136
+PODFILE CHECKSUM: 3db423a9454124d882478340b7d531c8972451e4
 
 COCOAPODS: 1.6.0

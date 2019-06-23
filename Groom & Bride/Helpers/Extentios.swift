@@ -2,6 +2,7 @@
 import UIKit
 import SCLAlertView
 import SVProgressHUD
+import Cosmos
 
 extension UIView {
     
@@ -73,6 +74,65 @@ extension UIViewController {
             alertAction in
             callback(true)
         }))
+        
+        alert.view.tintColor = UIColor.mainAppPink()
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    func showRatingAlert(title: String, message: String, cancelButtonTitle: String, defaultButtonTitle: String, callback: @escaping (_ defualt: Bool,_ rate: Int) -> ()) {
+        let rateView = CosmosView()
+        rateView.rating = 1
+        var finalRating: Int = 1
+        
+           let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        
+        
+        
+        let customView = UIView()
+    
+        
+        customView.addSubview(rateView)
+        
+        
+        
+        
+        
+        
+        
+        
+        
+     
+        
+        rateView.didFinishTouchingCosmos = { rating in
+            finalRating = Int(rating)
+        }
+        alert.addAction(UIAlertAction(title: defaultButtonTitle, style: .cancel, handler: {
+            alertAction in
+            callback(true,finalRating)
+        }))
+        
+        alert.addAction(UIAlertAction(title: cancelButtonTitle, style: .default, handler: {
+            alertAction in
+            callback(false,0)
+        }))
+        
+        
+        alert.addTextField { (textField : UITextField!) -> Void in
+            textField.placeholder = ""
+            textField.isUserInteractionEnabled = true
+            textField.isEnabled = true
+            textField.backgroundColor = UIColor.yellow
+            textField.addSubview(customView)
+            customView.backgroundColor = UIColor.red
+            customView.frame = textField.frame
+        }
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        label.text = "Text"
+        alert.view.addSubview(label)
+        
+        
+      //  alert.view.addSubview(customView)
         
         alert.view.tintColor = UIColor.mainAppPink()
         self.present(alert, animated: true, completion: nil)
