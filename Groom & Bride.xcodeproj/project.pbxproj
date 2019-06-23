@@ -11,7 +11,6 @@
 		F00C6C0A22B1564A0063A146 /* MyProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00C6C0922B1564A0063A146 /* MyProfileController.swift */; };
 		F00C6C0C22B1565C0063A146 /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00C6C0B22B1565C0063A146 /* ChangePasswordController.swift */; };
 		F010A67722ADD1A300360DEA /* CustomComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F010A67622ADD1A300360DEA /* CustomComponents.swift */; };
-		F0249AE5228786330019433A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0249AE4228786330019433A /* GoogleService-Info.plist */; };
 		F0282CF0227720AA005CAA4A /* HelperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0282CEF227720AA005CAA4A /* HelperData.swift */; };
 		F0282CF22277211A005CAA4A /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0282CF12277211A005CAA4A /* Client.swift */; };
 		F0282CF52277222C005CAA4A /* HallsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0282CF42277222C005CAA4A /* HallsServices.swift */; };
@@ -57,6 +56,7 @@
 		F0EE3A6B22BBDB5B00A9D1A9 /* HallCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EE3A6A22BBDB5B00A9D1A9 /* HallCategory.swift */; };
 		F0EE3A6D22BBDD7500A9D1A9 /* ClientServices++.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EE3A6C22BBDD7500A9D1A9 /* ClientServices++.swift */; };
 		F0EF7A3522BF895B00FB154A /* FavoriteHall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EF7A3422BF895B00FB154A /* FavoriteHall.swift */; };
+		F0EF7A3722BFEDBD00FB154A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0EF7A3622BFEDBD00FB154A /* GoogleService-Info.plist */; };
 		F0F2B4FC22B6AEBF004CA7DE /* AppServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F2B4FB22B6AEBF004CA7DE /* AppServices.swift */; };
 		F0FB9DCE22344E4C006FE1E0 /* ForgetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FB9DCD22344E4C006FE1E0 /* ForgetPasswordController.swift */; };
 /* End PBXBuildFile section */
@@ -68,7 +68,6 @@
 		F00C6C0922B1564A0063A146 /* MyProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileController.swift; sourceTree = "<group>"; };
 		F00C6C0B22B1565C0063A146 /* ChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordController.swift; sourceTree = "<group>"; };
 		F010A67622ADD1A300360DEA /* CustomComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomComponents.swift; sourceTree = "<group>"; };
-		F0249AE4228786330019433A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F0282CEF227720AA005CAA4A /* HelperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperData.swift; sourceTree = "<group>"; };
 		F0282CF12277211A005CAA4A /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		F0282CF42277222C005CAA4A /* HallsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallsServices.swift; sourceTree = "<group>"; };
@@ -118,6 +117,7 @@
 		F0EE3A6A22BBDB5B00A9D1A9 /* HallCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallCategory.swift; sourceTree = "<group>"; };
 		F0EE3A6C22BBDD7500A9D1A9 /* ClientServices++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientServices++.swift"; sourceTree = "<group>"; };
 		F0EF7A3422BF895B00FB154A /* FavoriteHall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteHall.swift; sourceTree = "<group>"; };
+		F0EF7A3622BFEDBD00FB154A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F0F2B4FB22B6AEBF004CA7DE /* AppServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppServices.swift; sourceTree = "<group>"; };
 		F0FB9DCD22344E4C006FE1E0 /* ForgetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -281,7 +281,7 @@
 				F0966F8A222C0E9C00FA4FEA /* Controller */,
 				F0966F84222C0E9C00FA4FEA /* Assets */,
 				F0966F78222C0DD200FA4FEA /* Info.plist */,
-				F0249AE4228786330019433A /* GoogleService-Info.plist */,
+				F0EF7A3622BFEDBD00FB154A /* GoogleService-Info.plist */,
 			);
 			path = "Groom & Bride";
 			sourceTree = "<group>";
@@ -415,8 +415,8 @@
 			files = (
 				F076F1D322B14B1C00F12988 /* SideMenu.storyboard in Resources */,
 				F0966F74222C0DD200FA4FEA /* Assets.xcassets in Resources */,
+				F0EF7A3722BFEDBD00FB154A /* GoogleService-Info.plist in Resources */,
 				F090E53D22AC71E300FA121B /* LoginBoard.storyboard in Resources */,
-				F0249AE5228786330019433A /* GoogleService-Info.plist in Resources */,
 				F0DD665522AE589F006F55A9 /* LaunchScreen.storyboard in Resources */,
 				F0C6BB0622B2AE9C00C27641 /* FilterCell.xib in Resources */,
 				F0C6BB0E22B36ED900C27641 /* FavoriteHallCell.xib in Resources */,

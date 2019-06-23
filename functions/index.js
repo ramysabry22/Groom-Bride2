@@ -6,7 +6,6 @@ admin.initializeApp();
 
    exports.sendAdminNotification = functions.database.ref('/PushNotificationsNode/{pushId}').onWrite(event => {
    const news = event.after.val();
-  // var fcmToken = "dfeZ7cACl0U:APA91bHPuXGqm9uhK1RDP8W179RMVYh-VzAVPqRkUg698ydSnyY0LJkuSuj9mDUp7ho5IKMPn5_qBaC6Ii11SLxXmNmYVrLmKyJDNmbWkTOLTbaMdduqvcpeCWZmtNKlz9jSVtk2xhQu";
 
         const payload = {notification: {
             title: `${news.title}`,
@@ -15,16 +14,7 @@ admin.initializeApp();
             badge: '1'
             }
         };
-//----
-    // return admin.messaging().sendToDevice(fcmToken, payload)
-    //     .then(function(response) {
-    //       // the contents of response.
-    //       console.log("Successfully sent message:", response);
-    //     })
-    //     .catch(function(error) {
-    //       console.log("Error sending message:", error);
-    //     });
-//----
+
    return admin.messaging().sendToTopic("GroomAndBrideNews",payload)
        .then(function(response){
             console.log('Notification sent successfully:',response);

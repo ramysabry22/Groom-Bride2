@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>267647056897-a7k18k2jhst6pvsq5v0lufti1t4tc446.apps.googleusercontent.com</string>
+	<string>464109168496-1v5uq5k1quqrb5ndqatiai6op395nidt.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.267647056897-a7k18k2jhst6pvsq5v0lufti1t4tc446</string>
+	<string>com.googleusercontent.apps.464109168496-1v5uq5k1quqrb5ndqatiai6op395nidt</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDF-BwEH0MhIm1C24GKXV1gLPkQg6oAe98</string>
+	<string>AIzaSyB_buV0nSfP-iZ0E5Z6bZfKeUk52UhBqpo</string>
 	<key>GCM_SENDER_ID</key>
-	<string>267647056897</string>
+	<string>464109168496</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.ramysabry1996.Groom---Bride</string>
 	<key>PROJECT_ID</key>
-	<string>groomandbride-f0582</string>
+	<string>groom-and-bride-app</string>
 	<key>STORAGE_BUCKET</key>
-	<string>groomandbride-f0582.appspot.com</string>
+	<string>groom-and-bride-app.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:267647056897:ios:8753e05c635ab8cd</string>
+	<string>1:464109168496:ios:8753e05c635ab8cd</string>
 	<key>DATABASE_URL</key>
-	<string>https://groomandbride-f0582.firebaseio.com</string>
+	<string>https://groom-and-bride-app.firebaseio.com</string>
 </dict>
 </plist>

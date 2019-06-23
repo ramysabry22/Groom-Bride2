@@ -49,7 +49,7 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
         guard let indexPath = collectionView1.indexPath(for: sender) else { return }
         
         SVProgressHUD.show()
-        ApiManager.sharedInstance.deleteHallFromFavorite(hallID: (sender.favoriteHall?._id)!) { (valid, msg, reRequest) in
+        ApiManager.sharedInstance.deleteHallFromFavorite(hallID: (sender.favoriteHall?.hallId._id)!) { (valid, msg, reRequest) in
             self.dismissRingIndecator()
             if reRequest {
                 self.removeFromFavoriteButton(sender)
