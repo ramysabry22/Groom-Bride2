@@ -11,12 +11,12 @@ import UIKit
 class FavoriteHallCell: UICollectionViewCell {
     weak var delegete: removeFromFavoriteProtocol?
     
-    var hall : Hall? {
+    var favoriteHall : FavoriteHall? {
         didSet{
-            guard let bassedHall = hall else { return }
-            nameLabel.text = bassedHall.hallName
-            priceLabel.text = "\(bassedHall.hallPrice!) EGP"
-            ratesLabel.text = "\(bassedHall.hallRatesCounter!) Rates"
+            guard let bassedHall = favoriteHall else { return }
+            nameLabel.text = bassedHall.hallId.hallName
+            priceLabel.text = "\(bassedHall.hallId.hallPrice!) EGP"
+            ratesLabel.text = "\(bassedHall.hallId.hallsAverageRating!) Rates"
         }
     }
     

@@ -5,7 +5,7 @@ import Alamofire
 
 extension ApiManager {
     
-    func listFavoriteHalls(limit: Int, offset: Int, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool, _ halls:[Hall])-> ()){
+    func listFavoriteHalls(limit: Int, offset: Int, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool, _ halls:[FavoriteHall])-> ()){
         self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/favorites/listFavorites"
         let parameters: Parameters = [
@@ -19,38 +19,42 @@ extension ApiManager {
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             print("**************************************************")
             print(response)
-            var halls = [Hall]()
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool
                 if result == true {
-                    let hallsDic = data["data"] as! [[String : Any]]
-                    for record in hallsDic {
-                        let newHall = Hall(hallDict: record)
-                        halls.append(newHall)
+                    let dataa = data["data"] as! [[String: Any]]
+                    do {
+                       if let theJSONData = try? JSONSerialization.data(withJSONObject: dataa) {
+                          let halls = try JSONDecoder().decode([FavoriteHall].self, from: theJSONData)
+                           completed(true, "Favorite halls loaded successfully",false, halls)
+                           return
+                        }
+                    }catch let error {
+                       print("Cant decodeeeeeee")
+                       print(error)
+                       completed(false, "\(error)",false, [])
                     }
-                    completed(true, "Favorite halls loaded successfully",false, halls)
-                    return
                 }
                 else{
                     if data["refreshToken"] != nil {
                         HelperData.sharedInstance.loggedInClient.token = data["token"] as! String
                         HelperData.sharedInstance.loggedInClient.login()
-                        completed(false, "Refresh token",true, halls)
+                        completed(false, "Refresh token",true, [])
                         return
                     }
                     else if let errorMessage = data["message"] as? String {
-                        completed(false, errorMessage, false, halls)
+                        completed(false, errorMessage, false, [])
                         return
                     }
                     else {
-                        completed(false, "Unexpected Error Please Try Again In A While",false, halls)
+                        completed(false, "Unexpected Error Please Try Again In A While",false, [])
                         return
                     }
                 }
                 
             }else{
-                completed(false, "Unexpected Error Please Try Again In A While ",false, halls)
+                completed(false, "Unexpected Error Please Try Again In A While ",false, [])
                 return
             }
         }

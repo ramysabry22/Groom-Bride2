@@ -93,7 +93,7 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
                 })
             }else {
                 self.show1buttonAlert(title: "Error", message: msg, buttonTitle: "OK", callback: {
-                    
+
                 })
             }
         }

@@ -42,8 +42,12 @@ extension HomeController {
         }else {
             let cell: FilterCell = collectionView1.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as! FilterCell
             
-            cell.titleLabel.text = filterCollection[indexPath.row][0]
-            cell.imageView.image = UIImage(named: "\(filterCollection[indexPath.row][1])")?.withRenderingMode(.alwaysTemplate)
+            
+            cell.titleLabel.text = Array(filterCollection)[indexPath.row].value[1]
+            let imageName = Array(filterCollection)[indexPath.row].value[2]
+            cell.imageView.image = UIImage(named: "\(imageName)")?.withRenderingMode(.alwaysTemplate)
+//          cell.titleLabel.text = filterCollection[indexPath.row][0]
+//            cell.imageView.image = UIImage(named: "\(filterCollection[indexPath.row][1])")?.withRenderingMode(.alwaysTemplate)
             cell.backgroundColor = UIColor.clear
             return cell
         }
@@ -56,7 +60,9 @@ extension HomeController {
             let cellHeight = max(270, view.frame.height/3)
             return CGSize(width: view.frame.width, height: cellHeight)
         }else {
-               let cellWidth = estimateFrameForSubTitleText(filterCollection[indexPath.row][0]).width + 15 + view.frame.width/8
+             let cellTitle = Array(filterCollection)[indexPath.row].value[1]
+             let cellWidth = estimateFrameForSubTitleText(cellTitle).width + 15 + view.frame.width/8
+//               let cellWidth = estimateFrameForSubTitleText(filterCollection[indexPath.row][0]).width + 15 + view.frame.width/8
              return CGSize(width: cellWidth, height: collectionView1.frame.height)
         }
     }
@@ -70,8 +76,10 @@ extension HomeController {
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if collectionView == collectionView2 {
+        if collectionView == collectionView1 {
+            fetchHalls(index: indexPath.row)
+        }
+       else if collectionView == collectionView2 {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "DetailedHallController") as! DetailedHallController
             controller.detailedHall = allHalls[indexPath.row]

@@ -2,4 +2,69 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Groom &amp; Bride/Controller/Favorites/FavoritesController.swift"
+            timestampString = "582993585.366729"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "removeFromFavoriteButton(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Groom___Bride.FavoritesController.removeFromFavoriteButton(Groom___Bride.FavoriteHallCell) -&gt; ()"
+                  moduleName = "Groom &amp; Bride"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramyaymansabry/Desktop/XcodeProjects/Groom%20&amp;%20Bride/Groom%20&amp;%20Bride/Controller/Favorites/FavoritesController.swift"
+                  timestampString = "582993585.666234"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "674">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Groom___Bride.FavoritesController.removeFromFavoriteButton(Groom___Bride.FavoriteHallCell) -&gt; ()"
+                  moduleName = "Groom &amp; Bride"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramyaymansabry/Desktop/XcodeProjects/Groom%20&amp;%20Bride/Groom%20&amp;%20Bride/Controller/Favorites/FavoritesController.swift"
+                  timestampString = "582993585.668227"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "1153">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.String, Swift.Bool) -&gt; () in Groom___Bride.FavoritesController.removeFromFavoriteButton(Groom___Bride.FavoriteHallCell) -&gt; ()"
+                  moduleName = "Groom &amp; Bride"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ramyaymansabry/Desktop/XcodeProjects/Groom%20&amp;%20Bride/Groom%20&amp;%20Bride/Controller/Favorites/FavoritesController.swift"
+                  timestampString = "582993585.670243"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "110">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

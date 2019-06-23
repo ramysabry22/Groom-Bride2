@@ -6,7 +6,7 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
     
     @IBOutlet weak var collectionView1: UICollectionView!
     @IBOutlet weak var emptyLabel: UILabel!
-    var allHalls: [Hall] = []
+    var allHalls: [FavoriteHall] = []
     var isFinishedPaging = true
     var pagesNumber: Int = 0
     
@@ -18,17 +18,17 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
         collectionView1.delegate = self
         collectionView1.dataSource = self
         SVProgressHUD.show()
-        fetchFavoriteHalls(limit: 5, offdet: 0)
+        fetchFavoriteHalls(limit: 5, offset: 0)
     }
     
     
-    func fetchFavoriteHalls(limit: Int, offdet: Int){
+    func fetchFavoriteHalls(limit: Int, offset: Int){
         isFinishedPaging = false
-        ApiManager.sharedInstance.listFavoriteHalls(limit: limit, offset: offdet) { (valid, msg, reRequest, halls) in
+        ApiManager.sharedInstance.listFavoriteHalls(limit: limit, offset: offset) { (valid, msg, reRequest, halls) in
             self.dismissRingIndecator()
             self.isFinishedPaging = true
             if reRequest {
-                self.fetchFavoriteHalls(limit: limit, offdet: offdet)
+                self.fetchFavoriteHalls(limit: limit, offset: offset)
             }
             else if valid {
                 if halls.count > 0 {
@@ -47,8 +47,9 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
     
     func removeFromFavoriteButton(_ sender: FavoriteHallCell) {
         guard let indexPath = collectionView1.indexPath(for: sender) else { return }
+        
         SVProgressHUD.show()
-        ApiManager.sharedInstance.deleteHallFromFavorite(hallID: (sender.hall?._id)!) { (valid, msg, reRequest) in
+        ApiManager.sharedInstance.deleteHallFromFavorite(hallID: (sender.favoriteHall?._id)!) { (valid, msg, reRequest) in
             self.dismissRingIndecator()
             if reRequest {
                 self.removeFromFavoriteButton(sender)
@@ -85,11 +86,12 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
         let cell: FavoriteHallCell = collectionView1.dequeueReusableCell(withReuseIdentifier: "FavoriteHallCell", for: indexPath) as! FavoriteHallCell
         
         let rowHall = allHalls[indexPath.row]
-        cell.hall = rowHall
+        cell.favoriteHall = rowHall
         cell.tag = indexPath.row
-        if rowHall.hallImage.count > 0 && rowHall.hallImage.isEmpty == false {
+        cell.delegete = self
+        if rowHall.hallId.hallImage.count > 0 && rowHall.hallId.hallImage.isEmpty == false {
             let tempImageView : UIImageView! = UIImageView()
-            let url = URL(string: "\(rowHall.hallImage[0])")
+            let url = URL(string: "\(rowHall.hallId.hallImage[0])")
             tempImageView.kf.setImage(with: url, placeholder: nil, options: nil, progressBlock: nil) { (result) in
                 if(cell.tag == indexPath.row){
                     if result.isSuccess == false{
@@ -112,10 +114,10 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
         return 10
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "DetailedHallController") as! DetailedHallController
-        controller.detailedHall = allHalls[indexPath.row]
-        navigationController?.pushViewController(controller, animated: true)
+    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      //  let controller = storyboard.instantiateViewController(withIdentifier: "DetailedHallController") as! DetailedHallController
+      //  controller.detailedHall = allHalls[indexPath.row]
+    //    navigationController?.pushViewController(controller, animated: true)
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y + 700
@@ -124,7 +126,7 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
         if offsetY > contentHeight - scrollView.frame.size.height{
             if isFinishedPaging == true {
                 pagesNumber += 1
-                self.fetchFavoriteHalls(limit: 5, offdet: pagesNumber)
+                self.fetchFavoriteHalls(limit: 5, offset: pagesNumber)
             }
         }
     }

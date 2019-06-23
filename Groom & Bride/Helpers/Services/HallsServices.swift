@@ -17,12 +17,12 @@ extension ApiManager{
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             print("****************************************")
             print(response)
-            var halls = [Hall]()
             if let jsonResponse = response.result.value{
             let data = jsonResponse as! [String : Any]
             let result = data["result"] as! Bool
             if result == true {
                let hallsDic = data["data"] as! [[String : Any]]
+                var halls = [Hall]()
                 for record in hallsDic {
                     let newHall = Hall(hallDict: record)
                     halls.append(newHall)
@@ -32,17 +32,17 @@ extension ApiManager{
             }
             else{
                 if let errorMessage = data["message"] as? String {
-                    completed(false, errorMessage, halls)
+                    completed(false, errorMessage, [])
                     return
                 }
                 else {
-                    completed(false, "Unexpected Error Please Try Again In A While", halls)
+                    completed(false, "Unexpected Error Please Try Again In A While", [])
                     return
                 }
             }
                 
          }else{
-            completed(false, "Unexpected Error Please Try Again In A While ", halls)
+            completed(false, "Unexpected Error Please Try Again In A While ", [])
             return
         }
       }
@@ -65,12 +65,12 @@ extension ApiManager{
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             print("****************************************")
             print(response)
-            var halls = [Hall]()
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool
                 if result == true {
                     let hallsDic = data["data"] as! [[String : Any]]
+                    var halls = [Hall]()
                     for record in hallsDic {
                         let newHall = Hall(hallDict: record)
                         halls.append(newHall)
@@ -80,17 +80,17 @@ extension ApiManager{
                 }
                 else{
                     if let errorMessage = data["message"] as? String {
-                        completed(false, errorMessage, halls)
+                        completed(false, errorMessage, [])
                         return
                     }
                     else {
-                        completed(false, "Unexpected Error Please Try Again In A While", halls)
+                        completed(false, "Unexpected Error Please Try Again In A While", [])
                         return
                     }
                 }
                 
             }else{
-                completed(false, "Unexpected Error Please Try Again In A While ", halls)
+                completed(false, "Unexpected Error Please Try Again In A While ", [])
                 return
             }
         }
@@ -114,12 +114,12 @@ extension ApiManager{
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             print("****************************************")
             print(response)
-            var hallCategories = [HallCategory]()
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool
                 if result == true {
                     let categoriesDic = data["data"] as! [[String : Any]]
+                    var hallCategories = [HallCategory]()
                     for record in categoriesDic {
                         let newCategory = HallCategory(hallDict: record)
                         hallCategories.append(newCategory)
@@ -129,17 +129,17 @@ extension ApiManager{
                 }
                 else{
                     if let errorMessage = data["message"] as? String {
-                        completed(false, errorMessage,hallCategories)
+                        completed(false, errorMessage,[])
                         return
                     }
                     else {
-                        completed(false, "Unexpected Error Please Try Again In A While",hallCategories)
+                        completed(false, "Unexpected Error Please Try Again In A While",[])
                         return
                     }
                 }
                 
             }else{
-                completed(false, "Unexpected Error Please Try Again In A While ", hallCategories)
+                completed(false, "Unexpected Error Please Try Again In A While ", [])
                 return
             }
         }
@@ -163,12 +163,12 @@ extension ApiManager{
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             print("****************************************")
             print(response)
-            var halls = [Hall]()
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool
                 if result == true {
                     let hallsDic = data["data"] as! [[String : Any]]
+                    var halls = [Hall]()
                     for record in hallsDic {
                         let newHall = Hall(hallDict: record)
                         halls.append(newHall)
@@ -178,17 +178,17 @@ extension ApiManager{
                 }
                 else{
                     if let errorMessage = data["message"] as? String {
-                        completed(false, errorMessage, halls)
+                        completed(false, errorMessage, [])
                         return
                     }
                     else {
-                        completed(false, "Unexpected Error Please Try Again In A While", halls)
+                        completed(false, "Unexpected Error Please Try Again In A While", [])
                         return
                     }
                 }
                 
             }else{
-                completed(false, "Unexpected Error Please Try Again In A While ", halls)
+                completed(false, "Unexpected Error Please Try Again In A While ", [])
                 return
             }
         }
