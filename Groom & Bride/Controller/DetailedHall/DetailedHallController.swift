@@ -23,8 +23,6 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         collectionView1.delegate = self
         collectionView1.dataSource = self
         
-        infoTextView.text = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mim, quis nostrud exercitation ullamco @ Lorem ipsum dolor *********"
-        
         locationView.backgroundColor = UIColor.white
         locationView.layer.cornerRadius = 15
         locationView.layer.borderWidth = 1.5
@@ -146,7 +144,6 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         let pageNumber = Int(targetContentOffset.pointee.x / view.frame.width)
         self.pageControl.currentPage = pageNumber
         self.pageControl.updateCurrentPageDisplay()
-    
     }
     
     func setupNavigationBar(){
