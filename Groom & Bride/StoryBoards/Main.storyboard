@@ -31,7 +31,7 @@
                                     <constraint firstAttribute="height" constant="20" id="Qiq-RD-pxg"/>
                                     <constraint firstAttribute="width" constant="20" id="knu-Eh-8Ld"/>
                                 </constraints>
-                                <color key="color" red="0.99215686270000003" green="0.25093181324931507" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="color" red="0.99215686274509807" green="0.38564550876617432" blue="0.45764052867889404" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EHw-XC-RUr" userLabel="LogoView">
                                 <rect key="frame" x="77.5" y="236" width="220" height="195"/>
