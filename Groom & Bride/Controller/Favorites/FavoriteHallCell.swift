@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Cosmos
 
 class FavoriteHallCell: UICollectionViewCell {
     weak var delegete: removeFromFavoriteProtocol?
@@ -17,6 +18,7 @@ class FavoriteHallCell: UICollectionViewCell {
             nameLabel.text = bassedHall.hallId.hallName
             priceLabel.text = "\(bassedHall.hallId.hallPrice!) EGP"
             ratesLabel.text = "\(bassedHall.hallId.hallsAverageRating!) Rates"
+            ratingStarsView.rating = Double(bassedHall.hallId.hallsAverageRating ?? 0)
         }
     }
     
@@ -24,6 +26,7 @@ class FavoriteHallCell: UICollectionViewCell {
         delegete?.removeFromFavoriteButton(self)
     }
     
+    @IBOutlet weak var ratingStarsView: CosmosView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!

@@ -119,10 +119,10 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
         return 10
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      //  let controller = storyboard.instantiateViewController(withIdentifier: "DetailedHallController") as! DetailedHallController
-      //  controller.detailedHall = allHalls[indexPath.row]
-    //    navigationController?.pushViewController(controller, animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "DetailedHallController") as! DetailedHallController
+        controller.favoriteDetailedHall = allHalls[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y + 700

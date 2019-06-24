@@ -66,12 +66,14 @@ class MyProfileController: UIViewController, UITextFieldDelegate {
     }
     func setupComponent(){
         NameTextField.delegate = self
-        EmailTextField.delegate = self
-        PasswordTextField.delegate = self
         
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.setDefaultStyle(.dark)
         SVProgressHUD.setDefaultAnimationType(.native)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     func setupNavigationBar(){

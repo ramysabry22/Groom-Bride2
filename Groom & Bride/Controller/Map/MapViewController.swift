@@ -4,19 +4,25 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate{
     @IBOutlet weak var mapView1: MKMapView!
-    let hallLong: Float = -0.1275
-    let hallLat: Float = 51.507222
-    let hallName: String = "Sheraton Helton Cairo Hotel"
-    let hallAddress: String = "4ar3 b7r a3zam-gsr swes-giza"
+    var hallLong: Float = -0.1275
+    var hallLat: Float = 51.507222
+    var hallName: String = "Sheraton Helton Cairo Hotel"
+    var hallAddress: String = "4ar3 b7r a3zam-gsr swes-giza"
     lazy var hallLocationCoordinates = CLLocationCoordinate2D(latitude: CLLocationDegrees(hallLat), longitude: CLLocationDegrees(hallLong))
 
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView1.delegate = self
         setupNavigationBar()
-        setupComponent()
-        centerMapOnLocation()
-        addAnnotation()
+        if CLLocationCoordinate2DIsValid(hallLocationCoordinates) {
+            setupComponent()
+            centerMapOnLocation()
+            addAnnotation()
+        }else {
+            self.show1buttonAlert(title: "Oops", message: "Invalid region", buttonTitle: "OK") {
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
     // MARK-: Maps Functions

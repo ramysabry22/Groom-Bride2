@@ -46,16 +46,26 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="liu-dL-dJa">
-                                        <rect key="frame" x="445.5" y="0.0" width="50.5" height="42"/>
+                                        <rect key="frame" x="411" y="0.0" width="85" height="42"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stars" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIl-EN-ou2">
-                                                <rect key="frame" x="0.0" y="0.0" width="50.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 Rates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNp-Cf-XQy">
-                                                <rect key="frame" x="0.0" y="27.5" width="50.5" height="14.5"/>
+                                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OKw-2n-4Ep" customClass="CosmosView" customModule="Cosmos">
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="12"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="12" id="PCJ-C5-fVC"/>
+                                                    <constraint firstAttribute="width" constant="85" id="Z0I-6m-Ake"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                        <real key="value" value="17"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 Rates" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNp-Cf-XQy">
+                                                <rect key="frame" x="0.0" y="27.5" width="85" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -118,6 +128,7 @@
                 <outlet property="nameLabel" destination="qpF-at-DDV" id="40P-fB-I4V"/>
                 <outlet property="priceLabel" destination="8qa-cY-LCX" id="2Gz-jd-A1m"/>
                 <outlet property="ratesLabel" destination="oNp-Cf-XQy" id="DkQ-rf-7hU"/>
+                <outlet property="ratingStarsView" destination="OKw-2n-4Ep" id="Enm-j6-cQb"/>
             </connections>
             <point key="canvasLocation" x="61.600000000000001" y="120.53973013493254"/>
         </collectionViewCell>

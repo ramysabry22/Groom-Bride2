@@ -18,13 +18,26 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
     @IBOutlet weak var locationView: UIView!
     
     var detailedHall: Hall?
+    var favoriteDetailedHall: FavoriteHall?
+    
+    var hallName: String?
+    var hallId: String?
+    var hallAddress: String?
+    var hallLocationLong: String?
+    var hallLocationLat: String?
+    var hallPhoneNumber: String?
+    var hallImages: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        setupComponents()
+        setupHallInfo()
+    }
+   
+    func setupComponents(){
         collectionView1.delegate = self
         collectionView1.dataSource = self
-        
         locationView.backgroundColor = UIColor.white
         locationView.layer.cornerRadius = 15
         locationView.layer.borderWidth = 1.5
@@ -32,37 +45,64 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         locationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewOnMap)))
         favoriteImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addTofavoriteButtonAction)))
         favoriteBackgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addTofavoriteButtonAction)))
-        
-        setupHallInfo()
-        showRatingView()
     }
-   
-    
     func setupHallInfo(){
-        self.titleLabel.text = detailedHall?.hallName
-        self.priceLabel.text = "\(detailedHall!.hallPrice!) EGP"
-        self.ratesLabel.text = "\(detailedHall!.hallRatesCounter!) Rates"
-        self.infoTextView.text = detailedHall?.hallDescription
-        self.addressLabel.text = detailedHall?.hallAdress
-        self.offersTextView.text = detailedHall?.hallSpecialOffers
-        self.ratingStarsView.rating = Double(detailedHall?.hallRate ?? 0)
-        if detailedHall!.hallImage.count > 0 && detailedHall!.hallImage.isEmpty == false {
-           self.pageControl.numberOfPages = detailedHall!.hallImage.count
-           self.pageControl.currentPage = 0
-        }else {
-            self.pageControl.numberOfPages = 1
-            self.pageControl.currentPage = 1
+        if detailedHall != nil {
+            hallLocationLat = detailedHall?.hallLocationLat
+            hallLocationLong = detailedHall?.hallLocationLong
+            hallImages = (detailedHall?.hallImage)!
+            hallId = detailedHall?._id
+            hallPhoneNumber = detailedHall?.hallPhoneNumber
+            hallAddress = detailedHall?.hallAdress
+            hallName = detailedHall?.hallName
+            
+           titleLabel.text = hallName
+           addressLabel.text = hallAddress
+           priceLabel.text = "\(detailedHall?.hallPrice ?? 0) EGP"
+           ratingStarsView.rating = Double(detailedHall?.hallRate ?? 0)
+           ratesLabel.text = "\(detailedHall?.hallRatesCounter ?? 0) Rates"
+           infoTextView.text = detailedHall?.hallDescription
+           offersTextView.text = detailedHall?.hallSpecialOffers
+            
+            if detailedHall?.hallImage.count ?? 0 > 0 && detailedHall?.hallImage.isEmpty == false {
+                hallImages = (detailedHall?.hallImage)!
+                self.pageControl.numberOfPages = hallImages.count
+                self.pageControl.currentPage = 0
+            }
+           
+            favoriteImageView.isHidden = false
+            favoriteBackgroundView.isHidden = false
+            
+        }else if favoriteDetailedHall != nil {
+            hallLocationLat = favoriteDetailedHall?.hallId.hallLocationLat
+            hallLocationLong = favoriteDetailedHall?.hallId.hallLocationLong
+            hallImages = (favoriteDetailedHall?.hallId.hallImage)!
+            hallId = favoriteDetailedHall?.hallId._id
+            hallPhoneNumber = favoriteDetailedHall?.hallId.hallPhoneNumber
+            hallAddress = favoriteDetailedHall?.hallId.hallAdress
+            hallName = favoriteDetailedHall?.hallId.hallName
+            
+            titleLabel.text = hallName
+            addressLabel.text = hallAddress
+            priceLabel.text = "\(favoriteDetailedHall?.hallId.hallPrice ?? 0) EGP"
+            ratingStarsView.rating = Double(favoriteDetailedHall?.hallId.hallsAverageRating ?? 0)
+            ratesLabel.text = "\(favoriteDetailedHall?.hallId.hallsRatingCounter ?? 0) Rates"
+            infoTextView.text = favoriteDetailedHall?.hallId.hallDescription
+            offersTextView.text = favoriteDetailedHall?.hallId.hallSpecialOffers
+            
+            if favoriteDetailedHall?.hallId.hallImage.count ?? 0 > 0 && favoriteDetailedHall?.hallId.hallImage.isEmpty == false {
+                hallImages = (favoriteDetailedHall?.hallId.hallImage)!
+                self.pageControl.numberOfPages = hallImages.count
+                self.pageControl.currentPage = 0
+            }
+            
+            favoriteImageView.isHidden = true
+            favoriteBackgroundView.isHidden = true
         }
     }
-    func showRatingView(){
-        
-        
-        
-        
-        
-    }
+
     @IBAction func CallButtonAction(_ sender: UIButton) {
-        guard let phoneNumber = detailedHall?.hallPhoneNumber, detailedHall?.hallPhoneNumber != nil else {
+        guard let phoneNumber = hallPhoneNumber, hallPhoneNumber != nil else {
             self.show1buttonAlert(title: "Oops", message: "Hall phone number is not available!", buttonTitle: "OK") {
             }
             return
@@ -73,11 +113,18 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
     }
     
     @objc func viewOnMap(_ sender: UITapGestureRecognizer){
-        
+        guard let Longitude = hallLocationLong, let Latitude = hallLocationLat, let Name = hallName, let Address = hallAddress else {
+            self.show1buttonAlert(title: "Oops", message: "Hall location is not available!", buttonTitle: "OK") {
+                
+            }
+            return
+        }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-        
-        
+        controller.hallLat = (Latitude as NSString).floatValue
+        controller.hallLong = (Longitude as NSString).floatValue
+        controller.hallName = Name
+        controller.hallAddress = Address
         navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -89,7 +136,7 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         }
     }
     func addToFavorite(){
-        guard let hallID = self.detailedHall?._id else { return }
+        guard let hallID = hallId else { return }
         SVProgressHUD.show()
         ApiManager.sharedInstance.addHallToFavorite(hallID: hallID) { (valid, msg, reRequest) in
           self.dismissRingIndecator()
@@ -122,16 +169,16 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return detailedHall?.hallImage.count ?? 0
+        return hallImages.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: DetailedHallCustomCell = collectionView1.dequeueReusableCell(withReuseIdentifier: "DetailedHallCustomCell", for: indexPath) as! DetailedHallCustomCell
         
         cell.tag = indexPath.row
-        if detailedHall!.hallImage.count > 0 && detailedHall!.hallImage.isEmpty == false {
+        if hallImages.count > 0 && hallImages.isEmpty == false {
             let tempImageView : UIImageView! = UIImageView()
-            let rowImage = detailedHall?.hallImage[indexPath.row]
-            let url = URL(string: "\(rowImage!)")
+            let rowImage = hallImages[indexPath.row]
+            let url = URL(string: "\(rowImage)")
             tempImageView.kf.setImage(with: url, placeholder: nil, options: nil, progressBlock: nil) { (result) in
                 if(cell.tag == indexPath.row){
                     if result.isSuccess == false{
@@ -157,6 +204,8 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         self.pageControl.currentPage = pageNumber
         self.pageControl.updateCurrentPageDisplay()
     }
+   
+
     
     func setupNavigationBar(){
         navigationController?.navigationBar.barStyle = .default
