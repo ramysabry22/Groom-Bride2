@@ -37,11 +37,15 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
                     }
                     self.collectionView1.reloadData()
                 }
+                
+                if self.allHalls.count > 0 {
+                    self.emptyLabel.isHidden = true
+                }else{
+                    self.emptyLabel.isHidden = false
+                }
             }
             
-            if self.allHalls.count <= 0 {
-                 self.emptyLabel.isHidden = false
-            }
+            
         }
     }
     
@@ -58,15 +62,16 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
                 self.allHalls.remove(at: indexPath.row)
                 self.collectionView1.deleteItems(at: [indexPath])
                 self.collectionView1.reloadData()
+                
+                if self.allHalls.count > 0 {
+                    self.emptyLabel.isHidden = true
+                }else{
+                    self.emptyLabel.isHidden = false
+                }
             }
             else if !valid {
                 self.show1buttonAlert(title: "Error", message: msg, buttonTitle: "OK", callback: {
                 })
-            }
-            
-            
-            if self.allHalls.count <= 0 {
-                self.emptyLabel.isHidden = false
             }
         }
     }

@@ -60,7 +60,10 @@ class FeedbackController2: UIViewController, UITextViewDelegate, UITextFieldDele
         return true
     }
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        textView.resignFirstResponder()
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
         return true
     }
     func setupNavigationBar(){

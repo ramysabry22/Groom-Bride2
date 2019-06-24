@@ -76,6 +76,8 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+        
+        
         navigationController?.pushViewController(controller, animated: true)
     }
     

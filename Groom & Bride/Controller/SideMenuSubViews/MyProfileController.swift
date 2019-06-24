@@ -4,7 +4,7 @@ import UIKit
 import SVProgressHUD
 import Alamofire
 
-class MyProfileController: UIViewController {
+class MyProfileController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var NameTextField: UITextField!
     @IBOutlet weak var EmailTextField: UITextField!
@@ -14,10 +14,7 @@ class MyProfileController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         loadUserData()
-        
-        SVProgressHUD.setDefaultMaskType(.clear)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setDefaultAnimationType(.native)
+        setupComponent()
     }
     
 
@@ -67,7 +64,15 @@ class MyProfileController: UIViewController {
         let controller = storyboard.instantiateViewController(withIdentifier: "ChangePassword") as! ChangePasswordController
         navigationController?.pushViewController(controller, animated: true)
     }
-    
+    func setupComponent(){
+        NameTextField.delegate = self
+        EmailTextField.delegate = self
+        PasswordTextField.delegate = self
+        
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultAnimationType(.native)
+    }
     
     func setupNavigationBar(){
         navigationController?.navigationBar.barStyle = .default

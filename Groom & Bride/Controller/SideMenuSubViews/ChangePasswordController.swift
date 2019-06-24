@@ -3,7 +3,7 @@ import UIKit
 import SVProgressHUD
 import Alamofire
 
-class ChangePasswordController: UIViewController {
+class ChangePasswordController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var RePasswordTextField: UITextField!
     @IBOutlet weak var OldPasswordTextField: UITextField!
@@ -13,12 +13,9 @@ class ChangePasswordController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         ShowVisibleButton()
-        
-        SVProgressHUD.setDefaultMaskType(.clear)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setDefaultAnimationType(.native)
+        setupComponent()
+       
     }
-    
     
     func resetPassword(oldPassword: String, newPassword: String, rePassword: String){
         SVProgressHUD.show()
@@ -76,7 +73,19 @@ class ChangePasswordController: UIViewController {
         
         resetPassword(oldPassword: oldPassword, newPassword: newPassword, rePassword: rePassword)
     }
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    func setupComponent(){
+        OldPasswordTextField.delegate = self
+        NewPasswordTextField.delegate = self
+        RePasswordTextField.delegate = self
+        
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultAnimationType(.native)
+    }
     func setupNavigationBar(){
         navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.isTranslucent = false

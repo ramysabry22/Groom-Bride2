@@ -52,6 +52,8 @@
 		F0C6BB0A22B36AD900C27641 /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C6BB0922B36AD900C27641 /* FavoritesController.swift */; };
 		F0C6BB0D22B36ED900C27641 /* FavoriteHallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C6BB0B22B36ED900C27641 /* FavoriteHallCell.swift */; };
 		F0C6BB0E22B36ED900C27641 /* FavoriteHallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C6BB0C22B36ED900C27641 /* FavoriteHallCell.xib */; };
+		F0CF09AD22C0FDEF00545C7B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0CF09AC22C0FDEF00545C7B /* MapKit.framework */; };
+		F0CF09AF22C10A3800545C7B /* CustomPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CF09AE22C10A3800545C7B /* CustomPointAnnotation.swift */; };
 		F0DD665522AE589F006F55A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0DD665422AE589F006F55A9 /* LaunchScreen.storyboard */; };
 		F0EE3A6B22BBDB5B00A9D1A9 /* HallCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EE3A6A22BBDB5B00A9D1A9 /* HallCategory.swift */; };
 		F0EE3A6D22BBDD7500A9D1A9 /* ClientServices++.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EE3A6C22BBDD7500A9D1A9 /* ClientServices++.swift */; };
@@ -62,7 +64,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4197FB310BEA504D28122018 /* Pods_Groom___Bride.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Groom___Bride.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4197FB310BEA504D28122018 /* Pods_Groom___Bride.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Groom___Bride.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C697AF79F55FB0462A36ABCB /* Pods-Groom & Bride.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Groom & Bride.release.xcconfig"; path = "Target Support Files/Pods-Groom & Bride/Pods-Groom & Bride.release.xcconfig"; sourceTree = "<group>"; };
 		CDD347A716634F5A90A600FE /* Pods-Groom & Bride.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Groom & Bride.debug.xcconfig"; path = "Target Support Files/Pods-Groom & Bride/Pods-Groom & Bride.debug.xcconfig"; sourceTree = "<group>"; };
 		F00C6C0922B1564A0063A146 /* MyProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,8 @@
 		F0C6BB0922B36AD900C27641 /* FavoritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesController.swift; sourceTree = "<group>"; };
 		F0C6BB0B22B36ED900C27641 /* FavoriteHallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteHallCell.swift; sourceTree = "<group>"; };
 		F0C6BB0C22B36ED900C27641 /* FavoriteHallCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteHallCell.xib; sourceTree = "<group>"; };
+		F0CF09AC22C0FDEF00545C7B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F0CF09AE22C10A3800545C7B /* CustomPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPointAnnotation.swift; sourceTree = "<group>"; };
 		F0DD665422AE589F006F55A9 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0EE3A6A22BBDB5B00A9D1A9 /* HallCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallCategory.swift; sourceTree = "<group>"; };
 		F0EE3A6C22BBDD7500A9D1A9 /* ClientServices++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClientServices++.swift"; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0CF09AD22C0FDEF00545C7B /* MapKit.framework in Frameworks */,
 				E1953E1D92935F12AF2F931A /* Pods_Groom___Bride.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,6 +151,7 @@
 		D9F3F936532403F706BE3375 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F0CF09AC22C0FDEF00545C7B /* MapKit.framework */,
 				4197FB310BEA504D28122018 /* Pods_Groom___Bride.framework */,
 			);
 			name = Frameworks;
@@ -198,7 +204,6 @@
 			children = (
 				F0966FB2222D82FF00FA4FEA /* DetailedHallController.swift */,
 				F031C80322B395A00070CABC /* DetailedHallCustomCell.swift */,
-				F031C80522B3BC0A0070CABC /* MapViewController.swift */,
 			);
 			path = DetailedHall;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 				F031C80122B375D20070CABC /* Favorites */,
 				F031C80222B376310070CABC /* SearchHalls */,
 				F031C80722B3E0150070CABC /* DetailedHall */,
+				F0CF09AB22C0E5E500545C7B /* Map */,
 				F06601C32279AD14006E67D9 /* SideMenu */,
 				F0C6BAFC22B26FC300C27641 /* SideMenuSubViews */,
 				F032A33E2278E1AC000FC5C8 /* StartUp */,
@@ -340,6 +346,15 @@
 				F08CEFD722B15B4200C55571 /* AboutUsController.swift */,
 			);
 			path = SideMenuSubViews;
+			sourceTree = "<group>";
+		};
+		F0CF09AB22C0E5E500545C7B /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				F031C80522B3BC0A0070CABC /* MapViewController.swift */,
+				F0CF09AE22C10A3800545C7B /* CustomPointAnnotation.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +397,9 @@
 							};
 							com.apple.ClassKit = {
 								enabled = 0;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
 							};
 							com.apple.Push = {
 								enabled = 1;
@@ -524,6 +542,7 @@
 				F08CEFD222B15AAB00C55571 /* FeedbackController.swift in Sources */,
 				F0966F99222C0E9C00FA4FEA /* Page.swift in Sources */,
 				F0966FA0222C0E9C00FA4FEA /* SplashScreenController.swift in Sources */,
+				F0CF09AF22C10A3800545C7B /* CustomPointAnnotation.swift in Sources */,
 				F0282CF922772247005CAA4A /* ApiManager.swift in Sources */,
 				F06601CB2279CBC9006E67D9 /* LeftMenuHeader2.swift in Sources */,
 				F0966F9E222C0E9C00FA4FEA /* OnBoardingScreens.swift in Sources */,
