@@ -1,6 +1,7 @@
 
 import UIKit
 import SVProgressHUD
+import SCLAlertView
 
 class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,removeFromFavoriteProtocol {
     
@@ -75,9 +76,6 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
             }
         }
     }
-    
-    
-    
     
     // MARK:- CollectionView
 /*********************************************************************************/

@@ -13,8 +13,8 @@ class LeftMenuCell: UICollectionViewCell{
         iconImage.translatesAutoresizingMaskIntoConstraints = false
         iconImage.leftAnchor.constraint(equalTo: leftAnchor, constant: frame.width/16).isActive = true
         iconImage.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0).isActive = true
-        iconImage.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        iconImage.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        iconImage.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        iconImage.heightAnchor.constraint(equalToConstant: 24).isActive = true
         
         
         addSubview(titleLabel)
