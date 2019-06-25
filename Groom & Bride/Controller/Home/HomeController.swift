@@ -9,6 +9,7 @@ import SCLAlertView
 
 class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
+    @IBOutlet weak var topView: UIView!
     @IBOutlet weak var searchIconImage: UIImageView!
     @IBOutlet weak var HomeLabel: UILabel!
     @IBOutlet weak var topComponentView: UIView!

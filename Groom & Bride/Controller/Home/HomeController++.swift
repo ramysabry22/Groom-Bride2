@@ -90,38 +90,28 @@ extension HomeController {
         if velocity.y > 0 && notScrolling { // hide
             notScrolling = false
             UIView.animate(withDuration: 0.15, animations: {
-                self.navigationController?.setNavigationBarHidden(true, animated: true)
-                
+                 self.navigationController?.setNavigationBarHidden(true, animated: true)
+                 self.topView.isHidden = true
                  self.searchLabel.isHidden = true
                  self.searchView.isHidden = true
                  self.searchIconImage.isHidden = true
-//                 self.HomeLabel.alpha = 0
-//                 self.HomeLabel.isHidden = true
-                
-                self.searchView.layoutIfNeeded()
-                self.searchView.layoutSubviews()
-                self.view.layoutSubviews()
-                self.view.layoutIfNeeded()
+                 self.HomeLabel.isHidden = true
+                 self.view.layoutIfNeeded()
             }, completion: { (finished) in
                  self.view.layoutIfNeeded()
-                self.notScrolling = true
+                 self.notScrolling = true
             })
         }
         else if velocity.y < 0.0  && notScrolling { // show
              notScrolling = false
             UIView.animate(withDuration: 0.15, animations: {
-                self.navigationController?.setNavigationBarHidden(false, animated: true)
-                
+                 self.navigationController?.setNavigationBarHidden(false, animated: true)
+                 self.topView.isHidden = false
                  self.searchLabel.isHidden = false
                  self.searchView.isHidden = false
                  self.searchIconImage.isHidden = false
-//                 self.HomeLabel.isHidden = false
-//                 self.HomeLabel.alpha = 1
-                
-                self.searchView.layoutIfNeeded()
-                self.searchView.layoutSubviews()
-                self.view.layoutSubviews()
-                self.view.layoutIfNeeded()
+                 self.HomeLabel.isHidden = false
+                 self.view.layoutIfNeeded()
             }, completion: { (finished) in
                  self.view.layoutIfNeeded()
                  self.notScrolling = true
