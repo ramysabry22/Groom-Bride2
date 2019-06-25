@@ -4,6 +4,7 @@ import Cosmos
 
 class DetailedHallController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   
+    @IBOutlet weak var newRateView: UIView!
     @IBOutlet weak var addressTextView: UITextView!
     @IBOutlet weak var ratingStarsView: CosmosView!
     @IBOutlet weak var favoriteImageView: UIImageView!
@@ -13,7 +14,6 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
     @IBOutlet weak var infoTextView: UITextView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var offersTextView: UITextView!
-    //@IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var ratesLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locationView: UIView!
@@ -46,6 +46,9 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         locationView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(viewOnMap)))
         favoriteImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addTofavoriteButtonAction)))
         favoriteBackgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addTofavoriteButtonAction)))
+        
+      
+        newRateView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(rateHalls)))
     }
     func setupHallInfo(){
         if detailedHall != nil {
@@ -101,7 +104,7 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
             favoriteBackgroundView.isHidden = true
         }
     }
-
+    
     @IBAction func CallButtonAction(_ sender: UIButton) {
         guard let phoneNumber = hallPhoneNumber, hallPhoneNumber != nil else {
             self.show1buttonAlert(title: "Oops", message: "Hall phone number is not available!", buttonTitle: "OK") {
@@ -162,6 +165,44 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         let homeController = UINavigationController(rootViewController: controller)
         homeController.isNavigationBarHidden = true
         self.present(homeController, animated: true, completion: nil)
+    }
+    @objc func rateHalls(){
+        if defaults.dictionary(forKey: "loggedInClient") == nil{
+            self.show2buttonAlert(title: "Rate this wedding hall?", message: "You have to login or create account in order to rate this hall!", cancelButtonTitle: "Cancel", defaultButtonTitle: "Login") { (defualt) in
+                if defualt {
+                    self.showLoginComponent()
+                }
+            }
+        }else {
+            self.showRateAlert { (valid, rate) in
+                if valid {
+                    self.rateHall(rate: rate)
+                }
+            }
+        }
+    }
+    func rateHall(rate: Int){
+        guard let hallID = self.hallId else {
+            self.show1buttonAlert(title: "Error", message: "Error happend, try again later", buttonTitle: "OK") {
+            }
+            return
+        }
+        SVProgressHUD.show()
+        ApiManager.sharedInstance.rateHall(hallID: hallID, rating: rate) { (valid, msg, reRequest) in
+            self.dismissRingIndecator()
+            if reRequest {
+                self.rateHall(rate: rate)
+            }
+            else if valid {
+                self.show1buttonAlert(title: "Done", message: "Hall rated successfullt", buttonTitle: "OK", callback: {
+            
+                })
+            }else {
+                self.show1buttonAlert(title: "Error", message: msg, buttonTitle: "OK", callback: {
+                    
+                })
+            }
+        }
     }
     
     // MARK:- CollectionView

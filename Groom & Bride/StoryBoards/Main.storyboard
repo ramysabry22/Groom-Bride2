@@ -548,6 +548,14 @@ your favorites</string>
                                                     <constraint firstItem="k6D-4b-Iff" firstAttribute="bottom" secondItem="8dg-Wu-uRT" secondAttribute="bottom" constant="8" id="r5I-Vh-4Wy"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mxf-eH-7Dx">
+                                                <rect key="frame" x="15" y="307" width="95" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="95" id="AU0-96-wSK"/>
+                                                    <constraint firstAttribute="height" constant="30" id="FAn-o3-fVv"/>
+                                                </constraints>
+                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cairo Hotel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ox9-ho-0ZX">
                                                 <rect key="frame" x="40" y="357" width="295" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
@@ -638,10 +646,12 @@ your favorites</string>
                                             <constraint firstItem="9v7-P8-SQh" firstAttribute="top" secondItem="79k-zP-2qo" secondAttribute="bottom" id="9xe-mX-AGp"/>
                                             <constraint firstAttribute="trailing" secondItem="qUd-RV-A3s" secondAttribute="trailing" id="AIX-MI-XmI"/>
                                             <constraint firstItem="9v7-P8-SQh" firstAttribute="leading" secondItem="raU-yk-GaH" secondAttribute="leading" id="AZo-3h-Jk9"/>
+                                            <constraint firstItem="mxf-eH-7Dx" firstAttribute="leading" secondItem="raU-yk-GaH" secondAttribute="leading" constant="15" id="C2o-WC-zws"/>
                                             <constraint firstItem="qUd-RV-A3s" firstAttribute="leading" secondItem="raU-yk-GaH" secondAttribute="leading" constant="15" id="DGZ-7t-lHs"/>
                                             <constraint firstAttribute="trailing" secondItem="mw1-6T-8g9" secondAttribute="trailing" id="F0z-fU-yIS"/>
                                             <constraint firstItem="hRY-Pd-CJX" firstAttribute="top" secondItem="9v7-P8-SQh" secondAttribute="bottom" id="GRg-n6-IsM"/>
                                             <constraint firstItem="mw1-6T-8g9" firstAttribute="leading" secondItem="raU-yk-GaH" secondAttribute="leading" id="JAf-5h-BDa"/>
+                                            <constraint firstItem="mxf-eH-7Dx" firstAttribute="top" secondItem="9v7-P8-SQh" secondAttribute="bottom" id="KVF-MO-O2O"/>
                                             <constraint firstItem="zCa-oO-gWd" firstAttribute="top" secondItem="Ox9-ho-0ZX" secondAttribute="bottom" constant="15" id="Mmj-WE-CUO"/>
                                             <constraint firstItem="5EL-7C-wt8" firstAttribute="top" secondItem="qUd-RV-A3s" secondAttribute="bottom" constant="5" id="NLY-ib-K9a"/>
                                             <constraint firstAttribute="trailing" secondItem="9wb-fb-VP1" secondAttribute="trailing" constant="15" id="NgG-1w-YD2"/>
@@ -730,6 +740,7 @@ your favorites</string>
                         <outlet property="favoriteImageView" destination="BNE-YY-0cx" id="fwR-uk-Vmb"/>
                         <outlet property="infoTextView" destination="zCa-oO-gWd" id="ewd-07-IkO"/>
                         <outlet property="locationView" destination="9wb-fb-VP1" id="1h0-2u-DUx"/>
+                        <outlet property="newRateView" destination="mxf-eH-7Dx" id="8NL-21-O6d"/>
                         <outlet property="offersTextView" destination="5EL-7C-wt8" id="9zL-s6-3kE"/>
                         <outlet property="pageControl" destination="CeS-Wr-vXa" id="cSY-DG-ixV"/>
                         <outlet property="priceLabel" destination="8dg-Wu-uRT" id="ruv-h0-aRv"/>

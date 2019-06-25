@@ -80,63 +80,42 @@ extension UIViewController {
     }
     
     
-    func showRatingAlert(title: String, message: String, cancelButtonTitle: String, defaultButtonTitle: String, callback: @escaping (_ defualt: Bool,_ rate: Int) -> ()) {
-        let rateView = CosmosView()
-        rateView.rating = 1
-        var finalRating: Int = 1
+    func showRateAlert(callback: @escaping (_ valid: Bool,_ rate: Int) -> ()){
+        var finalRate: Int = 1
+        let alert = UIAlertController(title: "How was your experience with this wedding hall?", message: "Please rate hall based on your experience \n\n\n", preferredStyle: .alert)
         
-           let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let ratingView = CosmosView()
+        ratingView.rating = 1.0
+        ratingView.settings.starSize = 32
+        ratingView.settings.updateOnTouch = true
         
+        let customView = UIView(frame: CGRect(x: -50, y: 91, width: alert.view.frame.width, height: 50))
+        let xCoord = alert.view.frame.width/2 - 95
+        let yCoord = CGFloat(25.0)
+        ratingView.frame.origin.x = xCoord
+        ratingView.frame.origin.y = yCoord
+        customView.addSubview(ratingView)
         
-        
-        let customView = UIView()
-    
-        
-        customView.addSubview(rateView)
-        
-        
-        
-        
-        
-        
-        
-        
-        
-     
-        
-        rateView.didFinishTouchingCosmos = { rating in
-            finalRating = Int(rating)
-        }
-        alert.addAction(UIAlertAction(title: defaultButtonTitle, style: .cancel, handler: {
-            alertAction in
-            callback(true,finalRating)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default , handler:{ (UIAlertAction)in
+            callback(false,finalRate)
+        }))
+        alert.addAction(UIAlertAction(title: "Rate", style: .default , handler:{ (UIAlertAction)in
+            callback(true,finalRate)
         }))
         
-        alert.addAction(UIAlertAction(title: cancelButtonTitle, style: .default, handler: {
-            alertAction in
-            callback(false,0)
-        }))
-        
-        
-        alert.addTextField { (textField : UITextField!) -> Void in
-            textField.placeholder = ""
-            textField.isUserInteractionEnabled = true
-            textField.isEnabled = true
-            textField.backgroundColor = UIColor.yellow
-            textField.addSubview(customView)
-            customView.backgroundColor = UIColor.red
-            customView.frame = textField.frame
-        }
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
-        label.text = "Text"
-        alert.view.addSubview(label)
-        
-        
-      //  alert.view.addSubview(customView)
+        alert.view.addSubview(customView)
         
         alert.view.tintColor = UIColor.mainAppPink()
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: {
+        })
+        
+        
+        ratingView.didFinishTouchingCosmos = { rating in
+            finalRate = Int(rating)
+            print(finalRate)
+        }
     }
+    
     
 }
 
