@@ -122,22 +122,33 @@ extension HomeController {
         }
     }
     
-    
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y + 700
-        let contentHeight = scrollView.contentSize.height
-        
-        if offsetY > contentHeight - scrollView.frame.size.height{
-            if isFinishedPaging == true {
-               pagesNumber += 1
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        if collectionView == collectionView2 {
+            if ((indexPaths.last?.row)! + 5) > self.allHalls.count && isFinishedPaging == true {
+                pagesNumber += 1
                 if currentCategoryIndex == 0 {
-                    self.fetchNewHalls(limit: 5, offset: pagesNumber)
+                    self.fetchNewHalls(limit: 7, offset: pagesNumber)
                 }else {
-                    fetchHallWithCategory(index: currentCategoryIndex, limit: 5, offset: pagesNumber)
+                    fetchHallWithCategory(index: currentCategoryIndex, limit: 7, offset: pagesNumber)
                 }
             }
         }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        let offsetY = scrollView.contentOffset.y + 700
+//        let contentHeight = scrollView.contentSize.height
+        
+//        if offsetY > contentHeight - scrollView.frame.size.height{
+//            if isFinishedPaging == true {
+//               pagesNumber += 1
+//                if currentCategoryIndex == 0 {
+//                    self.fetchNewHalls(limit: 5, offset: pagesNumber)
+//                }else {
+//                    fetchHallWithCategory(index: currentCategoryIndex, limit: 5, offset: pagesNumber)
+//                }
+//            }
+//        }
     }
     
     

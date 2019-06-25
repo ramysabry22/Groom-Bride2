@@ -3,7 +3,7 @@ import UIKit
 import SVProgressHUD
 import SCLAlertView
 
-class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,removeFromFavoriteProtocol {
+class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,UICollectionViewDataSourcePrefetching,removeFromFavoriteProtocol {
     
     @IBOutlet weak var collectionView1: UICollectionView!
     @IBOutlet weak var emptyLabel: UILabel!
@@ -19,7 +19,7 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
         collectionView1.delegate = self
         collectionView1.dataSource = self
         SVProgressHUD.show()
-        fetchFavoriteHalls(limit: 5, offset: 0)
+        fetchFavoriteHalls(limit: 7, offset: 0)
     }
     
     
@@ -123,17 +123,22 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
         navigationController?.pushViewController(controller, animated: true)
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y + 700
-        let contentHeight = scrollView.contentSize.height
-        
-        if offsetY > contentHeight - scrollView.frame.size.height{
-            if isFinishedPaging == true {
-                pagesNumber += 1
-                self.fetchFavoriteHalls(limit: 5, offset: pagesNumber)
-            }
+//        let offsetY = scrollView.contentOffset.y + 700
+//        let contentHeight = scrollView.contentSize.height
+//
+//        if offsetY > contentHeight - scrollView.frame.size.height{
+//            if isFinishedPaging == true {
+//                pagesNumber += 1
+//                self.fetchFavoriteHalls(limit: 5, offset: pagesNumber)
+//            }
+//        }
+    }
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        if ((indexPaths.last?.row)! + 4) > self.allHalls.count && isFinishedPaging == true {
+            pagesNumber += 1
+            self.fetchFavoriteHalls(limit: 7, offset: pagesNumber)
         }
     }
-    
     
     
     
@@ -164,6 +169,8 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.setDefaultStyle(.dark)
         SVProgressHUD.setDefaultAnimationType(.native)
+        
+        collectionView1.prefetchDataSource = self
     }
     @objc func leftButtonAction(){
         navigationController?.popViewController(animated: true)

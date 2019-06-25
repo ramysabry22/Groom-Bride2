@@ -15,8 +15,8 @@ extension ApiManager{
             "offset": offset
         ]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-            print("****************************************")
-            print(response)
+        //    print("****************************************")
+       //     print(response)
             if let jsonResponse = response.result.value{
             let data = jsonResponse as! [String : Any]
             let result = data["result"] as! Bool
@@ -63,8 +63,8 @@ extension ApiManager{
             "offset": offset
         ]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-            print("****************************************")
-            print(response)
+//            print("****************************************")
+//            print(response)
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool

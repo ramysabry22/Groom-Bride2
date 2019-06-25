@@ -4,6 +4,7 @@ import Cosmos
 
 class DetailedHallController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
   
+    @IBOutlet weak var addressTextView: UITextView!
     @IBOutlet weak var ratingStarsView: CosmosView!
     @IBOutlet weak var favoriteImageView: UIImageView!
     @IBOutlet weak var favoriteBackgroundView: UIView!
@@ -12,7 +13,7 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
     @IBOutlet weak var infoTextView: UITextView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var offersTextView: UITextView!
-    @IBOutlet weak var addressLabel: UILabel!
+    //@IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var ratesLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locationView: UIView!
@@ -57,7 +58,7 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
             hallName = detailedHall?.hallName
             
            titleLabel.text = hallName
-           addressLabel.text = hallAddress
+           addressTextView.text = hallAddress
            priceLabel.text = "\(detailedHall?.hallPrice ?? 0) EGP"
            ratingStarsView.rating = Double(detailedHall?.hallRate ?? 0)
            ratesLabel.text = "\(detailedHall?.hallRatesCounter ?? 0) Rates"
@@ -83,7 +84,7 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
             hallName = favoriteDetailedHall?.hallId.hallName
             
             titleLabel.text = hallName
-            addressLabel.text = hallAddress
+            addressTextView.text = hallAddress
             priceLabel.text = "\(favoriteDetailedHall?.hallId.hallPrice ?? 0) EGP"
             ratingStarsView.rating = Double(favoriteDetailedHall?.hallId.hallsAverageRating ?? 0)
             ratesLabel.text = "\(favoriteDetailedHall?.hallId.hallsRatingCounter ?? 0) Rates"

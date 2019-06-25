@@ -2,7 +2,7 @@
 import UIKit
 import SVProgressHUD
 
-class SearchController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UITextFieldDelegate{
+class SearchController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDataSourcePrefetching, UITextFieldDelegate{
 
     @IBOutlet weak var collectionView1: UICollectionView!
     @IBOutlet weak var searchTextField: CustomTextField!
@@ -21,6 +21,7 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
         self.collectionView1.register(UINib(nibName: "HallCell", bundle: nil), forCellWithReuseIdentifier: "HallCell")
         collectionView1.delegate = self
         collectionView1.dataSource = self
+        collectionView1.prefetchDataSource = self
     }
     
     
@@ -70,7 +71,7 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
         self.pagesNumber = 0
         self.SearchText = searchText
         SVProgressHUD.show()
-        searchHalls(limit: 5, offset: 0)
+        searchHalls(limit: 7, offset: 0)
     }
     @IBAction func SearchButtonTapped(_ sender: UIButton) {
        searchTapped()
@@ -130,14 +131,20 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
         return 10
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y + 700
-        let contentHeight = scrollView.contentSize.height
-        
-        if offsetY > contentHeight - scrollView.frame.size.height{
-            if isFinishedPaging == true {
-                pagesNumber += 1
-                self.paginateSearchHalls(limit: 5, offset: pagesNumber)
-            }
+//        let offsetY = scrollView.contentOffset.y + 700
+//        let contentHeight = scrollView.contentSize.height
+//
+//        if offsetY > contentHeight - scrollView.frame.size.height{
+//            if isFinishedPaging == true {
+//                pagesNumber += 1
+//                self.paginateSearchHalls(limit: 5, offset: pagesNumber)
+//            }
+//        }
+    }
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        if ((indexPaths.last?.row)! + 4) > self.searchHallResult.count && isFinishedPaging == true {
+            pagesNumber += 1
+            self.paginateSearchHalls(limit: 7, offset: pagesNumber)
         }
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

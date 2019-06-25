@@ -7,7 +7,7 @@ import SideMenu
 import Firebase
 import SCLAlertView
 
-class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout , UICollectionViewDataSourcePrefetching {
     
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var searchIconImage: UIImageView!
@@ -29,7 +29,7 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
                                       ["5d0cbfc9a758321414bf9872","Club","ClubICON777"],
                                       ["5d0cbfc9a758321414bf9873","Yacht","YachtICON777"],
                                       ["5d0cbfc9a758321414bf9874","Villa","VillaICON777"],
-                                      ["5d0cbfc9a758321414bf9875","Individual","IndividualICON777"]]
+                                      ["5d1214f4de675f000488d442","Individual","IndividualICON777"]]
     
     
     var currentCategoryIndex: Int = 0
@@ -159,6 +159,8 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         collectionView1.dataSource = self
         
         searchView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SearchViewTapped)))
+        
+        collectionView2.prefetchDataSource = self
     }
     
     func setupNavigationBar(){
@@ -195,6 +197,8 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         SVProgressHUD.setDefaultMaskType(.clear)
         SVProgressHUD.setDefaultStyle(.dark)
         SVProgressHUD.setDefaultAnimationType(.native)
+        
+
     }
     @objc func leftButtonAction(){
         present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)
