@@ -15,7 +15,7 @@ class HallCell: UICollectionViewCell {
             guard let bassedHall = hall else { return }
             nameLabel.text = bassedHall.hallName
             priceLabel.text = "\(bassedHall.hallPrice!) EGP"
-            ratesLabel.text = "\(bassedHall.hallRatesCounter!) Rates"
+            ratesLabel.text = "\(bassedHall.hallRatesCounter!) Rating"
             ratingStarsView.rating = Double(bassedHall.hallRate ?? 0)
         }
     }

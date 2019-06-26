@@ -77,6 +77,8 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
         }
     }
     
+    
+    
     // MARK:- CollectionView
 /*********************************************************************************/
     func numberOfSections(in collectionView: UICollectionView) -> Int {

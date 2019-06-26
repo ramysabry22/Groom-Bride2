@@ -38,6 +38,23 @@ extension HomeController {
                     }
                 }
             }
+            cell.layer.masksToBounds = true
+            cell.layer.cornerRadius = 4
+            
+            
+            cell.layer.cornerRadius = 8
+            cell.contentView.layer.cornerRadius = 1.0
+            cell.contentView.layer.borderWidth = 1.0
+            cell.contentView.layer.borderColor = UIColor.clear.cgColor
+            cell.contentView.layer.masksToBounds = true;
+            cell.layer.shadowColor = UIColor.lightGray.cgColor
+            cell.layer.shadowOffset = CGSize(width: 0,height: 0.3)
+            cell.layer.shadowRadius = 8.0
+            cell.layer.shadowOpacity = 0.3
+            cell.layer.masksToBounds = false;
+            cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
+            
+            
             return cell
         }else {
             let cell: FilterCell = collectionView1.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as! FilterCell
@@ -56,7 +73,7 @@ extension HomeController {
         
         if collectionView == collectionView2 {
             let cellHeight = max(270, view.frame.height/3)
-            return CGSize(width: view.frame.width, height: cellHeight)
+            return CGSize(width: view.frame.width-22, height: cellHeight)
         }else {
              let cellTitle = hallCategories[indexPath.row][1]
              let cellWidth = estimateFrameForSubTitleText(cellTitle).width + 15 + view.frame.width/8
@@ -67,7 +84,7 @@ extension HomeController {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
-         if collectionView == collectionView2 { return 15 }
+         if collectionView == collectionView2 { return 20 }
          else { return 0 }
     }
     
@@ -86,35 +103,34 @@ extension HomeController {
     
    
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        
+        guard let window = UIApplication.shared.keyWindow else { return }
+
         if velocity.y > 0 && notScrolling { // hide
             notScrolling = false
+            isNavBarHidden = true
+            self.collectionView2TopConstraint.constant = 55 //
+            self.collectionView1TopConstraint.constant = 5
+            self.topViewTopConstraint.constant = -110 - window.safeAreaInsets.top
+            
             UIView.animate(withDuration: 0.15, animations: {
                  self.navigationController?.setNavigationBarHidden(true, animated: true)
-                 self.topView.isHidden = true
-                 self.searchLabel.isHidden = true
-                 self.searchView.isHidden = true
-                 self.searchIconImage.isHidden = true
-                 self.HomeLabel.isHidden = true
                  self.view.layoutIfNeeded()
             }, completion: { (finished) in
-                 self.view.layoutIfNeeded()
-                 self.notScrolling = true
+                self.notScrolling = true
             })
         }
         else if velocity.y < 0.0  && notScrolling { // show
              notScrolling = false
-            UIView.animate(withDuration: 0.15, animations: {
+             isNavBarHidden = false
+             self.collectionView2TopConstraint.constant = 155
+             self.collectionView1TopConstraint.constant = 104
+             self.topViewTopConstraint.constant = 5
+            
+            UIView.animate(withDuration: 0.2, animations: {
                  self.navigationController?.setNavigationBarHidden(false, animated: true)
-                 self.topView.isHidden = false
-                 self.searchLabel.isHidden = false
-                 self.searchView.isHidden = false
-                 self.searchIconImage.isHidden = false
-                 self.HomeLabel.isHidden = false
                  self.view.layoutIfNeeded()
             }, completion: { (finished) in
-                 self.view.layoutIfNeeded()
-                 self.notScrolling = true
+                self.notScrolling = true
             })
         }
         else {

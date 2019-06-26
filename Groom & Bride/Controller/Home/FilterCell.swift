@@ -19,8 +19,8 @@ class FilterCell: UICollectionViewCell {
                 titleLabel.textColor = UIColor.mainAppPink()
                 imageView.tintColor = UIColor.mainAppPink()
             }else{
-                titleLabel.textColor = UIColor.black
-                imageView.tintColor = UIColor.black
+                titleLabel.textColor = UIColor.darkGray
+                imageView.tintColor = UIColor.darkGray
             }
         }
     }

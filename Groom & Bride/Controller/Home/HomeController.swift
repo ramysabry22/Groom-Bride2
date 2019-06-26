@@ -9,6 +9,9 @@ import SCLAlertView
 
 class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout , UICollectionViewDataSourcePrefetching {
     
+    @IBOutlet weak var collectionView1TopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var collectionView2TopConstraint: NSLayoutConstraint!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var searchIconImage: UIImageView!
     @IBOutlet weak var HomeLabel: UILabel!
@@ -37,6 +40,7 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
     var isFinishedPaging = true
     var pagesNumber: Int = 0
     var notScrolling: Bool = true
+    var isNavBarHidden: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +56,12 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
             firstOpen = false
         }
        setupLeftMenu()
+        
+        if isNavBarHidden == false {
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+        }else {
+            self.navigationController?.setNavigationBarHidden(true, animated: true)
+        }
     }
     
     // MARK :- Fetch Halls
