@@ -39,9 +39,6 @@ extension HomeController {
                 }
             }
             cell.layer.masksToBounds = true
-            cell.layer.cornerRadius = 4
-            
-            
             cell.layer.cornerRadius = 8
             cell.contentView.layer.cornerRadius = 1.0
             cell.contentView.layer.borderWidth = 1.0
@@ -53,8 +50,6 @@ extension HomeController {
             cell.layer.shadowOpacity = 0.3
             cell.layer.masksToBounds = false;
             cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
-            
-            
             return cell
         }else {
             let cell: FilterCell = collectionView1.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as! FilterCell

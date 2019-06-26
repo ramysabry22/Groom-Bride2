@@ -92,6 +92,9 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
             // text field is not empty
         }
     }
+    
+    
+    
     // MARK:- CollectionView
 /*********************************************************************************/
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -119,16 +122,28 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
                 }
             }
         }
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 8
+        cell.contentView.layer.cornerRadius = 1.0
+        cell.contentView.layer.borderWidth = 1.0
+        cell.contentView.layer.borderColor = UIColor.clear.cgColor
+        cell.contentView.layer.masksToBounds = true;
+        cell.layer.shadowColor = UIColor.lightGray.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0,height: 0.3)
+        cell.layer.shadowRadius = 8.0
+        cell.layer.shadowOpacity = 0.3
+        cell.layer.masksToBounds = false;
+        cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
       
         let cellHeight = max(270, view.frame.height/3)
-        return CGSize(width: view.frame.width, height: cellHeight)
+        return CGSize(width: view.frame.width-22, height: cellHeight)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
-        return 10
+        return 20
     }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //        let offsetY = scrollView.contentOffset.y + 700
