@@ -10,7 +10,7 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
     let cellId = "cellId"
     let headerID = "Header"
     let settingOptions: [[String]] = [["Home","HomeICON777"],["My profile","MyProfileICON777"],
-    ["Saved halls","SavedHallsICON777"],["Give us feedback","GiveUsFeedBackICON777"],["Privacy policy","PrivacyPolicyICON777"],["Terms of service","TermsOfServiceICON777"],["About us","AboutUsICON777"],["Logout","LogOutICON777"]]
+    ["Favorites","SavedHallsICON777"],["Give us feedback","GiveUsFeedBackICON777"],["Privacy policy","PrivacyPolicyICON777"],["Terms of service","TermsOfServiceICON777"],["About us","AboutUsICON777"],["Logout","LogOutICON777"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()

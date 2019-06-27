@@ -65,7 +65,7 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
            addressTextView.text = hallAddress
            priceLabel.text = "\(detailedHall?.hallPrice ?? 0) EGP"
            ratingStarsView.rating = Double(detailedHall?.hallRate ?? 0)
-           ratesLabel.text = "\(detailedHall?.hallRatesCounter ?? 0) Rating"
+           ratesLabel.text = "(\(detailedHall?.hallRatesCounter ?? 0)) Rating"
            infoTextView.text = detailedHall?.hallDescription
            offersTextView.text = detailedHall?.hallSpecialOffers
             
@@ -91,7 +91,7 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
             addressTextView.text = hallAddress
             priceLabel.text = "\(favoriteDetailedHall?.hallId.hallPrice ?? 0) EGP"
             ratingStarsView.rating = Double(favoriteDetailedHall?.hallId.hallsAverageRating ?? 0)
-            ratesLabel.text = "\(favoriteDetailedHall?.hallId.hallsRatingCounter ?? 0) Rating"
+            ratesLabel.text = "(\(favoriteDetailedHall?.hallId.hallsRatingCounter ?? 0)) Rating"
             infoTextView.text = favoriteDetailedHall?.hallId.hallDescription
             offersTextView.text = favoriteDetailedHall?.hallId.hallSpecialOffers
             
