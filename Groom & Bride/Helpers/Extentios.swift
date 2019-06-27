@@ -87,9 +87,16 @@ extension UICollectionViewCell {
 
 extension SVProgressHUD {
    static func setupView(){
-        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setDefaultMaskType(.black)
         SVProgressHUD.setDefaultStyle(.dark)
         SVProgressHUD.setDefaultAnimationType(.native)
+//        SVProgressHUD.setForegroundColor(UIColor.mainAppPink())
+//        SVProgressHUD.setBackgroundColor(UIColor.darkGray.withAlphaComponent(0.6))
+//        SVProgressHUD.setRingRadius(25)
+//        SVProgressHUD.setRingThickness(5)
+//        SVProgressHUD.setCornerRadius(25)
+//        SVProgressHUD.setMinimumSize(CGSize(width: 30, height: 30))
+   //     SVProgressHUD.show()
     }
 }
 
