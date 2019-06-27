@@ -23,6 +23,8 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
         collectionView1.delegate = self
         collectionView1.dataSource = self
         collectionView1.prefetchDataSource = self
+        searchTextField.layer.borderWidth = 1
+        searchTextField.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.4).cgColor
     }
     
     

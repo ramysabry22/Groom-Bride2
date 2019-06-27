@@ -66,6 +66,7 @@ extension UIView {
 }
 
 
+
 extension UICollectionViewCell {
     
     func makeShadow(cornerRadius: CGFloat) {
@@ -81,8 +82,6 @@ extension UICollectionViewCell {
         layer.masksToBounds = false
         layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius:contentView.layer.cornerRadius).cgPath
     }
-    
-    
 }
 
 extension SVProgressHUD {
