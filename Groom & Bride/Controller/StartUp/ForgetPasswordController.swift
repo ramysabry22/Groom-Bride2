@@ -13,9 +13,7 @@ class ForgetPasswordController: UIViewController,UITextFieldDelegate {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        SVProgressHUD.setDefaultMaskType(.clear)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setDefaultAnimationType(.native)
+        SVProgressHUD.setupView()
         SetupComponentDelegetes()
     }
     
@@ -63,14 +61,7 @@ class ForgetPasswordController: UIViewController,UITextFieldDelegate {
         }
         sendResetPassword()
     }
-    func dismissRingIndecator(){
-        DispatchQueue.main.async {
-            SVProgressHUD.dismiss()
-            SVProgressHUD.setDefaultMaskType(.none)
-        }
-    }
    
-
     
 }
 

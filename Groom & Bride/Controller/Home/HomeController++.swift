@@ -38,18 +38,7 @@ extension HomeController {
                     }
                 }
             }
-            cell.layer.masksToBounds = true
-            cell.layer.cornerRadius = 8
-            cell.contentView.layer.cornerRadius = 1.0
-            cell.contentView.layer.borderWidth = 1.0
-            cell.contentView.layer.borderColor = UIColor.clear.cgColor
-            cell.contentView.layer.masksToBounds = true;
-            cell.layer.shadowColor = UIColor.lightGray.cgColor
-            cell.layer.shadowOffset = CGSize(width: 0,height: 0.3)
-            cell.layer.shadowRadius = 8.0
-            cell.layer.shadowOpacity = 0.3
-            cell.layer.masksToBounds = false;
-            cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
+            cell.makeShadow(cornerRadius: 8)
             return cell
         }else {
             let cell: FilterCell = collectionView1.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as! FilterCell
@@ -103,7 +92,7 @@ extension HomeController {
         if velocity.y > 0 && notScrolling { // hide
             notScrolling = false
             isNavBarHidden = true
-            self.collectionView2TopConstraint.constant = 55 //
+            self.collectionView2TopConstraint.constant = 50 //
             self.collectionView1TopConstraint.constant = 5
             self.topViewTopConstraint.constant = -110 - window.safeAreaInsets.top
             
@@ -117,7 +106,7 @@ extension HomeController {
         else if velocity.y < 0.0  && notScrolling { // show
              notScrolling = false
              isNavBarHidden = false
-             self.collectionView2TopConstraint.constant = 155
+             self.collectionView2TopConstraint.constant = 153
              self.collectionView1TopConstraint.constant = 104
              self.topViewTopConstraint.constant = 5
             

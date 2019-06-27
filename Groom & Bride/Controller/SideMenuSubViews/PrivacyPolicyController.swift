@@ -10,10 +10,7 @@ class PrivacyPolicyController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         fetchPrivacy()
-
-        SVProgressHUD.setDefaultMaskType(.clear)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setDefaultAnimationType(.native)
+        SVProgressHUD.setupView()
     }
     
     func fetchPrivacy(){
@@ -51,11 +48,5 @@ class PrivacyPolicyController: UIViewController {
     }
     @objc func leftButtonAction(){
         navigationController?.popViewController(animated: true)
-    }
-    func dismissRingIndecator(){
-        DispatchQueue.main.async {
-            SVProgressHUD.dismiss()
-            SVProgressHUD.setDefaultMaskType(.none)
-        }
     }
 }

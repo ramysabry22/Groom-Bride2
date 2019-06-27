@@ -46,6 +46,7 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         super.viewDidLoad()
         setupComponent()
         setupFirstFilter()
+        SVProgressHUD.setupView()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -148,12 +149,6 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         let selectedIndexPath = IndexPath(item: 0, section: 0)
         collectionView1.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .left)
     }
-    func dismissRingIndecator(){
-        DispatchQueue.main.async {
-            SVProgressHUD.dismiss()
-            SVProgressHUD.setDefaultMaskType(.none)
-        }
-    }
     @objc func SearchViewTapped(sender: UITapGestureRecognizer){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "SearchController") as! SearchController
@@ -171,6 +166,8 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         searchView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SearchViewTapped)))
         
         collectionView2.prefetchDataSource = self
+        
+        searchView.dropShadow(cornerRadius: 25)
     }
     
     func setupNavigationBar(){
@@ -203,12 +200,6 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         leftButton.heightAnchor.constraint(equalToConstant: 23).isActive = true
         leftButton.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
-        
-        SVProgressHUD.setDefaultMaskType(.clear)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setDefaultAnimationType(.native)
-        
-
     }
     @objc func leftButtonAction(){
         present(SideMenuManager.default.menuLeftNavigationController!, animated: true, completion: nil)

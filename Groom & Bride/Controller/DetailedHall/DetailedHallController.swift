@@ -34,6 +34,7 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         setupNavigationBar()
         setupComponents()
         setupHallInfo()
+        SVProgressHUD.setupView()
     }
    
     func setupComponents(){
@@ -270,20 +271,11 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         leftButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         leftButton.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
-        
-        SVProgressHUD.setDefaultMaskType(.clear)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setDefaultAnimationType(.native)
     }
     @objc func leftButtonAction(){
         navigationController?.popViewController(animated: true)
     }
-    func dismissRingIndecator(){
-        DispatchQueue.main.async {
-            SVProgressHUD.dismiss()
-            SVProgressHUD.setDefaultMaskType(.none)
-        }
-    }
+   
 }
 
 

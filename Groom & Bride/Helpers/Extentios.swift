@@ -48,10 +48,58 @@ extension UIView {
             heightAnchor.constraint(equalToConstant: size.height).isActive = true
         }
     }
+    
+    
+    
+    
+    func dropShadow(cornerRadius: CGFloat) {
+        layer.masksToBounds = true
+        layer.cornerRadius = cornerRadius
+        layer.borderWidth = 0.5
+        layer.borderColor = UIColor.clear.cgColor
+        layer.shadowColor = UIColor.lightGray.cgColor
+        layer.shadowOffset = CGSize(width: 0,height: 0.2)
+        layer.shadowRadius = 3.0
+        layer.shadowOpacity = 0.2
+        layer.masksToBounds = false
+    }
 }
 
 
+extension UICollectionViewCell {
+    
+    func makeShadow(cornerRadius: CGFloat) {
+        layer.cornerRadius = cornerRadius
+        contentView.layer.cornerRadius = 1.0
+        contentView.layer.borderWidth = 1.0
+        contentView.layer.borderColor = UIColor.clear.cgColor
+        contentView.layer.masksToBounds = true;
+        layer.shadowColor = UIColor.lightGray.cgColor
+        layer.shadowOffset = CGSize(width: 0,height: 0.3)
+        layer.shadowRadius = 6.0
+        layer.shadowOpacity = 0.3
+        layer.masksToBounds = false
+        layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius:contentView.layer.cornerRadius).cgPath
+    }
+    
+    
+}
+
+extension SVProgressHUD {
+   static func setupView(){
+        SVProgressHUD.setDefaultMaskType(.clear)
+        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setDefaultAnimationType(.native)
+    }
+}
+
 extension UIViewController {
+    func dismissRingIndecator(){
+        DispatchQueue.main.async {
+            SVProgressHUD.dismiss()
+            SVProgressHUD.setDefaultMaskType(.none)
+        }
+    }
     
     func show1buttonAlert(title: String, message: String, buttonTitle: String, callback: @escaping () -> ()) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)

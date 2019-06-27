@@ -11,15 +11,12 @@ class FeedbackController2: UIViewController, UITextViewDelegate, UITextFieldDele
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
+        SVProgressHUD.setupView()
         EmailTextField.delegate = self
         textView1.delegate = self
         textView1.layer.borderWidth = 1
         textView1.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.2).cgColor
         textView1.layer.cornerRadius = 6
-        
-        SVProgressHUD.setDefaultMaskType(.clear)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setDefaultAnimationType(.native)
     }
     
     
@@ -88,11 +85,5 @@ class FeedbackController2: UIViewController, UITextViewDelegate, UITextFieldDele
     @objc func leftButtonAction(){
         view.endEditing(true)
         navigationController?.popViewController(animated: true)
-    }
-    func dismissRingIndecator(){
-        DispatchQueue.main.async {
-            SVProgressHUD.dismiss()
-            SVProgressHUD.setDefaultMaskType(.none)
-        }
     }
 }

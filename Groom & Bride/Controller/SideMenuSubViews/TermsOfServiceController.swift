@@ -10,10 +10,7 @@ class TermsOfServiceController: UIViewController {
         super.viewDidLoad()
         setupNavigationBar()
         fetchPTerms()
-        
-        SVProgressHUD.setDefaultMaskType(.clear)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setDefaultAnimationType(.native)
+        SVProgressHUD.setupView()
     }
     
     func fetchPTerms(){
@@ -52,10 +49,5 @@ class TermsOfServiceController: UIViewController {
     @objc func leftButtonAction(){
         navigationController?.popViewController(animated: true)
     }
-    func dismissRingIndecator(){
-        DispatchQueue.main.async {
-            SVProgressHUD.dismiss()
-            SVProgressHUD.setDefaultMaskType(.none)
-        }
-    }
+   
 }

@@ -803,33 +803,34 @@ your favorites</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="se4-cv-flJ">
-                                        <rect key="frame" x="15" y="45" width="345" height="45"/>
+                                        <rect key="frame" x="15" y="45" width="345" height="44"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SearchICON777" translatesAutoresizingMaskIntoConstraints="NO" id="cZ1-xK-9QS">
-                                                <rect key="frame" x="13" y="11.5" width="22" height="22"/>
+                                                <rect key="frame" x="25" y="13" width="18" height="18"/>
+                                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="22" id="ftd-S7-m6w"/>
-                                                    <constraint firstAttribute="width" constant="22" id="w0c-Rb-LnV"/>
+                                                    <constraint firstAttribute="height" constant="18" id="ftd-S7-m6w"/>
+                                                    <constraint firstAttribute="width" constant="18" id="w0c-Rb-LnV"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7xN-pg-n1O">
-                                                <rect key="frame" x="50" y="13" width="51" height="19.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <rect key="frame" x="55" y="13" width="48" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="7xN-pg-n1O" firstAttribute="leading" secondItem="cZ1-xK-9QS" secondAttribute="trailing" constant="15" id="2TD-zQ-Ctv"/>
-                                            <constraint firstItem="cZ1-xK-9QS" firstAttribute="leading" secondItem="se4-cv-flJ" secondAttribute="leading" constant="13" id="5lS-aB-Rxm"/>
+                                            <constraint firstItem="7xN-pg-n1O" firstAttribute="leading" secondItem="cZ1-xK-9QS" secondAttribute="trailing" constant="12" id="2TD-zQ-Ctv"/>
+                                            <constraint firstItem="cZ1-xK-9QS" firstAttribute="leading" secondItem="se4-cv-flJ" secondAttribute="leading" constant="25" id="5lS-aB-Rxm"/>
                                             <constraint firstItem="7xN-pg-n1O" firstAttribute="centerY" secondItem="se4-cv-flJ" secondAttribute="centerY" id="LMe-dN-u6m"/>
-                                            <constraint firstAttribute="height" constant="45" id="fIf-pY-rmv"/>
+                                            <constraint firstAttribute="height" constant="44" id="fIf-pY-rmv"/>
                                             <constraint firstItem="cZ1-xK-9QS" firstAttribute="centerY" secondItem="se4-cv-flJ" secondAttribute="centerY" id="lyV-QL-EJk"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
+                                                <integer key="value" value="25"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -860,7 +861,7 @@ your favorites</string>
                                 <cells/>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GJd-aD-m1g">
-                                <rect key="frame" x="0.0" y="170" width="375" height="497"/>
+                                <rect key="frame" x="0.0" y="165" width="375" height="502"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vg9-eB-vHb">
@@ -880,7 +881,7 @@ your favorites</string>
                             <constraint firstItem="hwt-Tc-0dN" firstAttribute="leading" secondItem="B1W-1c-VWf" secondAttribute="leading" id="IOV-ZV-gbh"/>
                             <constraint firstItem="HBx-t2-RXa" firstAttribute="leading" secondItem="B1W-1c-VWf" secondAttribute="leading" id="NyB-mT-2h8"/>
                             <constraint firstItem="GJd-aD-m1g" firstAttribute="leading" secondItem="B1W-1c-VWf" secondAttribute="leading" id="Qpp-KV-vEE"/>
-                            <constraint firstItem="GJd-aD-m1g" firstAttribute="top" secondItem="B1W-1c-VWf" secondAttribute="top" constant="150" id="X1P-Pq-UNz"/>
+                            <constraint firstItem="GJd-aD-m1g" firstAttribute="top" secondItem="B1W-1c-VWf" secondAttribute="top" constant="145" id="X1P-Pq-UNz"/>
                             <constraint firstItem="HBx-t2-RXa" firstAttribute="trailing" secondItem="B1W-1c-VWf" secondAttribute="trailing" id="ZgB-FL-ArA"/>
                             <constraint firstItem="HBx-t2-RXa" firstAttribute="top" secondItem="B1W-1c-VWf" secondAttribute="top" constant="5" id="bHR-4o-Vtp"/>
                             <constraint firstItem="hwt-Tc-0dN" firstAttribute="trailing" secondItem="B1W-1c-VWf" secondAttribute="trailing" id="i4k-kz-WtB"/>

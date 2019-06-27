@@ -18,9 +18,7 @@ class SignInController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SVProgressHUD.setDefaultMaskType(.clear)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setDefaultAnimationType(.native)
+        SVProgressHUD.setupView()
         SetupComponentDelegetes()
         setupSignUpLabel()
         setupForgotPasswordLabel()
@@ -119,12 +117,6 @@ class SignInController: UIViewController,UITextFieldDelegate {
           SignInUser()
     }
     
-    func dismissRingIndecator(){
-        DispatchQueue.main.async {
-            SVProgressHUD.dismiss()
-            SVProgressHUD.setDefaultMaskType(.none)
-        }
-    }
     
     
     //     MARK :- eye button on textfield

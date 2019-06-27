@@ -18,6 +18,8 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
         self.collectionView1.register(UINib(nibName: "FavoriteHallCell", bundle: nil), forCellWithReuseIdentifier: "FavoriteHallCell")
         collectionView1.delegate = self
         collectionView1.dataSource = self
+        collectionView1.prefetchDataSource = self
+        SVProgressHUD.setupView()
         SVProgressHUD.show()
         fetchFavoriteHalls(limit: 7, offset: 0)
     }
@@ -107,18 +109,7 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
                 }
             }
         }
-        cell.layer.masksToBounds = true
-        cell.layer.cornerRadius = 8
-        cell.contentView.layer.cornerRadius = 1.0
-        cell.contentView.layer.borderWidth = 1.0
-        cell.contentView.layer.borderColor = UIColor.clear.cgColor
-        cell.contentView.layer.masksToBounds = true;
-        cell.layer.shadowColor = UIColor.lightGray.cgColor
-        cell.layer.shadowOffset = CGSize(width: 0,height: 0.3)
-        cell.layer.shadowRadius = 8.0
-        cell.layer.shadowOpacity = 0.3
-        cell.layer.masksToBounds = false;
-        cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
+        cell.makeShadow(cornerRadius: 8)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -179,21 +170,10 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
         leftButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         leftButton.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
-        
-        SVProgressHUD.setDefaultMaskType(.clear)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setDefaultAnimationType(.native)
-        
-        collectionView1.prefetchDataSource = self
     }
     @objc func leftButtonAction(){
         navigationController?.popViewController(animated: true)
     }
-    func dismissRingIndecator(){
-        DispatchQueue.main.async {
-            SVProgressHUD.dismiss()
-            SVProgressHUD.setDefaultMaskType(.none)
-        }
-    }
+   
     
 }

@@ -17,9 +17,7 @@ class SignUpController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SVProgressHUD.setDefaultMaskType(.clear)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setDefaultAnimationType(.native)
+        SVProgressHUD.setupView()
         SetupComponentDelegetes()
         ShowVisibleButton()
     }
@@ -87,12 +85,6 @@ class SignUpController: UIViewController,UITextFieldDelegate {
         AddNewuser()
     }
     
-    func dismissRingIndecator(){
-        DispatchQueue.main.async {
-            SVProgressHUD.dismiss()
-            SVProgressHUD.setDefaultMaskType(.none)
-        }
-    }
     
     
     

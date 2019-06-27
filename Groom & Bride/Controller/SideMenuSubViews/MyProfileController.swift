@@ -14,7 +14,8 @@ class MyProfileController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         setupNavigationBar()
         loadUserData()
-        setupComponent()
+        NameTextField.delegate = self
+        SVProgressHUD.setupView()
     }
     
 
@@ -64,13 +65,6 @@ class MyProfileController: UIViewController, UITextFieldDelegate {
         let controller = storyboard.instantiateViewController(withIdentifier: "ChangePassword") as! ChangePasswordController
         navigationController?.pushViewController(controller, animated: true)
     }
-    func setupComponent(){
-        NameTextField.delegate = self
-        
-        SVProgressHUD.setDefaultMaskType(.clear)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setDefaultAnimationType(.native)
-    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -97,10 +91,5 @@ class MyProfileController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
         navigationController?.popViewController(animated: true)
     }
-    func dismissRingIndecator(){
-        DispatchQueue.main.async {
-            SVProgressHUD.dismiss()
-            SVProgressHUD.setDefaultMaskType(.none)
-        }
-    }
+   
 }

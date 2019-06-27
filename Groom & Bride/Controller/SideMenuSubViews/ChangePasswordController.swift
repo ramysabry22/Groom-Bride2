@@ -14,7 +14,7 @@ class ChangePasswordController: UIViewController, UITextFieldDelegate {
         setupNavigationBar()
         ShowVisibleButton()
         setupComponent()
-       
+        SVProgressHUD.setupView()
     }
     
     func resetPassword(oldPassword: String, newPassword: String, rePassword: String){
@@ -81,10 +81,6 @@ class ChangePasswordController: UIViewController, UITextFieldDelegate {
         OldPasswordTextField.delegate = self
         NewPasswordTextField.delegate = self
         RePasswordTextField.delegate = self
-        
-        SVProgressHUD.setDefaultMaskType(.clear)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setDefaultAnimationType(.native)
     }
     func setupNavigationBar(){
         navigationController?.navigationBar.barStyle = .default
@@ -106,12 +102,7 @@ class ChangePasswordController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
         navigationController?.popViewController(animated: true)
     }
-    func dismissRingIndecator(){
-        DispatchQueue.main.async {
-            SVProgressHUD.dismiss()
-            SVProgressHUD.setDefaultMaskType(.none)
-        }
-    }
+
     
     //     MARK :- eye button on textfield
 /**********************************************************************************************/

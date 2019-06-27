@@ -15,8 +15,9 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-       searchTextField.delegate = self
-       searchTextField.addTarget(self, action: #selector(yourNameFunction), for: UIControl.Event.editingChanged)
+        SVProgressHUD.setupView()
+        searchTextField.delegate = self
+        searchTextField.addTarget(self, action: #selector(yourNameFunction), for: UIControl.Event.editingChanged)
 
         self.collectionView1.register(UINib(nibName: "HallCell", bundle: nil), forCellWithReuseIdentifier: "HallCell")
         collectionView1.delegate = self
@@ -122,18 +123,7 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
                 }
             }
         }
-        cell.layer.masksToBounds = true
-        cell.layer.cornerRadius = 8
-        cell.contentView.layer.cornerRadius = 1.0
-        cell.contentView.layer.borderWidth = 1.0
-        cell.contentView.layer.borderColor = UIColor.clear.cgColor
-        cell.contentView.layer.masksToBounds = true;
-        cell.layer.shadowColor = UIColor.lightGray.cgColor
-        cell.layer.shadowOffset = CGSize(width: 0,height: 0.3)
-        cell.layer.shadowRadius = 8.0
-        cell.layer.shadowOpacity = 0.3
-        cell.layer.masksToBounds = false;
-        cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
+        cell.makeShadow(cornerRadius: 8)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -193,20 +183,10 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
         leftButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         leftButton.addTarget(self, action: #selector(leftButtonAction), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
-        
-        
-        SVProgressHUD.setDefaultMaskType(.clear)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setDefaultAnimationType(.native)
     }
     @objc func leftButtonAction(){
         searchTextField.endEditing(true)
        navigationController?.popViewController(animated: true)
     }
-    func dismissRingIndecator(){
-        DispatchQueue.main.async {
-            SVProgressHUD.dismiss()
-            SVProgressHUD.setDefaultMaskType(.none)
-        }
-    }
+    
 }
