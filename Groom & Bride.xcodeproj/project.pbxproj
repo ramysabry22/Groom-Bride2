@@ -24,6 +24,9 @@
 		F06601C92279AE14006E67D9 /* LeftMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06601C82279AE14006E67D9 /* LeftMenuCell.swift */; };
 		F06601CB2279CBC9006E67D9 /* LeftMenuHeader2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06601CA2279CBC9006E67D9 /* LeftMenuHeader2.swift */; };
 		F06601CD2279D024006E67D9 /* LeftMenuController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06601CC2279D024006E67D9 /* LeftMenuController2.swift */; };
+		F06ECC9622C63F1300180C12 /* Alerts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F06ECC9522C63F1300180C12 /* Alerts.storyboard */; };
+		F06ECC9822C6410200180C12 /* OneButtonAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06ECC9722C6410200180C12 /* OneButtonAlertController.swift */; };
+		F06ECC9B22C6651600180C12 /* TwoButtonAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06ECC9A22C6651600180C12 /* TwoButtonAlertController.swift */; };
 		F074D8C622BEB35A008C33F6 /* removeFromFavoriteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074D8C522BEB35A008C33F6 /* removeFromFavoriteProtocol.swift */; };
 		F076F1D322B14B1C00F12988 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F076F1D222B14B1C00F12988 /* SideMenu.storyboard */; };
 		F08CEFD222B15AAB00C55571 /* FeedbackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08CEFD122B15AAB00C55571 /* FeedbackController.swift */; };
@@ -83,6 +86,9 @@
 		F06601C82279AE14006E67D9 /* LeftMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuCell.swift; sourceTree = "<group>"; };
 		F06601CA2279CBC9006E67D9 /* LeftMenuHeader2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuHeader2.swift; sourceTree = "<group>"; };
 		F06601CC2279D024006E67D9 /* LeftMenuController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuController2.swift; sourceTree = "<group>"; };
+		F06ECC9522C63F1300180C12 /* Alerts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alerts.storyboard; sourceTree = "<group>"; };
+		F06ECC9722C6410200180C12 /* OneButtonAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneButtonAlertController.swift; sourceTree = "<group>"; };
+		F06ECC9A22C6651600180C12 /* TwoButtonAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoButtonAlertController.swift; sourceTree = "<group>"; };
 		F074D8C522BEB35A008C33F6 /* removeFromFavoriteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = removeFromFavoriteProtocol.swift; sourceTree = "<group>"; };
 		F07625D32287868B00FD89D2 /* Groom & Bride.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Groom & Bride.entitlements"; sourceTree = "<group>"; };
 		F076F1D222B14B1C00F12988 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
@@ -245,6 +251,15 @@
 			path = SideMenu;
 			sourceTree = "<group>";
 		};
+		F06ECC9922C6410C00180C12 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				F06ECC9722C6410200180C12 /* OneButtonAlertController.swift */,
+				F06ECC9A22C6651600180C12 /* TwoButtonAlertController.swift */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
 		F090E54022ACB9DC00FA121B /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +267,7 @@
 				F090E53C22AC71E300FA121B /* LoginBoard.storyboard */,
 				F0DD665422AE589F006F55A9 /* LaunchScreen.storyboard */,
 				F076F1D222B14B1C00F12988 /* SideMenu.storyboard */,
+				F06ECC9522C63F1300180C12 /* Alerts.storyboard */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -331,6 +347,7 @@
 				F06601C32279AD14006E67D9 /* SideMenu */,
 				F0C6BAFC22B26FC300C27641 /* SideMenuSubViews */,
 				F032A33E2278E1AC000FC5C8 /* StartUp */,
+				F06ECC9922C6410C00180C12 /* Alerts */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -434,6 +451,7 @@
 				F076F1D322B14B1C00F12988 /* SideMenu.storyboard in Resources */,
 				F0966F74222C0DD200FA4FEA /* Assets.xcassets in Resources */,
 				F0EF7A3722BFEDBD00FB154A /* GoogleService-Info.plist in Resources */,
+				F06ECC9622C63F1300180C12 /* Alerts.storyboard in Resources */,
 				F090E53D22AC71E300FA121B /* LoginBoard.storyboard in Resources */,
 				F0DD665522AE589F006F55A9 /* LaunchScreen.storyboard in Resources */,
 				F0C6BB0622B2AE9C00C27641 /* FilterCell.xib in Resources */,
@@ -544,7 +562,9 @@
 				F0966FA0222C0E9C00FA4FEA /* SplashScreenController.swift in Sources */,
 				F0CF09AF22C10A3800545C7B /* CustomPointAnnotation.swift in Sources */,
 				F0282CF922772247005CAA4A /* ApiManager.swift in Sources */,
+				F06ECC9822C6410200180C12 /* OneButtonAlertController.swift in Sources */,
 				F06601CB2279CBC9006E67D9 /* LeftMenuHeader2.swift in Sources */,
+				F06ECC9B22C6651600180C12 /* TwoButtonAlertController.swift in Sources */,
 				F0966F9E222C0E9C00FA4FEA /* OnBoardingScreens.swift in Sources */,
 				F08CEFD622B15B3500C55571 /* TermsOfServiceController.swift in Sources */,
 				F0966F9C222C0E9C00FA4FEA /* HomeController.swift in Sources */,

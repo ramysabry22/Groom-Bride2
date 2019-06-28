@@ -8,7 +8,7 @@ import Firebase
 import SCLAlertView
 
 class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout , UICollectionViewDataSourcePrefetching {
-    
+
     @IBOutlet weak var collectionView1TopConstraint: NSLayoutConstraint!
     @IBOutlet weak var topViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var collectionView2TopConstraint: NSLayoutConstraint!
@@ -64,6 +64,7 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
             self.navigationController?.setNavigationBarHidden(true, animated: true)
         }
     }
+    
     
     // MARK :- Fetch Halls
 /********************************************************************************************/
@@ -121,7 +122,6 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         }
     }
     
-
     
 // MARK :- Helper functions
 /********************************************************************************************/
@@ -209,11 +209,13 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
     // MARK :- Side menu subViews functions
 /********************************************************************************************/
     func signOut(){
-        navigationController?.popToRootViewController(animated: true)
-        menuLeftNavigationController2.dismiss(animated: true) {
-            UserDefaults.standard.removeObject(forKey: "loggedInClient")
-            UserDefaults.standard.synchronize()
-            self.setupLeftMenu()
+        self.show2buttonAlert(title: "Logout?", message: "Are you sure you want to logout?", cancelButtonTitle: "Cancel", defaultButtonTitle: "OK") { (yes) in
+            if yes {
+                self.navigationController?.popToRootViewController(animated: true)
+                UserDefaults.standard.removeObject(forKey: "loggedInClient")
+                UserDefaults.standard.synchronize()
+                self.setupLeftMenu()
+            }
         }
     }
     func goHome(){

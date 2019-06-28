@@ -76,10 +76,8 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
             self.homeController?.goAboutUs()
             return
         case 7:
-            self.show2buttonAlert(title: "Logout?", message: "Are you sure you want to logout?", cancelButtonTitle: "Cancel", defaultButtonTitle: "OK") { (yes) in
-                if yes {
-                    self.handleLogout()
-                }
+            self.dismiss(animated: true) {
+                self.homeController?.signOut()
             }
             return
         default:

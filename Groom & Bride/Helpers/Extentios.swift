@@ -99,38 +99,39 @@ extension SVProgressHUD {
     }
 }
 
-extension UIViewController {
-    func dismissRingIndecator(){
-        DispatchQueue.main.async {
-            SVProgressHUD.dismiss()
-            SVProgressHUD.setDefaultMaskType(.none)
-        }
+extension UIViewController{
+    
+    func show1buttonAlert(title: String, message: String, buttonTitle: String, callback: @escaping () -> Void){
+        let storyboard = UIStoryboard(name: "Alerts", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "OneButtonAlertController") as! OneButtonAlertController
+        controller.alertTitle = title
+        controller.alertMessage = message
+        controller.alertCancelButtonTitle = buttonTitle
+        controller.buttonAction = callback
+        present(controller, animated: true, completion: nil)
     }
     
-    func show1buttonAlert(title: String, message: String, buttonTitle: String, callback: @escaping () -> ()) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: buttonTitle, style: .default, handler: {
-            alertAction in
-            callback()
-        }))
-        alert.view.tintColor = UIColor.mainAppPink()
-        self.present(alert, animated: true, completion: nil)
-    }
+    
+
     
     func show2buttonAlert(title: String, message: String, cancelButtonTitle: String, defaultButtonTitle: String, callback: @escaping (_ defualt: Bool) -> ()) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: cancelButtonTitle, style: .cancel, handler: {
-            alertAction in
-            callback(false)
-        }))
         
-        alert.addAction(UIAlertAction(title: defaultButtonTitle, style: .default, handler: {
-            alertAction in
-            callback(true)
-        }))
+        let storyboard = UIStoryboard(name: "Alerts", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "TwoButtonAlertController") as! TwoButtonAlertController
+        controller.providesPresentationContextTransitionStyle = true
+        controller.definesPresentationContext = true
+        controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        controller.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        controller.alertTitle = title
+        controller.alertMessage = message
+        controller.alertCancelButtonTitle = cancelButtonTitle
+        controller.alertDefualtButtonTitle = defaultButtonTitle
+        controller.buttonAction = callback
+        present(controller, animated: true, completion: nil)
         
-        alert.view.tintColor = UIColor.mainAppPink()
-        self.present(alert, animated: true, completion: nil)
+//        controller.buttonAction = { defualt in
+//          print(defualt)
+//        }
     }
     
     
@@ -171,6 +172,12 @@ extension UIViewController {
     }
     
     
+    func dismissRingIndecator(){
+        DispatchQueue.main.async {
+            SVProgressHUD.dismiss()
+            SVProgressHUD.setDefaultMaskType(.none)
+        }
+    }
 }
 
 
