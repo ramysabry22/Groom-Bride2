@@ -99,6 +99,7 @@ extension SVProgressHUD {
     }
 }
 
+
 extension UIViewController{
     
     func show1buttonAlert(title: String, message: String, buttonTitle: String, callback: @escaping () -> Void){
@@ -110,9 +111,6 @@ extension UIViewController{
         controller.buttonAction = callback
         present(controller, animated: true, completion: nil)
     }
-    
-    
-
     
     func show2buttonAlert(title: String, message: String, cancelButtonTitle: String, defaultButtonTitle: String, callback: @escaping (_ defualt: Bool) -> ()) {
         
@@ -128,47 +126,20 @@ extension UIViewController{
         controller.alertDefualtButtonTitle = defaultButtonTitle
         controller.buttonAction = callback
         present(controller, animated: true, completion: nil)
-        
 //        controller.buttonAction = { defualt in
 //          print(defualt)
 //        }
     }
     
-    
     func showRateAlert(callback: @escaping (_ valid: Bool,_ rate: Int) -> ()){
-        var finalRate: Int = 1
-        let alert = UIAlertController(title: "How was your experience with this wedding hall?", message: "Please rate hall based on your experience \n\n\n", preferredStyle: .alert)
-        
-        let ratingView = CosmosView()
-        ratingView.rating = 1.0
-        ratingView.settings.starSize = 32
-        ratingView.settings.updateOnTouch = true
-        
-        let customView = UIView(frame: CGRect(x: -50, y: 91, width: alert.view.frame.width, height: 50))
-        let xCoord = alert.view.frame.width/2 - 95
-        let yCoord = CGFloat(25.0)
-        ratingView.frame.origin.x = xCoord
-        ratingView.frame.origin.y = yCoord
-        customView.addSubview(ratingView)
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default , handler:{ (UIAlertAction)in
-            callback(false,finalRate)
-        }))
-        alert.addAction(UIAlertAction(title: "Rate", style: .default , handler:{ (UIAlertAction)in
-            callback(true,finalRate)
-        }))
-        
-        alert.view.addSubview(customView)
-        
-        alert.view.tintColor = UIColor.mainAppPink()
-        self.present(alert, animated: true, completion: {
-        })
-        
-        
-        ratingView.didFinishTouchingCosmos = { rating in
-            finalRate = Int(rating)
-            print(finalRate)
-        }
+        let storyboard = UIStoryboard(name: "Alerts", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "RateAlertController") as! RateAlertController
+        controller.providesPresentationContextTransitionStyle = true
+        controller.definesPresentationContext = true
+        controller.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        controller.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        controller.buttonAction = callback
+        present(controller, animated: true, completion: nil)
     }
     
     

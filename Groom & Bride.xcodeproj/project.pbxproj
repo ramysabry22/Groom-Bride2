@@ -27,6 +27,7 @@
 		F06ECC9622C63F1300180C12 /* Alerts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F06ECC9522C63F1300180C12 /* Alerts.storyboard */; };
 		F06ECC9822C6410200180C12 /* OneButtonAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06ECC9722C6410200180C12 /* OneButtonAlertController.swift */; };
 		F06ECC9B22C6651600180C12 /* TwoButtonAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06ECC9A22C6651600180C12 /* TwoButtonAlertController.swift */; };
+		F06ECC9F22C6C47500180C12 /* RateAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06ECC9E22C6C47500180C12 /* RateAlertController.swift */; };
 		F074D8C622BEB35A008C33F6 /* removeFromFavoriteProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F074D8C522BEB35A008C33F6 /* removeFromFavoriteProtocol.swift */; };
 		F076F1D322B14B1C00F12988 /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F076F1D222B14B1C00F12988 /* SideMenu.storyboard */; };
 		F08CEFD222B15AAB00C55571 /* FeedbackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08CEFD122B15AAB00C55571 /* FeedbackController.swift */; };
@@ -89,6 +90,7 @@
 		F06ECC9522C63F1300180C12 /* Alerts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Alerts.storyboard; sourceTree = "<group>"; };
 		F06ECC9722C6410200180C12 /* OneButtonAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneButtonAlertController.swift; sourceTree = "<group>"; };
 		F06ECC9A22C6651600180C12 /* TwoButtonAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoButtonAlertController.swift; sourceTree = "<group>"; };
+		F06ECC9E22C6C47500180C12 /* RateAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAlertController.swift; sourceTree = "<group>"; };
 		F074D8C522BEB35A008C33F6 /* removeFromFavoriteProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = removeFromFavoriteProtocol.swift; sourceTree = "<group>"; };
 		F07625D32287868B00FD89D2 /* Groom & Bride.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Groom & Bride.entitlements"; sourceTree = "<group>"; };
 		F076F1D222B14B1C00F12988 /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			children = (
 				F06ECC9722C6410200180C12 /* OneButtonAlertController.swift */,
 				F06ECC9A22C6651600180C12 /* TwoButtonAlertController.swift */,
+				F06ECC9E22C6C47500180C12 /* RateAlertController.swift */,
 			);
 			path = Alerts;
 			sourceTree = "<group>";
@@ -557,6 +560,7 @@
 				F06601C52279AD91006E67D9 /* LeftMenuController.swift in Sources */,
 				F06601C92279AE14006E67D9 /* LeftMenuCell.swift in Sources */,
 				F031C80422B395A00070CABC /* DetailedHallCustomCell.swift in Sources */,
+				F06ECC9F22C6C47500180C12 /* RateAlertController.swift in Sources */,
 				F08CEFD222B15AAB00C55571 /* FeedbackController.swift in Sources */,
 				F0966F99222C0E9C00FA4FEA /* Page.swift in Sources */,
 				F0966FA0222C0E9C00FA4FEA /* SplashScreenController.swift in Sources */,

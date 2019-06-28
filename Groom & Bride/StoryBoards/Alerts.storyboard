@@ -201,5 +201,129 @@
             </objects>
             <point key="canvasLocation" x="476" y="-100"/>
         </scene>
+        <!--Rate Alert Controller-->
+        <scene sceneID="5Cb-yA-Uhs">
+            <objects>
+                <viewController storyboardIdentifier="RateAlertController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="zKc-Sd-q93" customClass="RateAlertController" customModule="Groom___Bride" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xjr-lt-Tmg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebx-Gg-MeL">
+                                <rect key="frame" x="47.5" y="218.5" width="280" height="230"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="041-4Q-RP4">
+                                        <rect key="frame" x="10" y="186" width="125" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="iQz-y9-jUo"/>
+                                            <constraint firstAttribute="width" constant="125" id="j5T-JP-v3u"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.99215686270000003" green="0.39607843139999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="CancelButtonAction:" destination="zKc-Sd-q93" eventType="touchUpInside" id="O0y-QY-Nrv"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How was your experience with this hall?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6n-vH-NYi">
+                                        <rect key="frame" x="20" y="20" width="240" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView userInteractionEnabled="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" text="Please rate hall based on your experience" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1BG-QU-ubV">
+                                        <rect key="frame" x="25" y="66" width="230" height="45"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkQ-5r-tQP">
+                                        <rect key="frame" x="145" y="186" width="125" height="35"/>
+                                        <color key="backgroundColor" red="0.99215686270000003" green="0.39607843139999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="125" id="Ca3-QB-mzn"/>
+                                            <constraint firstAttribute="height" constant="35" id="SSe-Jt-Twt"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <state key="normal" title="Rate">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="RateButtonAction:" destination="zKc-Sd-q93" eventType="touchUpInside" id="uGg-z1-Zrh"/>
+                                        </connections>
+                                    </button>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UKS-Rq-w4m" customClass="CosmosView" customModule="Cosmos">
+                                        <rect key="frame" x="30" y="121" width="220" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Vt5-Li-A4d"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                                <real key="value" value="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="starMargin">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="T6n-vH-NYi" firstAttribute="top" secondItem="ebx-Gg-MeL" secondAttribute="top" constant="20" id="2gD-r1-pnn"/>
+                                    <constraint firstItem="UKS-Rq-w4m" firstAttribute="leading" secondItem="ebx-Gg-MeL" secondAttribute="leading" constant="30" id="55f-aD-d3l"/>
+                                    <constraint firstAttribute="bottom" secondItem="041-4Q-RP4" secondAttribute="bottom" constant="9" id="6Qc-X3-VPq"/>
+                                    <constraint firstAttribute="width" constant="280" id="7KQ-0A-dV1"/>
+                                    <constraint firstItem="1BG-QU-ubV" firstAttribute="top" secondItem="T6n-vH-NYi" secondAttribute="bottom" constant="5" id="ADc-Cm-NoG"/>
+                                    <constraint firstAttribute="trailing" secondItem="1BG-QU-ubV" secondAttribute="trailing" constant="25" id="CsN-b9-M5O"/>
+                                    <constraint firstItem="041-4Q-RP4" firstAttribute="leading" secondItem="ebx-Gg-MeL" secondAttribute="leading" constant="10" id="RO2-3l-HNb"/>
+                                    <constraint firstAttribute="trailing" secondItem="T6n-vH-NYi" secondAttribute="trailing" constant="20" id="UaY-WN-Dbi"/>
+                                    <constraint firstAttribute="bottom" secondItem="mkQ-5r-tQP" secondAttribute="bottom" constant="9" id="WKH-Vf-7Ym"/>
+                                    <constraint firstAttribute="trailing" secondItem="mkQ-5r-tQP" secondAttribute="trailing" constant="10" id="aRb-YA-zsB"/>
+                                    <constraint firstItem="1BG-QU-ubV" firstAttribute="leading" secondItem="ebx-Gg-MeL" secondAttribute="leading" constant="25" id="daf-BY-RaX"/>
+                                    <constraint firstItem="041-4Q-RP4" firstAttribute="top" secondItem="UKS-Rq-w4m" secondAttribute="bottom" constant="25" id="vBD-tg-DJI"/>
+                                    <constraint firstItem="T6n-vH-NYi" firstAttribute="leading" secondItem="ebx-Gg-MeL" secondAttribute="leading" constant="20" id="waI-tS-xaC"/>
+                                    <constraint firstAttribute="trailing" secondItem="UKS-Rq-w4m" secondAttribute="trailing" constant="30" id="ws4-Kf-2LP"/>
+                                    <constraint firstAttribute="height" constant="230" id="x3C-La-lWf"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="7"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.44940603600000001" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ebx-Gg-MeL" firstAttribute="centerX" secondItem="Xjr-lt-Tmg" secondAttribute="centerX" id="1in-9z-jTw"/>
+                            <constraint firstItem="ebx-Gg-MeL" firstAttribute="centerY" secondItem="Xjr-lt-Tmg" secondAttribute="centerY" id="oVu-Zf-uVL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6ia-3M-MMB"/>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="041-4Q-RP4" id="bUB-Ix-8Ts"/>
+                        <outlet property="rateStarsView" destination="UKS-Rq-w4m" id="Gu0-uL-ca1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Odm-MU-GCV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1237.5999999999999" y="-100.29985007496252"/>
+        </scene>
     </scenes>
 </document>
