@@ -1,14 +1,8 @@
-//
-//  OneButtonAlertController.swift
-//  Groom & Bride
-//
-//  Created by Ramy Ayman Sabry on 6/28/19.
-//  Copyright © 2019 Ramy Ayman Sabry. All rights reserved.
-//
 
 import UIKit
 
 class OneButtonAlertController: UIViewController {
+    @IBOutlet weak var alertView: UIView!
     @IBOutlet weak var OkButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var msgTextView: UITextView!
@@ -23,7 +17,10 @@ class OneButtonAlertController: UIViewController {
         super.viewDidLoad()
         prepareData()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        animateView()
+    }
     func prepareData(){
         OkButton.setTitle(self.alertCancelButtonTitle, for: .normal)
         titleLabel.text = self.alertTitle
@@ -37,6 +34,16 @@ class OneButtonAlertController: UIViewController {
         buttonAction?()
         self.dismiss(animated: true, completion: nil)
     }
+    func animateView() {
+        alertView.alpha = 0
+        self.alertView.frame.origin.y = self.alertView.frame.origin.y + 40
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
+            self.alertView.alpha = 1.0
+            self.alertView.frame.origin.y = self.alertView.frame.origin.y - 40
+        })
+    }
+    
+    
     
     // MARK : Text size
 /*****************************************************************************************/

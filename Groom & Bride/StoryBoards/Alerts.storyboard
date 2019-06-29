@@ -85,6 +85,7 @@
                     </view>
                     <connections>
                         <outlet property="OkButton" destination="aP4-Z2-poX" id="Vxc-xm-tqw"/>
+                        <outlet property="alertView" destination="VSQ-gD-Bmu" id="ZSF-VU-5Qd"/>
                         <outlet property="heightConstraint" destination="o7T-LT-3Ko" id="Xh1-4C-wKo"/>
                         <outlet property="msgTextView" destination="AvK-LL-fqT" id="MwK-fe-Ljn"/>
                         <outlet property="titleLabel" destination="Zx3-0h-Zad" id="6GJ-rN-aWh"/>
@@ -192,6 +193,7 @@
                     <connections>
                         <outlet property="CancelButton" destination="94R-tz-4kA" id="jZe-rV-h0h"/>
                         <outlet property="OkButton" destination="AFl-gX-ApK" id="8y7-V4-e0X"/>
+                        <outlet property="alertView" destination="bw8-tF-fxc" id="QwL-aP-UiA"/>
                         <outlet property="heightConstraint" destination="oVa-qr-aMG" id="Nhl-nQ-rDh"/>
                         <outlet property="msgTextView" destination="4FE-OP-rX1" id="qGR-tI-gOp"/>
                         <outlet property="titleLabel" destination="cNI-er-kLg" id="NDh-we-yzK"/>
@@ -317,6 +319,7 @@
                         <viewLayoutGuide key="safeArea" id="6ia-3M-MMB"/>
                     </view>
                     <connections>
+                        <outlet property="alertView" destination="ebx-Gg-MeL" id="Pgi-gK-GaK"/>
                         <outlet property="cancelButton" destination="041-4Q-RP4" id="bUB-Ix-8Ts"/>
                         <outlet property="rateStarsView" destination="UKS-Rq-w4m" id="Gu0-uL-ca1"/>
                     </connections>
