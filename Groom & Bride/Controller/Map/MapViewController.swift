@@ -125,12 +125,12 @@ class MapViewController: UIViewController, MKMapViewDelegate{
         lineView.anchor(top: bottomView.topAnchor, leading: bottomView.leadingAnchor, bottom: nil, trailing: bottomView.trailingAnchor, size: CGSize(width: 0, height: 3))
         
         
-        let leftViewWidth = 6*(view.frame.width/10)
+        let leftViewWidth = 7*(view.frame.width/10)
         view.addSubview(leftView)
         leftView.anchor(top: bottomView.topAnchor, leading: bottomView.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: nil, size: CGSize(width: leftViewWidth, height: 0))
         
         leftView.addSubview(hallNameLabel)
-        hallNameLabel.anchor(top: leftView.topAnchor, leading: leftView.leadingAnchor, bottom: nil, trailing: leftView.trailingAnchor, padding: .init(top: 25, left: 20, bottom: 0, right: 10))
+        hallNameLabel.anchor(top: leftView.topAnchor, leading: leftView.leadingAnchor, bottom: nil, trailing: leftView.trailingAnchor, padding: .init(top: 20, left: 20, bottom: 0, right: 10))
         
         leftView.addSubview(hallAddressLabel)
         hallAddressLabel.anchor(top: hallNameLabel.bottomAnchor, leading: leftView.leadingAnchor, bottom: nil, trailing: leftView.trailingAnchor, padding: .init(top: 7, left: 20, bottom: 0, right: 10))
@@ -238,7 +238,7 @@ class MapViewController: UIViewController, MKMapViewDelegate{
     // MARK : Text size
     /*****************************************************************************************/
     fileprivate func estimateFrameForTitleText(_ text: String) -> CGRect {
-        let width = (6*(view.frame.width/10))-30
+        let width = (7*(view.frame.width/10))-40
         let size = CGSize(width: width, height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         return NSString(string: text).boundingRect(with: size, options: options, attributes: convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.font): UIFont.boldSystemFont(ofSize: 15)]), context: nil)

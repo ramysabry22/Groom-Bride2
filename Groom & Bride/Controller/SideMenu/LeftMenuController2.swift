@@ -50,7 +50,8 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
         
         let x = min(view.frame.height/12, 80)
         let cellHeight = max(x, 50)
-        return CGSize(width: view.frame.width, height: cellHeight)
+        let finalCellHeight = min(cellHeight, 70)
+        return CGSize(width: view.frame.width, height: finalCellHeight)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch indexPath.item {
@@ -129,8 +130,9 @@ class LeftMenuController2: UIViewController, UICollectionViewDataSource,UICollec
         
         let x = min(view.frame.height/3.6, 500)
         let headerHeight = max(x, 160)
+        let finalHeaderHeight = min(headerHeight, 200)
         view.addSubview(headerView)
-        headerView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,size: CGSize(width: 0, height: headerHeight))
+        headerView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor,size: CGSize(width: 0, height: finalHeaderHeight))
         
         headerView.addSubview(iconImage)
         iconImage.translatesAutoresizingMaskIntoConstraints = false
