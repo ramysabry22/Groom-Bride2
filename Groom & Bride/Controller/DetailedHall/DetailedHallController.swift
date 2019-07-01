@@ -80,9 +80,9 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
             
            titleLabel.text = hallName
            addressTextView.text = hallAddress
-           priceLabel.text = "\(detailedHall?.hallPrice ?? 0) EGP"
-           ratingStarsView.rating = Double(detailedHall?.hallRate ?? 0)
-           ratesLabel.text = "(\(detailedHall?.hallRatesCounter ?? 0)) Rating"
+           priceLabel.text = "\(Int(detailedHall?.hallPrice ?? 0)) EGP"
+           ratingStarsView.rating = Double(Int(detailedHall?.hallRate ?? 0))
+           ratesLabel.text = "(\(Int(detailedHall?.hallRatesCounter ?? 0)) Rating"
            infoTextView.text = detailedHall?.hallDescription
            offersTextView.text = detailedHall?.hallSpecialOffers
             
@@ -106,9 +106,9 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
             
             titleLabel.text = hallName
             addressTextView.text = hallAddress
-            priceLabel.text = "\(favoriteDetailedHall?.hallId.hallPrice ?? 0) EGP"
-            ratingStarsView.rating = Double(favoriteDetailedHall?.hallId.hallsAverageRating ?? 0)
-            ratesLabel.text = "(\(favoriteDetailedHall?.hallId.hallsRatingCounter ?? 0)) Rating"
+            priceLabel.text = "\(Int(favoriteDetailedHall?.hallId.hallPrice ?? 0)) EGP"
+            ratingStarsView.rating = Double(Int(favoriteDetailedHall?.hallId.hallsAverageRating ?? 0))
+            ratesLabel.text = "(\((Int(favoriteDetailedHall?.hallId.hallsRatingCounter ?? 0))) Rating"
             infoTextView.text = favoriteDetailedHall?.hallId.hallDescription
             offersTextView.text = favoriteDetailedHall?.hallId.hallSpecialOffers
             

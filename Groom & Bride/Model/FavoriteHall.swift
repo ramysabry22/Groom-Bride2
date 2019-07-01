@@ -10,14 +10,14 @@ struct FavoriteHall: Decodable {
 }
 
 struct HallID: Decodable {
-    var hallsAverageRating: Int? = 0
-    var hallsRatingCounter: Int? = 0
+    var hallsAverageRating: Double? = 0.0
+    var hallsRatingCounter: Double? = 0.0
     var _id: String?
     var hallName: String? = "Empty Name"
     var hallCategory: HallCategory?
     var hallAdress: String? = "Empty Address"
     var hallDescription: String? = "No description for this wedding hall"
-    var hallPrice: Int? = 0
+    var hallPrice: Double? = 0.0
     var hallLocationLong: String?
     var hallLocationLat: String?
     var hallSpecialOffers: String? = "No special offers for this wedding hall"
