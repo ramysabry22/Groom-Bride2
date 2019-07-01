@@ -156,6 +156,13 @@ class SearchController: UIViewController ,UICollectionViewDelegate, UICollection
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         searchTextField.endEditing(true)
+        let selectedHall = searchHallResult[indexPath.row]
+        if selectedHall.hallImage.isEmpty == true || selectedHall.hallImage.count <= 0 {
+            self.show1buttonAlert(title: "Oops", message: "Sorry, hall info not available, contact us to report issue", buttonTitle: "OK") {
+                
+            }
+            return
+        }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "DetailedHallController") as! DetailedHallController
         controller.detailedHall = searchHallResult[indexPath.row]

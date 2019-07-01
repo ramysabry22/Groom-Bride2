@@ -86,6 +86,7 @@ PODS:
   - GoogleUtilities/UserDefaults (5.5.0):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.2.1)
+  - Instructions (1.2.2)
   - IQKeyboardManagerSwift (6.0.4)
   - Kingfisher (5.1.1)
   - leveldb-library (1.20)
@@ -111,6 +112,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Messaging
   - Firebase/Storage
+  - Instructions
   - IQKeyboardManagerSwift (= 6.0.4)
   - Kingfisher (~> 5.0)
   - SCLAlertView
@@ -137,6 +139,7 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleUtilities
     - GTMSessionFetcher
+    - Instructions
     - IQKeyboardManagerSwift
     - Kingfisher
     - leveldb-library
@@ -165,6 +168,7 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: 1624046ab1bcc5e170061a56ef5679000b079c8e
   GoogleUtilities: 6481e6318c5fcabaaa8513ef8120f329055d7c10
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  Instructions: baff1b8ac41e195556c2b3453be1fcdd92e18612
   IQKeyboardManagerSwift: 36dbe324b4f9793f5f41ba5227f3e7c76dfefd50
   Kingfisher: 2558186963e5be42d98c5b110ccb3130148b77e4
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
@@ -175,6 +179,6 @@ SPEC CHECKSUMS:
   SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 3db423a9454124d882478340b7d531c8972451e4
+PODFILE CHECKSUM: e4a988b20cfd4c571ab9dc8aaf3a08f76a08b8c9
 
 COCOAPODS: 1.6.0

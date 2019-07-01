@@ -1,9 +1,11 @@
 import UIKit
 import SVProgressHUD
 import Cosmos
+import Instructions
 
-class DetailedHallController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-  
+class DetailedHallController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CoachMarksControllerDataSource, CoachMarksControllerDelegate {
+    
+    @IBOutlet weak var callView: UIView!
     @IBOutlet weak var newRateView: UIView!
     @IBOutlet weak var addressTextView: UITextView!
     @IBOutlet weak var ratingStarsView: CosmosView!
@@ -20,7 +22,6 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
     
     var detailedHall: Hall?
     var favoriteDetailedHall: FavoriteHall?
-    
     var hallName: String?
     var hallId: String?
     var hallAddress: String?
@@ -29,6 +30,9 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
     var hallPhoneNumber: String?
     var hallImages: [String] = []
     
+    let coachMarksController = CoachMarksController()
+    let coachMarksTitles: [String] = ["Add to favorite","Tap tp submit new rate","Show location on map","Call wedding hall directly"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
@@ -36,7 +40,19 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         setupHallInfo()
         SVProgressHUD.setupView()
     }
-   
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if firstOpenDone() == false {
+         self.coachMarksController.start(in: .window(over: self))
+        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if firstOpenDone() == false {
+            finishCoachMark()
+        }
+    }
+    
     func setupComponents(){
         collectionView1.delegate = self
         collectionView1.dataSource = self
@@ -48,7 +64,8 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         favoriteImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addTofavoriteButtonAction)))
         favoriteBackgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addTofavoriteButtonAction)))
         
-      
+        self.coachMarksController.dataSource = self
+        self.coachMarksController.overlay.color = UIColor.black.withAlphaComponent(0.6)
         newRateView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(rateHalls)))
     }
     func setupHallInfo(){
@@ -137,7 +154,11 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         if defaults.dictionary(forKey: "loggedInClient") != nil{
             addToFavorite()
         }else {
-            showLoginComponent()
+            self.show2buttonAlert(title: "Add to favorites?", message: "You have to login or create account in order to save this hall in your favorites!", cancelButtonTitle: "Cancel", defaultButtonTitle: "Login") { (defualt) in
+                if defualt {
+                    self.showLoginComponent()
+                }
+            }
         }
     }
     func addToFavorite(){

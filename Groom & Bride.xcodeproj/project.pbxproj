@@ -11,6 +11,8 @@
 		F00C6C0A22B1564A0063A146 /* MyProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00C6C0922B1564A0063A146 /* MyProfileController.swift */; };
 		F00C6C0C22B1565C0063A146 /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00C6C0B22B1565C0063A146 /* ChangePasswordController.swift */; };
 		F010A67722ADD1A300360DEA /* CustomComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F010A67622ADD1A300360DEA /* CustomComponents.swift */; };
+		F01261E722CA1A5E00F5667D /* DetailedHallController++.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01261E622CA1A5E00F5667D /* DetailedHallController++.swift */; };
+		F01261E922CA1D2500F5667D /* FavoritesController++.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01261E822CA1D2500F5667D /* FavoritesController++.swift */; };
 		F0282CF0227720AA005CAA4A /* HelperData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0282CEF227720AA005CAA4A /* HelperData.swift */; };
 		F0282CF22277211A005CAA4A /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0282CF12277211A005CAA4A /* Client.swift */; };
 		F0282CF52277222C005CAA4A /* HallsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0282CF42277222C005CAA4A /* HallsServices.swift */; };
@@ -74,6 +76,8 @@
 		F00C6C0922B1564A0063A146 /* MyProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileController.swift; sourceTree = "<group>"; };
 		F00C6C0B22B1565C0063A146 /* ChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordController.swift; sourceTree = "<group>"; };
 		F010A67622ADD1A300360DEA /* CustomComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomComponents.swift; sourceTree = "<group>"; };
+		F01261E622CA1A5E00F5667D /* DetailedHallController++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailedHallController++.swift"; sourceTree = "<group>"; };
+		F01261E822CA1D2500F5667D /* FavoritesController++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesController++.swift"; sourceTree = "<group>"; };
 		F0282CEF227720AA005CAA4A /* HelperData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperData.swift; sourceTree = "<group>"; };
 		F0282CF12277211A005CAA4A /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		F0282CF42277222C005CAA4A /* HallsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallsServices.swift; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				F0C6BB0922B36AD900C27641 /* FavoritesController.swift */,
+				F01261E822CA1D2500F5667D /* FavoritesController++.swift */,
 				F0C6BB0B22B36ED900C27641 /* FavoriteHallCell.swift */,
 				F0C6BB0C22B36ED900C27641 /* FavoriteHallCell.xib */,
 				F074D8C522BEB35A008C33F6 /* removeFromFavoriteProtocol.swift */,
@@ -211,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				F0966FB2222D82FF00FA4FEA /* DetailedHallController.swift */,
+				F01261E622CA1A5E00F5667D /* DetailedHallController++.swift */,
 				F031C80322B395A00070CABC /* DetailedHallCustomCell.swift */,
 			);
 			path = DetailedHall;
@@ -483,6 +489,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Instructions/Instructions.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
@@ -503,6 +510,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Instructions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
@@ -549,6 +557,7 @@
 				F0966F94222C0E9C00FA4FEA /* Extentios.swift in Sources */,
 				F0C6BB0D22B36ED900C27641 /* FavoriteHallCell.swift in Sources */,
 				F0C6BB0122B29EFA00C27641 /* HallCell.swift in Sources */,
+				F01261E722CA1A5E00F5667D /* DetailedHallController++.swift in Sources */,
 				F0966FB3222D82FF00FA4FEA /* DetailedHallController.swift in Sources */,
 				F06601CD2279D024006E67D9 /* LeftMenuController2.swift in Sources */,
 				F0C6BAFE22B2700F00C27641 /* HomeController++.swift in Sources */,
@@ -564,6 +573,7 @@
 				F08CEFD222B15AAB00C55571 /* FeedbackController.swift in Sources */,
 				F0966F99222C0E9C00FA4FEA /* Page.swift in Sources */,
 				F0966FA0222C0E9C00FA4FEA /* SplashScreenController.swift in Sources */,
+				F01261E922CA1D2500F5667D /* FavoritesController++.swift in Sources */,
 				F0CF09AF22C10A3800545C7B /* CustomPointAnnotation.swift in Sources */,
 				F0282CF922772247005CAA4A /* ApiManager.swift in Sources */,
 				F06ECC9822C6410200180C12 /* OneButtonAlertController.swift in Sources */,

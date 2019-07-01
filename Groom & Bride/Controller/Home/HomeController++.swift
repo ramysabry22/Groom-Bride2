@@ -78,6 +78,13 @@ extension HomeController {
             fetchHalls(index: indexPath.row)
         }
        else if collectionView == collectionView2 {
+            let selectedHall = allHalls[indexPath.row]
+            if selectedHall.hallImage.isEmpty == true || selectedHall.hallImage.count <= 0 {
+                self.show1buttonAlert(title: "Oops", message: "Sorry, hall info not available, contact us to report issue", buttonTitle: "OK") {
+                    
+                }
+                return
+            }
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "DetailedHallController") as! DetailedHallController
             controller.detailedHall = allHalls[indexPath.row]

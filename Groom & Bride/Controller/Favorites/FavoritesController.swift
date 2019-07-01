@@ -2,29 +2,42 @@
 import UIKit
 import SVProgressHUD
 import SCLAlertView
+import Instructions
 
-class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,UICollectionViewDataSourcePrefetching,removeFromFavoriteProtocol {
+class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,UICollectionViewDataSourcePrefetching,removeFromFavoriteProtocol , CoachMarksControllerDataSource, CoachMarksControllerDelegate{
     
     @IBOutlet weak var collectionView1: UICollectionView!
     @IBOutlet weak var emptyLabel: UILabel!
+    let coachMarksController = CoachMarksController()
     var allHalls: [FavoriteHall] = []
     var isFinishedPaging = true
     var pagesNumber: Int = 0
+    let cell = FavoriteHallCell()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
-        
-        self.collectionView1.register(UINib(nibName: "FavoriteHallCell", bundle: nil), forCellWithReuseIdentifier: "FavoriteHallCell")
-        collectionView1.delegate = self
-        collectionView1.dataSource = self
-        collectionView1.prefetchDataSource = self
+        setupComponents()
         SVProgressHUD.setupView()
         SVProgressHUD.show()
         fetchFavoriteHalls(limit: 7, offset: 0)
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        if firstOpenDone() == false {
+//            self.coachMarksController.start(in: .window(over: self))
+//        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        if firstOpenDone() == false {
+//            finishCoachMark()
+//        }
+    }
     
     
+    // MARK:- Favorite fetching functions
+/*****************************************************************************************/
     func fetchFavoriteHalls(limit: Int, offset: Int){
         isFinishedPaging = false
         ApiManager.sharedInstance.listFavoriteHalls(limit: limit, offset: offset) { (valid, msg, reRequest, halls) in
@@ -47,14 +60,16 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
                     self.emptyLabel.isHidden = false
                 }
             }
-            
+            else if !valid {
+                self.show1buttonAlert(title: "Error", message: "Unexpected Error Please Try Again In A While", buttonTitle: "OK", callback: {
+                })
+            }
             
         }
     }
     
     func removeFromFavoriteButton(_ sender: FavoriteHallCell) {
         guard let indexPath = collectionView1.indexPath(for: sender) else { return }
-        
         SVProgressHUD.show()
         ApiManager.sharedInstance.deleteHallFromFavorite(hallID: (sender.favoriteHall?.hallId._id)!) { (valid, msg, reRequest) in
             self.dismissRingIndecator()
@@ -122,6 +137,13 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
         return 20
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedHall = allHalls[indexPath.row]
+        if selectedHall.hallId.hallImage.isEmpty == true || selectedHall.hallId.hallImage.count <= 0 {
+            self.show1buttonAlert(title: "Oops", message: "Sorry, hall info not available, contact us to report issue", buttonTitle: "OK") {
+                
+            }
+            return
+        }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "DetailedHallController") as! DetailedHallController
         controller.favoriteDetailedHall = allHalls[indexPath.row]
@@ -147,7 +169,14 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
     
     
     
-    
+    func setupComponents(){
+        self.collectionView1.register(UINib(nibName: "FavoriteHallCell", bundle: nil), forCellWithReuseIdentifier: "FavoriteHallCell")
+        collectionView1.delegate = self
+        collectionView1.dataSource = self
+        collectionView1.prefetchDataSource = self
+//        self.coachMarksController.dataSource = self
+//        self.coachMarksController.overlay.color = UIColor.black.withAlphaComponent(0.6)
+    }
     func setupNavigationBar(){
         navigationController?.navigationBar.barStyle = .default
         view.backgroundColor = UIColor.white

@@ -34,6 +34,7 @@ extension ApiManager {
                        print("Cant decodeeeeeee")
                        print(error)
                        completed(false, "\(error)",false, [])
+                       return
                     }
                 }
                 else{
@@ -54,7 +55,7 @@ extension ApiManager {
                 }
                 
             }else{
-                completed(false, "Unexpected Error Please Try Again In A While ",false, [])
+                completed(false, "Unexpected Error Please Try Again In A While",false, [])
                 return
             }
         }
