@@ -8,9 +8,9 @@ class OnBoardingScreens: UICollectionViewController, UICollectionViewDelegateFlo
     var halls = [Hall]()
     
     let pages: [Page] = {
-        let Page1 = Page(title: "Welcome", message: "It is a  long established fact that a reader will be", imageName: "OnBoardingImage1777")
-        let Page2 = Page(title: "Wedding halls", message: "It is a  long established fact that a reader will be", imageName: "OnBoardingImage2777")
-        let Page3 = Page(title: "Add to favorite", message: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standa", imageName: "OnBoardingImage3777")
+        let Page1 = Page(title: "Welcome", message: "It is a  long established fact that a reader will be", imageName: "OnboardingImage1777")
+        let Page2 = Page(title: "Wedding halls", message: "It is a  long established fact that a reader will be", imageName: "OnboardingImage2777")
+        let Page3 = Page(title: "Add to favorite", message: "is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standa", imageName: "OnboardingImage3777")
 
         return [Page1, Page2, Page3]
     }()
