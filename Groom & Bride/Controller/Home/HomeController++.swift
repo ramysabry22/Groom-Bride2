@@ -7,14 +7,14 @@ import Kingfisher
 import SideMenu
 import DropDown
 
-extension HomeController {
+extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == collectionView2 { return allHalls.count }
-        else { return hallCategories.count }
+        else { return categories.count }
     }
     
     
@@ -44,8 +44,8 @@ extension HomeController {
             let cell: FilterCell = collectionView1.dequeueReusableCell(withReuseIdentifier: "FilterCell", for: indexPath) as! FilterCell
             
             
-            cell.titleLabel.text = hallCategories[indexPath.row][1]
-            let imageName = hallCategories[indexPath.row][2]
+            cell.titleLabel.text = categories[indexPath.row].name
+            let imageName = categories[indexPath.row].image!
             cell.imageView.image = UIImage(named: "\(imageName)")?.withRenderingMode(.alwaysTemplate)
             cell.backgroundColor = UIColor.clear
             return cell
@@ -59,7 +59,7 @@ extension HomeController {
             let cellHeight = max(270, view.frame.height/3)
             return CGSize(width: view.frame.width-22, height: cellHeight)
         }else {
-             let cellTitle = hallCategories[indexPath.row][1]
+             let cellTitle = categories[indexPath.row].name!
              let cellWidth = estimateFrameForSubTitleText(cellTitle).width + 15 + view.frame.width/8
              return CGSize(width: cellWidth, height: collectionView1.frame.height)
         }

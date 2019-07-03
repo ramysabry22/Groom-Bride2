@@ -4,7 +4,7 @@ import SVProgressHUD
 import SCLAlertView
 import Instructions
 
-class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,UICollectionViewDataSourcePrefetching,removeFromFavoriteProtocol , CoachMarksControllerDataSource, CoachMarksControllerDelegate{
+class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout,UICollectionViewDataSourcePrefetching,removeFromFavoriteProtocol{
     
     @IBOutlet weak var collectionView1: UICollectionView!
     @IBOutlet weak var emptyLabel: UILabel!
@@ -12,8 +12,8 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
     var allHalls: [FavoriteHall] = []
     var isFinishedPaging = true
     var pagesNumber: Int = 0
-    let cell = FavoriteHallCell()
-    
+    lazy var objCell = collectionView1.cellForItem(at: IndexPath(item: 0, section: 0)) as! FavoriteHallCell
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
@@ -22,17 +22,11 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
         SVProgressHUD.show()
         fetchFavoriteHalls(limit: 7, offset: 0)
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        if firstOpenDone() == false {
-//            self.coachMarksController.start(in: .window(over: self))
-//        }
-    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        if firstOpenDone() == false {
-//            finishCoachMark()
-//        }
+        if firstOpenDone() == false {
+           self.coachMarksController.stop(immediately: true)
+        }
     }
     
     
@@ -52,6 +46,10 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
                         self.allHalls.append(record)
                     }
                     self.collectionView1.reloadData()
+                    if self.firstOpenDone() == false {
+                        self.coachMarksController.start(in: .window(over: self))
+                        self.finishCoachMark()
+                    }
                 }
                 
                 if self.allHalls.count > 0 {
@@ -174,8 +172,8 @@ class FavoritesController: UIViewController ,UICollectionViewDelegate, UICollect
         collectionView1.delegate = self
         collectionView1.dataSource = self
         collectionView1.prefetchDataSource = self
-//        self.coachMarksController.dataSource = self
-//        self.coachMarksController.overlay.color = UIColor.black.withAlphaComponent(0.6)
+        self.coachMarksController.dataSource = self
+        self.coachMarksController.overlay.color = UIColor.black.withAlphaComponent(0.6)
     }
     func setupNavigationBar(){
         navigationController?.navigationBar.barStyle = .default

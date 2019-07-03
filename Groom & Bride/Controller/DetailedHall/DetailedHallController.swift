@@ -3,7 +3,7 @@ import SVProgressHUD
 import Cosmos
 import Instructions
 
-class DetailedHallController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CoachMarksControllerDataSource, CoachMarksControllerDelegate {
+class DetailedHallController: UIViewController ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var callView: UIView!
     @IBOutlet weak var newRateView: UIView!
@@ -186,7 +186,10 @@ class DetailedHallController: UIViewController ,UICollectionViewDelegate, UIColl
         let controller = storyboard.instantiateViewController(withIdentifier: "signInScreen") as! SignInController
         let homeController = UINavigationController(rootViewController: controller)
         homeController.isNavigationBarHidden = true
-        self.present(homeController, animated: true, completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            self.present(homeController, animated: true, completion: nil)
+        }
     }
     @objc func rateHalls(){
         if defaults.dictionary(forKey: "loggedInClient") == nil{

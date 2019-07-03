@@ -1,13 +1,13 @@
 
 import UIKit
 import Alamofire
+import Instructions
 import SVProgressHUD
 import Kingfisher
 import SideMenu
-import Firebase
 import SCLAlertView
 
-class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout , UICollectionViewDataSourcePrefetching {
+class HomeController: UIViewController, UIGestureRecognizerDelegate, UICollectionViewDataSourcePrefetching {
 
     @IBOutlet weak var collectionView1TopConstraint: NSLayoutConstraint!
     @IBOutlet weak var topViewTopConstraint: NSLayoutConstraint!
@@ -27,14 +27,18 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
     lazy var menuLeftNavigationController2 = UISideMenuNavigationController(rootViewController: leftMenu2)
     
     var allHalls: [Hall] = []
-    let hallCategories: [[String]] = [["0","All","AllICON777.png"],
-                                      ["5d0cbfc9a758321414bf9871","Hotel","HotelICON777"],
-                                      ["5d0cbfc9a758321414bf9872","Club","ClubICON777"],
-                                      ["5d0cbfc9a758321414bf9873","Yacht","YachtICON777"],
-                                      ["5d0cbfc9a758321414bf9874","Villa","VillaICON777"],
-                                      ["5d1214f4de675f000488d442","Individual","IndividualICON777"]]
+    let categories: [HallCategory] = {
+        let cat1 = HallCategory(_id: "0", name: "All", image: "AllICON777.png")
+        let cat2 = HallCategory(_id: "5d0cbfc9a758321414bf9871", name: "Hotel", image: "HotelICON777")
+        let cat3 = HallCategory(_id: "5d0cbfc9a758321414bf9872", name: "Club", image: "ClubICON777")
+        let cat4 = HallCategory(_id: "5d0cbfc9a758321414bf9873", name: "Yacht", image: "YachtICON777")
+        let cat5 = HallCategory(_id: "5d0cbfc9a758321414bf9874", name: "Villa", image: "VillaICON777")
+        let cat6 = HallCategory(_id: "5d1214f4de675f000488d442", name: "Individual", image: "IndividualICON777")
+        
+        return [cat1,cat2,cat3,cat4,cat5,cat6]
+    }()
     
-    
+    let coachMarksController = CoachMarksController()
     var currentCategoryIndex: Int = 0
     var firstOpen = true
     var isFinishedPaging = true
@@ -65,6 +69,20 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if firstOpenDone() == false {
+            self.coachMarksController.start(in: .window(over: self))
+            finishCoachMark()
+        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.coachMarksController.stop(immediately: true)
+        if firstOpenDone() == false {
+            finishCoachMark()
+        }
+    }
     
     // MARK :- Fetch Halls
 /********************************************************************************************/
@@ -105,7 +123,10 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
     
     func fetchHallWithCategory(index: Int, limit: Int, offset: Int){
         isFinishedPaging = false
-        let hallID = hallCategories[index][0]
+        guard let hallID = categories[index]._id else {
+            print("Hall id not found")
+            return
+        }
         ApiManager.sharedInstance.listHallsByCategory(limit: limit, offset: offset, categoryID: hallID) { (valid, msg, halls) in
             self.dismissRingIndecator()
             if valid{
@@ -185,6 +206,9 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate ,UICollectio
         SideMenuManager.default.menuWidth = min(4*(self.view.frame.width/5), 400)
         SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
         SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        
+        self.coachMarksController.dataSource = self
+        self.coachMarksController.overlay.color = UIColor.black.withAlphaComponent(0.6)
         
         let iconImage = UIImageView()
         iconImage.image = UIImage(named: "logo2")

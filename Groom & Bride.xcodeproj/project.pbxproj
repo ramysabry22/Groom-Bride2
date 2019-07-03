@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E1953E1D92935F12AF2F931A /* Pods_Groom___Bride.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197FB310BEA504D28122018 /* Pods_Groom___Bride.framework */; };
+		F008E37C22CCCEA80067BABE /* HomeController+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008E37B22CCCEA80067BABE /* HomeController+++.swift */; };
 		F00C6C0A22B1564A0063A146 /* MyProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00C6C0922B1564A0063A146 /* MyProfileController.swift */; };
 		F00C6C0C22B1565C0063A146 /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00C6C0B22B1565C0063A146 /* ChangePasswordController.swift */; };
 		F010A67722ADD1A300360DEA /* CustomComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F010A67622ADD1A300360DEA /* CustomComponents.swift */; };
@@ -73,6 +74,7 @@
 		4197FB310BEA504D28122018 /* Pods_Groom___Bride.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Groom___Bride.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C697AF79F55FB0462A36ABCB /* Pods-Groom & Bride.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Groom & Bride.release.xcconfig"; path = "Target Support Files/Pods-Groom & Bride/Pods-Groom & Bride.release.xcconfig"; sourceTree = "<group>"; };
 		CDD347A716634F5A90A600FE /* Pods-Groom & Bride.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Groom & Bride.debug.xcconfig"; path = "Target Support Files/Pods-Groom & Bride/Pods-Groom & Bride.debug.xcconfig"; sourceTree = "<group>"; };
+		F008E37B22CCCEA80067BABE /* HomeController+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeController+++.swift"; sourceTree = "<group>"; };
 		F00C6C0922B1564A0063A146 /* MyProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileController.swift; sourceTree = "<group>"; };
 		F00C6C0B22B1565C0063A146 /* ChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordController.swift; sourceTree = "<group>"; };
 		F010A67622ADD1A300360DEA /* CustomComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomComponents.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 			children = (
 				F0966F8C222C0E9C00FA4FEA /* HomeController.swift */,
 				F0C6BAFD22B2700F00C27641 /* HomeController++.swift */,
+				F008E37B22CCCEA80067BABE /* HomeController+++.swift */,
 				F0C6BAFF22B29EFA00C27641 /* HallCell.swift */,
 				F0C6BB0022B29EFA00C27641 /* HallCell.xib */,
 				F0C6BB0322B2AE9C00C27641 /* FilterCell.swift */,
@@ -349,9 +352,9 @@
 			children = (
 				F0966F6C222C0DD100FA4FEA /* AppDelegate.swift */,
 				F06601C22279AD07006E67D9 /* Home */,
-				F031C80122B375D20070CABC /* Favorites */,
 				F031C80222B376310070CABC /* SearchHalls */,
 				F031C80722B3E0150070CABC /* DetailedHall */,
+				F031C80122B375D20070CABC /* Favorites */,
 				F0CF09AB22C0E5E500545C7B /* Map */,
 				F06601C32279AD14006E67D9 /* SideMenu */,
 				F0C6BAFC22B26FC300C27641 /* SideMenuSubViews */,
@@ -563,6 +566,7 @@
 				F0C6BAFE22B2700F00C27641 /* HomeController++.swift in Sources */,
 				F00C6C0A22B1564A0063A146 /* MyProfileController.swift in Sources */,
 				F0558D072277805D0034B11A /* Hall.swift in Sources */,
+				F008E37C22CCCEA80067BABE /* HomeController+++.swift in Sources */,
 				F0282CF22277211A005CAA4A /* Client.swift in Sources */,
 				F06601C72279ADC1006E67D9 /* LeftMenuHeader.swift in Sources */,
 				F0EF7A3522BF895B00FB154A /* FavoriteHall.swift in Sources */,

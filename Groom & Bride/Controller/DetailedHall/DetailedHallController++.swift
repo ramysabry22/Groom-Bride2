@@ -5,7 +5,7 @@ import Cosmos
 import Instructions
 
 
-extension DetailedHallController {
+extension DetailedHallController: CoachMarksControllerDataSource, CoachMarksControllerDelegate {
     
     func coachMarksController(_ coachMarksController: CoachMarksController, coachMarkViewsAt index: Int, madeFrom coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
         
@@ -37,7 +37,7 @@ extension DetailedHallController {
     
     
     func firstOpenDone() -> Bool {
-        if UserDefaults.standard.bool(forKey: "isFirstInfoOpenDonee"){
+        if UserDefaults.standard.bool(forKey: "isFirstDetailedScreenInfoOpenDonee"){
             return true
         }
         else {
@@ -45,7 +45,7 @@ extension DetailedHallController {
         }
     }
     func finishCoachMark(){
-        UserDefaults.standard.set(true, forKey: "isFirstInfoOpenDonee")
+        UserDefaults.standard.set(true, forKey: "isFirstDetailedScreenInfoOpenDonee")
         UserDefaults.standard.synchronize()
         self.coachMarksController.stop(immediately: true)
     }
