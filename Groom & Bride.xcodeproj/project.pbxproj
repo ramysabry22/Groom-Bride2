@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E1953E1D92935F12AF2F931A /* Pods_Groom___Bride.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4197FB310BEA504D28122018 /* Pods_Groom___Bride.framework */; };
+		F005301F22ECC1810097C9A9 /* DetailedHallController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005301E22ECC1810097C9A9 /* DetailedHallController+.swift */; };
+		F005302322ECC24F0097C9A9 /* SearchController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005302222ECC24F0097C9A9 /* SearchController+.swift */; };
+		F005302522ECC2B70097C9A9 /* FavoritesController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005302422ECC2B70097C9A9 /* FavoritesController+.swift */; };
+		F005302722ECC4050097C9A9 /* HomeController++.swift in Sources */ = {isa = PBXBuildFile; fileRef = F005302622ECC4050097C9A9 /* HomeController++.swift */; };
 		F008E37C22CCCEA80067BABE /* HomeController+++.swift in Sources */ = {isa = PBXBuildFile; fileRef = F008E37B22CCCEA80067BABE /* HomeController+++.swift */; };
 		F00C6C0A22B1564A0063A146 /* MyProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00C6C0922B1564A0063A146 /* MyProfileController.swift */; };
 		F00C6C0C22B1565C0063A146 /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00C6C0B22B1565C0063A146 /* ChangePasswordController.swift */; };
@@ -50,7 +54,7 @@
 		F0966F9F222C0E9C00FA4FEA /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966F8F222C0E9C00FA4FEA /* SignUpController.swift */; };
 		F0966FA0222C0E9C00FA4FEA /* SplashScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966F90222C0E9C00FA4FEA /* SplashScreenController.swift */; };
 		F0966FB3222D82FF00FA4FEA /* DetailedHallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0966FB2222D82FF00FA4FEA /* DetailedHallController.swift */; };
-		F0C6BAFE22B2700F00C27641 /* HomeController++.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C6BAFD22B2700F00C27641 /* HomeController++.swift */; };
+		F0C6BAFE22B2700F00C27641 /* HomeController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C6BAFD22B2700F00C27641 /* HomeController+.swift */; };
 		F0C6BB0122B29EFA00C27641 /* HallCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C6BAFF22B29EFA00C27641 /* HallCell.swift */; };
 		F0C6BB0222B29EFA00C27641 /* HallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F0C6BB0022B29EFA00C27641 /* HallCell.xib */; };
 		F0C6BB0522B2AE9C00C27641 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C6BB0322B2AE9C00C27641 /* FilterCell.swift */; };
@@ -74,6 +78,10 @@
 		4197FB310BEA504D28122018 /* Pods_Groom___Bride.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Groom___Bride.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C697AF79F55FB0462A36ABCB /* Pods-Groom & Bride.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Groom & Bride.release.xcconfig"; path = "Target Support Files/Pods-Groom & Bride/Pods-Groom & Bride.release.xcconfig"; sourceTree = "<group>"; };
 		CDD347A716634F5A90A600FE /* Pods-Groom & Bride.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Groom & Bride.debug.xcconfig"; path = "Target Support Files/Pods-Groom & Bride/Pods-Groom & Bride.debug.xcconfig"; sourceTree = "<group>"; };
+		F005301E22ECC1810097C9A9 /* DetailedHallController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailedHallController+.swift"; sourceTree = "<group>"; };
+		F005302222ECC24F0097C9A9 /* SearchController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchController+.swift"; sourceTree = "<group>"; };
+		F005302422ECC2B70097C9A9 /* FavoritesController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoritesController+.swift"; sourceTree = "<group>"; };
+		F005302622ECC4050097C9A9 /* HomeController++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeController++.swift"; sourceTree = "<group>"; };
 		F008E37B22CCCEA80067BABE /* HomeController+++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeController+++.swift"; sourceTree = "<group>"; };
 		F00C6C0922B1564A0063A146 /* MyProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileController.swift; sourceTree = "<group>"; };
 		F00C6C0B22B1565C0063A146 /* ChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordController.swift; sourceTree = "<group>"; };
@@ -120,7 +128,7 @@
 		F0966F90222C0E9C00FA4FEA /* SplashScreenController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenController.swift; sourceTree = "<group>"; };
 		F0966FB2222D82FF00FA4FEA /* DetailedHallController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedHallController.swift; sourceTree = "<group>"; };
 		F0AABD6622878703007AF6C9 /* Groom & Bride.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Groom & Bride.entitlements"; sourceTree = "<group>"; };
-		F0C6BAFD22B2700F00C27641 /* HomeController++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeController++.swift"; sourceTree = "<group>"; };
+		F0C6BAFD22B2700F00C27641 /* HomeController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeController+.swift"; sourceTree = "<group>"; };
 		F0C6BAFF22B29EFA00C27641 /* HallCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallCell.swift; sourceTree = "<group>"; };
 		F0C6BB0022B29EFA00C27641 /* HallCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HallCell.xib; sourceTree = "<group>"; };
 		F0C6BB0322B2AE9C00C27641 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
@@ -198,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				F0C6BB0922B36AD900C27641 /* FavoritesController.swift */,
+				F005302422ECC2B70097C9A9 /* FavoritesController+.swift */,
 				F01261E822CA1D2500F5667D /* FavoritesController++.swift */,
 				F0C6BB0B22B36ED900C27641 /* FavoriteHallCell.swift */,
 				F0C6BB0C22B36ED900C27641 /* FavoriteHallCell.xib */,
@@ -210,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				F0C6BB0722B2BCBE00C27641 /* SearchController.swift */,
+				F005302222ECC24F0097C9A9 /* SearchController+.swift */,
 			);
 			path = SearchHalls;
 			sourceTree = "<group>";
@@ -218,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				F0966FB2222D82FF00FA4FEA /* DetailedHallController.swift */,
+				F005301E22ECC1810097C9A9 /* DetailedHallController+.swift */,
 				F01261E622CA1A5E00F5667D /* DetailedHallController++.swift */,
 				F031C80322B395A00070CABC /* DetailedHallCustomCell.swift */,
 			);
@@ -240,7 +251,8 @@
 			isa = PBXGroup;
 			children = (
 				F0966F8C222C0E9C00FA4FEA /* HomeController.swift */,
-				F0C6BAFD22B2700F00C27641 /* HomeController++.swift */,
+				F0C6BAFD22B2700F00C27641 /* HomeController+.swift */,
+				F005302622ECC4050097C9A9 /* HomeController++.swift */,
 				F008E37B22CCCEA80067BABE /* HomeController+++.swift */,
 				F0C6BAFF22B29EFA00C27641 /* HallCell.swift */,
 				F0C6BB0022B29EFA00C27641 /* HallCell.xib */,
@@ -563,14 +575,18 @@
 				F01261E722CA1A5E00F5667D /* DetailedHallController++.swift in Sources */,
 				F0966FB3222D82FF00FA4FEA /* DetailedHallController.swift in Sources */,
 				F06601CD2279D024006E67D9 /* LeftMenuController2.swift in Sources */,
-				F0C6BAFE22B2700F00C27641 /* HomeController++.swift in Sources */,
+				F0C6BAFE22B2700F00C27641 /* HomeController+.swift in Sources */,
+				F005302522ECC2B70097C9A9 /* FavoritesController+.swift in Sources */,
 				F00C6C0A22B1564A0063A146 /* MyProfileController.swift in Sources */,
 				F0558D072277805D0034B11A /* Hall.swift in Sources */,
 				F008E37C22CCCEA80067BABE /* HomeController+++.swift in Sources */,
 				F0282CF22277211A005CAA4A /* Client.swift in Sources */,
 				F06601C72279ADC1006E67D9 /* LeftMenuHeader.swift in Sources */,
+				F005301F22ECC1810097C9A9 /* DetailedHallController+.swift in Sources */,
+				F005302722ECC4050097C9A9 /* HomeController++.swift in Sources */,
 				F0EF7A3522BF895B00FB154A /* FavoriteHall.swift in Sources */,
 				F06601C52279AD91006E67D9 /* LeftMenuController.swift in Sources */,
+				F005302322ECC24F0097C9A9 /* SearchController+.swift in Sources */,
 				F06601C92279AE14006E67D9 /* LeftMenuCell.swift in Sources */,
 				F031C80422B395A00070CABC /* DetailedHallCustomCell.swift in Sources */,
 				F06ECC9F22C6C47500180C12 /* RateAlertController.swift in Sources */,

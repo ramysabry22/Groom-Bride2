@@ -19,6 +19,7 @@ class FavoriteHallCell: UICollectionViewCell {
             priceLabel.text = "\(Int(bassedHall.hallId.hallPrice!)) EGP"
             ratesLabel.text = "(\(Int(bassedHall.hallId.hallsRatingCounter!))) Rating"
             ratingStarsView.rating = Double(Int(bassedHall.hallId.hallsAverageRating ?? 0))
+            imageView.image = UIImage(named: "AppLogoImage")
         }
     }
     

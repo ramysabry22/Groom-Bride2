@@ -5,6 +5,9 @@ class Client: Decodable {
     var userName: String = ""
     var userEmail: String = ""
     var token: String = ""
+}
+
+extension Client {
     
     fileprivate func constructDict() -> [String:Any]{
         return ["userName": self.userName,
@@ -16,4 +19,5 @@ class Client: Decodable {
         let dict = self.constructDict()
         defaults.set(dict, forKey: "loggedInClient")
     }
+    
 }
