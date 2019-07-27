@@ -6,7 +6,6 @@ import Alamofire
 extension ApiManager {
     
     func listFavoriteHalls(limit: Int, offset: Int, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool, _ halls:[FavoriteHall])-> ()){
-        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/favorites/listFavorites"
         let parameters: Parameters = [
             "limit": limit,
@@ -16,9 +15,7 @@ extension ApiManager {
             "Accept": "application/json",
             "authorization": "Barear \(HelperData.sharedInstance.loggedInClient.token)"
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-            print("**************************************************")
-            print(response)
+        publicAlamofireManager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool
@@ -61,11 +58,9 @@ extension ApiManager {
         }
     }
     
-    
-    
+
     
     func addHallToFavorite(hallID: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
-        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/favorites/addToFavorites"
         let parameters: Parameters = [
             "hallId": hallID
@@ -74,9 +69,7 @@ extension ApiManager {
             "Accept": "application/json",
             "authorization": "Barear \(HelperData.sharedInstance.loggedInClient.token)"
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
-            print("**************************************************")
-            print(response)
+        publicAlamofireManager.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool
@@ -111,7 +104,6 @@ extension ApiManager {
     
     
     func deleteHallFromFavorite(hallID: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
-        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/favorites/deleteFromFavorites"
         let parameters: Parameters = [
             "hallId": hallID
@@ -120,9 +112,7 @@ extension ApiManager {
             "Accept": "application/json",
             "authorization": "Barear \(HelperData.sharedInstance.loggedInClient.token)"
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
-            print("**************************************************")
-            print(response)
+        publicAlamofireManager.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool
@@ -158,7 +148,6 @@ extension ApiManager {
     
     
     func rateHall(hallID: String, rating: Int, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
-        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/rating/rateHalls"
         let parameters: Parameters = [
             "hallId": hallID,
@@ -168,9 +157,7 @@ extension ApiManager {
             "Accept": "application/json",
             "authorization": "Barear \(HelperData.sharedInstance.loggedInClient.token)"
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
-            print("**************************************************")
-            print(response)
+        publicAlamofireManager.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool

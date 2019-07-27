@@ -5,7 +5,6 @@ import Alamofire
 extension ApiManager{
     
     func listHalls(limit: Int, offset: Int,completed: @escaping (_ valid: Bool, _ msg: String, _ halls:[Hall])->())  {
-        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/halls/listHalls"
         let headers: HTTPHeaders = [
             "Accept": "application/json"
@@ -14,9 +13,8 @@ extension ApiManager{
             "limit": limit,
             "offset": offset
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-            print("****************************************")
-            print(response)
+        publicAlamofireManager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
+            
             if let jsonResponse = response.result.value{
             let data = jsonResponse as! [String : Any]
             let result = data["result"] as! Bool
@@ -52,7 +50,6 @@ extension ApiManager{
     
     
     func searchHallByName(limit: Int, offset: Int, hallName: String ,completed: @escaping (_ valid: Bool, _ msg: String, _ halls:[Hall])->())  {
-        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/halls/searchByName"
         let headers: HTTPHeaders = [
             "Accept": "application/json"
@@ -62,9 +59,7 @@ extension ApiManager{
             "limit": limit,
             "offset": offset
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-//            print("****************************************")
-//            print(response)
+        publicAlamofireManager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool
@@ -102,7 +97,6 @@ extension ApiManager{
     
     func listhallsCategories(limit: Int, offset: Int,completed: @escaping (_ valid: Bool, _ msg: String,
         _ halls:[HallCategory])->())  {
-        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/category/listCategories"
         let headers: HTTPHeaders = [
             "Accept": "application/json"
@@ -111,9 +105,7 @@ extension ApiManager{
             "limit": limit,
             "offset": offset
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-            print("****************************************")
-            print(response)
+        publicAlamofireManager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool
@@ -150,7 +142,6 @@ extension ApiManager{
     
     
     func listHallsByCategory(limit: Int, offset: Int, categoryID: String ,completed: @escaping (_ valid: Bool, _ msg: String, _ halls:[Hall])->())  {
-        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/halls/searchByCategory"
         let headers: HTTPHeaders = [
             "Accept": "application/json"
@@ -160,9 +151,7 @@ extension ApiManager{
             "limit": limit,
             "offset": offset
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
-            print("****************************************")
-            print(response)
+        publicAlamofireManager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { (response) in
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool

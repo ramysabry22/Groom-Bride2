@@ -122,19 +122,19 @@
                                     <constraint firstAttribute="height" constant="45" id="4dr-3H-Wtx"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
+                                        <integer key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SearchICON777" translatesAutoresizingMaskIntoConstraints="NO" id="gFI-pw-0eU">
-                                <rect key="frame" x="24" y="23.5" width="20" height="18"/>
+                                <rect key="frame" x="35" y="23.5" width="18" height="18"/>
                                 <color key="tintColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="HPm-tk-291"/>
+                                    <constraint firstAttribute="width" constant="18" id="HPm-tk-291"/>
                                     <constraint firstAttribute="height" constant="18" id="NoQ-Zi-aW2"/>
                                 </constraints>
                             </imageView>
@@ -177,8 +177,8 @@ Looking for</string>
                             <constraint firstItem="gFI-pw-0eU" firstAttribute="centerY" secondItem="ec1-tU-pLa" secondAttribute="centerY" id="2d6-sL-AbR"/>
                             <constraint firstItem="yUk-YA-sEq" firstAttribute="top" secondItem="yN9-nA-TT6" secondAttribute="top" id="5Yx-jW-VEh"/>
                             <constraint firstItem="yUk-YA-sEq" firstAttribute="leading" secondItem="yN9-nA-TT6" secondAttribute="leading" id="6vm-AA-TnW"/>
+                            <constraint firstItem="gFI-pw-0eU" firstAttribute="leading" secondItem="ec1-tU-pLa" secondAttribute="leading" constant="25" id="7Lf-wr-mR0"/>
                             <constraint firstItem="B32-5M-Gci" firstAttribute="leading" secondItem="yN9-nA-TT6" secondAttribute="leading" id="A2h-T0-dTf"/>
-                            <constraint firstItem="gFI-pw-0eU" firstAttribute="leading" secondItem="v0C-tj-23W" secondAttribute="leading" constant="24" id="I4R-Wc-xiq"/>
                             <constraint firstItem="ec1-tU-pLa" firstAttribute="bottom" secondItem="yUk-YA-sEq" secondAttribute="bottom" constant="-10" id="Iqq-Vx-t9Q"/>
                             <constraint firstAttribute="trailing" secondItem="yUk-YA-sEq" secondAttribute="trailing" id="Jbj-iT-LLM"/>
                             <constraint firstItem="wCq-W3-9On" firstAttribute="centerY" secondItem="ec1-tU-pLa" secondAttribute="centerY" id="JcN-SE-yzM"/>

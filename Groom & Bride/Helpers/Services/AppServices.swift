@@ -4,7 +4,6 @@ import Alamofire
 extension ApiManager {
     
     func sendFeedBack(email: String, feedback: String,completed: @escaping(_ valid: Bool,_ msg: String)->()){
-        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/feedback/addFeedback"
         let parameters: Parameters = [
             "email" : email,
@@ -13,9 +12,7 @@ extension ApiManager {
         let headers: HTTPHeaders = [
             "Accept": "application/json"
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
-            print("**************************************************")
-            print(response)
+        publicAlamofireManager.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool
@@ -39,10 +36,7 @@ extension ApiManager {
     
     
     
-    
-    
     func showPrivacy(completed: @escaping(_ valid: Bool,_ msg: String) -> ()){
-        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/policyAndPrivacy/getPolicyAndPrivacy"
         let parameters: Parameters = [
             "type" : "privacy"
@@ -50,9 +44,7 @@ extension ApiManager {
         let headers: HTTPHeaders = [
             "Accept": "application/json"
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
-            print("**************************************************")
-            print(response)
+        publicAlamofireManager.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool
@@ -72,11 +64,9 @@ extension ApiManager {
         }
     }
     
-    
-    
+
     
     func showTerms(completed: @escaping(_ valid: Bool,_ msg: String) -> ()){
-        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/policyAndPrivacy/getPolicyAndPrivacy"
         let parameters: Parameters = [
             "type" : "service"
@@ -84,9 +74,7 @@ extension ApiManager {
         let headers: HTTPHeaders = [
             "Accept": "application/json"
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
-            print("**************************************************")
-            print(response)
+        publicAlamofireManager.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool
@@ -105,7 +93,6 @@ extension ApiManager {
             }
         }
     }
-    
     
     
     

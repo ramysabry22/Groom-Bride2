@@ -4,7 +4,6 @@ import Alamofire
 extension ApiManager {
     
     func signUp(email: String, name: String, password: String, completed: @escaping (_ valid:Bool, _ msg:String)->()){
-        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/users/signup"
         let parameters: Parameters = [
             "userEmail" : email,
@@ -14,9 +13,7 @@ extension ApiManager {
         let headers: HTTPHeaders = [
             "Accept": "application/json"
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
-            print(response)
-            print("**************************************************")
+        publicAlamofireManager.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool
@@ -55,7 +52,6 @@ extension ApiManager {
     
     
     func signIn(email: String, password: String, completed: @escaping (_ valid:Bool, _ msg:String)->()){
-        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/users/signin"
         let parameters: Parameters = [
             "userEmail" : email,
@@ -64,7 +60,7 @@ extension ApiManager {
         let headers: HTTPHeaders = [
             "Accept": "application/json"
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
+        publicAlamofireManager.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
             if let jsonResponse = response.result.value{
               let data = jsonResponse as! [String : Any]
               let result = data["result"] as! Bool
@@ -108,7 +104,6 @@ extension ApiManager {
     
     
     func forgotPassword(email: String, completed: @escaping(_ valid: Bool,_ msg: String)->()){
-        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/users/forgetPassword"
         let parameters: Parameters = [
             "email" : email,
@@ -116,10 +111,7 @@ extension ApiManager {
         let headers: HTTPHeaders = [
             "Accept": "application/json"
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
-            print("**************************************************")
-            print(response)
-        
+        publicAlamofireManager.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool
@@ -146,7 +138,6 @@ extension ApiManager {
     
     
     func updateName(name: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
-        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/users/updateBasicInfo"
         let parameters: Parameters = [
             "userName" : name
@@ -155,9 +146,7 @@ extension ApiManager {
             "Accept": "application/json",
             "authorization": "Barear \(HelperData.sharedInstance.loggedInClient.token)"
         ]
-         Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
-             print("**************************************************")
-             print(response)
+         publicAlamofireManager.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
             if let jsonResponse = response.result.value{
               let data = jsonResponse as! [String : Any]
               let result = data["result"] as! Bool
@@ -193,7 +182,6 @@ extension ApiManager {
     
     
     func changePassword(oldPassword: String, newPassword: String, reNewPassword: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
-        self.stopAllRequests()
         let url = "\(HelperData.sharedInstance.serverBasePath)/users/updatePassword"
         let parameters: Parameters = [
             "userPassword" : oldPassword,
@@ -204,9 +192,7 @@ extension ApiManager {
             "Accept": "application/json",
             "Authorization": "Barear \(HelperData.sharedInstance.loggedInClient.token)"
         ]
-        Alamofire.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
-            print("**************************************************")
-            print(response)
+        publicAlamofireManager.request(url, method: .post, parameters: parameters, headers: headers).responseJSON { (response) in
             if let jsonResponse = response.result.value{
                 let data = jsonResponse as! [String : Any]
                 let result = data["result"] as! Bool
