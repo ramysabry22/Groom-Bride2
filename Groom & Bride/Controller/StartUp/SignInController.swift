@@ -33,7 +33,7 @@ class SignInController: UIViewController,UITextFieldDelegate {
             return
         }
         SVProgressHUD.show()
-        ApiManager.sharedInstance.signIn(email: email, password: password) { (valid, msg) in
+        ApiManager.signIn(email: email, password: password) { (valid, msg) in
             self.dismissRingIndecator()
             if valid {
                 self.dismiss(animated: true, completion: nil)

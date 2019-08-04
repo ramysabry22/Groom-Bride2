@@ -22,7 +22,7 @@ class FeedbackController2: UIViewController, UITextViewDelegate, UITextFieldDele
     
     func sendFeedback(email: String, feedbackString: String){
         SVProgressHUD.show()
-        ApiManager.sharedInstance.sendFeedBack(email: email, feedback: feedbackString) { (valid, msg) in
+        ApiManager.sendFeedBack(email: email, feedback: feedbackString) { (valid, msg) in
             self.dismissRingIndecator()
             if valid {
                 self.show1buttonAlert(title: "Done", message: "Feedback sent successfully", buttonTitle: "OK", callback: {

@@ -4,7 +4,7 @@ import Alamofire
 
 extension ApiManager{
     
-    func listHalls(limit: Int, offset: Int,completed: @escaping (_ valid: Bool, _ msg: String, _ halls:[Hall])->())  {
+   class func listHalls(limit: Int, offset: Int,completed: @escaping (_ valid: Bool, _ msg: String, _ halls:[Hall])->())  {
         let url = "\(HelperData.sharedInstance.serverBasePath)/halls/listHalls"
         let headers: HTTPHeaders = [
             "Accept": "application/json"
@@ -49,7 +49,7 @@ extension ApiManager{
     
     
     
-    func searchHallByName(limit: Int, offset: Int, hallName: String ,completed: @escaping (_ valid: Bool, _ msg: String, _ halls:[Hall])->())  {
+  class func searchHallByName(limit: Int, offset: Int, hallName: String ,completed: @escaping (_ valid: Bool, _ msg: String, _ halls:[Hall])->())  {
         let url = "\(HelperData.sharedInstance.serverBasePath)/halls/searchByName"
         let headers: HTTPHeaders = [
             "Accept": "application/json"
@@ -95,7 +95,7 @@ extension ApiManager{
     
     
     
-    func listhallsCategories(limit: Int, offset: Int,completed: @escaping (_ valid: Bool, _ msg: String,
+   class func listhallsCategories(limit: Int, offset: Int,completed: @escaping (_ valid: Bool, _ msg: String,
         _ halls:[HallCategory])->())  {
         let url = "\(HelperData.sharedInstance.serverBasePath)/category/listCategories"
         let headers: HTTPHeaders = [
@@ -141,7 +141,7 @@ extension ApiManager{
     
     
     
-    func listHallsByCategory(limit: Int, offset: Int, categoryID: String ,completed: @escaping (_ valid: Bool, _ msg: String, _ halls:[Hall])->())  {
+  class func listHallsByCategory(limit: Int, offset: Int, categoryID: String ,completed: @escaping (_ valid: Bool, _ msg: String, _ halls:[Hall])->())  {
         let url = "\(HelperData.sharedInstance.serverBasePath)/halls/searchByCategory"
         let headers: HTTPHeaders = [
             "Accept": "application/json"

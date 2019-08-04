@@ -29,7 +29,7 @@ class SearchController: UIViewController, UITextFieldDelegate{
     
     
     func searchHalls(limit: Int, offset: Int){
-        ApiManager.sharedInstance.searchHallByName(limit: limit, offset: offset, hallName: SearchText) { (valid, msg, halls) in
+        ApiManager.searchHallByName(limit: limit, offset: offset, hallName: SearchText) { (valid, msg, halls) in
           self.dismissRingIndecator()
             if valid {
                 if halls.count > 0 {
@@ -47,7 +47,7 @@ class SearchController: UIViewController, UITextFieldDelegate{
     
     func paginateSearchHalls(limit: Int, offset: Int){
         self.isFinishedPaging = false
-        ApiManager.sharedInstance.searchHallByName(limit: limit, offset: offset, hallName: SearchText) { (valid, msg, halls) in
+        ApiManager.searchHallByName(limit: limit, offset: offset, hallName: SearchText) { (valid, msg, halls) in
             self.dismissRingIndecator()
             self.isFinishedPaging = true
             if valid {

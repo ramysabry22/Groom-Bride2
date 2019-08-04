@@ -164,7 +164,7 @@ class DetailedHallController: UIViewController{
     func addToFavorite(){
         guard let hallID = hallId else { return }
         SVProgressHUD.show()
-        ApiManager.sharedInstance.addHallToFavorite(hallID: hallID) { (valid, msg, reRequest) in
+        ApiManager.addHallToFavorite(hallID: hallID) { (valid, msg, reRequest) in
           self.dismissRingIndecator()
             if reRequest {
                 self.addToFavorite()
@@ -213,7 +213,7 @@ class DetailedHallController: UIViewController{
             return
         }
         SVProgressHUD.show()
-        ApiManager.sharedInstance.rateHall(hallID: hallID, rating: rate) { (valid, msg, reRequest) in
+        ApiManager.rateHall(hallID: hallID, rating: rate) { (valid, msg, reRequest) in
             self.dismissRingIndecator()
             if reRequest {
                 self.rateHall(rate: rate)

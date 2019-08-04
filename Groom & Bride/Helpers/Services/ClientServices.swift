@@ -3,7 +3,7 @@ import Alamofire
 
 extension ApiManager {
     
-    func signUp(email: String, name: String, password: String, completed: @escaping (_ valid:Bool, _ msg:String)->()){
+  class func signUp(email: String, name: String, password: String, completed: @escaping (_ valid:Bool, _ msg:String)->()){
         let url = "\(HelperData.sharedInstance.serverBasePath)/users/signup"
         let parameters: Parameters = [
             "userEmail" : email,
@@ -51,7 +51,7 @@ extension ApiManager {
     
     
     
-    func signIn(email: String, password: String, completed: @escaping (_ valid:Bool, _ msg:String)->()){
+   class func signIn(email: String, password: String, completed: @escaping (_ valid:Bool, _ msg:String)->()){
         let url = "\(HelperData.sharedInstance.serverBasePath)/users/signin"
         let parameters: Parameters = [
             "userEmail" : email,
@@ -103,7 +103,7 @@ extension ApiManager {
     
     
     
-    func forgotPassword(email: String, completed: @escaping(_ valid: Bool,_ msg: String)->()){
+   class func forgotPassword(email: String, completed: @escaping(_ valid: Bool,_ msg: String)->()){
         let url = "\(HelperData.sharedInstance.serverBasePath)/users/forgetPassword"
         let parameters: Parameters = [
             "email" : email,
@@ -137,7 +137,7 @@ extension ApiManager {
     }
     
     
-    func updateName(name: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
+   class func updateName(name: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
         let url = "\(HelperData.sharedInstance.serverBasePath)/users/updateBasicInfo"
         let parameters: Parameters = [
             "userName" : name
@@ -181,7 +181,7 @@ extension ApiManager {
     
     
     
-    func changePassword(oldPassword: String, newPassword: String, reNewPassword: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
+   class func changePassword(oldPassword: String, newPassword: String, reNewPassword: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
         let url = "\(HelperData.sharedInstance.serverBasePath)/users/updatePassword"
         let parameters: Parameters = [
             "userPassword" : oldPassword,

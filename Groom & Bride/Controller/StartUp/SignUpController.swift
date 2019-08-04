@@ -30,7 +30,7 @@ class SignUpController: UIViewController,UITextFieldDelegate {
                 return
             }
         SVProgressHUD.show()
-        ApiManager.sharedInstance.signUp(email: email, name: name, password: password) { (valid, msg) in
+        ApiManager.signUp(email: email, name: name, password: password) { (valid, msg) in
             self.dismissRingIndecator()
             if valid {
                 self.dismiss(animated: true, completion: nil)

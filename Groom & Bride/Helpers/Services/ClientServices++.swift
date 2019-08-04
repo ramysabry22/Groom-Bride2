@@ -5,7 +5,7 @@ import Alamofire
 
 extension ApiManager {
     
-    func listFavoriteHalls(limit: Int, offset: Int, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool, _ halls:[FavoriteHall])-> ()){
+  class func listFavoriteHalls(limit: Int, offset: Int, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool, _ halls:[FavoriteHall])-> ()){
         let url = "\(HelperData.sharedInstance.serverBasePath)/favorites/listFavorites"
         let parameters: Parameters = [
             "limit": limit,
@@ -60,7 +60,7 @@ extension ApiManager {
     
 
     
-    func addHallToFavorite(hallID: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
+  class func addHallToFavorite(hallID: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
         let url = "\(HelperData.sharedInstance.serverBasePath)/favorites/addToFavorites"
         let parameters: Parameters = [
             "hallId": hallID
@@ -103,7 +103,7 @@ extension ApiManager {
     
     
     
-    func deleteHallFromFavorite(hallID: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
+   class func deleteHallFromFavorite(hallID: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
         let url = "\(HelperData.sharedInstance.serverBasePath)/favorites/deleteFromFavorites"
         let parameters: Parameters = [
             "hallId": hallID
@@ -147,7 +147,7 @@ extension ApiManager {
     
     
     
-    func rateHall(hallID: String, rating: Int, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
+    class func rateHall(hallID: String, rating: Int, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
         let url = "\(HelperData.sharedInstance.serverBasePath)/rating/rateHalls"
         let parameters: Parameters = [
             "hallId": hallID,

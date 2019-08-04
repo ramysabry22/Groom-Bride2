@@ -89,7 +89,7 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate, UICollectio
 /********************************************************************************************/
     func fetchNewHalls(limit: Int, offset: Int){
         self.isFinishedPaging = false
-        ApiManager.sharedInstance.listHalls(limit: limit, offset: offset) { (valid, msg, halls) in
+        ApiManager.listHalls(limit: limit, offset: offset) { (valid, msg, halls) in
             self.dismissRingIndecator()
             if valid{
                if halls.count > 0 {
@@ -128,7 +128,7 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate, UICollectio
             print("Hall id not found")
             return
         }
-        ApiManager.sharedInstance.listHallsByCategory(limit: limit, offset: offset, categoryID: hallID) { (valid, msg, halls) in
+        ApiManager.listHallsByCategory(limit: limit, offset: offset, categoryID: hallID) { (valid, msg, halls) in
             self.dismissRingIndecator()
             if valid{
                 if halls.count > 0 {

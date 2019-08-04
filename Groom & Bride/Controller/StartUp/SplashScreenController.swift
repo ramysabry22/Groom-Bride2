@@ -12,7 +12,7 @@ class SplashScreenController: UIViewController {
     
      func fetchHalls(){
         LoadingActivityIndicator.startAnimating()
-        ApiManager.sharedInstance.listHalls(limit: 10, offset: 0) { (valid, msg, halls) in
+        ApiManager.listHalls(limit: 10, offset: 0) { (valid, msg, halls) in
             self.LoadingActivityIndicator.stopAnimating()
             if valid{
                 self.ShowViewController(halls: halls)

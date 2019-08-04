@@ -3,7 +3,7 @@ import Alamofire
 
 extension ApiManager {
     
-    func sendFeedBack(email: String, feedback: String,completed: @escaping(_ valid: Bool,_ msg: String)->()){
+   class func sendFeedBack(email: String, feedback: String,completed: @escaping(_ valid: Bool,_ msg: String)->()){
         let url = "\(HelperData.sharedInstance.serverBasePath)/feedback/addFeedback"
         let parameters: Parameters = [
             "email" : email,
@@ -36,7 +36,7 @@ extension ApiManager {
     
     
     
-    func showPrivacy(completed: @escaping(_ valid: Bool,_ msg: String) -> ()){
+   class func showPrivacy(completed: @escaping(_ valid: Bool,_ msg: String) -> ()){
         let url = "\(HelperData.sharedInstance.serverBasePath)/policyAndPrivacy/getPolicyAndPrivacy"
         let parameters: Parameters = [
             "type" : "privacy"
@@ -66,7 +66,7 @@ extension ApiManager {
     
 
     
-    func showTerms(completed: @escaping(_ valid: Bool,_ msg: String) -> ()){
+   class func showTerms(completed: @escaping(_ valid: Bool,_ msg: String) -> ()){
         let url = "\(HelperData.sharedInstance.serverBasePath)/policyAndPrivacy/getPolicyAndPrivacy"
         let parameters: Parameters = [
             "type" : "service"

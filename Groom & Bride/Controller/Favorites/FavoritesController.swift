@@ -34,7 +34,7 @@ class FavoritesController: UIViewController, removeFromFavoriteProtocol{
 /*****************************************************************************************/
     func fetchFavoriteHalls(limit: Int, offset: Int){
         isFinishedPaging = false
-        ApiManager.sharedInstance.listFavoriteHalls(limit: limit, offset: offset) { (valid, msg, reRequest, halls) in
+        ApiManager.listFavoriteHalls(limit: limit, offset: offset) { (valid, msg, reRequest, halls) in
             self.dismissRingIndecator()
             self.isFinishedPaging = true
             if reRequest {
@@ -69,7 +69,7 @@ class FavoritesController: UIViewController, removeFromFavoriteProtocol{
     func removeFromFavoriteButton(_ sender: FavoriteHallCell) {
         guard let indexPath = collectionView1.indexPath(for: sender) else { return }
         SVProgressHUD.show()
-        ApiManager.sharedInstance.deleteHallFromFavorite(hallID: (sender.favoriteHall?.hallId._id)!) { (valid, msg, reRequest) in
+        ApiManager.deleteHallFromFavorite(hallID: (sender.favoriteHall?.hallId._id)!) { (valid, msg, reRequest) in
             self.dismissRingIndecator()
             if reRequest {
                 self.removeFromFavoriteButton(sender)

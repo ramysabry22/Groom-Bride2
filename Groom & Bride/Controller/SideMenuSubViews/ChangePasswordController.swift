@@ -19,7 +19,7 @@ class ChangePasswordController: UIViewController, UITextFieldDelegate {
     
     func resetPassword(oldPassword: String, newPassword: String, rePassword: String){
         SVProgressHUD.show()
-        ApiManager.sharedInstance.changePassword(oldPassword: oldPassword, newPassword: newPassword, reNewPassword: rePassword) { (valid, msg, reRequest) in
+        ApiManager.changePassword(oldPassword: oldPassword, newPassword: newPassword, reNewPassword: rePassword) { (valid, msg, reRequest) in
             self.dismissRingIndecator()
             if reRequest {
                 self.resetPassword(oldPassword: oldPassword, newPassword: newPassword, rePassword: rePassword)

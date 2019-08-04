@@ -15,7 +15,7 @@ class TermsOfServiceController: UIViewController {
     
     func fetchPTerms(){
         SVProgressHUD.show()
-        ApiManager.sharedInstance.showTerms { (valid, data) in
+        ApiManager.showTerms { (valid, data) in
             self.dismissRingIndecator()
             if valid {
                 self.textView1.attributedText = data.htmlToAttributedString

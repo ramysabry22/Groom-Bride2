@@ -15,7 +15,7 @@ class PrivacyPolicyController: UIViewController {
     
     func fetchPrivacy(){
         SVProgressHUD.show()
-        ApiManager.sharedInstance.showPrivacy { (valid, data) in
+        ApiManager.showPrivacy { (valid, data) in
             self.dismissRingIndecator()
             if valid {
                 self.textView1.attributedText = data.htmlToAttributedString

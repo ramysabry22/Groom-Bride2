@@ -27,7 +27,7 @@ class MyProfileController: UIViewController, UITextFieldDelegate {
         }
         SVProgressHUD.show()
         let name = NameTextField.text
-        ApiManager.sharedInstance.updateName(name: name!) { (valid, msg, reRequest) in
+        ApiManager.updateName(name: name!) { (valid, msg, reRequest) in
             self.dismissRingIndecator()
             if reRequest {
                 self.saveNewInfo()

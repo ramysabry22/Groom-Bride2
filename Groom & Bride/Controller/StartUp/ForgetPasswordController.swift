@@ -25,7 +25,7 @@ class ForgetPasswordController: UIViewController,UITextFieldDelegate {
             return
         }
         SVProgressHUD.show()
-        ApiManager.sharedInstance.forgotPassword(email: email) { (valid, msg) in
+        ApiManager.forgotPassword(email: email) { (valid, msg) in
             self.dismissRingIndecator()
             if valid {
                 self.show1buttonAlert(title: "Email sent successfully", message: msg, buttonTitle: "OK") {
