@@ -39,23 +39,15 @@ extension SearchController: UICollectionViewDelegate, UICollectionViewDataSource
         
         return 20
     }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //        let offsetY = scrollView.contentOffset.y + 700
-        //        let contentHeight = scrollView.contentSize.height
-        //
-        //        if offsetY > contentHeight - scrollView.frame.size.height{
-        //            if isFinishedPaging == true {
-        //                pagesNumber += 1
-        //                self.paginateSearchHalls(limit: 5, offset: pagesNumber)
-        //            }
-        //        }
-    }
+    
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         if ((indexPaths.last?.row)! + 4) > self.searchHallResult.count && isFinishedPaging == true {
-            pagesNumber += 1
-            self.paginateSearchHalls(limit: 7, offset: pagesNumber)
+            self.presenter.pagesNumber += 1
+            self.isFinishedPaging = false
+            self.presenter.paginate(searchText: SearchText)
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         searchTextField.endEditing(true)
         let selectedHall = searchHallResult[indexPath.row]

@@ -27,6 +27,7 @@
 		F031C80622B3BC0A0070CABC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F031C80522B3BC0A0070CABC /* MapViewController.swift */; };
 		F0558D072277805D0034B11A /* Hall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0558D062277805D0034B11A /* Hall.swift */; };
 		F0649EA322F6E5DD002569CE /* ServiceEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0649EA222F6E5DD002569CE /* ServiceEndPoints.swift */; };
+		F0649EA522F6FF9E002569CE /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0649EA422F6FF9E002569CE /* SearchPresenter.swift */; };
 		F06601C52279AD91006E67D9 /* LeftMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06601C42279AD91006E67D9 /* LeftMenuController.swift */; };
 		F06601C72279ADC1006E67D9 /* LeftMenuHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06601C62279ADC1006E67D9 /* LeftMenuHeader.swift */; };
 		F06601C92279AE14006E67D9 /* LeftMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06601C82279AE14006E67D9 /* LeftMenuCell.swift */; };
@@ -98,6 +99,7 @@
 		F031C80522B3BC0A0070CABC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F0558D062277805D0034B11A /* Hall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hall.swift; sourceTree = "<group>"; };
 		F0649EA222F6E5DD002569CE /* ServiceEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEndPoints.swift; sourceTree = "<group>"; };
+		F0649EA422F6FF9E002569CE /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		F06601C42279AD91006E67D9 /* LeftMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuController.swift; sourceTree = "<group>"; };
 		F06601C62279ADC1006E67D9 /* LeftMenuHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuHeader.swift; sourceTree = "<group>"; };
 		F06601C82279AE14006E67D9 /* LeftMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuCell.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 		F031C80222B376310070CABC /* SearchHalls */ = {
 			isa = PBXGroup;
 			children = (
+				F0649EA422F6FF9E002569CE /* SearchPresenter.swift */,
 				F0C6BB0722B2BCBE00C27641 /* SearchController.swift */,
 				F005302222ECC24F0097C9A9 /* SearchController+.swift */,
 			);
@@ -615,6 +618,7 @@
 				F0FB9DCE22344E4C006FE1E0 /* ForgetPasswordController.swift in Sources */,
 				F00C6C0C22B1565C0063A146 /* ChangePasswordController.swift in Sources */,
 				F0C6BB0822B2BCBE00C27641 /* SearchController.swift in Sources */,
+				F0649EA522F6FF9E002569CE /* SearchPresenter.swift in Sources */,
 				F0282CF52277222C005CAA4A /* HallsServices.swift in Sources */,
 				F0282CF722772239005CAA4A /* ClientServices.swift in Sources */,
 				F031C80622B3BC0A0070CABC /* MapViewController.swift in Sources */,

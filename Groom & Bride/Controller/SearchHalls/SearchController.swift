@@ -2,15 +2,47 @@
 import UIKit
 import SVProgressHUD
 
-class SearchController: UIViewController, UITextFieldDelegate{
+class SearchController: UIViewController, UITextFieldDelegate, SearchDelegetes{
+    func paginateResult(halls: [Hall], valid: Bool) {
+        self.dismissRingIndecator()
+        self.isFinishedPaging = true
+        if valid {
+            if halls.count > 0 {
+                for record in halls {
+                    self.searchHallResult.append(record)
+                }
+                self.collectionView1.reloadData()
+                self.emptyLabel.isHidden = true
+            }
+        }else {
+            
+        }
+    }
+    
+    func searchResult(halls: [Hall], valid: Bool) {
+        self.dismissRingIndecator()
+        self.isFinishedPaging = true
+        if valid {
+            if halls.count > 0 {
+                self.searchHallResult = halls
+                self.collectionView1.reloadData()
+                self.emptyLabel.isHidden = true
+            }
+        }else {
+            self.searchHallResult.removeAll()
+            self.collectionView1.reloadData()
+            self.emptyLabel.isHidden = false
+        }
+    }
+    
 
     @IBOutlet weak var collectionView1: UICollectionView!
     @IBOutlet weak var searchTextField: CustomTextField!
     @IBOutlet weak var emptyLabel: UILabel!
     var searchHallResult: [Hall] = []
     var isFinishedPaging = true
-    var pagesNumber: Int = 0
     var SearchText: String = ""
+    var presenter = SearchPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,44 +57,9 @@ class SearchController: UIViewController, UITextFieldDelegate{
         collectionView1.prefetchDataSource = self
         searchTextField.layer.borderWidth = 1
         searchTextField.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.4).cgColor
+        presenter.delegete = self
     }
     
-    
-    func searchHalls(limit: Int, offset: Int){
-        ApiManager.searchHallByName(limit: limit, offset: offset, hallName: SearchText) { (valid, msg, halls) in
-          self.dismissRingIndecator()
-            if valid {
-                if halls.count > 0 {
-                    self.searchHallResult = halls
-                    self.collectionView1.reloadData()
-                    self.emptyLabel.isHidden = true
-                }
-            }else {
-                self.searchHallResult.removeAll()
-                self.collectionView1.reloadData()
-                self.emptyLabel.isHidden = false
-            }
-        }
-    }
-    
-    func paginateSearchHalls(limit: Int, offset: Int){
-        self.isFinishedPaging = false
-        ApiManager.searchHallByName(limit: limit, offset: offset, hallName: SearchText) { (valid, msg, halls) in
-            self.dismissRingIndecator()
-            self.isFinishedPaging = true
-            if valid {
-                if halls.count > 0 {
-                    for record in halls {
-                        self.searchHallResult.append(record)
-                    }
-                    self.collectionView1.reloadData()
-                    self.emptyLabel.isHidden = true
-                }
-            }else {
-                
-            }
-        }
-    }
     func searchTapped(){
         guard let searchText = searchTextField.text,  searchTextField.text?.isEmpty == false, searchTextField.text?.IsValidString() ?? false else {
             self.searchHallResult.removeAll()
@@ -71,10 +68,11 @@ class SearchController: UIViewController, UITextFieldDelegate{
             return
         }
         searchTextField.endEditing(true)
-        self.pagesNumber = 0
+        self.presenter.pagesNumber = 0
         self.SearchText = searchText
         SVProgressHUD.show()
-        searchHalls(limit: 7, offset: 0)
+        self.isFinishedPaging = false
+        presenter.search(searchText: SearchText)
     }
     @IBAction func SearchButtonTapped(_ sender: UIButton) {
        searchTapped()
