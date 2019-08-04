@@ -4,7 +4,7 @@ import Alamofire
 extension ApiManager {
     
   class func signUp(email: String, name: String, password: String, completed: @escaping (_ valid:Bool, _ msg:String)->()){
-        let url = "\(HelperData.sharedInstance.serverBasePath)/users/signup"
+      let url = HelperData.sharedInstance.serverBasePath + EndPoints.signUp.rawValue
         let parameters: Parameters = [
             "userEmail" : email,
             "userName" : name,
@@ -52,7 +52,7 @@ extension ApiManager {
     
     
    class func signIn(email: String, password: String, completed: @escaping (_ valid:Bool, _ msg:String)->()){
-        let url = "\(HelperData.sharedInstance.serverBasePath)/users/signin"
+        let url = HelperData.sharedInstance.serverBasePath + EndPoints.signIn.rawValue
         let parameters: Parameters = [
             "userEmail" : email,
             "userPassword" : password,
@@ -104,7 +104,7 @@ extension ApiManager {
     
     
    class func forgotPassword(email: String, completed: @escaping(_ valid: Bool,_ msg: String)->()){
-        let url = "\(HelperData.sharedInstance.serverBasePath)/users/forgetPassword"
+        let url = HelperData.sharedInstance.serverBasePath + EndPoints.forgotPassword.rawValue
         let parameters: Parameters = [
             "email" : email,
             ]
@@ -138,7 +138,7 @@ extension ApiManager {
     
     
    class func updateName(name: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
-        let url = "\(HelperData.sharedInstance.serverBasePath)/users/updateBasicInfo"
+        let url = HelperData.sharedInstance.serverBasePath + EndPoints.updateName.rawValue
         let parameters: Parameters = [
             "userName" : name
             ]
@@ -182,7 +182,7 @@ extension ApiManager {
     
     
    class func changePassword(oldPassword: String, newPassword: String, reNewPassword: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
-        let url = "\(HelperData.sharedInstance.serverBasePath)/users/updatePassword"
+        let url = HelperData.sharedInstance.serverBasePath + EndPoints.changePassword.rawValue
         let parameters: Parameters = [
             "userPassword" : oldPassword,
             "newPassword": newPassword,

@@ -26,6 +26,7 @@
 		F031C80422B395A00070CABC /* DetailedHallCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F031C80322B395A00070CABC /* DetailedHallCustomCell.swift */; };
 		F031C80622B3BC0A0070CABC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F031C80522B3BC0A0070CABC /* MapViewController.swift */; };
 		F0558D072277805D0034B11A /* Hall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0558D062277805D0034B11A /* Hall.swift */; };
+		F0649EA322F6E5DD002569CE /* ServiceEndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0649EA222F6E5DD002569CE /* ServiceEndPoints.swift */; };
 		F06601C52279AD91006E67D9 /* LeftMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06601C42279AD91006E67D9 /* LeftMenuController.swift */; };
 		F06601C72279ADC1006E67D9 /* LeftMenuHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06601C62279ADC1006E67D9 /* LeftMenuHeader.swift */; };
 		F06601C92279AE14006E67D9 /* LeftMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06601C82279AE14006E67D9 /* LeftMenuCell.swift */; };
@@ -96,6 +97,7 @@
 		F031C80322B395A00070CABC /* DetailedHallCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedHallCustomCell.swift; sourceTree = "<group>"; };
 		F031C80522B3BC0A0070CABC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F0558D062277805D0034B11A /* Hall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hall.swift; sourceTree = "<group>"; };
+		F0649EA222F6E5DD002569CE /* ServiceEndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceEndPoints.swift; sourceTree = "<group>"; };
 		F06601C42279AD91006E67D9 /* LeftMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuController.swift; sourceTree = "<group>"; };
 		F06601C62279ADC1006E67D9 /* LeftMenuHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuHeader.swift; sourceTree = "<group>"; };
 		F06601C82279AE14006E67D9 /* LeftMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuCell.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				F0282CF822772247005CAA4A /* ApiManager.swift */,
+				F0649EA222F6E5DD002569CE /* ServiceEndPoints.swift */,
 				F0282CF42277222C005CAA4A /* HallsServices.swift */,
 				F0282CF622772239005CAA4A /* ClientServices.swift */,
 				F0EE3A6C22BBDD7500A9D1A9 /* ClientServices++.swift */,
@@ -569,6 +572,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0649EA322F6E5DD002569CE /* ServiceEndPoints.swift in Sources */,
 				F0966F94222C0E9C00FA4FEA /* Extentios.swift in Sources */,
 				F0C6BB0D22B36ED900C27641 /* FavoriteHallCell.swift in Sources */,
 				F0C6BB0122B29EFA00C27641 /* HallCell.swift in Sources */,

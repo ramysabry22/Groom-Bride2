@@ -18,3 +18,4 @@ class ApiManager: NSObject {
         }
     }
 }
+

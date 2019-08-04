@@ -6,7 +6,7 @@ import Alamofire
 extension ApiManager {
     
   class func listFavoriteHalls(limit: Int, offset: Int, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool, _ halls:[FavoriteHall])-> ()){
-        let url = "\(HelperData.sharedInstance.serverBasePath)/favorites/listFavorites"
+        let url = HelperData.sharedInstance.serverBasePath + EndPoints.listFavoriteHalls.rawValue
         let parameters: Parameters = [
             "limit": limit,
             "offset": offset
@@ -61,7 +61,7 @@ extension ApiManager {
 
     
   class func addHallToFavorite(hallID: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
-        let url = "\(HelperData.sharedInstance.serverBasePath)/favorites/addToFavorites"
+        let url = HelperData.sharedInstance.serverBasePath + EndPoints.addHallToFavorite.rawValue
         let parameters: Parameters = [
             "hallId": hallID
         ]
@@ -104,7 +104,7 @@ extension ApiManager {
     
     
    class func deleteHallFromFavorite(hallID: String, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
-        let url = "\(HelperData.sharedInstance.serverBasePath)/favorites/deleteFromFavorites"
+        let url = HelperData.sharedInstance.serverBasePath + EndPoints.deleteHallFromFavorite.rawValue
         let parameters: Parameters = [
             "hallId": hallID
         ]
@@ -148,7 +148,7 @@ extension ApiManager {
     
     
     class func rateHall(hallID: String, rating: Int, completed: @escaping(_ valid: Bool,_ msg: String,_ reRequest: Bool)-> ()){
-        let url = "\(HelperData.sharedInstance.serverBasePath)/rating/rateHalls"
+        let url = HelperData.sharedInstance.serverBasePath + EndPoints.rateHall.rawValue
         let parameters: Parameters = [
             "hallId": hallID,
             "rating": rating
