@@ -31,11 +31,12 @@ class HomeController: UIViewController, UIGestureRecognizerDelegate, UICollectio
         let cat1 = HallCategory(_id: "0", name: "All", image: "AllICON777.png")
         let cat2 = HallCategory(_id: "5d0cbfc9a758321414bf9871", name: "Hotel", image: "HotelICON777")
         let cat3 = HallCategory(_id: "5d0cbfc9a758321414bf9872", name: "Club", image: "ClubICON777")
-        let cat4 = HallCategory(_id: "5d0cbfc9a758321414bf9873", name: "Yacht", image: "YachtICON777")
-        let cat5 = HallCategory(_id: "5d0cbfc9a758321414bf9874", name: "Villa", image: "VillaICON777")
-        let cat6 = HallCategory(_id: "5d1214f4de675f000488d442", name: "Individual", image: "IndividualICON777")
+        let cat4 = HallCategory(_id: "5d0cbfc9a758321414bf9875", name: "Open Air", image: "OpenAirICON777")
+        let cat5 = HallCategory(_id: "5d0cbfc9a758321414bf9873", name: "Yacht", image: "YachtICON777")
+        let cat6 = HallCategory(_id: "5d0cbfc9a758321414bf9874", name: "Villa", image: "VillaICON777")
+        let cat7 = HallCategory(_id: "5d1214f4de675f000488d442", name: "Individual", image: "IndividualICON777")
         
-        return [cat1,cat2,cat3,cat4,cat5,cat6]
+        return [cat1,cat2,cat3,cat4,cat5,cat6,cat7]
     }()
     
     let coachMarksController = CoachMarksController()
