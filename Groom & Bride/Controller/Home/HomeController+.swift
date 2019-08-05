@@ -23,7 +23,7 @@ extension HomeController: UICollectionViewDelegate, UICollectionViewDataSource, 
             let cell: HallCell = collectionView2.dequeueReusableCell(withReuseIdentifier: "HallCell", for: indexPath) as! HallCell
             
             let rowHall = allHalls[indexPath.row]
-            cell.hall = rowHall
+         //   cell.hall = rowHall
             cell.tag = indexPath.row
             if rowHall.hallImage.count > 0 && rowHall.hallImage.isEmpty == false {
                 let tempImageView : UIImageView! = UIImageView()

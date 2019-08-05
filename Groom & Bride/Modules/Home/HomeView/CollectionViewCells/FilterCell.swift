@@ -8,10 +8,16 @@
 
 import UIKit
 
-class FilterCell: UICollectionViewCell {
-
+class FilterCell: UICollectionViewCell, CategoryCellView {
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    
+    func configure(category: HallCategory) {
+        titleLabel.text = category.name
+        imageView.image = UIImage(named: category.image!)?.withRenderingMode(.alwaysTemplate)
+        backgroundColor = UIColor.clear
+    }
     
     override var isSelected: Bool {
         didSet{

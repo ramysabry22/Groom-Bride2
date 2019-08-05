@@ -27,10 +27,7 @@ class SplashScreenController: UIViewController {
 
      func ShowViewController(halls: [Hall]){
         if firstDownloadDone() {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "HomeController") as! HomeController
-            controller.allHalls = halls
-            let homeController = UINavigationController(rootViewController: controller)
+        let homeController = UINavigationController(rootViewController: HomeRouter.createModule())
             present(homeController, animated: true, completion: nil)
         }
         else {

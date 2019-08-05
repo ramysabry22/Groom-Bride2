@@ -685,10 +685,10 @@ your favorites</string>
             </objects>
             <point key="canvasLocation" x="830" y="1632"/>
         </scene>
-        <!--Home Controller-->
+        <!--HomeV Iew ControllerX-->
         <scene sceneID="i2y-zt-3EM">
             <objects>
-                <viewController storyboardIdentifier="HomeController" id="ACw-XE-wbS" customClass="HomeController" customModule="Groom___Bride" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVIewControllerX" id="ACw-XE-wbS" customClass="HomeVIewControllerX" customModule="Groom___Bride" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y1I-ae-sHo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -800,6 +800,7 @@ your favorites</string>
                         <outlet property="searchIconImage" destination="cZ1-xK-9QS" id="HGU-6r-gzw"/>
                         <outlet property="searchLabel" destination="7xN-pg-n1O" id="CbJ-g3-aIE"/>
                         <outlet property="searchView" destination="se4-cv-flJ" id="1vG-nl-Rfn"/>
+                        <outlet property="topComponentView" destination="HBx-t2-RXa" id="QIQ-t6-WVw"/>
                         <outlet property="topView" destination="HBx-t2-RXa" id="gui-XF-rep"/>
                         <outlet property="topViewTopConstraint" destination="bHR-4o-Vtp" id="Mdp-Yx-oBE"/>
                     </connections>

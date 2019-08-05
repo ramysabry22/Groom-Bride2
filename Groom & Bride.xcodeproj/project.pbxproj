@@ -23,6 +23,11 @@
 		F0282CF52277222C005CAA4A /* HallsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0282CF42277222C005CAA4A /* HallsServices.swift */; };
 		F0282CF722772239005CAA4A /* ClientServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0282CF622772239005CAA4A /* ClientServices.swift */; };
 		F0282CF922772247005CAA4A /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0282CF822772247005CAA4A /* ApiManager.swift */; };
+		F02E319122F824AA002B4072 /* HomeViewControllerX.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E319022F824AA002B4072 /* HomeViewControllerX.swift */; };
+		F02E319422F82971002B4072 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E319322F82971002B4072 /* HomePresenter.swift */; };
+		F02E319622F82986002B4072 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E319522F82986002B4072 /* HomeInteractor.swift */; };
+		F02E319822F82999002B4072 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E319722F82999002B4072 /* HomeRouter.swift */; };
+		F02E319A22F829F4002B4072 /* HomeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02E319922F829F4002B4072 /* HomeProtocol.swift */; };
 		F031C80422B395A00070CABC /* DetailedHallCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F031C80322B395A00070CABC /* DetailedHallCustomCell.swift */; };
 		F031C80622B3BC0A0070CABC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F031C80522B3BC0A0070CABC /* MapViewController.swift */; };
 		F0558D072277805D0034B11A /* Hall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0558D062277805D0034B11A /* Hall.swift */; };
@@ -94,6 +99,11 @@
 		F0282CF42277222C005CAA4A /* HallsServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HallsServices.swift; sourceTree = "<group>"; };
 		F0282CF622772239005CAA4A /* ClientServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientServices.swift; sourceTree = "<group>"; };
 		F0282CF822772247005CAA4A /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		F02E319022F824AA002B4072 /* HomeViewControllerX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerX.swift; sourceTree = "<group>"; };
+		F02E319322F82971002B4072 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		F02E319522F82986002B4072 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		F02E319722F82999002B4072 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		F02E319922F829F4002B4072 /* HomeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProtocol.swift; sourceTree = "<group>"; };
 		F031C80322B395A00070CABC /* DetailedHallCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedHallCustomCell.swift; sourceTree = "<group>"; };
 		F031C80522B3BC0A0070CABC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F0558D062277805D0034B11A /* Hall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hall.swift; sourceTree = "<group>"; };
@@ -205,6 +215,83 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		F02E318922F82330002B4072 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F090E53E22ACB53F00FA121B /* Main.storyboard */,
+				F02E318F22F82408002B4072 /* HomeView */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F02E318A22F82360002B4072 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				F090E53C22AC71E300FA121B /* LoginBoard.storyboard */,
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
+		F02E318B22F8236E002B4072 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F0DD665422AE589F006F55A9 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		F02E318C22F82379002B4072 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				F076F1D222B14B1C00F12988 /* SideMenu.storyboard */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		F02E318D22F82383002B4072 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				F06ECC9522C63F1300180C12 /* Alerts.storyboard */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		F02E318E22F823B4002B4072 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F02E318922F82330002B4072 /* Home */,
+				F02E318C22F82379002B4072 /* SideMenu */,
+				F02E318A22F82360002B4072 /* Logging */,
+				F02E318B22F8236E002B4072 /* LaunchScreen */,
+				F02E318D22F82383002B4072 /* Alerts */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		F02E318F22F82408002B4072 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				F02E319222F82613002B4072 /* CollectionViewCells */,
+				F02E319022F824AA002B4072 /* HomeViewControllerX.swift */,
+				F02E319322F82971002B4072 /* HomePresenter.swift */,
+				F02E319522F82986002B4072 /* HomeInteractor.swift */,
+				F02E319722F82999002B4072 /* HomeRouter.swift */,
+				F02E319922F829F4002B4072 /* HomeProtocol.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		F02E319222F82613002B4072 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				F0C6BAFF22B29EFA00C27641 /* HallCell.swift */,
+				F0C6BB0022B29EFA00C27641 /* HallCell.xib */,
+				F0C6BB0322B2AE9C00C27641 /* FilterCell.swift */,
+				F0C6BB0422B2AE9C00C27641 /* FilterCell.xib */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
 		F031C80122B375D20070CABC /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,10 +344,6 @@
 				F0C6BAFD22B2700F00C27641 /* HomeController+.swift */,
 				F005302622ECC4050097C9A9 /* HomeController++.swift */,
 				F008E37B22CCCEA80067BABE /* HomeController+++.swift */,
-				F0C6BAFF22B29EFA00C27641 /* HallCell.swift */,
-				F0C6BB0022B29EFA00C27641 /* HallCell.xib */,
-				F0C6BB0322B2AE9C00C27641 /* FilterCell.swift */,
-				F0C6BB0422B2AE9C00C27641 /* FilterCell.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -287,18 +370,6 @@
 			path = Alerts;
 			sourceTree = "<group>";
 		};
-		F090E54022ACB9DC00FA121B /* StoryBoards */ = {
-			isa = PBXGroup;
-			children = (
-				F090E53E22ACB53F00FA121B /* Main.storyboard */,
-				F090E53C22AC71E300FA121B /* LoginBoard.storyboard */,
-				F0DD665422AE589F006F55A9 /* LaunchScreen.storyboard */,
-				F076F1D222B14B1C00F12988 /* SideMenu.storyboard */,
-				F06ECC9522C63F1300180C12 /* Alerts.storyboard */,
-			);
-			path = StoryBoards;
-			sourceTree = "<group>";
-		};
 		F0966F60222C0DD000FA4FEA = {
 			isa = PBXGroup;
 			children = (
@@ -321,9 +392,9 @@
 		F0966F6B222C0DD000FA4FEA /* Groom & Bride */ = {
 			isa = PBXGroup;
 			children = (
-				F0AABD6622878703007AF6C9 /* Groom & Bride.entitlements */,
-				F090E54022ACB9DC00FA121B /* StoryBoards */,
 				F0282CEE22772078005CAA4A /* Helpers */,
+				F02E318E22F823B4002B4072 /* Modules */,
+				F0AABD6622878703007AF6C9 /* Groom & Bride.entitlements */,
 				F0966F86222C0E9C00FA4FEA /* Model */,
 				F0966F88222C0E9C00FA4FEA /* View */,
 				F0966F8A222C0E9C00FA4FEA /* Controller */,
@@ -579,8 +650,10 @@
 				F01261E722CA1A5E00F5667D /* DetailedHallController++.swift in Sources */,
 				F0966FB3222D82FF00FA4FEA /* DetailedHallController.swift in Sources */,
 				F06601CD2279D024006E67D9 /* LeftMenuController2.swift in Sources */,
+				F02E319422F82971002B4072 /* HomePresenter.swift in Sources */,
 				F0C6BAFE22B2700F00C27641 /* HomeController+.swift in Sources */,
 				F005302522ECC2B70097C9A9 /* FavoritesController+.swift in Sources */,
+				F02E319122F824AA002B4072 /* HomeViewControllerX.swift in Sources */,
 				F00C6C0A22B1564A0063A146 /* MyProfileController.swift in Sources */,
 				F0558D072277805D0034B11A /* Hall.swift in Sources */,
 				F008E37C22CCCEA80067BABE /* HomeController+++.swift in Sources */,
@@ -603,13 +676,16 @@
 				F06ECC9822C6410200180C12 /* OneButtonAlertController.swift in Sources */,
 				F06601CB2279CBC9006E67D9 /* LeftMenuHeader2.swift in Sources */,
 				F06ECC9B22C6651600180C12 /* TwoButtonAlertController.swift in Sources */,
+				F02E319822F82999002B4072 /* HomeRouter.swift in Sources */,
 				F0966F9E222C0E9C00FA4FEA /* OnBoardingScreens.swift in Sources */,
 				F08CEFD622B15B3500C55571 /* TermsOfServiceController.swift in Sources */,
 				F0966F9C222C0E9C00FA4FEA /* HomeController.swift in Sources */,
 				F0F2B4FC22B6AEBF004CA7DE /* AppServices.swift in Sources */,
 				F0966F9B222C0E9C00FA4FEA /* SignInController.swift in Sources */,
 				F0EE3A6B22BBDB5B00A9D1A9 /* HallCategory.swift in Sources */,
+				F02E319622F82986002B4072 /* HomeInteractor.swift in Sources */,
 				F08CEFD422B15B2200C55571 /* PrivacyPolicyController.swift in Sources */,
+				F02E319A22F829F4002B4072 /* HomeProtocol.swift in Sources */,
 				F0966F6D222C0DD100FA4FEA /* AppDelegate.swift in Sources */,
 				F0EE3A6D22BBDD7500A9D1A9 /* ClientServices++.swift in Sources */,
 				F0FB9DCE22344E4C006FE1E0 /* ForgetPasswordController.swift in Sources */,
