@@ -392,9 +392,9 @@
 		F0966F6B222C0DD000FA4FEA /* Groom & Bride */ = {
 			isa = PBXGroup;
 			children = (
+				F0AABD6622878703007AF6C9 /* Groom & Bride.entitlements */,
 				F0282CEE22772078005CAA4A /* Helpers */,
 				F02E318E22F823B4002B4072 /* Modules */,
-				F0AABD6622878703007AF6C9 /* Groom & Bride.entitlements */,
 				F0966F86222C0E9C00FA4FEA /* Model */,
 				F0966F88222C0E9C00FA4FEA /* View */,
 				F0966F8A222C0E9C00FA4FEA /* Controller */,
